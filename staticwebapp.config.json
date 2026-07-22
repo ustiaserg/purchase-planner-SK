@@ -1,15 +1,6 @@
 {
   "navigationFallback": {
     "rewrite": "/index.html",
-    "exclude": ["/assets/*", "/*.{png,jpg,gif,svg,ico,css,js}"]
-  },
-  "mimeTypes": {
-    ".json": "application/json"
-  },
-  "responseOverrides": {
-    "404": {
-      "rewrite": "/index.html",
-      "statusCode": 200
-    }
+    "exclude": ["/assets/*", "*.{css,js,png,jpg,svg,ico,json}"]
   }
 }
