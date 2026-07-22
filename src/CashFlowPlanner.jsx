@@ -12,56 +12,56 @@ import {
 // Constants & helpers
 // ==========================================================================
 
-const STORAGE_KEY = 'fve-planner-data-v10';
+const STORAGE_KEY = 'enedom-sk-material-v1';
 
-// APP_VERSION = datum buildu, slouží k rychlé kontrole aktuálnosti aplikace
-// na různých zařízeních (mobil vs desktop) — uvidíte ho v hlavičce.
-// Aktualizujte při každém deploymentu, abyste poznal čerstvou verzi.
-const APP_VERSION = '2026-07-16-sn-warning-not-block';
+// APP_VERSION = dátum buildu, slúži k rýchle kontrole aktuálnosti aplikácia
+// na rôznych zariadeniach (mobil vs desktop) — uvidíte ho v hlavičce.
+// Aktualizujte pri každém deploymentu, abyste poznal čerstvou verzi.
+const APP_VERSION = '2026-07-22-sk-eur-pdf-backup';
 
 const LOGO_DATA_URL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAAmzUlEQVR42u29abBl13Ue9n1r7XPOvW/qCT1gHpoYiIkSQQBNDCIpUlZctlmVckmxXTYrifTDVXGiiJICjmVHiiVRoijarrgSWbAsl0WpJJUtOpFYCgdQpEiKYEiTmMduAA10Az2/8d5zzt7ry4/zGkRANESgAbBBvl23uu59/brvOefba/7W2ly49XpsrO/dso1HsAHABgAbawOADQA21gYAGwBsrA0ANgDYWBsAbACwsTYA2ABgY20AsAHAxtoAYAOAjbUBwAYAZ9ISoJNvnvfzZ//k6+h+0pn6mBUWBL3QRMHpXiJoEgCFG6BCZohBB+scQYfyCJq49VK9AcArsNsBEKKsZFplOVYTe3AyWV00ZVoHMZgyxkipSVXJ5882465MNyTgtBZhjASEGEFJJRTObHYUOnLxRaMfuvZcRGuWKQZEGz99bPKVO5+Qz+XpQlXP9hGvC1V05kqAKQEBtgGEhdH6slL70VveOvNzP/ujW3asAccc2UFEyJrl6c7PfX70L3/90U67hfGGBJy2EESCtbJcYIKJgsrcOP+D/+aqc7c/vtrej3oiEeGm3qMZY/S3fvzqz/7pia/9v500gr8+TPGZ7AUJ7IO9aEGTjJaqVM/PrCQ81lTLidmtd5baAmVt7Ks1l7ZvH7Vloso33NDTv7JC9mBAFWRkpewexW1qnBpAQEGgDlUpgewMXV8WVa/Iuw0VdNr7nwXoTZISKUAmEBBCsMFDEr0gkQERBBHwXlbAFvDXRUBwJgMAUBStJFg2K7K+WIQxo0ZUJguk8LooqBqq4HOW5630UPN6CcdeGwB08nE8+4YvFMo+95EF4IAgpxqLYt4FWjGKlYIE0FGKFbEnQwyWcISLHs6wk/8hXyhsfqEvJSCRptBrid2rCIAJFgjzYgYWKVfD7UXIOkssuREEQXJjDQjsAAEO1YCgCiDYkrH+NHUyG8FMC/JkaoKQhdCDefiZQLCAAUE0yQAYRIEKgwspmAqCym5AyMz7mHjNKLWCRKFkJEXKApQhoEE4z3gASJa8kMZLnfqUIgUxoaYe05mxrfVH+2LmF5WoSZqq0rs7xA7sIYcasYXGYI60JNUWFTSGnIKj9AgZCBrMEIICSUhBC4bBQAN7shOtsA4RhEckRBIS0AmiB5AcFidYlpsRUKaTjMTzPC3kUhhllDzaYhoXpIwI7wlQZz4AkhKXY3UCpDRryKbFmfGBv/cTV9ywZ/fy6vInfv/OO7/6WFWfo5jtS1811scUFoABxWz5OR7asMvteWpd39Yd3xlIU5EcJEaCg04QLEQ2ZYkdPWNVWK3MvSxtnn/8v/3vLrryTdsPHkx/8B8euveBZxCRbD4sTfKkSknZAlWwl68hDGpeByoogy2smWu66UrSkbO2PPPz7732ne9ocrmHPnfFG/b88kfu+cqXn0y8QDbO0cqmMEGJKEAHNcDLdecZZGFUXirBSISVsEJQYCELHZZGdZcnB7cuHPvQB6+59eaW2NtduuuHL731Fz/y+b/62hNVdUlgc5g6dpZ6yIIZzGT1QjbszIsDIlw+2/eRcGzHtkM/8092/1fvyJG/Dj3G7sFtmx//4G3X7nlLFfmZmhmCEGIGMkCoBuxl36TYyydCEWAqzolxmZiKfRCFJlWVj6YrB7ZvPf6hD1z7tpsnuX2gmx5K/f07d/6XD3/wTTfvsdI/wZgSVUGET8JWwZ6lQVSv1NN/VQGQe60erhNb5g/+zD+59N0/Xrf9/RXL2JIRJZ7YvPX+D3/4zTffVHft3lEKU4NIkKE4NYZetnRSjGxdWA7r5KuyY/Al2RTGIoKVg9EePHvn6nvfe9Wtt3Da7q/Mm9qD0cXendvv+dBtV++5vnd7DJq4VWBvtpbQpzJj8Uomul89AGjqR75c2yM/+zNX/p0fm1nr7qk8gLov4+z0lEs+sGnLA+/74NU/8rbR2vJjY7OUZ0xNncYln5ajIVCoCqswFO8idZEimIARVCX1NQ5t3bz/Z39u97ve3k/bvcmbnjMtLVclVUQ+tGvn3vd94LrLrziOOJgieZ6xcA94uMlfBwCQhFqVJ9/29m1v+9HxWr6nSorSdHncowT7AGpn6Z+e33T3bR+84l3vrPPao5XaSp5zWzUSysuP4VQhZqFRqC6oslU5mijj6KxmTjwwHt3/4Q+96e23Tvr+EffVjJIt9ywFVlS7DPmZ7Tuf+fv/8JrRaFEdLW+1vACYWMDyOgBAkjsj1nbtGtVJCvRhYSlSjzQ1ygAUNU6PwwsLd73//VfecqtDjzqPEGsFK2B52f4eBQ8yHHLBIyrE2NXMjTLzvs0LT/6z/3X3nj1rpX1GuTcJvlpsKgRlKZIZpz0c3L5jIRmdgupgXeDZusL8+pCAnAFbuPfuxeNHt6V0LujFp/CpMSqwDnPNpagNYH940+Z73//+N954I7p4IqVJqEjrcdfL0X7oK6xUmCT0REDu8sajXdm766zjt/3ClTffVKI8PjaMfQSkUBjkQCPVBSV7XW8p2vGtbxyYrHWWSthqsCuOYgzy9SEBNKvrXV//Wr799gdXJxcVNlAxhIexc+TKUGXURk8JpRzctPnRD37ohpveurA2PVAnEZSMMEkkhSDFwccHIaNMEBDPfiXBk38bzg5chU+ALhGmnvnpnWedeO/PXvPOH/FJ+3iyDpBUK5IzOZAAj0hUWFN44RfvWP2j33+Y3JQ5gS/CpoL0SmcpXkUjDPVR2mp09R9/cvXX/tU9GbsZnjJGUSOqAmSuKLXZTVZV1ng5tmPzvn/6vqvf+fa5leV9TZOBSsUrryOGLEVWJItKkUyzXM+4BQAWuuBywnNh+HyPhd48ql7sPTDC2uaZx2+77ep3vGNlWu4aNyJLseirHvVUyCazMs4YrWri9aVfuKP+9V+7a2npgrCt2VpZ75HqYqPSJfWvk3qAzG1cSpWqC//sT6e/8ZHHQj8cZS5HTy9FDC+ZXUHOUDCnqsv94/Pzj33gF65/1zvm2vY+49OJLF0yNqSV0puVPve0Yp6FDEiAlMgKUo6uxGrdFBFFKOiiV81ZKyeamUc+8E+vu2FPdN1hIwlBNeBkSxYLslTToq7MeH35Zz43+c2Pf/3E4raicwILoZE0ipiJGAfSK5uqexXjADLl3kr0famdl/7Z/6Vf/8iThde1nO3YVzXFIbUmoAglEKkK45PzC/d/+P1X/MitFbSv4qKym5pSjFaZg8kcfWhC5kEjQbXkMjeHfApro0zILiHNpoWYHNm8ef9tH7zorTevhvbnnFUqRA25oTeEiVDVR6ZXXl18x2dGH/3NBw4enbXmgrY0Yg2NFOOCJrPuzAr4OpEAyI0pQc7CBfiln/zPSx/9jQfX+mt6zEw1GUwsQaAS6gK63Jg99m/ZtO8Dt/3QTTfWEU+M6zVERyRaXcLryomeDlGAERXkYZChR+uNoldlZhY1Urv65M4dB3/+F97wN25lX+5zO16lziwKAbawbKJKMiWmJN/1l1/xX/nV+44v7mR1/jTXllRiSmVDgEXWh/dh8Qo+I28uPPfVMwKltEhW1IVPZdE0m+/61sGlpbU9e3aDzySYryPgiMbgPTIg9yh5OhrbjW+5Yt/jR/fuPTAaNyU3KtNzdq79xE+cbf54coUAOiLRFGiLwrjtgYdw1zeUsJOlt1jcuuWJ2z5w2Y/eqtXJIzPJ3IpQMmCeQRmIqGhVG22dLvrcX1S//Ev3TLoLOm3NmLHKAivJ1xJ6kxGUd/I1ykzV6wAAIcwZMnjIV4KTnMeVn7P3oYOHjyy+9eYr6mgZrTEYclaZDgtZiHSvc56M5rrrb9z91FOLDz98YGF2oVtbuvKq/t3v3mlxQArC1lOkbIUQCG45fGT2zi8et7yj8sXRzN4P/eJVN791pfQHR96YeljIQKMoExlNkTr1dX3+pz/XfPyj+1dWz+swos+VINkDaxWLFZkaIAUEFspewWD4VQQAoGBUAxkZAmgz0rxp9pEHjx47tHbTnguFFbJzU1YOKsiTJV9LxtwfaUbtjTdeu3//ib0PHRw3y+/6sbOufzNUjgIAfajRyIqICMjmjDu+fMfj0+XJ/KblD/6zN+25ccV0gIOuZxYMqDRIXqSulEx4dcEdn68//rH9R47sQjqrZ0GpnEkoRjBoahgjqgYccNMryXh5VSWAQkVVrmQlAR5iSCE3LTz84KEjJ47dsOda+FporTLISiAAETIMxa5iWqsq3PTW3Y/vO7x4YvpTP3Xh9h3Hum6xrqsyREWCUQLIFKXaPDe6967JiaPH3/ehN95yy6idPGZoq1TAIrliDiSsMJq+UN7Izv3CF9JHf/WxY8d22Whbq858ZGEGCCa6VEMNkIaLkhwUEa8HAAhRLk/FDCQlC1QClMzNx9964NDxxfaG6y9zLIZ6moZQKwEJFmEJMoIl5ma7a646Z/Pm1ZtuGcuebow9enoQsiFiA4BaKjN1N2rKnj2zP/bO8crksQqlThksIqBaqGEZaE1V0ayn3V/50sz/9kt3ra1dXLi1eMBYckosYA5jwIVaIJhlHawPghBfuXT06QKg9Yosn1Oc4kkAiixccBSip+ccHc2KOvOVQLC68J57Hl88dvjWmy4za2WZlEEW9CAsFQXF2qzEoYUFXnvtlowD4KRyC4QIJ0wVIiQTKnrptHjRBePL31BP+n1NRXiriBJOS5DB18DejCX34/qSz37afv1X712bXtRbExXFWqiNvXFN1hdjMAUJK7IJfC2sAwt1MhoHgefmS/gcGsBrAkCxHF4Gn59KVAISYEHJerAQQZZgCc/BQqcinDAiYEV15Zsee+TY08+s3vjWK8BjhqnBFGZeCjM93BCW6Sox6WPJvDWDIBdSJIsGqmCSQyBgZoS1Wct1YkaRuWjmZgFTuKjC3I9HzRWf+Qw+9vGHji6e0/v2SF4wpUWUiacMrbMlDMXRG3pDHhJcBgguVMFUzMME64wtmSlHzEAJLyVbd3oSwHIyFfPcvRCgCBiSRUNVQoIqqGbUhtqiVoygRl6oRmX20YcOHzu2fMONl4NLitYTcwGGgJXSoGFMAw0Cz6G1iJTl8BIMkoRDFLMNQR4pGikiV8ouZtWhhuncv/j86Dc/fu8zh7ehekMfjcCExDBXjagsRtTIVJvc5KZENVTDaKjaEIYiEqQBhmwog+4UKhF8zQAwuUVtUVMVQLGQHYYAVYmx7jbw5AtwaP0noAVd7IFINvvAvYeWFtvr9lxm6XivNtm8McBT2rpC9FSwiPFseww1gBCEhrYCDJacgtDJeluQnf+lvyr//FfvO3ZiE+uLp12dKlK9h6UYMcaMCuRw5S/4crSOKSGXUsBkroqqglZMYthLsRCnBYBH7WUE1UBTCFgna8WeMFcFQN7COlj/na9gCZIuhQMLVdp29937F5eXb9xzKTGBMtjbqcsBgbpgKN8/G9ObQaZiz/Z1rKemoYAx9bHg1Q99/kv6xV++a2Vydm+7eo3gWTiROHGAYaDCetkpLxvWU4UQQQOHoMwiAR6mnDIY/lJSpqcnAWzJSZiCkmfZFNZyPVRpAMqyhnzZ814EaSogUkQSqhLVzHj+gXv3Hz88ueWWK8hF2uTF6jEaEyOyGMJAwigQQQqg+KwOSgQJ6/u5cfPGP//02sc+dvfSyrkZu4Q5phRlrUqtMxAJqLKppA4oL3DNOJk6URKaQg4Rna0nximLYsUgk71WNsAm4hTmMAdoRqOZGo8ZizmD0VszGGA8+TIYYYAj6qpVyWZIqZi3yiWpfuTeAwf3L924Z1dVrbyINXMpIaoh2AuHZBZa9xCTYGBACUqEqXjyuU9/9vhHP/rwiaWU/AJ65VSUtvKussyAsZGlkvqopgYk2PqVn7zg4eKdgI16udxALxGeHBGkwBjIrHwpGbaXzwsimfs6+dg9lX6N6vvpkllvKFIqSgCVu1MwOEgURmfWBNFrAuvqkc82/UXnVhe9oYo4TpY4tU/n7BU9o6kw15c+1eWkKWDACTAADgmDMHMojyq8+bot9z50/OjR+7TWhBrzKtRPS5ssScuZVZ+mJdbqvlGkF75ysg9GNarSbM8q1anr2sqdCgop7KU2RvHlT86VzDdFKPcHR/XR887VZZdughbNWrBIIVTQ+NQG3Co2JUqOtTTWpk3pvAtnL7m4ueTC/pyFbi0OGsvgW5ziy0GNynT74vH6rO0lp6fMegFCAqqhoyMoWSaKichNU+1ai217n6gf2rt45InJk/tX+pwKS6gzGFQFUva++KQqtZ0CAAFM9eET/Obdh0rsyHmh4piluIbUSxXgS3JDT0sC+q7zKo/GB66/rnzgfe/csW3ZsUj0QikDv2qdpP9c5vPwXoSH6ooUuoxsMKIAK8LK8XZp5FV4eZGn36Fxu+J3/8NTX/vy0//8V2496+yq18NGUgkIQxAGZmCQDCXLa+1Bs6XdF9WXXmQOCdsC8xOsjRBERySiCSDQn4yn9BwGHJ/FnZjt+nM+9enDH/nYlyMuDo7I4Y6IML7EKPnlAyDIkxFryVd++qdu3bVtb2kfcu8hDySYgZl4keqdRamnbIlCQ4gqFWSVe21h1pUXtsAUJMHt0j/5c/3BH65MT4w+/i/v/vkPXLowv5TjeCKMGSgYkh/rz9KouiEjFqPPIszQlaO9Zo2596WasIBHQtSisvdxCg+YgGdY3vI337Hny1+84I4vtnQvXIeNdApg/u6pc6fDDSWAkqt6vHDWzlL0hFWd5GRvKDUpKE7txlBy5oGLThs46l0JZhkTuwAxW5ATOgu53OF9lGAtjse+848/0/+rf/Fwnl7cNNs/f8e9qO/+ufdetXlTozjEKMnQmQQKngVDHQbjFJFTokJBpmRRpmIxM0ogwgLMQ1h/ag+YQbM6nId27PA8PT6eQ4TLsilgq5C9pGzEaZFzhQmByElcBNeKLFCTsKG9BSh8MfScBF2QpBgk1wCEkGieSxEzwAQzeRRGJFbb+nLen/zJod/6nb0rSxdWmuvgTBd+7tP3VumRn/7py8/bVZf+ANIUpggWmOCyCMtApqMIBHsAnPJkfbdwuFQBf23BXUzVNIwe4GrlhRJEyqlCtiCl8WsEANjR14y9oScKKKkTWJCIGugNk1PfR+nXEzhOGSXCyACG1ENvVhJRCoMq9M68anYcWTrrE7/31B9+4qnw88zGTF1fjnmEV+d96k+ffPKx//I/v/e6q6/a3uW91h93RyUAfSlhHhoKOHTZwLF42dHPtIICQQ1BjIsETCA1wkvMVJ8mPb2GAiLVGAzI8lwAoRemBprwQkZ4EGSVk3Gs0SgHZQoikxgSK7nAlbqoVI3Nd371Hr/9tx/4+tdSU7+xLyNY16ujUxhBZ9O2PvDwwZ//X/7yH/33l7z7b+/e2jw5zYe7flInNmYqVbAKAixiOdlk8fyres775338douVQWQnQOGCBy1QyJASZEB5SXy+01NB8lAtEGWB2Ko4RhYHZSYkIICOpxhuwufQAoZstoQiGAwSpZKZqrlW83V1wUNPlv/8qQP/6U8OrCxt8nRRH1uy1lwd5GAdGndllDjXZS4u5//9X+/70heP/L2/u+OWPXtmxk+EniilJ4sQQioRZEkc9sXz3NwXnMDyvPfiQIYpDVCJViwCGQgbqN0UXgqr9bQACAuxKwxwU8mbLVpxBTALCDS46Bo8Nz3HiwEhgVazLlAoa8haq0+oO5BmyZrkO5bWth94au7Tn9v32S88+shjqptzkp9b8ljWJvQ+UNlKCgHoCrpUVcLZZbpw551L99974IYbl/7239p+7TWXbp5bdbShrkQbnJYCkC7SKKGUQjc+uyue3b/P/XjyPcG+FGohfEvJKyVOmPVQR9kpUHx1bQDo7FW+9OVHf/LvXNr3qKsxAEM75MvixZp1aaJDsF6IAIhRwbiUUdfVJ47lu+5duvMrD939zfLY42xmz28qMrZGnkkQMCXFqCCQ4dYPjykGZcg5pvNOtGt/9tm9f/lX913zxplb92z94Wt2n3/hqJo55tXRxnpHEhQoACo3vSTHxZN0zqGn575119Mzs1va3Jpnqhq6b8D8ksg+Lz8SloRq3Oeu4ZNn73jqPX//h666at78CCHnChVC3Vs61a0RkaI1Y0htQdulw0dx7Fh1YD8e27e6b+/iM8fqLE9pzm1zKbNRDBDZGTMkqBYqsAM7rfvdDlXDK5s65lEdNab9ytEU05lRe955uOzKuYsvi9n5fsdZ1fzcTN3UISnCzL7ruwa56cTx2d//gwfv/GrJsT1SCutYxowZYwu+tFFFPJ1DfLIqyiouJR40TmbnQesVnlBckNj7/z+cfI5JpuhFQ1KiSAGuTfpQ3bbjksej0ZYem+BVaMWsMJwaqSRQ5FS2JlSIkVjIDMRQfMG6A2wyhiMiUCLRRo7Sr5ayCq2kNDHvm3FfVabwkKVkUnz7Ol/EMHM9Cz9pu+nqvOGCUmasybm00DxiDFuGdYjRa6SCKmYDnE2JHWEzzyyuhbcsmwxtClFeLL6devh2JEtQkFE+0Ic4JNfdFEqjlMRcIsOpCHUWRKkk0TqxC0RgXCzDVxkjxixEQwzs3SGSQEFVAG8KKWK1ZEtjSyPEtj6Si9PVNSkkEaC5dNJTGK7t1DYAIlJXIje2OfdzRqpddE8RlZREgi+NQJ1OR/8r96mp2q6rqpk+6iBhM+KM1IQFB8bCKXaVqMwMuoEoz2ZzkbNCvSUnerE3QKgikgRnBjsoWTSC5P3JgI+CDSnW4TuMbqpyjwIyGTgImYzJkEo2WSMICWFFKuuldJngIkzx7JZ53hS64aMbQgn0UO+pCpGQmCEiXhpni6d9jtjzRfe7NGhBZSsiTPSwk5SUIaFPQVivBg+UfAI0wQMeNLGYgoF1dsJzN53Wk4Cqhn879BAMkZIJBlKQUjFlL2IBs6lQgFKgDjOP3v7aeEpDH9Y6L+Q56hWvoRf0HVQUfNfuBGEeQ9lEQ3Ff6/mvof5BX3erIxhiEdeBCBt+b+AlfmcXzfBbPTnROrnqpE4ZHPhB78DAdYmxQldFUTCYoPJdJTTXQ5cXCSNeIwBeLm5hKWYFgFnMwQyWwYQSRpmV4fmEs4ghDnqBmQ7A9GL0tJPsnAIOcSkFQ9ShJNVAwJZlvYFQSlFZVFQKBoZW7NdwWsf3DgDI0A0WM6iwbw83oUBKJoSGoZUIwowwwSEXLdA5uhcJ0aF60GRgDI0IhWZgMFMChxuXkSdTaTyJWYb8NRtl9b2bF8SMtLqejKCBJG2gAYEKRZ/kROTigHuChnERIoto1IuG++ZSUikigEQgWIAo7EgJBjWIihY598kTFILCSjBiqOLr+10CRMTQTSzVyUsZdis1UErhYf1a6cbNKPdRSklOqSdbYyGDAyfulAayD7beGKDS9SSTpQgYk5mXiKpS2wVk5qMuiltvQFBBSOkHQAURKgYuhPqm6tvVwzmvUBAs1RVQp2omRzXbzLeTYmjMq1wKmcGOyoasIdP8Ivia+txX9HHVROmQp44ul+ny2up4XK2tLHo949X2gnnBZHL2AYoVMEhbfF8DINAsBLe16A9cfaX/1+/+4SirBw4ePHj4+P79hw8+oyOHjO22UTVPWyhKwUoDBYpOtYC/CAAKOr1ixVBpJ3l6ZNOm6bbt7TkXlPMvGW/ZMtq17U3f+MbhP//sU31c0GkeNoydCypBTpTvdwkAJLi5c/nC81ff9wtv/6ErCrDcwaflwsPHqqcO4p47V771jSMP7H34+Op82HZWZ5VSS/D1IR6n5H9I8ESU1bY9OqpXL9nNa67a/Obrtl119aaFhbX5+dwgAos//q43N81Dv/eHB+qZLbmARiKSiJJkIX5fAyDJaER0k3LB+dve8Ia82n21slWYKvrZZ+04e/uWW689e2X1nG/ef/STn3r8S1/Zd2L5UPILwAUKgTJ44DwZaZeQuUcpyeAW0R9L6Zk372ne9WO7rntLumgXEo5n7I+ARdP2be6X5uaqq65umv/UqohIjIoYeHVFr5X++Z4BQFLskKYlk8w9n6mqnPNCQuvoo10kj63oqTQzuu4tcd1bzr37bv+Pf3Tks5/dF7y45yjqMHkqUHQRnVVVLwOrQOtcjtVDl13W/4N/dMmtb9/ejB53PNXlSaGZxgaKx63KbgwcZu3GFkpkSJWQxCxbgqofADcUMtGUiAmtBzs5imWpqJqahaPkvJwMfRy59ppzrrry8pvfvnj77Q898mg9qi6ZTi27Q06vA6WuquhzlVdH6bGf/Kndf/cndmzdejjKAyxrgb62BFDsxSIWA5h94DqTEchiFgqUKCOSfhACMcgQM9CaCa5wBjgNoBDZSdhYuUnsixq3XJ4qOPK2Hz3n8iuu++3fevT/+dR9M83lU811iqpucjtpop3F8jk7j//j//HGm97R0+9CWak8RVj0YE0N4TQIVBGeohhqqoIY3hVrJVkAUTEqWH4FZ2K9+Pqeji5mD8sAGDWRhpw0QCEJLlGhxmoUt0g129LuO3vX4+97/xv/4Xvm3e5LOlGPylq70oyK6ck3Xrr0G7+252+8s434Zs7LEKXe2dV1RPREmEA5NLKoDYUwRBWwsF6WxTJk96Aa8h8ACaBKWsu2Ao6Ut0gLzklYdpMiaD2ArBRKRqOFYDPJOh221P5P/8PZm+b4f/4f9zW4OFLVTp9461vsl95/zXlnPTht93tVaE6giGaMkA0RNMwR4hRUMCSTRrBqSISDxmd7v17D9b1zQ2GKOdnStAO4SdHI1lRyxZSAHCgxW1lTNBFaIdMEmIHEiUksvuc9l9cY/5vf2d/l+s3Xpw9/+MKdWx/o22Xz1JqJBUJlzCJRWZgZk5U+2lIiEW1G1WxZm1Z9rmGOaBiJIpCB9kU6c17x9ao2ar9YKreIwZnKubL0xBt2b77o4k3J6V53uSBKshCsVw/vAoXrxP/1qbWEoRy97k3nHzq0VsrKbe9/y/lnHyhxxM2KNcUiI9KQWpM7K5ChvlcfqIYic1O/4eDi1tt/9/4nnhhZWoCM0bgI617Lp/+9BABEYVtXmi5P775738ra3NJkPM2b5ufPG9WjDpM+prVHGeymsTyn8mA0qnWbvPHKzde9Zf6SixRxzL0XEQw8W+oMjL2OKH0p5rPwXeDup5/e+vDe8Ze/Xv3W7d/45rcK/ZwCmMxiBAJsxaGO9xppotOviL1sFZTlrYMNmn56ou2Ozy4s7dhZXXzx3K23brrl5s07Nh3t+iNA0EsuXVVhnZimdQaKZK6qSvXaaviolk3BCSCTuxqVsBRFfRdw39mV8++72++447H7H1h9/PHl48u1bCHZrj5mLK16cStbREVaLiaGv6Q2o9clAKQN6UdXnZIXXyxa7vquSW0/XbzqcrznJ3f+zR8/py0HlY6Qq+4GxVBkJBW0tmgEQpGsmURGMqA3oMpVFTOlZKvzWpfnxhff/VDziU8c/PxfHJv2m6d5ZGmhStuEUS7JvAs9XaFCv0VAqVaKgWHf/wAM5RfSEAMzItNEMJTrlEu3MsKBt71t4R//zPnn7Tg+7fY3CUQ2os9IVhf0MmKY56yBllI5BWQieTByLr5V6fI//KNnfu/fP3Xk8KylTWEzwZlQDYUUNCNCnFLDrF6IvQYb8/1tA76th1DWe9vWK+8weo7KbD5i0yN7n7n//oO7d1+4a9fZXbdG7wRVCV1h5QZFoAmGGEZzeZQMU5BdwNLcWnvRb91+7N/97r7F5fOq6rzgqNDKwC1hJgtQTh5UYKCG4iVfWz/0ewsAXnC4Aoehiz7nnDn0dPeNr++/8YYbZzfBbLFXLoC7B4KE6KJsoIKUSAmkSjba9rZc/G9uP/Dv/v2TwoVen90HY1BeLEPVly9rtMP3HwCnxCUDXm3N3dzKsh7d+8gNN13s46NmayIYdVFvxoCDIArFZAZEFog5+hV//Mml3/63j1m6jOniNofYneSvDKfN2BlywskZCoCAsEmJvkqzo6rZu29fGk2uv35X1iEXh/4iEcAwvUcDT6pIgtd2zte/Of6VjzzY9ecyndMWmvW0lsgmApUp8bVK9ZzZuaAXEwA5QU6CJyZ9Ozu7408/+dQ995Q5O48hL72dzGcQQWgo+YIA5xZX53//E/cvL25339rHKrkiFIZ5wFXScEroGbPO2HPEjHneYkYopEM7Fo/O/N//8ZkoO2ufoQKKb4sKGFHMUy7W2Llf+eryN7+x2lTbQp3ZirFj1FbmPGpDNkzI9vmUqg0AXiBOKPMs84g6UPdlS6ou+vqdRx94WM7tAXAwAOvn9YB0gZn1RPN3fGFxcWnGTOtNsnKPxGjWDyRgJ2tfyVNgvk8BENiJUZAyU0eXLxw9MfONr69lbRUHGtdJTSKZ+WrX1Wlh75OT+x9cqppdoUCMUOagSuxga8EI1BlNnEmnp52xAITSsUjH5G2xPqzrGVn2rbsOBnZ2kYb53SfdGgSKpco0s3ffypHDI9oWqY7YpNgsmXxJ6VhYW1CHFkKzOmNu3M7Y/Z9pYeFcq7BinJinTjNPPaPVVcx6M9gAC0+FLqjkqlQ9N+/f75N2JKuKCIrMxqBMSgLBIIbXhgT8dTZAmkXMerEqShXKJVm164mD3Rf/8uA4XZljJmiwMW3eOGdcUDp7aensz336aeNs2xc5wNYwMRWqhsZAAoJsDT3OGDf0DD7QOZKJhhlDyXCqKr5pabLtX//bB7v+Tde/9QbUR700HhWiApqnj+Tbf+fOJx4DeJb5DLT8HaHFGbnRvnfJuL9GBYVGrqgwNUVmalmrqoU1tyPoj85WXtnQIw5BdMs5Vid1NTo793MSaK+PY+XPWAkI2poQiAKIKHWNtdLCq1K2NGnLWts5hyNvC8jcwVixZg6IJ2iOV26+9g+oCpJNCYUSZQbk6ep4VPXRS45S01xoi2VZERzWCKM8zU3lBAws0MZ5wqdtBWShhkqUauuia81KwKECNYEROMw3EBgqkdIYJVymYUzKhgScRi6IiGbompPcIYaRoLIxIIVG0AzVUBNZD4gqxHRo3cLJ6sIGAC8fAh8mwQCRihSGMDlhQwQgFLClYKVGpGCYhl4wFhgQ38Xknw0AXvzKQmLfew6PgmKih1s4kIIkV4klRG2qMLTpWj802RQlfOfhtxsAvFQbLBZAhhwKUIBp6OUbdjqDyOAwJmngqMd60wBjfX7xBgCns9ZHEKtKz29XCSAQtVAP5kLr0wTSoP8dr6dl2FgbAGwAsLE2ANgAYGNtALABwMbaAGADgI21AcAGABtrA4ANADbWBgA/COv/A+H5aNGRYIhXAAAAAElFTkSuQmCC';
 
 const DEFAULT_CATEGORIES = [
   { id: 'panels', name: 'FV Panely', color: '#f59e0b', kind: 'material' },
-  { id: 'inverters', name: 'Měniče', color: '#3b82f6', kind: 'material' },
-  { id: 'batteries', name: 'Baterie / úložiště', color: '#10b981', kind: 'material' },
-  { id: 'mounting', name: 'Konstrukce', color: '#8b5cf6', kind: 'material' },
-  { id: 'cables', name: 'DC/AC kabely', color: '#ef4444', kind: 'material' },
-  { id: 'electrical', name: 'Elektroinstalace a jištění', color: '#ec4899', kind: 'material' },
-  { id: 'monitoring', name: 'Monitoring a komunikace', color: '#14b8a6', kind: 'material' },
-  { id: 'other_material', name: 'Ostatní materiál', color: '#64748b', kind: 'material' },
-  { id: 'labor', name: 'Práce', color: '#0ea5e9', kind: 'labor' },
-  { id: 'subcontractor', name: 'Subdodavatelé', color: '#6366f1', kind: 'labor' },
-  { id: 'commission', name: 'Prodejní provize', color: '#d946ef', kind: 'commission' },
-  { id: 'project_mgmt', name: 'Řízení projektu', color: '#f97316', kind: 'commission' },
+  { id: 'inverters', name: 'Meniče', color: '#3b82f6', kind: 'material' },
+  { id: 'batteries', name: 'Batérie / úložisko', color: '#10b981', kind: 'material' },
+  { id: 'mounting', name: 'Konštrukcia', color: '#8b5cf6', kind: 'material' },
+  { id: 'cables', name: 'DC/AC káble', color: '#ef4444', kind: 'material' },
+  { id: 'electrical', name: 'Elektroinštalácia a istenie', color: '#ec4899', kind: 'material' },
+  { id: 'monitoring', name: 'Monitoring a komunikácia', color: '#14b8a6', kind: 'material' },
+  { id: 'other_material', name: 'Ostatný materiál', color: '#64748b', kind: 'material' },
+  { id: 'labor', name: 'Práca', color: '#0ea5e9', kind: 'labor' },
+  { id: 'subcontractor', name: 'Subdodávatelia', color: '#6366f1', kind: 'labor' },
+  { id: 'commission', name: 'Predajná provízia', color: '#d946ef', kind: 'commission' },
+  { id: 'project_mgmt', name: 'Riadenie projektu', color: '#f97316', kind: 'commission' },
 ];
 
 const PALETTE = ['#f59e0b', '#3b82f6', '#10b981', '#8b5cf6', '#ef4444', '#ec4899', '#14b8a6', '#0ea5e9', '#6366f1', '#d946ef', '#f97316', '#64748b', '#84cc16', '#06b6d4'];
 
 const STATUSES = [
-  { id: 'planned', label: 'Plánováno', color: '#94a3b8', icon: CircleDashed },
-  { id: 'ordered', label: 'Objednáno', color: '#3b82f6', icon: CircleDot },
-  { id: 'delivered', label: 'Dodáno', color: '#14b8a6', icon: Truck },
+  { id: 'planned', label: 'Plánované', color: '#94a3b8', icon: CircleDashed },
+  { id: 'ordered', label: 'Objednané', color: '#3b82f6', icon: CircleDot },
+  { id: 'delivered', label: 'Dodané', color: '#14b8a6', icon: Truck },
 ];
 const STATUS_ORDER = STATUSES.map(s => s.id);
 const getStatus = (id) => STATUSES.find(s => s.id === id) || STATUSES[0];
 
-// Vyfakturováno je INDEPENDENT flag (nezávislý na status).
-// Za starých verzí bylo status='invoiced', teď je status='delivered' + isInvoiced=true.
-// Fyzický průběh: planned → ordered → delivered.
-// Vyfakturováno: samostatné yes/no (může být zálohová faktura před dodáním, nebo dodáno bez faktury).
+// Vyfakturované je INDEPENDENT flag (nezávislý na status).
+// Za starých verzí bylo status='invoiced', teraz je status='delivered' + isInvoiced=true.
+// Fyzický priebeh: planned → ordered → delivered.
+// Vyfakturované: samostatné yes/no (môže byť zálohová faktura pred dodáním, alebo dodané bez faktúry).
 
-// Výchozí lokace skladu - 1 hlavní sklad + virtuální "Na cestě"
+// Predvolený lokalita sklade - 1 hlavný sklad + virtuální "Na ceste"
 const DEFAULT_LOCATIONS = [
-  { id: 'loc_warehouse', name: 'Hlavní sklad', type: 'warehouse', notes: '' },
-  { id: 'loc_transit', name: 'Na cestě', type: 'transit', notes: 'Virtuální lokace pro objednané, ale ještě nedodané kusy. Automaticky se plní z objednávek.', systemLocation: true },
+  { id: 'loc_warehouse', name: 'Hlavný sklad', type: 'warehouse', notes: '' },
+  { id: 'loc_transit', name: 'Na ceste', type: 'transit', notes: 'Virtuální lokalita pre objednané, ale ešte nedodané kusy. Automaticky sa plní z objednávok.', systemLocation: true },
 ];
 
 // ID virtuální lokace pro objednané, ale nedodané kusy
 const TRANSIT_LOCATION_ID = 'loc_transit';
 
 // Speciální virtuální projekt "Sklad" — pro nákupy, které nespadají ke konkrétnímu projektu.
-// Vytvoří se automaticky při prvním potřebě. Chová se jako běžný projekt (má vlastní items),
+// Vytvorí se automaticky pri prvním potrebe. Chová se jako bežný projekt (má vlastný items),
 // ale je označen flag isStockProject: true a nemá client, contractValue.
 const STOCK_PROJECT_ID = 'proj_stock';
 const makeStockProject = () => ({
@@ -79,19 +79,19 @@ const makeStockProject = () => ({
   createdAt: new Date().toISOString(),
 });
 
-// Typy skladových pohybů
+// Typy skladových pohybov
 const MOVEMENT_TYPES = {
-  receive:  { label: 'Naskladnění', icon: '📥', color: '#10b981' },
-  transfer: { label: 'Přesun',       icon: '🔄', color: '#3b82f6' },
-  consume:  { label: 'Spotřeba',     icon: '✂️', color: '#f59e0b' },
+  receive:  { label: 'Naskladnenie', icon: '📥', color: '#10b981' },
+  transfer: { label: 'Presun',       icon: '🔄', color: '#3b82f6' },
+  consume:  { label: 'Spotreba',     icon: '✂️', color: '#f59e0b' },
   adjust:   { label: 'Inventura',    icon: '📋', color: '#8b5cf6' },
-  return:   { label: 'Vrácení',      icon: '↩️', color: '#64748b' },
+  return:   { label: 'Vrátenie',      icon: '↩️', color: '#64748b' },
 };
 
-// Kategorie, u kterých se vyžadují sériová čísla (panely, měniče, baterie)
+// Kategorie, u kterých se vyžadují sériová čísla (panely, meniče, baterie)
 const SERIAL_REQUIRED_CATEGORIES = ['panels', 'inverters', 'batteries'];
 
-const fmt = (n, currency = 'CZK') => {
+const fmt = (n, currency = 'EUR') => {
   const val = Number(n) || 0;
   const sign = val < 0 ? '-' : '';
   const rounded = Math.round(Math.abs(val));
@@ -99,22 +99,24 @@ const fmt = (n, currency = 'CZK') => {
   return currency === 'CZK' ? `${sign}${str} Kč` : `${sign}€ ${str}`;
 };
 
-const fmt2 = (n, currency = 'CZK') => {
+const fmt2 = (n, currency = 'EUR') => {
   const val = Number(n) || 0;
   const str = val.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).replace(/,/g, ' ');
   return currency === 'CZK' ? `${str} Kč` : `€ ${str}`;
 };
 
-const toCZK = (item, rate) => {
+// Bázová mena aplikácie je EUR. fxRate = počet CZK za 1 EUR (napr. 25).
+// Položku v CZK prepočítame na EUR delením kurzom; položka v EUR sa nemení.
+const toEUR = (item, rate) => {
   const amount = (Number(item.quantity) || 0) * (Number(item.unitPrice) || 0);
-  return item.currency === 'EUR' ? amount * rate : amount;
+  return item.currency === 'CZK' ? (rate > 0 ? amount / rate : amount) : amount;
 };
 
 const ymKey = (dateStr) => !dateStr ? 'unscheduled' : dateStr.slice(0, 7);
 const ymLabel = (ym) => {
-  if (ym === 'unscheduled') return 'Nezařazeno';
+  if (ym === 'unscheduled') return 'Nezaradené';
   const [y, m] = ym.split('-');
-  const names = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
+  const names = ['Leden', 'Február', 'Marec', 'Duben', 'Máj', 'Jún', 'Júl', 'Srpen', 'September', 'Október', 'Listopad', 'Prosinec'];
   return `${names[parseInt(m, 10) - 1]} ${y}`;
 };
 
@@ -150,13 +152,13 @@ const ywMonday = (yw) => {
 };
 
 const ywLabel = (yw) => {
-  if (yw === 'unscheduled') return 'Nezařazeno';
+  if (yw === 'unscheduled') return 'Nezaradené';
   const monday = ywMonday(yw);
   if (!monday) return yw;
   const mondayDate = new Date(monday + 'T00:00:00Z');
   const sundayDate = new Date(mondayDate);
   sundayDate.setUTCDate(mondayDate.getUTCDate() + 6);
-  // Formát: "13.7.-19.7." nebo přes přelom měsíce "30.6.-6.7."
+  // Formát: "13.7.-19.7." nebo cez prelom mesiace "30.6.-6.7."
   return `${mondayDate.getUTCDate()}.${mondayDate.getUTCMonth() + 1}.-${sundayDate.getUTCDate()}.${sundayDate.getUTCMonth() + 1}.`;
 };
 
@@ -207,9 +209,9 @@ const todayISO = () => new Date().toISOString().slice(0, 10);
 // ==========================================================================
 // Role:
 //   - admin       — bez restrikcí
-//   - finance     — vše kromě úpravy uživatelů
-//   - management  — read-only přístup ke všemu (přejmenován z 'viewer')
-//   - editor      — Přehled, Projekty, Nákupní seznam, Objednávky, jen kategorie v Nastavení, profil
+//   - finance     — všetko okrem úpravy používateľov
+//   - management  — read-only prístup ke všemu (premenovaný z 'viewer')
+//   - editor      — Prehľad, Projekty, Nákupný zoznam, Objednávky, len kategórie v Nastavenia, profil
 //
 // Views: dashboard | projects | project | purchaseList | orders | stock | cashflow
 
@@ -220,7 +222,7 @@ const ROLE_VIEWS = {
   editor:     ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock'],
 };
 
-// Settings tabs accessible per role (skutečné taby v SettingsModal)
+// Settings tabs accessible per role (skutočné taby v SettingsModal)
 const ROLE_SETTINGS_TABS = {
   admin:      ['fx', 'categories', 'locations', 'paymentPlans', 'pdfArchive', 'backup'],
   finance:    ['fx', 'categories', 'locations', 'paymentPlans', 'pdfArchive', 'backup'],
@@ -239,7 +241,7 @@ function canAccessSettingsTab(role, tab) {
   return tabs.includes(tab);
 }
 
-// Management = read-only. Všichni ostatní mohou editovat (s respektem k canAccessView).
+// Management = read-only. Všetci ostatné môžu editovať (s respektem k canAccessView).
 function canEdit(role) {
   return role !== 'management';
 }
@@ -256,7 +258,7 @@ function canAccessSettings(role) {
 //   - If actual dates exist (purchaseDate, deliveredDate), they win → "actual"
 //   - Otherwise use planned dates → "planned"
 // Supplier.balanceTrigger decides whether delivery or order date drives the balance tranche.
-function computePayments(item, supplier, totalCZK) {
+function computePayments(item, supplier, totalEUR) {
   const depositPct = supplier?.depositPercent != null && supplier.depositPercent !== ''
     ? parseFloat(supplier.depositPercent) : 0;
   const netDays = supplier?.paymentTermsDays != null && supplier.paymentTermsDays !== ''
@@ -265,7 +267,7 @@ function computePayments(item, supplier, totalCZK) {
 
   // Manual override wins
   if (item.paymentDueDate) {
-    return [{ label: 'Celkem (ruční přepsání)', amount: totalCZK, dueDate: item.paymentDueDate, triggered: true, kind: 'total', basis: 'actual' }];
+    return [{ label: 'Spolu (ruční prepísanie)', amount: totalEUR, dueDate: item.paymentDueDate, triggered: true, kind: 'total', basis: 'actual' }];
   }
 
   // Pick the order basis: actual purchaseDate wins, else plannedOrderDate
@@ -280,7 +282,7 @@ function computePayments(item, supplier, totalCZK) {
   if (!supplier || (depositPct <= 0 && netDays == null)) {
     return [{
       label: 'Celkem',
-      amount: totalCZK,
+      amount: totalEUR,
       dueDate: orderDate,
       triggered: !!orderDate,
       kind: 'total',
@@ -290,8 +292,8 @@ function computePayments(item, supplier, totalCZK) {
 
   const payments = [];
   const hasDeposit = depositPct > 0;
-  const depositAmount = totalCZK * (depositPct / 100);
-  const balanceAmount = totalCZK - depositAmount;
+  const depositAmount = totalEUR * (depositPct / 100);
+  const balanceAmount = totalEUR - depositAmount;
 
   if (hasDeposit) {
     payments.push({
@@ -311,13 +313,13 @@ function computePayments(item, supplier, totalCZK) {
     const triggered = !!triggerDate;
     const due = triggered && netDays != null ? addDays(triggerDate, netDays) : (triggered ? triggerDate : '');
     const balancePct = 100 - depositPct;
-    const triggerLabel = trigger === 'delivered' ? 'dodání' : 'objednávky';
+    const triggerLabel = trigger === 'delivered' ? 'dodanie' : 'objednávky';
     const label = hasDeposit
       ? `Doplatek ${balancePct}% · Splatnost ${netDays ?? 0} d od ${triggerLabel}`
       : `Celkem · Splatnost ${netDays ?? 0} d od ${triggerLabel}`;
     payments.push({
       label,
-      amount: balanceAmount > 0 ? balanceAmount : totalCZK,
+      amount: balanceAmount > 0 ? balanceAmount : totalEUR,
       dueDate: due,
       triggered,
       kind: hasDeposit ? 'balance' : 'total',
@@ -337,12 +339,12 @@ export default function CashFlowPlanner() {
     categories: DEFAULT_CATEGORIES, suppliers: [], catalog: [],
     locations: DEFAULT_LOCATIONS,
     stockItems: [],       // skladové kusy
-    stockMovements: [],   // historie pohybů
-    paymentPlanTemplates: [],  // šablony platebních plánů
+    stockMovements: [],   // historie pohybov
+    paymentPlanTemplates: [],  // šablony platebních plánov
     pdfAttachments: [],   // metadata k importovaným PDF (binární data v IndexedDB)
     settings: {
       fxRate: 25,
-      expenseVatRate: 21, // DPH na nákupy materiálu/služeb (přidává se do cash flow)
+      expenseVatRate: 23, // DPH na nákupy materiálu/služieb (pridáva sa do cash flow)
       anthropicApiKey: '', // Klíč pro Claude API (import PDF faktur/objednávek)
       anthropicModel: 'claude-sonnet-4-5', // Model pro parsování PDF
     },
@@ -422,7 +424,7 @@ export default function CashFlowPlanner() {
             status: p.status === 'completed' ? 'completed' : 'active',
             items: (Array.isArray(p.items) ? p.items : []).map(item => {
               // Migrace položek: status='invoiced' se rozpadne na status='delivered' + isInvoiced=true.
-              // Staré položky bez isInvoiced pole se nastaví na false.
+              // Staré položky bez isInvoiced pole sa nastaví na false.
               const oldStatus = item.status || 'planned';
               let newStatus = oldStatus;
               let isInvoiced = item.isInvoiced;
@@ -437,7 +439,7 @@ export default function CashFlowPlanner() {
             budgets: p.budgets && typeof p.budgets === 'object' ? p.budgets : {},
           }));
 
-          // Zajistit, že existuje virtuální projekt "Sklad" pro nákupy bez konkrétního projektu
+          // Zajistit, že existuje virtuální projekt "Sklad" pre nákupy bez konkrétního projektu
           if (!migratedProjects.find(p => p.id === STOCK_PROJECT_ID || p.isStockProject)) {
             migratedProjects = [makeStockProject(), ...migratedProjects];
           }
@@ -450,7 +452,7 @@ export default function CashFlowPlanner() {
             catalog: parsed.catalog || [],
             locations: (() => {
               const loaded = parsed.locations?.length ? parsed.locations : DEFAULT_LOCATIONS;
-              // Zajistit systémovou lokaci "Na cestě"
+              // Zajistit systémovú lokalitu "Na ceste"
               if (!loaded.some(l => l.id === TRANSIT_LOCATION_ID)) {
                 return [...loaded, DEFAULT_LOCATIONS.find(l => l.id === TRANSIT_LOCATION_ID)];
               }
@@ -460,8 +462,8 @@ export default function CashFlowPlanner() {
             stockMovements: (() => {
               const rawMovements = parsed.stockMovements || [];
               const stockLookup = new Map((parsed.stockItems || []).map(s => [s.id, s]));
-              // Migrace: staré pohyby (hlavně z bulkConsume) neměly itemName, quantity, projectId.
-              // Použít toProjectId → projectId, doplnit itemName ze stockLookup.
+              // Migrace: staré pohyby (hlavne z bulkConsume) nemali itemName, quantity, projectId.
+              // Použiť toProjectId → projectId, doplniť itemName zo stockLookup.
               return rawMovements.map(m => {
                 const patch = {};
                 if (!m.itemName && m.stockItemId) {
@@ -481,7 +483,7 @@ export default function CashFlowPlanner() {
             pdfAttachments: parsed.pdfAttachments || [],
             settings: {
               fxRate: migratedSettings?.fxRate ?? 25,
-              expenseVatRate: migratedSettings?.expenseVatRate ?? 21,
+              expenseVatRate: migratedSettings?.expenseVatRate ?? 23,
               anthropicApiKey: migratedSettings?.anthropicApiKey ?? '',
               anthropicModel: migratedSettings?.anthropicModel ?? 'claude-sonnet-4-5',
             },
@@ -507,7 +509,7 @@ export default function CashFlowPlanner() {
   const fxRate = data.settings?.fxRate ?? 25;
   const [focusKey, setFocusKey] = useState(null); // { projectId, itemId, ts } for scroll/highlight hints
 
-  // Login odstraněn — vždy běží jako admin (jednouživatelská aplikace)
+  // Login odstránený — vždy beží ako admin (jednouživatelská aplikácia)
   const authUser = { id: 'default', name: 'User', email: '', role: 'admin' };
   const readOnly = false;
 
@@ -529,10 +531,10 @@ export default function CashFlowPlanner() {
 
   const deleteProject = (id) => {
     setData(d => {
-      // Sklad nesmí být smazán
+      // Sklad nesmí byť vymazaný
       const target = d.projects.find(p => p.id === id);
       if (target?.isStockProject) {
-        alert('Projekt „Sklad" nelze smazat — je to systémový projekt pro nákupy bez konkrétní zakázky.');
+        alert('Projekt „Sklad" nemožno vymazať — je to systémový projekt pre nákupy bez konkrétny zakázky.');
         return d;
       }
       const remaining = d.projects.filter(p => p.id !== id);
@@ -558,7 +560,7 @@ export default function CashFlowPlanner() {
   const deleteItem = (id) => updateActive(p => ({ ...p, items: p.items.filter(i => i.id !== id) }));
 
   // ===== Klientské platby =====
-  // Platby jsou součástí projektu (project.clientPayments: array)
+  // Platby sú součástí projektu (project.clientPayments: array)
   // { id, dueDate, amount, currency, status: 'planned'|'invoiced'|'paid', invoicedDate, paidDate, label, notes }
   const addClientPayment = (projectId, payment) => {
     setData(d => ({
@@ -585,9 +587,9 @@ export default function CashFlowPlanner() {
     }));
   };
 
-  // Aplikovat platební šablonu na projekt
-  // generatedPayments: array bez id (přidá se zde)
-  // replaceExisting: pokud true, smaže stávající platby
+  // Aplikovať platobný šablónu na projekt
+  // generatedPayments: array bez id (pridá sa tu)
+  // replaceExisting: ak true, vymaže stávající platby
   const applyPaymentTemplateToProject = (projectId, generatedPayments, replaceExisting) => {
     const withIds = generatedPayments.map(p => ({ ...p, id: uid('cpay') }));
     setData(d => ({
@@ -598,17 +600,17 @@ export default function CashFlowPlanner() {
     }));
   };
 
-  // Spravovat šablony platebních plánů
+  // Spravovať šablóny platebních plánov
   const savePaymentPlanTemplates = (templates) => {
     setData(d => ({ ...d, paymentPlanTemplates: templates }));
   };
 
-  // Smazat PDF přílohu (z IndexedDB i z metadat + odstranit odkaz z položek)
+  // Vymazať PDF prílohu (z IndexedDB i z metadat + odstrániť odkaz z položek)
   const deletePdfAttachment = async (attachmentId) => {
     try {
       await deletePdfFromDb(attachmentId);
     } catch (e) {
-      console.error('Nepodařilo se smazat PDF z IndexedDB:', e);
+      console.error('Nepodarilo sa vymazať PDF z IndexedDB:', e);
     }
     setData(d => ({
       ...d,
@@ -622,7 +624,7 @@ export default function CashFlowPlanner() {
     }));
   };
 
-  // Přidat PDF přímo k projektu (bez vazby na položku/objednávku)
+  // Pridať PDF priamo k projektu (bez vazby na položku/objednávku)
   const addPdfToProject = async (projectId, file) => {
     if (!file) return;
     try {
@@ -639,12 +641,12 @@ export default function CashFlowPlanner() {
           orderNumber: '',
           supplierName: '',
           itemCount: 0,
-          manuallyAdded: true, // příznak: uživatel ho ručně přidal, není z importu
+          manuallyAdded: true, // príznak: používateľ ho ručne pridal, nie je z importu
         }],
       }));
     } catch (e) {
       console.error(e);
-      alert('Nepodařilo se přidat PDF: ' + (e.message || e));
+      alert('Nepodarilo sa pridať PDF: ' + (e.message || e));
     }
   };
 
@@ -692,15 +694,15 @@ export default function CashFlowPlanner() {
 
   // ===== Skladové operace =====
   const saveLocations = (locations) => {
-    // Nelze smazat lokace, na kterých jsou kusy
+    // Nemožno vymazať lokalita, na ktorých sú kusy
     setData(d => {
       const usedLocIds = new Set(d.stockItems.map(s => s.locationId));
       const filtered = locations.filter(l => l.id === 'loc_warehouse' || !usedLocIds.has(l.id) || locations.some(ll => ll.id === l.id));
-      // Pokud uživatel pokusil smazat hlavní sklad, vrátit ho zpět
+      // Ak používateľ pokusil vymazať hlavný sklad, vrátiť ho späť
       if (!filtered.some(l => l.id === 'loc_warehouse')) {
-        filtered.unshift({ id: 'loc_warehouse', name: 'Hlavní sklad', type: 'warehouse', notes: '' });
+        filtered.unshift({ id: 'loc_warehouse', name: 'Hlavný sklad', type: 'warehouse', notes: '' });
       }
-      // Zachovat systémovou "Na cestě"
+      // Zachovať systémovú "Na ceste"
       if (!filtered.some(l => l.id === TRANSIT_LOCATION_ID)) {
         const existing = d.locations.find(l => l.id === TRANSIT_LOCATION_ID);
         filtered.push(existing || DEFAULT_LOCATIONS.find(l => l.id === TRANSIT_LOCATION_ID));
@@ -709,7 +711,7 @@ export default function CashFlowPlanner() {
     });
   };
 
-  // Přidat skladový kus (naskladnění z objednávky nebo manuálně)
+  // Pridať skladový kus (naskladnenie z objednávky alebo manuálne)
   const addStockItem = (stockItem, movementNotes = '') => {
     const newItem = { ...stockItem, id: stockItem.id || uid('stk') };
     const movement = {
@@ -733,7 +735,7 @@ export default function CashFlowPlanner() {
     }));
   };
 
-  // Aktualizovat skladový kus (např. změna záruky, ceny, poznámky)
+  // Aktualizovať skladový kus (napr. zmena záruky, ceny, poznámky)
   const updateStockItem = (id, patch) => {
     setData(d => ({
       ...d,
@@ -741,7 +743,7 @@ export default function CashFlowPlanner() {
     }));
   };
 
-  // Přesun kusu na jinou lokaci (vytvoří pohyb)
+  // Presun kusu na inú lokalitu (vytvorí pohyb)
   const transferStockItem = (id, toLocationId, notes = '') => {
     setData(d => {
       const item = d.stockItems.find(s => s.id === id);
@@ -769,7 +771,7 @@ export default function CashFlowPlanner() {
     });
   };
 
-  // Spotřeba kusu na projekt (odepsání ze skladu)
+  // Spotreba kusu na projekt (odepsání zo sklade)
   const consumeStockItem = (id, projectId, notes = '') => {
     setData(d => {
       const item = d.stockItems.find(s => s.id === id);
@@ -782,7 +784,7 @@ export default function CashFlowPlanner() {
         itemName: item.name,
         serialNumber: item.serialNumber || '',
         quantity: parseInt(item.batchQuantity, 10) || 1,
-        amountCZK: parseFloat(item.purchasePriceCZK) || 0,
+        amountEUR: parseFloat(item.purchasePriceEUR) || 0,
         fromLocationId: item.locationId,
         toLocationId: null,
         projectId,
@@ -790,18 +792,18 @@ export default function CashFlowPlanner() {
         createdAt: new Date().toISOString(),
       };
 
-      // Zkontrolovat, jestli zdrojová objednávka už NEEXISTUJE v cílovém projektu.
-      // Pokud existuje (což je nejčastější případ — položka se v projektu objednala, dodala, naskladnila
-      // a nyní se z něj i spotřebovává), NEVYTVÁŘÍME kopii — jinak by došlo k duplicitě nákladů.
+      // Skontrolovať, ak zdrojová objednávka už NEEXISTUJE v cílovém projektu.
+      // Ak existuje (čo je najčastejší prípad — položka sa v projektu objednala, dodala, naskladnila
+      // a teraz sa z neho i spotrebúva), NEVYTVÁRAME kópiu — inak by došlo k duplicite nákladov.
       const targetProject = d.projects.find(p => p.id === projectId);
       const originalItemExists = item.sourceOrderItemId && targetProject?.items?.some(i => i.id === item.sourceOrderItemId);
 
       let updatedProjects = d.projects;
       if (!originalItemExists) {
-        // Vytvořit projektovou položku v cílovém projektu (typicky při přesunu ze Skladu na jiný projekt).
+        // Vytvoriť projektovou položku v cílovém projektu (typicky pri presunu zo Sklade na iný projekt).
         const qty = parseInt(item.batchQuantity, 10) || 1;
-        const priceCZK = parseFloat(item.purchasePriceCZK) || 0;
-        const unitPrice = qty > 0 ? priceCZK / qty : priceCZK;
+        const priceEUR = parseFloat(item.purchasePriceEUR) || 0;
+        const unitPrice = qty > 0 ? priceEUR / qty : priceEUR;
         const propagatedItem = {
           id: uid('item'),
           name: item.name,
@@ -809,18 +811,18 @@ export default function CashFlowPlanner() {
           quantity: qty,
           unit: 'ks',
           unitPrice,
-          currency: 'CZK', // purchasePriceCZK je již v CZK
+          currency: 'EUR', // purchasePriceEUR je už v EUR (bázová mena)
           supplierId: item.supplierId || '',
           supplier: item.supplierId ? '' : (item.supplierName || ''),
           orderNumber: item.orderNumber || '',
           purchaseDate: item.receivedDate || todayISO(),
           deliveredDate: item.receivedDate || todayISO(),
           paymentDueDate: '',
-          notes: `Ze skladu · ${item.serialNumber ? `S/N ${item.serialNumber}` : `naskladněno ${item.receivedDate || ''}`}${notes ? ` · ${notes}` : ''}`,
+          notes: `Zo sklade · ${item.serialNumber ? `S/N ${item.serialNumber}` : `naskladnené ${item.receivedDate || ''}`}${notes ? ` · ${notes}` : ''}`,
           status: 'delivered',
           isInvoiced: true, // materiál už byl kdysi zaplacen
           invoicedDate: item.receivedDate || todayISO(),
-          fromStockItemId: item.id, // odkaz zpět na kus ve skladu
+          fromStockItemId: item.id, // odkaz späť na kus ve sklade
         };
         updatedProjects = d.projects.map(p =>
           p.id === projectId ? { ...p, items: [...(p.items || []), propagatedItem] } : p
@@ -836,12 +838,12 @@ export default function CashFlowPlanner() {
     });
   };
 
-  // Smazat skladový kus (pouze pokud nemá historii nebo s confirm)
+  // Vymazať skladový kus (iba ak nemá historii alebo s confirm)
   const deleteStockItem = (id) => {
     setData(d => {
       const item = d.stockItems.find(s => s.id === id);
       if (!item) return d;
-      // Zapsat mazací pohyb pro audit trail — historie stavu ke dni musí sedět
+      // Zapsat mazací pohyb pre audit trail — historie stavu ke dni musí sedieť
       const movement = {
         id: uid('mov'),
         date: todayISO(),
@@ -852,7 +854,7 @@ export default function CashFlowPlanner() {
         quantity: parseInt(item.batchQuantity, 10) || 1,
         fromLocationId: item.locationId,
         toLocationId: null,
-        notes: 'Kus smazán ze skladu',
+        notes: 'Kus vymazaný zo sklade',
         createdAt: new Date().toISOString(),
       };
       return {
@@ -863,7 +865,7 @@ export default function CashFlowPlanner() {
     });
   };
 
-  // Bulk transfer - přesun více kusů najednou
+  // Bulk transfer - presun viac kusov naraz
   const bulkTransferStock = (items, toLocationId, notes) => {
     setData(d => {
       const today = todayISO();
@@ -875,7 +877,7 @@ export default function CashFlowPlanner() {
         itemName: it.name,
         serialNumber: it.serialNumber || '',
         quantity: parseInt(it.batchQuantity, 10) || 1,
-        amountCZK: parseFloat(it.purchasePriceCZK) || 0,
+        amountEUR: parseFloat(it.purchasePriceEUR) || 0,
         fromLocationId: it.locationId,
         toLocationId,
         notes: notes || '',
@@ -890,7 +892,7 @@ export default function CashFlowPlanner() {
     });
   };
 
-  // Bulk consume - spotřeba více kusů najednou na projekt
+  // Bulk consume - spotreba viac kusov naraz na projekt
   const bulkConsumeStock = (items, projectId, notes) => {
     setData(d => {
       const today = todayISO();
@@ -903,7 +905,7 @@ export default function CashFlowPlanner() {
         itemName: it.name,
         serialNumber: it.serialNumber || '',
         quantity: parseInt(it.batchQuantity, 10) || 1,
-        amountCZK: parseFloat(it.purchasePriceCZK) || 0,
+        amountEUR: parseFloat(it.purchasePriceEUR) || 0,
         fromLocationId: it.locationId,
         toLocationId: null,
         projectId,
@@ -912,18 +914,18 @@ export default function CashFlowPlanner() {
       }));
       const ids = new Set(items.map(it => it.id));
 
-      // Zkontrolovat, které kusy je potřeba propagovat: pouze ty, jejichž zdrojová objednávka
-      // NENÍ v cílovém projektu (jinak vzniká duplicita nákladů).
+      // Skontrolovať, ktoré kusy je potreba propagovať: iba ty, jejichž zdrojová objednávka
+      // NIE JE v cílovém projektu (inak vzniká duplicita nákladov).
       const targetProject = d.projects.find(p => p.id === projectId);
       const existingItemIds = new Set((targetProject?.items || []).map(i => i.id));
 
-      // Propagovat pouze kusy, které přinesou novou položku (bez duplikace)
+      // Propagovať iba kusy, ktoré prinesú novou položku (bez duplikace)
       const propagatedItems = consumable
         .filter(it => !(it.sourceOrderItemId && existingItemIds.has(it.sourceOrderItemId)))
         .map(it => {
           const qty = parseInt(it.batchQuantity, 10) || 1;
-          const priceCZK = parseFloat(it.purchasePriceCZK) || 0;
-          const unitPrice = qty > 0 ? priceCZK / qty : priceCZK;
+          const priceEUR = parseFloat(it.purchasePriceEUR) || 0;
+          const unitPrice = qty > 0 ? priceEUR / qty : priceEUR;
           return {
             id: uid('item'),
             name: it.name,
@@ -931,14 +933,14 @@ export default function CashFlowPlanner() {
             quantity: qty,
             unit: 'ks',
             unitPrice,
-            currency: 'CZK',
+            currency: 'EUR',
             supplierId: it.supplierId || '',
             supplier: it.supplierId ? '' : (it.supplierName || ''),
             orderNumber: it.orderNumber || '',
             purchaseDate: it.receivedDate || today,
             deliveredDate: it.receivedDate || today,
             paymentDueDate: '',
-            notes: `Ze skladu · ${it.serialNumber ? `S/N ${it.serialNumber}` : `naskladněno ${it.receivedDate || ''}`}${notes ? ` · ${notes}` : ''}`,
+            notes: `Zo sklade · ${it.serialNumber ? `S/N ${it.serialNumber}` : `naskladnené ${it.receivedDate || ''}`}${notes ? ` · ${notes}` : ''}`,
             status: 'delivered',
             isInvoiced: true,
             invoicedDate: it.receivedDate || today,
@@ -970,12 +972,12 @@ export default function CashFlowPlanner() {
     }));
   };
 
-  // Import objednávky: aplikuje patches na existující položky + vytvoří nové
+  // Import objednávky: aplikuje patches na existující položky + vytvorí nové
   const importOrderResult = (result) => {
     setData(d => {
       let updatedProjects = d.projects.map(p => ({ ...p, items: [...p.items] }));
 
-      // 1) Patches - aktualizovat existující položky
+      // 1) Patches - aktualizovať existující položky
       (result.patches || []).forEach(({ projectId, itemId, patch }) => {
         const proj = updatedProjects.find(p => p.id === projectId);
         if (proj) {
@@ -983,7 +985,7 @@ export default function CashFlowPlanner() {
         }
       });
 
-      // 2) Nové položky - vytvořit v cílových projektech
+      // 2) Nové položky - vytvoriť v cílových projektoch
       (result.newItems || []).forEach(({ projectId, item }) => {
         const proj = updatedProjects.find(p => p.id === projectId);
         if (proj) {
@@ -995,16 +997,16 @@ export default function CashFlowPlanner() {
     });
   };
 
-  // Import z PDF (AI) — nové položky se přidají do zvoleného projektu jako "objednané"
+  // Import z PDF (AI) — nové položky sa pridajú do zvoleného projektu ako "objednané"
   const importPdfResult = (result) => {
     const { projectId, supplierId, supplierFreeText, orderNumber, issueDate, dueDate, currency, items, attachment, mode, matches } = result;
 
-    // Režim "attach" — přehrát existující položky objednávky daty z faktury
+    // Režim "attach" — prehrať existující položky objednávky daty z faktúry
     if (mode === 'attach' && Array.isArray(matches)) {
       setData(d => {
         const updatedProjects = d.projects.map(p => {
           const projItems = [...(p.items || [])];
-          // Zpracovat každé páry (matchedItemId → aiItem)
+          // Spracovať každé páry (matchedItemId → aiItem)
           matches.forEach(m => {
             if (m.action === 'overwrite' && m.orderItemId) {
               const idx = projItems.findIndex(x => x.id === m.orderItemId);
@@ -1021,7 +1023,7 @@ export default function CashFlowPlanner() {
                 };
               }
             } else if (m.action === 'add' && p.id === projectId) {
-              // Nová položka z faktury, která nebyla v původní objednávce
+              // Nová položka z faktúry, ktorá nebyla v pôvodný objednávke
               projItems.push({
                 id: uid('item'),
                 name: m.aiItem.name.trim(),
@@ -1029,7 +1031,7 @@ export default function CashFlowPlanner() {
                 quantity: parseFloat(m.aiItem.quantity) || 0,
                 unit: m.aiItem.unit || 'ks',
                 unitPrice: parseFloat(m.aiItem.unitPrice) || 0,
-                currency: currency || 'CZK',
+                currency: currency || 'EUR',
                 supplierId: supplierId || '',
                 supplier: supplierId ? '' : (supplierFreeText || ''),
                 orderNumber: orderNumber || '',
@@ -1067,7 +1069,7 @@ export default function CashFlowPlanner() {
       return;
     }
 
-    // Standardní režim "create" — vytvořit nové položky
+    // Štandardný režim "create" — vytvoriť nové položky
     setData(d => {
       const newItems = items.map(it => ({
         id: uid('item'),
@@ -1076,7 +1078,7 @@ export default function CashFlowPlanner() {
         quantity: parseFloat(it.quantity) || 0,
         unit: it.unit || 'ks',
         unitPrice: parseFloat(it.unitPrice) || 0,
-        currency: currency || 'CZK',
+        currency: currency || 'EUR',
         supplierId: supplierId || '',
         supplier: supplierId ? '' : (supplierFreeText || ''),
         orderNumber: orderNumber || '',
@@ -1108,8 +1110,8 @@ export default function CashFlowPlanner() {
     });
   };
 
-  // Pokud aktuální view není pro roli dostupná, přepnout na první dostupnou
-  // POZN: useEffect MUSÍ být před všemi early returns (Rules of Hooks)
+  // Ak aktuálny view nie je pre roli dostupná, prepnúť na prvý dostupnou
+  // POZN: useEffect MUSÍ byť pred všetkými early returns (Rules of Hooks)
   useEffect(() => {
     if (!authUser) return;
     if (!canAccessView(authUser.role, view)) {
@@ -1143,7 +1145,7 @@ export default function CashFlowPlanner() {
               <span style={{ color: '#c4ff3d' }}>Cash Flow</span> <span style={{ color: '#fff' }}>Planner</span>
             </h1>
             <p style={styles.subtitle}>
-              Příjmy · Výdaje · Plánování cash flow
+              Príjmy · Výdavky · Plánování cash flow
               <span style={{ marginLeft: 10, padding: '1px 7px', fontSize: 10, fontWeight: 600, background: 'rgba(196, 255, 61, 0.18)', color: '#c4ff3d', borderRadius: 4, letterSpacing: '0.04em', verticalAlign: 1 }}>
                 v{APP_VERSION}
               </span>
@@ -1152,13 +1154,13 @@ export default function CashFlowPlanner() {
         </div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {canAccessView(authUser.role, 'dashboard') && (
-            <NavButton active={view === 'dashboard'} onClick={() => { setFocusKey(null); setView('dashboard'); }} icon={<LayoutDashboard size={15} />}>Přehled</NavButton>
+            <NavButton active={view === 'dashboard'} onClick={() => { setFocusKey(null); setView('dashboard'); }} icon={<LayoutDashboard size={15} />}>Prehľad</NavButton>
           )}
           {canAccessView(authUser.role, 'projects') && (
             <NavButton active={view === 'project'} onClick={() => { setFocusKey(null); setView('project'); }} icon={<Package size={15} />}>Projekty</NavButton>
           )}
           {canAccessView(authUser.role, 'purchaseList') && (
-            <NavButton active={view === 'purchaseList'} onClick={() => { setFocusKey(null); setView('purchaseList'); }} icon={<ShoppingCart size={15} />}>Nákupní seznam</NavButton>
+            <NavButton active={view === 'purchaseList'} onClick={() => { setFocusKey(null); setView('purchaseList'); }} icon={<ShoppingCart size={15} />}>Nákupný zoznam</NavButton>
           )}
           {canAccessView(authUser.role, 'orders') && (
             <NavButton active={view === 'orders'} onClick={() => { setFocusKey(null); setView('orders'); }} icon={<ListChecks size={15} />}>Objednávky</NavButton>
@@ -1169,19 +1171,19 @@ export default function CashFlowPlanner() {
           {canAccessView(authUser.role, 'cashflow') && (
             <NavButton active={view === 'cashflow'} onClick={() => { setFocusKey(null); setView('cashflow'); }} icon={<Calendar size={15} />}>Cash flow</NavButton>
           )}
-          {/* Katalog a Dodavatelé dostupní pro všechny role kromě Management (jen čtení) — Management je má přes ne-readOnly modal */}
+          {/* Katalog a Dodávatelia dostupní pre všetky role okrem Management (len čítanie) — Management je má cez ne-readOnly modal */}
           <button style={styles.secondaryBtnDark} onClick={() => setModal({ type: 'catalog' })}>
             <BookOpen size={15} /> Katalog ({data.catalog.length})
           </button>
           <button style={styles.secondaryBtnDark} onClick={() => setModal({ type: 'suppliers' })}>
-            <Users size={15} /> Dodavatelé ({data.suppliers.length})
+            <Users size={15} /> Dodávatelia ({data.suppliers.length})
           </button>
           {canAccessSettings(authUser.role) && (
             <button style={styles.secondaryBtnDark} onClick={() => setModal({ type: 'settings' })}>
-              <Settings size={15} /> Nastavení
+              <Settings size={15} /> Nastavenia
             </button>
           )}
-          {/* Nový projekt — jen pro role které mohou editovat (admin/finance/editor) */}
+          {/* Nový projekt — len pre role ktoré môžu editovať (admin/finance/editor) */}
           {canEdit(authUser.role) && (
             <button style={styles.primaryBtn} onClick={() => setModal({ type: 'project' })}>
               <FolderPlus size={15} /> Nový projekt
@@ -1213,9 +1215,9 @@ export default function CashFlowPlanner() {
             const item = proj?.items.find(i => i.id === itemId);
             if (!item) return;
             const s = item.status || 'planned';
-            // Nastavit focus pro zvýraznění v cílové sekci
+            // Nastaviť focus pre zvýraznenie v cílové sekci
             setFocusKey({ projectId, itemId, ts: Date.now() });
-            // Planned → Nákupní seznam; cokoliv jiného → Objednávky
+            // Planned → Nákupný zoznam; cokoliv iného → Objednávky
             if (s === 'planned') {
               setView('purchaseList');
             } else {
@@ -1272,7 +1274,7 @@ export default function CashFlowPlanner() {
               setView('projects');
               setFocusKey({ projectId, ts: Date.now() });
             } else {
-              // Skok do objednávek
+              // Skok do objednávok
               setView('orders');
               setFocusKey({ orderNumber, itemId, ts: Date.now() });
             }
@@ -1473,19 +1475,19 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
     const out = [];
     projects.forEach(p => {
       p.items.forEach(item => {
-        // Vyfakturované položky jsou v saldu závazků jinde — vynecháváme je z přehledu závazků
+        // Vyfakturované položky sú v saldu záväzkov jinde — vynecháváme je z prehľade záväzkov
         if (item.isInvoiced) return;
 
         const sup = suppliers.find(s => s.id === item.supplierId);
-        const totalCZK = toCZK(item, fxRate);
-        if (totalCZK <= 0) return;
-        const payments = computePayments(item, sup, totalCZK);
+        const totalEUR = toEUR(item, fxRate);
+        if (totalEUR <= 0) return;
+        const payments = computePayments(item, sup, totalEUR);
         payments.forEach((pay, idx) => {
           out.push({
             type: 'outflow',
             projectId: p.id, projectName: p.name,
             itemId: item.id, itemName: item.name,
-            supplierName: sup?.name || item.supplier || '(bez dodavatele)',
+            supplierName: sup?.name || item.supplier || '(bez dodávateľa)',
             status: item.status || 'planned',
             tranche: pay.kind, amount: pay.amount * dashVatMultiplier, // s DPH
             amountNet: pay.amount,
@@ -1498,7 +1500,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
     return out;
   }, [projects, suppliers, dashVatMultiplier]);
 
-  // Buckets - jen výdaje
+  // Buckets - len výdavky
   const overdueOut = allPayments.filter(p => p.dueDate && p.dueDate < today);
   const due7Out = allPayments.filter(p => p.dueDate && p.dueDate >= today && daysBetween(p.dueDate, today) <= 7);
   const due30Out = allPayments.filter(p => p.dueDate && p.dueDate >= today && daysBetween(p.dueDate, today) <= 30);
@@ -1507,8 +1509,8 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
 
   const totalOpenOut = sum(allPayments);
 
-  // ===== Příchozí platby od klientů =====
-  // Plánováno/vyfakturováno (status 'paid' přeskakujeme — peníze už dorazily)
+  // ===== Prichádzajúce platby od klientov =====
+  // Plánované/vyfakturované (status 'paid' preskakujeme — peniaze už dorazili)
   const incomingPayments = useMemo(() => {
     const out = [];
     projects.forEach(p => {
@@ -1516,14 +1518,14 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
         if (cp.status === 'paid') return;
         const amount = parseFloat(cp.amount) || 0;
         if (amount === 0) return;
-        const amountCZK = cp.currency === 'EUR' ? amount * fxRate : amount;
+        const amountEUR = cp.currency === 'CZK' ? (fxRate > 0 ? amount / fxRate : amount) : amount;
         out.push({
           paymentId: cp.id,
           projectId: p.id, projectName: p.name, projectClient: p.client || '',
           label: cp.label || '(bez popisu)',
           status: cp.status || 'planned',
           dueDate: cp.dueDate || '',
-          amount: amountCZK,
+          amount: amountEUR,
         });
       });
     });
@@ -1534,7 +1536,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
   const due7In = incomingPayments.filter(p => p.dueDate && p.dueDate >= today && daysBetween(p.dueDate, today) <= 7);
   const due30In = incomingPayments.filter(p => p.dueDate && p.dueDate >= today && daysBetween(p.dueDate, today) <= 30);
 
-  // Příchozí platby pro dashboard karty
+  // Prichádzajúce platby pre dashboard karty
   const overdueIncoming = useMemo(() => {
     return incomingPayments
       .filter(p => p.dueDate && p.dueDate < today)
@@ -1552,23 +1554,23 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
       .slice(0, 8);
   }, [incomingPayments, today]);
 
-  // Upcoming items to order — položky v nákupním seznamu s blízkým plánovaným datem objednání
+  // Upcoming items to order — položky v nákupnom zozname s blízkým plánovaným dátumom objednanie
   const upcomingToOrder = useMemo(() => {
     const out = [];
     projects.forEach(p => {
       p.items.forEach(item => {
-        if ((item.status || 'planned') !== 'planned') return; // jen ještě neobjednané
-        const totalCZK = toCZK(item, fxRate);
-        if (totalCZK <= 0) return;
+        if ((item.status || 'planned') !== 'planned') return; // len ešte neobjednané
+        const totalEUR = toEUR(item, fxRate);
+        if (totalEUR <= 0) return;
         const sup = suppliers.find(s => s.id === item.supplierId);
         out.push({
           projectId: p.id, projectName: p.name,
           itemId: item.id, itemName: item.name,
-          supplierName: sup?.name || item.supplier || '(bez dodavatele)',
+          supplierName: sup?.name || item.supplier || '(bez dodávateľa)',
           supplierMissing: !item.supplierId && !item.supplier,
           plannedOrderDate: item.plannedOrderDate || '',
           plannedDeliveryDate: item.plannedDeliveryDate || '',
-          amount: totalCZK,
+          amount: totalEUR,
           quantity: item.quantity, unit: item.unit,
           notes: item.notes,
         });
@@ -1579,7 +1581,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
       .sort((a, b) => a.plannedOrderDate.localeCompare(b.plannedOrderDate));
   }, [projects, suppliers, fxRate]);
 
-  // Položky bez plánovaného data objednání (pro info)
+  // Položky bez plánovaného data objednanie (pre info)
   const itemsWithoutOrderDate = useMemo(() => {
     let count = 0;
     projects.forEach(p => p.items.forEach(item => {
@@ -1590,7 +1592,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
 
   const totalProjects = projects.length;
   const totalItems = projects.reduce((s, p) => s + p.items.length, 0);
-  const totalPipeline = projects.reduce((s, p) => s + p.items.reduce((ss, i) => ss + toCZK(i, fxRate), 0), 0);
+  const totalPipeline = projects.reduce((s, p) => s + p.items.reduce((ss, i) => ss + toEUR(i, fxRate), 0), 0);
 
   const statusCounts = STATUSES.reduce((acc, s) => {
     acc[s.id] = projects.reduce((sum, p) => sum + p.items.filter(i => (i.status || 'planned') === s.id).length, 0);
@@ -1601,14 +1603,14 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
     return (
       <div style={styles.empty}>
         <div style={styles.emptyIcon}><LayoutDashboard size={64} style={{ color: '#94a3b8' }} /></div>
-        <h2 style={styles.emptyTitle}>Vítejte v přehledu</h2>
+        <h2 style={styles.emptyTitle}>Vítejte v prehľade</h2>
         <p style={styles.emptyText}>
           {readOnly
-            ? 'Zatím zde nejsou žádné projekty. Až je administrátor přidá, uvidíte je zde.'
-            : 'Vytvořte svůj první projekt a začněte sledovat příjmy, výdaje a cash flow.'}
+            ? 'Zatiaľ tu nie sú žiadne projekty. Až je administrátor pridá, uvidíte je tu.'
+            : 'Vytvorte svoj prvý projekt a začnite sledovať príjmy, výdavky a cash flow.'}
         </p>
         {!readOnly && (
-          <button style={styles.primaryBtn} onClick={onCreateProject}><FolderPlus size={16} /> Vytvořit první projekt</button>
+          <button style={styles.primaryBtn} onClick={onCreateProject}><FolderPlus size={16} /> Vytvoriť prvý projekt</button>
         )}
       </div>
     );
@@ -1618,7 +1620,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
     <main style={styles.main}>
       <div style={styles.mainHeader}>
         <div>
-          <h2 style={styles.projectTitle}>Přehled</h2>
+          <h2 style={styles.projectTitle}>Prehľad</h2>
           <p style={{ margin: '6px 0 0', color: '#64748b', fontSize: 14 }}>
             Income · Outflow · Action items
           </p>
@@ -1627,12 +1629,12 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
 
       {/* Net position & totals */}
       <div style={styles.summaryGrid}>
-        <SummaryCard label="Otevřené výdaje" value={fmt(totalOpenOut)} accent="#dc2626" icon={<ArrowUpCircle size={15} />} />
+        <SummaryCard label="Otvorené výdavky" value={fmt(totalOpenOut)} accent="#dc2626" icon={<ArrowUpCircle size={15} />} />
         <SummaryCard label="Celkové plánované náklady" value={fmt(totalPipeline)} accent="#0f172a" />
         {stockItems.filter(s => s.status !== 'consumed').length > 0 && (
           <>
             <SummaryCard
-              label="Kusů na skladě"
+              label="Kusov na sklade"
               value={String(stockItems.filter(s => s.status !== 'consumed').length)}
               accent="#10b981"
               icon={<Warehouse size={15} />}
@@ -1640,7 +1642,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
             />
             <SummaryCard
               label="Hodnota skladu"
-              value={fmt(stockItems.filter(s => s.status !== 'consumed').reduce((sum, s) => sum + (parseFloat(s.purchasePriceCZK) || 0), 0))}
+              value={fmt(stockItems.filter(s => s.status !== 'consumed').reduce((sum, s) => sum + (parseFloat(s.purchasePriceEUR) || 0), 0))}
               accent="#0d3825"
               onClick={onGoToStock}
             />
@@ -1666,7 +1668,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
         <div style={styles.dashPanel}>
           <div style={{ ...styles.dashPanelHeader, color: '#10b981' }}>
             <h3 style={{ margin: 0, fontSize: 14, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 6 }}>
-              <ArrowUpCircle size={15} style={{ transform: 'rotate(180deg)' }} /> Inflows (platby od klientů)
+              <ArrowUpCircle size={15} style={{ transform: 'rotate(180deg)' }} /> Inflows (platby od klientov)
             </h3>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 0 }}>
@@ -1677,16 +1679,16 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
         </div>
       </div>
 
-      {/* Panel: Příchozí platby po splatnosti */}
+      {/* Panel: Prichádzajúce platby po splatnosti */}
       {overdueIncoming.length > 0 && (
         <div style={{ ...styles.dashPanel, marginBottom: 20, borderTop: '3px solid #dc2626' }}>
           <div style={styles.dashPanelHeader}>
             <div style={{ flex: 1, minWidth: 0 }}>
               <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700, color: '#dc2626' }}>
-                ⚠ Příchozí platby po splatnosti ({overdueIncoming.length})
+                ⚠ Prichádzajúce platby po splatnosti ({overdueIncoming.length})
               </h3>
               <p style={{ margin: '2px 0 0', fontSize: 12, color: '#64748b' }}>
-                Platby od klientů, které měly být zaplaceny
+                Platby od klientov, ktoré mali byť zaplaceny
               </p>
             </div>
             <button style={styles.sortBtn} onClick={onGoToCashflow}>
@@ -1701,7 +1703,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
                   <th style={styles.th}>Popis</th>
                   <th style={styles.th}>Projekt</th>
                   <th style={styles.th}>Status</th>
-                  <th style={{ ...styles.th, textAlign: 'right' }}>Částka</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Suma</th>
                 </tr>
               </thead>
               <tbody>
@@ -1713,7 +1715,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
                       key={p.paymentId}
                       style={{ ...styles.tr, background: '#fef2f2', cursor: 'pointer' }}
                       onClick={() => onGoToProject && onGoToProject(p.projectId)}
-                      title="Otevřít projekt"
+                      title="Otvoriť projekt"
                     >
                       <td style={styles.td}>
                         <div style={{ fontWeight: 500 }}>{p.dueDate}</div>
@@ -1744,16 +1746,16 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
         </div>
       )}
 
-      {/* Panel: Příchozí platby splatné brzy */}
+      {/* Panel: Prichádzajúce platby splatné brzy */}
       {dueSoonIncoming.length > 0 && (
         <div style={{ ...styles.dashPanel, marginBottom: 20 }}>
           <div style={styles.dashPanelHeader}>
             <div style={{ flex: 1, minWidth: 0 }}>
               <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700 }}>
-                📅 Příchozí platby splatné brzy ({dueSoonIncoming.length})
+                📅 Prichádzajúce platby splatné brzy ({dueSoonIncoming.length})
               </h3>
               <p style={{ margin: '2px 0 0', fontSize: 12, color: '#64748b' }}>
-                Platby od klientů splatné v následujících 5 dnech
+                Platby od klientov splatné v nasledujúcich 5 dňoch
               </p>
             </div>
             <button style={styles.sortBtn} onClick={onGoToCashflow}>
@@ -1768,7 +1770,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
                   <th style={styles.th}>Popis</th>
                   <th style={styles.th}>Projekt</th>
                   <th style={styles.th}>Status</th>
-                  <th style={{ ...styles.th, textAlign: 'right' }}>Částka</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Suma</th>
                 </tr>
               </thead>
               <tbody>
@@ -1780,12 +1782,12 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
                       key={p.paymentId}
                       style={{ ...styles.tr, cursor: 'pointer' }}
                       onClick={() => onGoToProject && onGoToProject(p.projectId)}
-                      title="Otevřít projekt"
+                      title="Otvoriť projekt"
                     >
                       <td style={styles.td}>
                         <div style={{ fontWeight: 500 }}>{p.dueDate}</div>
                         <div style={{ fontSize: 10, color: '#94a3b8' }}>
-                          {dueIn === 0 ? 'dnes' : `za ${dueIn} ${dueIn === 1 ? 'den' : dueIn < 5 ? 'dny' : 'dní'}`}
+                          {dueIn === 0 ? 'dnes' : `za ${dueIn} ${dueIn === 1 ? 'deň' : dueIn < 5 ? 'dni' : 'dní'}`}
                         </div>
                       </td>
                       <td style={styles.td}>{p.label}</td>
@@ -1816,9 +1818,9 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
         <div style={styles.dashPanel}>
           <div style={styles.dashPanelHeader}>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700 }}>Nadcházející položky k objednání</h3>
+              <h3 style={{ margin: 0, fontSize: 15, fontWeight: 700 }}>Nadchádzajúce položky k objednanie</h3>
               <p style={{ margin: '2px 0 0', fontSize: 12, color: '#64748b' }}>
-                Položky z nákupního seznamu seřazené podle plánovaného data objednání
+                Položky z nákupného zozname zoradené podľa plánovaného data objednanie
                 {itemsWithoutOrderDate > 0 && (
                   <span style={{ marginLeft: 6, padding: '1px 6px', borderRadius: 999, background: '#fef3c7', color: '#92400e', fontSize: 11, fontWeight: 600 }}>
                     +{itemsWithoutOrderDate} bez data
@@ -1827,17 +1829,17 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
               </p>
             </div>
             <button style={styles.sortBtn} onClick={onGoToPurchaseList}>
-              Nákupní seznam →
+              Nákupný zoznam →
             </button>
           </div>
 
           {upcomingToOrder.length === 0 ? (
             <div style={{ padding: '40px 20px', textAlign: 'center', color: '#94a3b8' }}>
               <ShoppingCart size={32} style={{ color: '#10b981', marginBottom: 10 }} />
-              <p style={{ margin: 0 }}>Žádné položky čekající na objednání s nastaveným datem.</p>
+              <p style={{ margin: 0 }}>Žiadne položky čekající na objednanie s nastaveným dátumom.</p>
               {itemsWithoutOrderDate > 0 && (
                 <p style={{ margin: '6px 0 0', fontSize: 12 }}>
-                  V nákupním seznamu je {itemsWithoutOrderDate} {itemsWithoutOrderDate === 1 ? 'položka' : itemsWithoutOrderDate < 5 ? 'položky' : 'položek'} bez plánovaného data objednání.
+                  V nákupnom zozname je {itemsWithoutOrderDate} {itemsWithoutOrderDate === 1 ? 'položka' : itemsWithoutOrderDate < 5 ? 'položky' : 'položek'} bez plánovaného data objednanie.
                 </p>
               )}
             </div>
@@ -1860,7 +1862,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
                         color: isOverdue ? '#dc2626' : isSoon ? '#d97706' : '#475569',
                       }}>
                         <div style={{ fontSize: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                          {isOverdue ? `${-days} d zpoždění` : days === 0 ? 'Dnes' : days === 1 ? 'Zítra' : `za ${days} d`}
+                          {isOverdue ? `${-days} d omeškanie` : days === 0 ? 'Dnes' : days === 1 ? 'Zajtra' : `za ${days} d`}
                         </div>
                         <div style={{ fontSize: 12, fontWeight: 700, marginTop: 2 }}>{it.plannedOrderDate.slice(5)}</div>
                       </div>
@@ -1877,7 +1879,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
                           <span style={{ fontWeight: 600, fontSize: 14 }}>{it.itemName}</span>
                           {it.supplierMissing && (
                             <span style={{ fontSize: 10, padding: '2px 6px', borderRadius: 4, background: '#fee2e2', color: '#b91c1c', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                              ⚠ bez dodavatele
+                              ⚠ bez dodávateľa
                             </span>
                           )}
                         </div>
@@ -1913,7 +1915,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
                     <span style={{ color: '#1d4ed8', fontWeight: 600 }}>{projects.filter(p => (p.status || 'active') === 'active').length}</span>
                     {' '}v procesu ·{' '}
                     <span style={{ color: '#15803d', fontWeight: 600 }}>{projects.filter(p => p.status === 'completed').length}</span>
-                    {' '}dokončeno
+                    {' '}dokončené
                   </div>
                 </div>
                 <div style={{ flex: 1 }}>
@@ -1959,7 +1961,7 @@ function DashboardView({ projects, categories, suppliers, stockItems = [], locat
         </div>
         <div style={{ padding: 16, display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 10 }}>
           {projects.map(p => {
-            const cost = p.items.reduce((s, i) => s + toCZK(i, fxRate), 0);
+            const cost = p.items.reduce((s, i) => s + toEUR(i, fxRate), 0);
             const itemCount = p.items.length;
             const isCompleted = (p.status || 'active') === 'completed';
             return (
@@ -2011,9 +2013,9 @@ function EmptyState({ onCreate }) {
   return (
     <div style={styles.empty}>
       <div style={styles.emptyIcon}><Package size={64} style={{ color: '#94a3b8' }} /></div>
-      <h2 style={styles.emptyTitle}>Zatím žádné projekty</h2>
-      <p style={styles.emptyText}>Vytvořte svůj první projekt a začněte plánovat.</p>
-      <button style={styles.primaryBtn} onClick={onCreate}><FolderPlus size={16} /> Vytvořit první projekt</button>
+      <h2 style={styles.emptyTitle}>Zatiaľ žiadne projekty</h2>
+      <p style={styles.emptyText}>Vytvorte svoj prvý projekt a začnite plánovať.</p>
+      <button style={styles.primaryBtn} onClick={onCreate}><FolderPlus size={16} /> Vytvoriť prvý projekt</button>
     </div>
   );
 }
@@ -2021,11 +2023,11 @@ function EmptyState({ onCreate }) {
 function ProjectSidebar({ projects, activeId, fxRate, readOnly, onSelect, onDelete }) {
   const [query, setQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('active'); // 'active' | 'completed' | 'all'
-  const [confirmDeleteId, setConfirmDeleteId] = useState(null); // id projektu čekajícího na potvrzení smazání
+  const [confirmDeleteId, setConfirmDeleteId] = useState(null); // id projektu čekajícího na potvrdenie vymazanie
 
   const filtered = useMemo(() => {
-    // Systémový projekt "Sklad" se v sidebaru nezobrazuje —
-    // je přístupný jen jako volba v importech a při spotřebě, jinak by mátl uživatele.
+    // Systémový projekt "Sklad" sa v sidebaru nezobrazuje —
+    // je prístupný len ako voľba v importech a pri spotrebe, inak by mátl používateľa.
     let list = projects.filter(p => !p.isStockProject);
     // Status filter
     if (statusFilter === 'active') list = list.filter(p => (p.status || 'active') === 'active');
@@ -2042,7 +2044,7 @@ function ProjectSidebar({ projects, activeId, fxRate, readOnly, onSelect, onDele
     return list;
   }, [projects, query, statusFilter]);
 
-  // Počty berou v úvahu jen reálné projekty (Sklad se nepočítá)
+  // Počty berou v úvahu len reálne projekty (Sklad sa nepočítá)
   const realProjects = projects.filter(p => !p.isStockProject);
   const activeCount = realProjects.filter(p => (p.status || 'active') === 'active').length;
   const completedCount = realProjects.filter(p => p.status === 'completed').length;
@@ -2061,7 +2063,7 @@ function ProjectSidebar({ projects, activeId, fxRate, readOnly, onSelect, onDele
           Dokončené ({completedCount})
         </button>
         <button onClick={() => setStatusFilter('all')} style={{ ...(statusFilter === 'all' ? styles.sortBtnActive : styles.sortBtn), fontSize: 11 }}>
-          Vše
+          Všetko
         </button>
       </div>
       <div style={styles.projectList}>
@@ -2070,7 +2072,7 @@ function ProjectSidebar({ projects, activeId, fxRate, readOnly, onSelect, onDele
             Nic nenalezeno.
           </div>
         ) : filtered.map(p => {
-          const total = p.items.reduce((s, i) => s + toCZK(i, fxRate), 0);
+          const total = p.items.reduce((s, i) => s + toEUR(i, fxRate), 0);
           const isActive = p.id === activeId;
           const isCompleted = (p.status || 'active') === 'completed';
           return (
@@ -2090,19 +2092,19 @@ function ProjectSidebar({ projects, activeId, fxRate, readOnly, onSelect, onDele
                       <button
                         onClick={(e) => { e.stopPropagation(); onDelete(p.id); setConfirmDeleteId(null); }}
                         style={{ ...styles.iconBtn, color: '#dc2626', background: '#fee2e2', border: '1px solid #fca5a5' }}
-                        title="Potvrdit smazání"
+                        title="Potvrdiť vymazanie"
                       ><Trash2 size={14} /></button>
                       <button
                         onClick={(e) => { e.stopPropagation(); setConfirmDeleteId(null); }}
                         style={{ ...styles.iconBtn, color: '#64748b' }}
-                        title="Zrušit"
+                        title="Zrušiť"
                       ><X size={14} /></button>
                     </div>
                   ) : (
                     <button
                       onClick={(e) => { e.stopPropagation(); setConfirmDeleteId(p.id); }}
                       style={styles.iconBtn}
-                      title="Smazat projekt"
+                      title="Vymazať projekt"
                     ><Trash2 size={14} /></button>
                   )
                 )}
@@ -2110,7 +2112,7 @@ function ProjectSidebar({ projects, activeId, fxRate, readOnly, onSelect, onDele
               <div style={styles.projectMeta}>
                 {p.power && <span>{p.power} kWp</span>}
                 <span>{p.items.length} položek</span>
-                {isCompleted && <span style={{ color: '#10b981', fontWeight: 600 }}>Dokončeno</span>}
+                {isCompleted && <span style={{ color: '#10b981', fontWeight: 600 }}>Dokončené</span>}
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 6, fontSize: 12 }}>
                 <span style={{ color: '#dc2626' }}>-{fmt(total)}</span>
@@ -2142,7 +2144,7 @@ function SearchInput({ value, onChange, placeholder }) {
           type="button"
           onClick={() => onChange('')}
           style={{ position: 'absolute', right: 6, top: '50%', transform: 'translateY(-50%)', background: 'transparent', border: 'none', color: '#94a3b8', cursor: 'pointer', padding: 4, display: 'flex' }}
-          title="Vymazat vyhledávání"
+          title="Vymazať vyhledávání"
         >
           <X size={14} />
         </button>
@@ -2152,22 +2154,22 @@ function SearchInput({ value, onChange, placeholder }) {
 }
 // ==========================================================================
 // Project completion validation
-// Returns { ok: boolean, blockers: [{ kind, count, totalCZK, samples: [name] }] }
+// Returns { ok: boolean, blockers: [{ kind, count, totalEUR, samples: [name] }] }
 // A project is closeable when EVERY item is 'delivered' AND isInvoiced.
 function validateCompletion(project, fxRate, settings) {
   const blockers = [];
   const items = project.items || [];
 
   if (items.length === 0) {
-    blockers.push({ kind: 'noItems', label: 'Projekt nemá žádné položky', count: 0, totalCZK: 0, samples: [] });
+    blockers.push({ kind: 'noItems', label: 'Projekt nemá žiadne položky', count: 0, totalEUR: 0, samples: [] });
     return { ok: false, blockers };
   }
 
-  // Projekt je dokončitelný, když všechny položky jsou dodané a vyfakturované
+  // Projekt je dokončiteľný, keď všetky položky sú dodané a vyfakturované
   const buckets = {
-    planned: { kind: 'planned', label: 'položek je teprve plánovaných (zatím neobjednáno)', items: [] },
-    ordered: { kind: 'ordered', label: 'položek je objednáno, ale zatím nedodáno', items: [] },
-    delivered_not_invoiced: { kind: 'delivered_not_invoiced', label: 'položek je dodáno, ale zatím nevyfakturováno', items: [] },
+    planned: { kind: 'planned', label: 'položek je len plánovaných (zatiaľ neobjednáno)', items: [] },
+    ordered: { kind: 'ordered', label: 'položek je objednané, ale zatiaľ nedodané', items: [] },
+    delivered_not_invoiced: { kind: 'delivered_not_invoiced', label: 'položek je dodané, ale zatiaľ nevyfakturované', items: [] },
   };
 
   items.forEach(i => {
@@ -2184,7 +2186,7 @@ function validateCompletion(project, fxRate, settings) {
         kind: b.kind,
         label: b.label,
         count: b.items.length,
-        totalCZK: b.items.reduce((s, i) => s + toCZK(i, fxRate), 0),
+        totalEUR: b.items.reduce((s, i) => s + toEUR(i, fxRate), 0),
         samples: b.items.slice(0, 3).map(i => i.name),
       });
     }
@@ -2199,7 +2201,7 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
 
   const spendByCategory = useMemo(() => {
     return categories.reduce((acc, cat) => {
-      acc[cat.id] = project.items.filter(i => i.category === cat.id).reduce((sum, i) => sum + toCZK(i, fxRate), 0);
+      acc[cat.id] = project.items.filter(i => i.category === cat.id).reduce((sum, i) => sum + toEUR(i, fxRate), 0);
       return acc;
     }, {});
   }, [project, categories, fxRate]);
@@ -2217,7 +2219,7 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
     return acc;
   }, {});
 
-  // PDF dokumenty spojené s tímto projektem (buď explicitně přidané, nebo z importu objednávky)
+  // PDF dokumenty spojené s tímto projektom (buď explicitne pridané, alebo z importu objednávky)
   const projectPdfs = useMemo(() => {
     return (pdfAttachments || []).filter(a => a.projectId === project.id);
   }, [pdfAttachments, project.id]);
@@ -2232,33 +2234,33 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
             <h2 style={styles.projectTitle}>{project.name}</h2>
             <ProjectStatusBadge status={project.status || 'active'} />
             {!readOnly && (
-              <button style={styles.iconBtn} onClick={onEditMeta} title="Upravit projekt"><Edit3 size={15} /></button>
+              <button style={styles.iconBtn} onClick={onEditMeta} title="Upraviť projekt"><Edit3 size={15} /></button>
             )}
           </div>
           <div style={styles.projectTags}>
             {project.client && <span style={styles.tag}>{project.client}</span>}
             {project.power && <span style={styles.tag}>{project.power} kWp</span>}
             <span style={styles.tag}>{project.items.length} položek</span>
-            <span style={styles.tag}>EUR → CZK @ {fxRate}</span>
+            <span style={styles.tag}>1 EUR = {fxRate} CZK</span>
           </div>
         </div>
         <div style={styles.headerActions}>
           {!readOnly && ((project.status || 'active') === 'completed' ? (
             <button style={styles.secondaryBtn} onClick={() => onSetProjectStatus('active')}>
-              <CircleDot size={15} /> Znovu otevřít projekt
+              <CircleDot size={15} /> Znova otvoriť projekt
             </button>
           ) : (
             <button style={styles.secondaryBtn} onClick={() => {
               const result = validateCompletion(project, fxRate, settings);
               setCloseModal(result);
             }}>
-              <CheckCircle2 size={15} /> Označit jako dokončené
+              <CheckCircle2 size={15} /> Označiť ako dokončené
             </button>
           ))}
           {!readOnly && tab === 'items' && (
             <>
               <button style={styles.secondaryBtn} onClick={onImport}><Upload size={15} /> Import</button>
-              <button style={styles.primaryBtn} onClick={onAddItem}><Plus size={15} /> Přidat položku</button>
+              <button style={styles.primaryBtn} onClick={onAddItem}><Plus size={15} /> Pridať položku</button>
             </>
           )}
           {!readOnly && tab === 'dashboard' && (
@@ -2309,12 +2311,12 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
             <div style={styles.plItem}>
               <div style={styles.plLabel}><ArrowUpCircle size={13} /> Celkové náklady (položky)</div>
               <div style={{ ...styles.plValue, color: '#dc2626' }}>{fmt(totalSpend)}</div>
-              <div style={styles.plSub}>Materiál {fmt(materialTotal)} · Práce {fmt(laborTotal)} · Řízení {fmt(commissionTotal)}</div>
+              <div style={styles.plSub}>Materiál {fmt(materialTotal)} · Práca {fmt(laborTotal)} · Riadenie {fmt(commissionTotal)}</div>
             </div>
             {(parseFloat(project.contractValue) || 0) > 0 && (
               <>
                 <div style={styles.plItem}>
-                  <div style={styles.plLabel}>💰 Hodnota smlouvy (bez DPH)</div>
+                  <div style={styles.plLabel}>💰 Hodnota zmluvy (bez DPH)</div>
                   <div style={{ ...styles.plValue, color: '#0d3825' }}>{fmt(parseFloat(project.contractValue) || 0)}</div>
                   <div style={styles.plSub}>DPH {parseFloat(project.vatRate) || 0} % · Klient zaplatí {fmt(computeProjectGrossValue(project))}</div>
                 </div>
@@ -2326,7 +2328,7 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
                     return (
                       <>
                         <div style={{ ...styles.plValue, color: margin >= 0 ? '#15803d' : '#dc2626' }}>{fmt(margin)}</div>
-                        <div style={styles.plSub}>{marginPct.toFixed(1)} % z hodnoty smlouvy</div>
+                        <div style={styles.plSub}>{marginPct.toFixed(1)} % z hodnoty zmluvy</div>
                       </>
                     );
                   })()}
@@ -2353,14 +2355,14 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
 
           <div style={styles.summaryGrid}>
             <SummaryCard label="Materiál" value={fmt(materialTotal)} accent="#f59e0b" icon={<Package size={15} />} />
-            <SummaryCard label="Práce a subdodávky" value={fmt(laborTotal)} accent="#0ea5e9" icon={<Wrench size={15} />} />
-            <SummaryCard label="Provize a řízení" value={fmt(commissionTotal)} accent="#d946ef" icon={<Briefcase size={15} />} />
+            <SummaryCard label="Práca a subdodávky" value={fmt(laborTotal)} accent="#0ea5e9" icon={<Wrench size={15} />} />
+            <SummaryCard label="Provízia a riadenie" value={fmt(commissionTotal)} accent="#d946ef" icon={<Briefcase size={15} />} />
             <SummaryCard label="Celkový rozpočet" value={totalBudget > 0 ? fmt(totalBudget) : 'Nenastaveno'} accent="#3b82f6" />
-            <SummaryCard label={overBudget > 0 ? 'Překročený rozpočet' : 'Stav'} value={overBudget > 0 ? `${overBudget} over` : 'V pořádku'} accent={overBudget > 0 ? '#dc2626' : '#10b981'} icon={overBudget > 0 ? <AlertTriangle size={15} /> : <CheckCircle2 size={15} />} />
+            <SummaryCard label={overBudget > 0 ? 'Prekročený rozpočet' : 'Stav'} value={overBudget > 0 ? `${overBudget} over` : 'V poriadku'} accent={overBudget > 0 ? '#dc2626' : '#10b981'} icon={overBudget > 0 ? <AlertTriangle size={15} /> : <CheckCircle2 size={15} />} />
           </div>
 
           <section style={styles.section}>
-            <h3 style={styles.sectionTitle}>Sledování rozpočtu podle kategorií</h3>
+            <h3 style={styles.sectionTitle}>Sledování rozpočtu podľa kategórií</h3>
             <CategoryGroups categories={categories} spendByCategory={spendByCategory} budgets={project.budgets} items={project.items} />
           </section>
         </>
@@ -2388,21 +2390,21 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12, flexWrap: 'wrap', gap: 10 }}>
             <h3 style={{ ...styles.sectionTitle, margin: 0 }}>Soupis materiálu a služeb ({project.items.length})</h3>
             <div style={{ display: 'inline-flex', gap: 6, flexWrap: 'wrap' }}>
-              {suppliers.length === 0 && <button style={styles.sortBtn} onClick={onManageSuppliers}><Users size={12} /> Přidat dodavatele</button>}
+              {suppliers.length === 0 && <button style={styles.sortBtn} onClick={onManageSuppliers}><Users size={12} /> Pridať dodávateľa</button>}
               {onGoToPurchaseList && (
                 <button
                   style={styles.sortBtn}
                   onClick={onGoToPurchaseList}
-                  title="Otevřít Nákupní seznam vyfiltrovaný na tento projekt"
+                  title="Otvoriť Nákupný zoznam vyfiltrovaný na tento projekt"
                 >
-                  <ShoppingCart size={12} /> Nákupní seznam <ArrowRight size={11} />
+                  <ShoppingCart size={12} /> Nákupný zoznam <ArrowRight size={11} />
                 </button>
               )}
               {onGoToOrders && (
                 <button
                   style={styles.sortBtn}
                   onClick={onGoToOrders}
-                  title="Otevřít Objednávky vyfiltrované na tento projekt"
+                  title="Otvoriť Objednávky vyfiltrované na tento projekt"
                 >
                   <Truck size={12} /> Objednávky <ArrowRight size={11} />
                 </button>
@@ -2412,11 +2414,11 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
           {project.items.length === 0 ? (
             <div style={styles.emptyItems}>
               <Package size={32} style={{ color: '#cbd5e1' }} />
-              <p style={{ color: '#64748b', margin: '12px 0 16px' }}>Zatím žádné položky.</p>
+              <p style={{ color: '#64748b', margin: '12px 0 16px' }}>Zatiaľ žiadne položky.</p>
               {!readOnly && (
                 <div style={{ display: 'flex', gap: 8, justifyContent: 'center', flexWrap: 'wrap' }}>
-                  <button style={styles.secondaryBtn} onClick={onImport}><Upload size={15} /> Importovat CSV</button>
-                  <button style={styles.primaryBtn} onClick={onAddItem}><Plus size={15} /> Přidat položku</button>
+                  <button style={styles.secondaryBtn} onClick={onImport}><Upload size={15} /> Importovať CSV</button>
+                  <button style={styles.primaryBtn} onClick={onAddItem}><Plus size={15} /> Pridať položku</button>
                 </div>
               )}
             </div>
@@ -2455,7 +2457,7 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
 }
 
 // ==========================================================================
-// ProjectPdfArchive — seznam PDF souvisejících s projektem
+// ProjectPdfArchive — zoznam PDF souvisejících s projektom
 // ==========================================================================
 
 function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs, readOnly, onDelete, onAddFile }) {
@@ -2467,7 +2469,7 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-      alert('Zvolte prosím PDF soubor.');
+      alert('Zvoľte prosím PDF súbor.');
       return;
     }
     setUploading(true);
@@ -2475,7 +2477,7 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
       await onAddFile(file);
     } finally {
       setUploading(false);
-      e.target.value = ''; // reset abychom mohli přidat další
+      e.target.value = ''; // reset abychom mohli pridať ďalší
     }
   };
 
@@ -2483,14 +2485,14 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
     try {
       await openPdfInNewTab(attachment.id, attachment.filename);
     } catch (err) {
-      alert('Nepodařilo se otevřít PDF: ' + (err.message || err));
+      alert('Nepodarilo sa otvoriť PDF: ' + (err.message || err));
     }
   };
 
   const downloadPdf = async (attachment) => {
     try {
       const record = await getPdfFromDb(attachment.id);
-      if (!record) throw new Error('PDF již není v databázi.');
+      if (!record) throw new Error('PDF již nie je v databáze.');
       const bytes = Uint8Array.from(atob(record.base64), c => c.charCodeAt(0));
       const blob = new Blob([bytes], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
@@ -2502,7 +2504,7 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
       document.body.removeChild(a);
       setTimeout(() => URL.revokeObjectURL(url), 5000);
     } catch (e) {
-      alert('Nepodařilo se stáhnout PDF: ' + (e.message || e));
+      alert('Nepodarilo sa stiahnuť PDF: ' + (e.message || e));
     }
   };
 
@@ -2514,7 +2516,7 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
         <div>
           <h3 style={{ ...styles.sectionTitle, margin: 0 }}>Archiv PDF ({pdfs.length})</h3>
           <p style={{ margin: '4px 0 0', color: '#64748b', fontSize: 12 }}>
-            Automaticky se sem řadí PDF importované z faktur pro projekt <strong>{projectName}</strong>. Můžete přidat i vlastní dokumenty (smlouvy, protokoly...).
+            Automaticky sa sem radí PDF importované z faktúr pre projekt <strong>{projectName}</strong>. Môžete pridať i vlastný dokumenty (zmluvy, protokoly...).
           </p>
         </div>
         {!readOnly && (
@@ -2531,7 +2533,7 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
               onClick={() => fileInputRef.current?.click()}
               disabled={uploading}
             >
-              {uploading ? 'Nahrávám…' : <><Plus size={14} /> Přidat PDF</>}
+              {uploading ? 'Nahrávam…' : <><Plus size={14} /> Pridať PDF</>}
             </button>
           </div>
         )}
@@ -2541,10 +2543,10 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
         <div style={{ padding: 30, textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 8 }}>
           <FileText size={32} style={{ color: '#cbd5e1', marginBottom: 8 }} />
           <p style={{ color: '#64748b', fontSize: 13, margin: 0 }}>
-            K tomuto projektu zatím nejsou přiřazena žádná PDF.
+            K tomuto projektu zatiaľ nie sú priradená žiadna PDF.
           </p>
           <p style={{ color: '#94a3b8', fontSize: 12, margin: '4px 0 0' }}>
-            PDF se sem sama přidají, když v Objednávkách naimportujete fakturu pro tento projekt.
+            PDF sa sem sama pridajú, keď v Objednávkách naimportujete faktúru pre tento projekt.
           </p>
         </div>
       ) : (
@@ -2552,20 +2554,20 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
           <table style={styles.table}>
             <thead>
               <tr>
-                <th style={styles.th}>Soubor</th>
-                <th style={styles.th}>Dodavatel</th>
-                <th style={styles.th}>Č. faktury</th>
-                <th style={styles.th}>Importováno</th>
+                <th style={styles.th}>Súbor</th>
+                <th style={styles.th}>Dodávateľ</th>
+                <th style={styles.th}>Č. faktúry</th>
+                <th style={styles.th}>Importované</th>
                 <th style={{ ...styles.th, textAlign: 'right' }}>Položek</th>
-                <th style={{ ...styles.th, textAlign: 'right' }}>Částka bez DPH (Kč)</th>
+                <th style={{ ...styles.th, textAlign: 'right' }}>Suma bez DPH (€)</th>
                 <th style={{ ...styles.th, width: 220 }}>Akce</th>
               </tr>
             </thead>
             <tbody>
               {sorted.map(att => {
-                // Součet částky za všechny položky projektu spojené s touto PDF přílohou
+                // Súčet sumy za všetky položky projektu spojené s touto PDF prílohou
                 const linkedItems = (projectItems || []).filter(i => i.pdfAttachmentId === att.id);
-                const totalCZK = linkedItems.reduce((sum, i) => sum + toCZK(i, fxRate || 25), 0);
+                const totalEUR = linkedItems.reduce((sum, i) => sum + toEUR(i, fxRate || 25), 0);
                 return (
                 <tr key={att.id} style={styles.tr}>
                   <td style={styles.td}>
@@ -2573,14 +2575,14 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
                       <FileText size={14} style={{ color: '#dc2626' }} />
                       <span style={{ fontSize: 12 }}>{att.filename}</span>
                       {att.manuallyAdded && (
-                        <span style={{ fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontWeight: 700 }} title="Ručně přidané">ručně</span>
+                        <span style={{ fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontWeight: 700 }} title="Ručne pridané">ručne</span>
                       )}
                     </span>
                   </td>
                   <td style={{ ...styles.td, fontSize: 12 }}>{att.supplierName || '—'}</td>
                   <td style={{ ...styles.td, fontSize: 11, fontFamily: 'monospace' }}>{att.orderNumber || '—'}</td>
                   <td style={{ ...styles.td, fontSize: 11, color: '#64748b' }}>
-                    {att.importedAt ? new Date(att.importedAt).toLocaleString('cs-CZ', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}
+                    {att.importedAt ? new Date(att.importedAt).toLocaleString('sk-SK', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : '—'}
                   </td>
                   <td style={{ ...styles.td, textAlign: 'right' }}>
                     <span style={{ padding: '2px 7px', borderRadius: 4, background: '#eff6ff', color: '#1d4ed8', fontSize: 11, fontWeight: 700 }}>
@@ -2588,21 +2590,21 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
                     </span>
                   </td>
                   <td style={{ ...styles.td, textAlign: 'right', fontSize: 12, fontWeight: 600 }}>
-                    {totalCZK > 0 ? fmt(totalCZK) : <span style={{ color: '#cbd5e1', fontWeight: 400 }}>—</span>}
+                    {totalEUR > 0 ? fmt(totalEUR) : <span style={{ color: '#cbd5e1', fontWeight: 400 }}>—</span>}
                   </td>
                   <td style={styles.td}>
                     <div style={{ display: 'inline-flex', gap: 4 }}>
                       <button
                         onClick={() => openPdf(att)}
                         style={{ ...styles.sortBtn, padding: '4px 8px', background: '#0d3825', color: '#fff', borderColor: '#0d3825' }}
-                        title="Otevřít v novém okně"
+                        title="Otvoriť v novém okne"
                       >
-                        <Eye size={12} /> Otevřít
+                        <Eye size={12} /> Otvoriť
                       </button>
                       <button
                         onClick={() => downloadPdf(att)}
                         style={{ ...styles.iconBtn }}
-                        title="Stáhnout"
+                        title="Stiahnuť"
                       >
                         <Download size={13} />
                       </button>
@@ -2654,7 +2656,7 @@ function ProjectStatusBadge({ status }) {
         background: '#dcfce7', color: '#15803d',
         fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em',
       }}>
-        <CheckCircle2 size={11} /> Dokončeno
+        <CheckCircle2 size={11} /> Dokončené
       </span>
     );
   }
@@ -2674,7 +2676,7 @@ function CompleteProjectModal({ project, result, onConfirm, onClose }) {
   const { ok, blockers } = result;
 
   return (
-    <Modal title={ok ? 'Označit projekt jako dokončený' : 'Projekt nelze dokončit'} onClose={onClose} maxWidth={580}>
+    <Modal title={ok ? 'Označiť projekt ako dokončený' : 'Projekt nemožno dokončiť'} onClose={onClose} maxWidth={580}>
       <p style={{ color: '#64748b', fontSize: 14, margin: '0 0 14px' }}>
         Projekt: <strong>{project.name}</strong>{project.client ? ` · ${project.client}` : ''}
       </p>
@@ -2685,19 +2687,19 @@ function CompleteProjectModal({ project, result, onConfirm, onClose }) {
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
               <CheckCircle2 size={18} style={{ flexShrink: 0, marginTop: 1 }} />
               <div>
-                <div style={{ fontWeight: 700, marginBottom: 4 }}>Vše je v pořádku — projekt lze uzavřít</div>
+                <div style={{ fontWeight: 700, marginBottom: 4 }}>Všetko je v poriadku — projekt lze uzavrieť</div>
                 <div style={{ color: '#166534' }}>
-                  Všechny položky jsou ve stavu <strong>Vyfakturováno</strong>.
+                  Všetky položky sú ve stavu <strong>Vyfakturované</strong>.
                 </div>
               </div>
             </div>
           </div>
           <p style={{ fontSize: 13, color: '#475569', margin: '0 0 8px' }}>
-            <strong>Co se stane po označení:</strong>
+            <strong>Co sa stane po označenie:</strong>
           </p>
           <ul style={{ fontSize: 13, color: '#475569', margin: '0 0 16px', paddingLeft: 20 }}>
-            <li>Projekt zůstane viditelný v seznamu projektů s odznakem „Dokončeno".</li>
-            <li>Můžete projekt kdykoliv znovu otevřít.</li>
+            <li>Projekt zostane viditelný v zozname projektov s odznakem „Dokončené".</li>
+            <li>Môžete projekt kdykoliv znova otvoriť.</li>
           </ul>
         </>
       ) : (
@@ -2706,14 +2708,14 @@ function CompleteProjectModal({ project, result, onConfirm, onClose }) {
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
               <AlertTriangle size={18} style={{ flexShrink: 0, marginTop: 1 }} />
               <div>
-                <div style={{ fontWeight: 700, marginBottom: 4 }}>Projekt zatím nelze dokončit</div>
-                <div>Pro dokončení musí být všechny položky <strong>objednány, dodány a vyfakturovány</strong>.</div>
+                <div style={{ fontWeight: 700, marginBottom: 4 }}>Projekt zatiaľ nemožno dokončiť</div>
+                <div>Pre dokončenie musí byť všetky položky <strong>objednány, dodané a vyfakturovány</strong>.</div>
               </div>
             </div>
           </div>
 
           <div style={{ fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: '#475569', marginBottom: 8 }}>
-            Co je potřeba dořešit ({blockers.length})
+            Co je potreba doriešiť ({blockers.length})
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 4 }}>
@@ -2727,13 +2729,13 @@ function CompleteProjectModal({ project, result, onConfirm, onClose }) {
                     </div>
                     {b.samples.length > 0 && (
                       <div style={{ fontSize: 12, color: '#64748b', marginTop: 4, fontStyle: 'italic' }}>
-                        např.: {b.samples.join(', ')}{b.count > b.samples.length ? ` …a ${b.count - b.samples.length} dalších` : ''}
+                        napr.: {b.samples.join(', ')}{b.count > b.samples.length ? ` …a ${b.count - b.samples.length} ďalších` : ''}
                       </div>
                     )}
                   </div>
-                  {b.totalCZK > 0 && (
+                  {b.totalEUR > 0 && (
                     <div style={{ fontSize: 13, fontWeight: 700, color: '#dc2626', whiteSpace: 'nowrap' }}>
-                      {fmt(b.totalCZK)}
+                      {fmt(b.totalEUR)}
                     </div>
                   )}
                 </div>
@@ -2744,10 +2746,10 @@ function CompleteProjectModal({ project, result, onConfirm, onClose }) {
       )}
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>{ok ? 'Zrušit' : 'Zavřít'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>{ok ? 'Zrušiť' : 'Zavrieť'}</button>
         {ok && (
           <button style={styles.primaryBtn} onClick={onConfirm}>
-            <CheckCircle2 size={15} /> Potvrdit dokončení
+            <CheckCircle2 size={15} /> Potvrdiť dokončenie
           </button>
         )}
       </div>
@@ -2757,8 +2759,8 @@ function CompleteProjectModal({ project, result, onConfirm, onClose }) {
 function CategoryGroups({ categories, spendByCategory, budgets, items }) {
   const groups = [
     { kind: 'material', label: 'Materiál', icon: <Package size={14} /> },
-    { kind: 'labor', label: 'Práce a subdodavatelé', icon: <Wrench size={14} /> },
-    { kind: 'commission', label: 'Provize a řízení', icon: <Briefcase size={14} /> },
+    { kind: 'labor', label: 'Práca a subdodávatelia', icon: <Wrench size={14} /> },
+    { kind: 'commission', label: 'Provízia a riadenie', icon: <Briefcase size={14} /> },
   ];
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
@@ -2832,7 +2834,7 @@ function StatusPill({ status, isInvoiced, onChange, onChangeInvoiced, readOnly }
             border: `1px solid ${isInvoiced ? '#c4b5fd' : '#e2e8f0'}`,
             userSelect: 'none',
           }}
-          title={isInvoiced ? 'Faktura přijatá' : 'Faktura zatím nedorazila'}
+          title={isInvoiced ? 'Faktura prijatá' : 'Faktura zatiaľ nedorazila'}
         >
           <input
             type="checkbox"
@@ -2841,7 +2843,7 @@ function StatusPill({ status, isInvoiced, onChange, onChangeInvoiced, readOnly }
             disabled={readOnly}
             style={{ margin: 0, cursor: readOnly ? 'default' : 'pointer' }}
           />
-          <FileText size={10} /> Vyfakturováno
+          <FileText size={10} /> Vyfakturované
         </label>
       )}
     </div>
@@ -2853,34 +2855,34 @@ function StatusPill({ status, isInvoiced, onChange, onChangeInvoiced, readOnly }
 // ==========================================================================
 
 const CLIENT_PAYMENT_STATUSES = [
-  { id: 'planned',   label: 'Plánováno',     color: '#64748b', bg: '#f1f5f9' },
-  { id: 'invoiced',  label: 'Vyfakturováno', color: '#8b5cf6', bg: '#ede9fe' },
+  { id: 'planned',   label: 'Plánované',     color: '#64748b', bg: '#f1f5f9' },
+  { id: 'invoiced',  label: 'Vyfakturované', color: '#8b5cf6', bg: '#ede9fe' },
   { id: 'paid',      label: 'Zaplaceno',     color: '#10b981', bg: '#d1fae5' },
 ];
 
 // ==========================================================================
-// Šablony platebních plánů
+// Šablóny platebních plánov
 // ==========================================================================
 
 const INSTALLMENT_TYPES = [
-  { id: 'fixed',     label: 'Fixní částka',         shortLabel: 'Kč',         description: 'Pevná částka v Kč (např. 50 000 Kč záloha)' },
-  { id: 'percent',   label: 'Procento z hodnoty',   shortLabel: '%',          description: 'Procento z celkové hodnoty projektu (např. 30 %)' },
-  { id: 'recurring', label: 'Měsíční splátky zbytku', shortLabel: 'měs.',     description: 'Zbylou částku rozdělit do X měsíčních splátek' },
+  { id: 'fixed',     label: 'Fixná suma',         shortLabel: '€',         description: 'Pevná suma v EUR (napr. 2 000 € záloha)' },
+  { id: 'percent',   label: 'Percento z hodnoty',   shortLabel: '%',          description: 'Percento z celkové hodnoty projektu (napr. 30 %)' },
+  { id: 'recurring', label: 'Mesačné splátky zbytku', shortLabel: 'mes.',     description: 'Zvyšnú sumu rozdeliť do X mesačných splátok' },
 ];
 
-// Aplikace šablony — generuje konkrétní splátky pro daný projekt
+// Aplikácia šablóny — generuje konkrétny splátky pre daný projekt
 // Args:
 //   template: { installments: [...] }
-//   totalValue: celková hodnota projektu (v Kč)
-//   defaultDate: ISO datum, použité pro splátky bez vlastního milníku (fallback)
-//   milestoneDates: { [installmentIndex]: ISO datum } — datumy pro každou splátku-milník
-// Returns: array of payment objects (bez id - přidá se při uložení)
+//   totalValue: celková hodnota projektu (v EUR)
+//   defaultDate: ISO dátum, použité pre splátky bez vlastného míľnika (fallback)
+//   milestoneDates: { [installmentIndex]: ISO datum } — dátumy pre každú splátku-míľnik
+// Returns: array of payment objects (bez id - pridá sa pri uloženie)
 function applyPaymentTemplate(template, totalValue, defaultDate, milestoneDates = {}) {
   if (!template || !template.installments) return [];
   const total = parseFloat(totalValue) || 0;
   const fallback = new Date((defaultDate || todayISO()) + 'T00:00:00Z');
 
-  // 1) Spočítat fixní + procentní částky (vědomé částky)
+  // 1) Spočítat fixný + percentuálny částky (vedomé částky)
   let knownAmount = 0;
   template.installments.forEach(inst => {
     if (inst.type === 'fixed') {
@@ -2898,7 +2900,7 @@ function applyPaymentTemplate(template, totalValue, defaultDate, milestoneDates 
   const totalRecurringMonths = recurringInstallments.reduce((s, i) => s + (parseInt(i.amount, 10) || 0), 0);
   const monthlyRest = totalRecurringMonths > 0 ? remainder / totalRecurringMonths : 0;
 
-  // 4) Generovat splátky — KAŽDÁ splátka je vlastní milník
+  // 4) Generovať splátky — KAŽDÁ splátka je vlastný milník
   const payments = [];
   template.installments.forEach((inst, idx) => {
     const offset = parseInt(inst.dueDateOffsetDays, 10) || 0;
@@ -2910,16 +2912,16 @@ function applyPaymentTemplate(template, totalValue, defaultDate, milestoneDates 
     const dueBase = new Date(baseDate);
     dueBase.setUTCDate(dueBase.getUTCDate() + offset);
 
-    const milestoneNote = ` po milníku „${inst.label || 'splátka'}"`;
+    const milestoneNote = ` po míľnika „${inst.label || 'splátka'}"`;
 
     if (inst.type === 'fixed') {
       payments.push({
         label: inst.label || `Splátka ${idx + 1}`,
         dueDate: dueBase.toISOString().slice(0, 10),
         amount: parseFloat(inst.amount) || 0,
-        currency: 'CZK',
+        currency: 'EUR',
         status: 'planned',
-        notes: `Vygenerováno ze šablony: fixní částka${milestoneNote}`,
+        notes: `Vygenerované zo šablóny: fixná suma${milestoneNote}`,
       });
     } else if (inst.type === 'percent') {
       const amt = total * ((parseFloat(inst.amount) || 0) / 100);
@@ -2927,9 +2929,9 @@ function applyPaymentTemplate(template, totalValue, defaultDate, milestoneDates 
         label: `${inst.label || 'Splátka'} (${inst.amount}% z ${fmt(total)})`,
         dueDate: dueBase.toISOString().slice(0, 10),
         amount: Math.round(amt * 100) / 100,
-        currency: 'CZK',
+        currency: 'EUR',
         status: 'planned',
-        notes: `Vygenerováno ze šablony: ${inst.amount}% z hodnoty projektu${milestoneNote}`,
+        notes: `Vygenerované zo šablóny: ${inst.amount}% z hodnoty projektu${milestoneNote}`,
       });
     } else if (inst.type === 'recurring') {
       const months = parseInt(inst.amount, 10) || 0;
@@ -2937,12 +2939,12 @@ function applyPaymentTemplate(template, totalValue, defaultDate, milestoneDates 
         const d = new Date(dueBase);
         d.setUTCMonth(d.getUTCMonth() + m);
         payments.push({
-          label: `${inst.label || 'Měsíční splátka'} ${m + 1}/${months}`,
+          label: `${inst.label || 'Mesačné splátka'} ${m + 1}/${months}`,
           dueDate: d.toISOString().slice(0, 10),
           amount: Math.round(monthlyRest * 100) / 100,
-          currency: 'CZK',
+          currency: 'EUR',
           status: 'planned',
-          notes: `Vygenerováno ze šablony: měs. splátka ${m + 1} z ${months} (${fmt(remainder)} / ${months} měs.)${milestoneNote}`,
+          notes: `Vygenerované zo šablóny: mes. splátka ${m + 1} z ${months} (${fmt(remainder)} / ${months} mes.)${milestoneNote}`,
         });
       }
     }
@@ -2951,25 +2953,25 @@ function applyPaymentTemplate(template, totalValue, defaultDate, milestoneDates 
   return payments;
 }
 
-// Spočítat celkovou hodnotu projektu (sum všech položek v CZK)
-// POZOR: toto je suma NÁKUPNÍCH cen položek (= náklady projektu), NIKOLI částka,
-// kterou platí klient. Pro klientskou hodnotu použijte computeProjectContractValue().
+// Spočítať celkovú hodnotu projektu (sum všetkých položek v CZK)
+// POZOR: toto je suma NÁKUPNÍCH cen položek (= náklady projektu), NIKOLI suma,
+// ktorú platí klient. Pre klientskou hodnotu použite computeProjectContractValue().
 function computeProjectTotal(project, fxRate) {
   if (!project || !project.items) return 0;
   return project.items.reduce((sum, item) => {
     const qty = parseFloat(item.quantity) || 0;
     const unit = parseFloat(item.unitPrice) || 0;
     const total = qty * unit;
-    return sum + (item.currency === 'EUR' ? total * fxRate : total);
+    return sum + (item.currency === 'CZK' ? (fxRate > 0 ? total / fxRate : total) : total);
   }, 0);
 }
 
-// Hodnota smlouvy bez DPH (zadaná uživatelem) — pro platební plán a cash flow
+// Hodnota zmluvy bez DPH (zadaná používateľom) — pre platobný plán a cash flow
 function computeProjectContractValue(project) {
   return parseFloat(project?.contractValue) || 0;
 }
 
-// Hodnota smlouvy s DPH (klient zaplatí) — propaguje se do cash flow
+// Hodnota zmluvy s DPH (klient zaplatí) — propaguje sa do cash flow
 function computeProjectGrossValue(project) {
   const net = parseFloat(project?.contractValue) || 0;
   const vat = parseFloat(project?.vatRate) || 0;
@@ -2994,7 +2996,7 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
     return { planned, invoiced, paid, total };
   }, [payments]);
 
-  // Seřadit podle data
+  // Zoradiť podľa data
   const sortedPayments = useMemo(() => {
     return [...payments].sort((a, b) => (a.dueDate || '').localeCompare(b.dueDate || ''));
   }, [payments]);
@@ -3009,7 +3011,7 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
           💰 Platby od klienta
           {payments.length > 0 && (
             <span style={{ fontSize: 13, color: '#64748b', fontWeight: 500 }}>
-              ({payments.length} {payments.length === 1 ? 'splátka' : payments.length < 5 ? 'splátky' : 'splátek'})
+              ({payments.length} {payments.length === 1 ? 'splátka' : payments.length < 5 ? 'splátky' : 'splátok'})
             </span>
           )}
         </h3>
@@ -3017,11 +3019,11 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
           <div style={{ display: 'flex', gap: 8 }}>
             {paymentPlanTemplates && paymentPlanTemplates.length > 0 && (
               <button style={styles.secondaryBtn} onClick={() => setApplyTemplateModal(true)}>
-                <FileText size={14} /> Použít šablonu
+                <FileText size={14} /> Použiť šablónu
               </button>
             )}
             <button style={styles.primaryBtn} onClick={() => setEditing({})}>
-              <Plus size={14} /> Přidat splátku
+              <Plus size={14} /> Pridať splátku
             </button>
           </div>
         )}
@@ -3030,21 +3032,21 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
       {payments.length === 0 ? (
         <div style={{ padding: 20, textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 8 }}>
           <p style={{ color: '#64748b', fontSize: 13, margin: '0 0 8px' }}>
-            Zatím žádné splátky od klienta.
+            Zatiaľ žiadne splátky od klienta.
           </p>
           {paymentPlanTemplates && paymentPlanTemplates.length > 0 ? (
             <p style={{ color: '#94a3b8', fontSize: 12, margin: 0 }}>
-              Můžete použít některou ze {paymentPlanTemplates.length === 1 ? 'šablony' : paymentPlanTemplates.length < 5 ? 'šablon' : 'šablon'} platebních plánů nebo přidat splátky ručně.
+              Môžete použiť niektorú zo {paymentPlanTemplates.length === 1 ? 'šablóny' : paymentPlanTemplates.length < 5 ? 'šablón' : 'šablón'} platebních plánov alebo pridať splátky ručne.
             </p>
           ) : (
             <p style={{ color: '#94a3b8', fontSize: 12, margin: 0 }}>
-              Můžete naplánovat platební harmonogram nebo si vytvořit šablony v <strong>Nastavení → Platební plány</strong>.
+              Môžete naplánovať platobný harmonogram alebo si vytvoriť šablóny v <strong>Nastavenia → Platobný plány</strong>.
             </p>
           )}
         </div>
       ) : (
         <>
-          {/* Souhrnné karty */}
+          {/* Súhrnné karty */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: 10, marginBottom: 12 }}>
             <PaymentStatCard label="Plánováno" amount={stats.planned} color="#64748b" />
             <PaymentStatCard label="Vyfakturováno" amount={stats.invoiced} color="#8b5cf6" />
@@ -3052,7 +3054,7 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
             <PaymentStatCard label="Celkem" amount={stats.total} color="#0d3825" isTotal />
           </div>
 
-          {/* Tabulka splátek */}
+          {/* Tabuľka splátok */}
           <div style={{ border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'auto', background: '#fff' }}>
             <table style={{ ...styles.table, fontSize: 12 }}>
               <thead>
@@ -3060,9 +3062,9 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
                   <th style={styles.th}>#</th>
                   <th style={styles.th}>Popis</th>
                   <th style={styles.th}>Splatnost</th>
-                  <th style={{ ...styles.th, textAlign: 'right' }}>Částka</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Suma</th>
                   <th style={styles.th}>Status</th>
-                  <th style={styles.th}>Vyfakturováno</th>
+                  <th style={styles.th}>Vyfakturované</th>
                   <th style={styles.th}>Zaplaceno</th>
                   {!readOnly && <th style={{ ...styles.th, width: 120 }}>Akce</th>}
                 </tr>
@@ -3083,7 +3085,7 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
                         {overdue && <div style={{ fontSize: 10, color: '#dc2626', fontWeight: 600 }}>PO SPLATNOSTI</div>}
                       </td>
                       <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600 }}>
-                        {fmt2(parseFloat(p.amount) || 0, p.currency || 'CZK')}
+                        {fmt2(parseFloat(p.amount) || 0, p.currency || 'EUR')}
                       </td>
                       <td style={styles.td}>
                         {readOnly ? (
@@ -3097,7 +3099,7 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
                             onChange={e => {
                               const newStatus = e.target.value;
                               const patch = { status: newStatus };
-                              // Auto-fill data dne pro nový status
+                              // Auto-fill data dňa pre nový status
                               if (newStatus === 'invoiced' && !p.invoicedDate) patch.invoicedDate = todayISO();
                               if (newStatus === 'paid' && !p.paidDate) patch.paidDate = todayISO();
                               onUpdate(p.id, patch);
@@ -3118,7 +3120,7 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
                         <td style={styles.td}>
                           {confirmDel === p.id ? (
                             <div style={{ display: 'inline-flex', gap: 4 }}>
-                              <span style={{ fontSize: 11, color: '#dc2626', fontWeight: 600 }}>Smazat?</span>
+                              <span style={{ fontSize: 11, color: '#dc2626', fontWeight: 600 }}>Vymazať?</span>
                               <button onClick={() => { onDelete(p.id); setConfirmDel(null); }}
                                 style={{ ...styles.iconBtn, color: '#dc2626', background: '#fee2e2' }}><Trash2 size={12} /></button>
                               <button onClick={() => setConfirmDel(null)}
@@ -3190,14 +3192,14 @@ function ClientPaymentModal({ payment, onSave, onClose }) {
   const [label, setLabel] = useState(payment?.label || '');
   const [dueDate, setDueDate] = useState(payment?.dueDate || '');
   const [amount, setAmount] = useState(payment?.amount || '');
-  const [currency, setCurrency] = useState(payment?.currency || 'CZK');
+  const [currency, setCurrency] = useState(payment?.currency || 'EUR');
   const [status, setStatus] = useState(payment?.status || 'planned');
   const [invoicedDate, setInvoicedDate] = useState(payment?.invoicedDate || '');
   const [paidDate, setPaidDate] = useState(payment?.paidDate || '');
   const [notes, setNotes] = useState(payment?.notes || '');
 
   const submit = () => {
-    if (!amount || parseFloat(amount) <= 0) { alert('Zadejte částku.'); return; }
+    if (!amount || parseFloat(amount) <= 0) { alert('Zadajte sumu.'); return; }
     onSave({
       label: label.trim(),
       dueDate, amount: parseFloat(amount), currency,
@@ -3209,11 +3211,11 @@ function ClientPaymentModal({ payment, onSave, onClose }) {
   };
 
   return (
-    <Modal title={payment ? 'Upravit splátku' : 'Nová splátka od klienta'} onClose={onClose} maxWidth={520}>
+    <Modal title={payment ? 'Upraviť splátku' : 'Nová splátka od klienta'} onClose={onClose} maxWidth={520}>
       <div style={styles.formRow}>
         <label style={styles.label}>Popis splátky</label>
         <input style={styles.input} value={label} onChange={e => setLabel(e.target.value)}
-          placeholder="např. Záloha 30 %, Doplatek po předání..." autoFocus />
+          placeholder="napr. Záloha 30 %, Doplatek po odovzdanie..." autoFocus />
       </div>
 
       <div style={styles.formRowGroup}>
@@ -3222,14 +3224,14 @@ function ClientPaymentModal({ payment, onSave, onClose }) {
           <input type="date" style={styles.input} value={dueDate} onChange={e => setDueDate(e.target.value)} />
         </div>
         <div style={{ flex: 2 }}>
-          <label style={styles.label}>Částka *</label>
+          <label style={styles.label}>Suma *</label>
           <input type="number" step="0.01" min="0" style={styles.input} value={amount} onChange={e => setAmount(e.target.value)} />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Měna</label>
+          <label style={styles.label}>Mena</label>
           <select style={styles.input} value={currency} onChange={e => setCurrency(e.target.value)}>
-            <option value="CZK">CZK</option>
             <option value="EUR">EUR</option>
+            <option value="CZK">CZK</option>
             <option value="USD">USD</option>
           </select>
         </div>
@@ -3263,14 +3265,14 @@ function ClientPaymentModal({ payment, onSave, onClose }) {
 
       {(status === 'invoiced' || status === 'paid') && (
         <div style={styles.formRow}>
-          <label style={styles.label}>Datum vyfakturování</label>
+          <label style={styles.label}>Dátum vyfakturovanie</label>
           <input type="date" style={styles.input} value={invoicedDate} onChange={e => setInvoicedDate(e.target.value)} />
         </div>
       )}
 
       {status === 'paid' && (
         <div style={styles.formRow}>
-          <label style={styles.label}>Datum zaplacení</label>
+          <label style={styles.label}>Dátum zaplacení</label>
           <input type="date" style={styles.input} value={paidDate} onChange={e => setPaidDate(e.target.value)} />
         </div>
       )}
@@ -3281,15 +3283,15 @@ function ClientPaymentModal({ payment, onSave, onClose }) {
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={submit}>{payment ? 'Uložit změny' : 'Vytvořit splátku'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>{payment ? 'Uložiť zmeny' : 'Vytvoriť splátku'}</button>
       </div>
     </Modal>
   );
 }
 
 // ==========================================================================
-// ApplyPaymentTemplateModal — vybrat šablonu a aplikovat na projekt
+// ApplyPaymentTemplateModal — vybrať šablónu a aplikovať na projekt
 // ==========================================================================
 
 function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPayments, onApply, onClose }) {
@@ -3321,7 +3323,7 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
     return selectedTemplate.installments.map((inst, idx) => ({ inst, idx }));
   }, [selectedTemplate]);
 
-  // Výchozí: hodnota smlouvy s DPH (klient zaplatí)
+  // Predvolený: hodnota zmluvy s DPH (klient zaplatí)
   const effectiveTotal = overrideTotal ? (parseFloat(customTotal) || 0) : contractGross;
 
   const generated = useMemo(() => {
@@ -3333,19 +3335,19 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
   const difference = effectiveTotal - generatedTotal;
 
   const submit = () => {
-    if (generated.length === 0) { alert('Šablona neobsahuje žádné splátky.'); return; }
-    if (effectiveTotal <= 0) { alert('Hodnota projektu musí být vyšší než 0. Přidejte do projektu položky nebo zadejte vlastní hodnotu.'); return; }
+    if (generated.length === 0) { alert('Šablóna neobsahuje žiadne splátky.'); return; }
+    if (effectiveTotal <= 0) { alert('Hodnota projektu musí byť vyšší než 0. Pridajte do projektu položky alebo zadajte vlastný hodnotu.'); return; }
     onApply(generated, replaceExisting);
   };
 
   return (
     <Modal title="Použít šablonu platebního plánu" onClose={onClose} maxWidth={680}>
-      {/* Výběr šablony */}
+      {/* Výber šablóny */}
       <div style={styles.formRow}>
-        <label style={styles.label}>Šablona *</label>
+        <label style={styles.label}>Šablóna *</label>
         <select style={styles.input} value={selectedTemplateId} onChange={e => setSelectedTemplateId(e.target.value)}>
           {templates.map(t => (
-            <option key={t.id} value={t.id}>{t.name} ({t.installments?.length || 0} splátek)</option>
+            <option key={t.id} value={t.id}>{t.name} ({t.installments?.length || 0} splátok)</option>
           ))}
         </select>
         {selectedTemplate?.description && (
@@ -3358,12 +3360,12 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
       {/* Hodnota projektu */}
       <div style={{ marginTop: 12, padding: 12, background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 8 }}>
         <div style={{ fontSize: 12, fontWeight: 700, color: '#166534', marginBottom: 8 }}>
-          💰 Hodnota smlouvy (pro platební plán)
+          💰 Hodnota zmluvy (pre platobný plán)
         </div>
         {hasContractValue ? (
           <div style={{ background: '#fff', padding: 8, borderRadius: 6, border: '1px solid #bbf7d0', fontSize: 12, color: '#0d3825', marginBottom: 8 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span>Hodnota smlouvy bez DPH:</span>
+              <span>Hodnota zmluvy bez DPH:</span>
               <strong>{fmt(contractNet)}</strong>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 2 }}>
@@ -3375,46 +3377,46 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
               <strong style={{ color: '#15803d' }}>{fmt(contractGross)}</strong>
             </div>
             <div style={{ fontSize: 10, color: '#94a3b8', marginTop: 6, paddingTop: 4, borderTop: '1px solid #f1f5f9' }}>
-              Pro porovnání — náklady (součet položek): {fmt(itemsCostSum)}
+              Pre porovnání — náklady (súčet položek): {fmt(itemsCostSum)}
             </div>
           </div>
         ) : (
           <div style={{ padding: 8, background: '#fef3c7', borderRadius: 6, border: '1px solid #fcd34d', fontSize: 12, color: '#92400e', marginBottom: 8 }}>
-            ⚠ Projekt nemá zadanou hodnotu smlouvy. Otevřete <strong>Upravit projekt</strong> a doplňte ji, nebo použijte vlastní hodnotu níže.
+            ⚠ Projekt nemá zadanú hodnotu zmluvy. Otvorte <strong>Upraviť projekt</strong> a doplňte ji, alebo použite vlastný hodnotu nižšie.
           </div>
         )}
         <label style={{ fontSize: 11, color: '#475569', display: 'inline-flex', alignItems: 'center', gap: 4, cursor: 'pointer' }}>
           <input type="checkbox" checked={overrideTotal} onChange={e => setOverrideTotal(e.target.checked)} />
-          Použít jinou hodnotu pro tento platební plán
+          Použiť inú hodnotu pre tento platobný plán
         </label>
         {overrideTotal && (
           <div style={{ marginTop: 6 }}>
-            <label style={styles.label}>Vlastní hodnota (CZK, použije se přímo jako celková částka)</label>
+            <label style={styles.label}>Vlastný hodnota (CZK, použije sa priamo ako celková suma)</label>
             <input type="number" step="0.01" min="0" style={styles.input} value={customTotal} onChange={e => setCustomTotal(e.target.value)} />
             <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
-              Toto číslo se nepřevádí DPH — zadejte přesnou částku, kterou má klient zaplatit.
+              Toto číslo sa neprevádza DPH — zadajte presnú sumu, ktorú má klient zaplatit.
             </div>
           </div>
         )}
       </div>
 
-      {/* Výchozí datum */}
+      {/* Predvolený dátum */}
       <div style={styles.formRow}>
-        <label style={styles.label}>Výchozí datum</label>
+        <label style={styles.label}>Predvolený dátum</label>
         <input type="date" style={styles.input} value={startDate} onChange={e => setStartDate(e.target.value)} />
         <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
-          Použije se pro milníky, u kterých nezadáte konkrétní datum. Typicky datum podpisu smlouvy.
+          Použije sa pre míľniky, u ktorých nezadáte konkrétny dátum. Typicky dátum podpise zmluvy.
         </div>
       </div>
 
-      {/* Datumy milníků */}
+      {/* Dátumy míľnikov */}
       {milestones.length > 0 && (
         <div style={{ marginTop: 12, padding: 12, background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 8 }}>
           <div style={{ fontSize: 13, fontWeight: 700, color: '#166534', marginBottom: 6 }}>
-            🚩 Datumy milníků ({milestones.length})
+            🚩 Dátumy míľnikov ({milestones.length})
           </div>
           <div style={{ fontSize: 11, color: '#166534', marginBottom: 10 }}>
-            Zadejte plánovaná data pro každý milník. Splatnost splátky = datum milníku + počet dní z šablony.
+            Zadajte plánovaná data pre každý míľnik. Splatnost splátky = dátum míľnika + počet dní z šablóny.
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             {milestones.map(({ inst, idx }) => (
@@ -3423,9 +3425,9 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
                 padding: 8, background: '#fff', border: '1px solid #bbf7d0', borderRadius: 6,
               }}>
                 <div>
-                  <div style={{ fontSize: 12, fontWeight: 600 }}>{inst.label || `Milník #${idx + 1}`}</div>
+                  <div style={{ fontSize: 12, fontWeight: 600 }}>{inst.label || `Míľnik #${idx + 1}`}</div>
                   <div style={{ fontSize: 10, color: '#64748b' }}>
-                    Splatnost: {inst.dueDateOffsetDays > 0 ? `milník + ${inst.dueDateOffsetDays} dní` : 'v den milníku'}
+                    Splatnost: {inst.dueDateOffsetDays > 0 ? `míľnik + ${inst.dueDateOffsetDays} dní` : 'v deň míľnika'}
                   </div>
                 </div>
                 <input
@@ -3436,7 +3438,7 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
                   placeholder="Datum milníku"
                 />
                 {!milestoneDates[idx] ? (
-                  <span style={{ fontSize: 10, color: '#f59e0b', fontWeight: 600 }} title="Pokud datum nezadáte, použije se výchozí datum">
+                  <span style={{ fontSize: 10, color: '#f59e0b', fontWeight: 600 }} title="Pokud datum nezadáte, použije se predvolený datum">
                     fallback
                   </span>
                 ) : (
@@ -3448,11 +3450,11 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
         </div>
       )}
 
-      {/* Náhled generovaných splátek */}
-      <h3 style={{ margin: '14px 0 8px', fontSize: 14 }}>Náhled splátek</h3>
+      {/* Náhľad generovaných splátok */}
+      <h3 style={{ margin: '14px 0 8px', fontSize: 14 }}>Náhľad splátok</h3>
       {generated.length === 0 ? (
         <div style={{ padding: 20, textAlign: 'center', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 6, color: '#991b1b', fontSize: 13 }}>
-          Šablona neobsahuje splátky nebo je hodnota projektu nulová.
+          Šablóna neobsahuje splátky alebo je hodnota projektu nulová.
         </div>
       ) : (
         <div style={{ border: '1px solid #e2e8f0', borderRadius: 6, overflow: 'auto', maxHeight: 280 }}>
@@ -3462,7 +3464,7 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
                 <th style={styles.th}>#</th>
                 <th style={styles.th}>Popis</th>
                 <th style={styles.th}>Splatnost</th>
-                <th style={{ ...styles.th, textAlign: 'right' }}>Částka</th>
+                <th style={{ ...styles.th, textAlign: 'right' }}>Suma</th>
               </tr>
             </thead>
             <tbody>
@@ -3475,7 +3477,7 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
                 </tr>
               ))}
               <tr style={{ background: '#0d3825', color: '#fff' }}>
-                <td colSpan={3} style={{ ...styles.td, fontWeight: 700, color: '#fff' }}>CELKEM splátek</td>
+                <td colSpan={3} style={{ ...styles.td, fontWeight: 700, color: '#fff' }}>SPOLU splátok</td>
                 <td style={{ ...styles.td, textAlign: 'right', fontWeight: 700, color: '#fff' }}>{fmt(generatedTotal)}</td>
               </tr>
             </tbody>
@@ -3483,12 +3485,12 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
         </div>
       )}
 
-      {/* Varování o rozdílu */}
+      {/* Varování o rozdiele */}
       {Math.abs(difference) > 0.5 && generated.length > 0 && (
         <div style={{ marginTop: 10, padding: 10, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 6, fontSize: 12, color: '#92400e' }}>
-          ⚠ Rozdíl mezi hodnotou projektu ({fmt(effectiveTotal)}) a součtem splátek ({fmt(generatedTotal)}): <strong>{fmt(Math.abs(difference))} {difference > 0 ? '(splátky nepokrývají celou hodnotu)' : '(splátky překračují hodnotu)'}</strong>
+          ⚠ Rozdiel medzi hodnotou projektu ({fmt(effectiveTotal)}) a súčtom splátok ({fmt(generatedTotal)}): <strong>{fmt(Math.abs(difference))} {difference > 0 ? '(splátky nepokrývají celou hodnotu)' : '(splátky prekračujú hodnotu)'}</strong>
           {difference > 0 && !selectedTemplate?.installments?.some(i => i.type === 'recurring') && (
-            <div style={{ marginTop: 4 }}>Šablona nemá recurring splátku, která by zbytek pokryla.</div>
+            <div style={{ marginTop: 4 }}>Šablóna nemá recurring splátku, ktorá by zvyšok pokryla.</div>
           )}
         </div>
       )}
@@ -3498,20 +3500,20 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
         <div style={{ marginTop: 10, padding: 10, background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: 6, fontSize: 12, color: '#991b1b' }}>
           <label style={{ display: 'inline-flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}>
             <input type="checkbox" checked={replaceExisting} onChange={e => setReplaceExisting(e.target.checked)} />
-            <strong>Nahradit stávající splátky</strong> (smaže {hasExistingPayments ? 'všechny existující splátky' : 'splátky'})
+            <strong>Nahradiť stávající splátky</strong> (vymaže {hasExistingPayments ? 'všetky existující splátky' : 'splátky'})
           </label>
           {!replaceExisting && (
             <div style={{ marginTop: 4, color: '#7f1d1d' }}>
-              Pokud necháte nezaškrtnuté, nové splátky se přidají k existujícím.
+              Ak necháte nezaškrtnuté, nové splátky sa pridajú k existujícím.
             </div>
           )}
         </div>
       )}
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit} disabled={generated.length === 0}>
-          <CheckCircle2 size={14} /> Aplikovat {generated.length} {generated.length === 1 ? 'splátku' : generated.length < 5 ? 'splátky' : 'splátek'}
+          <CheckCircle2 size={14} /> Aplikovať {generated.length} {generated.length === 1 ? 'splátku' : generated.length < 5 ? 'splátky' : 'splátok'}
         </button>
       </div>
     </Modal>
@@ -3529,14 +3531,14 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
       const db = b.purchaseDate || b.plannedOrderDate || 'z';
       return da.localeCompare(db);
     });
-    else if (sortBy === 'amount') copy.sort((a, b) => toCZK(b, exchangeRate) - toCZK(a, exchangeRate));
+    else if (sortBy === 'amount') copy.sort((a, b) => toEUR(b, exchangeRate) - toEUR(a, exchangeRate));
     return copy;
   }, [items, sortBy, exchangeRate]);
 
   return (
     <>
       <div style={{ display: 'flex', gap: 6, marginBottom: 10, fontSize: 12, flexWrap: 'wrap' }}>
-        <span style={{ color: '#64748b', alignSelf: 'center' }}>Řadit:</span>
+        <span style={{ color: '#64748b', alignSelf: 'center' }}>Radiť:</span>
         {['category', 'status', 'date', 'amount'].map(s => (
           <button key={s} onClick={() => setSortBy(s)} style={sortBy === s ? styles.sortBtnActive : styles.sortBtn}>{s}</button>
         ))}
@@ -3546,11 +3548,11 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
           <thead>
             <tr>
               <th style={styles.th}>Stav</th>
-              <th style={styles.th}>Kategorie</th>
+              <th style={styles.th}>Kategórie</th>
               <th style={styles.th}>Položka</th>
-              <th style={styles.th}>Dodavatel</th>
+              <th style={styles.th}>Dodávateľ</th>
               <th style={{ ...styles.th, textAlign: 'right' }}>Množ.</th>
-              <th style={{ ...styles.th, textAlign: 'right' }}>Celkem</th>
+              <th style={{ ...styles.th, textAlign: 'right' }}>Spolu</th>
               <th style={styles.th}>Objednávka</th>
               <th style={styles.th}></th>
             </tr>
@@ -3560,7 +3562,7 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
               const cat = categories.find(c => c.id === item.category);
               const sup = suppliers.find(s => s.id === item.supplierId);
               const supName = sup?.name || item.supplier || '';
-              const czk = toCZK(item, exchangeRate);
+              const czk = toEUR(item, exchangeRate);
               return (
                 <tr key={item.id} style={styles.tr}>
                   <td style={styles.td}>
@@ -3581,10 +3583,10 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
                     <div style={{ fontWeight: 500 }}>
                       {item.name}
                       {item.catalogId && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#dbeafe', color: '#1d4ed8', fontWeight: 700 }}>cat.</span>}
-                      {item.fromStockItemId && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontWeight: 700 }} title="Položka pochází ze skladu (byla spotřebována ze zásoby)">📦 ze skladu</span>}
+                      {item.fromStockItemId && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontWeight: 700 }} title="Položka pochází ze skladu (byla spotrebovaná ze zásoby)">📦 zo sklade</span>}
                     </div>
                     <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
-                      {item.quantity} {item.unit} × {fmt2(item.unitPrice, item.currency || 'CZK')}
+                      {item.quantity} {item.unit} × {fmt2(item.unitPrice, item.currency || 'EUR')}
                     </div>
                   </td>
                   <td style={{ ...styles.td, color: '#64748b' }}>
@@ -3606,7 +3608,7 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
                     ) : item.plannedOrderDate ? (
                       <div>
                         <div style={{ color: '#94a3b8', fontStyle: 'italic' }}>{item.plannedOrderDate}</div>
-                        <div style={{ fontSize: 10, color: '#94a3b8' }}>plánováno</div>
+                        <div style={{ fontSize: 10, color: '#94a3b8' }}>plánované</div>
                       </div>
                     ) : (
                       <span style={{ color: '#cbd5e1' }}>—</span>
@@ -3672,7 +3674,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
           item: i, category: cat, supplier: sup,
           supplierName: sup?.name || i.supplier || '',
           hasSupplier: !!(sup || (i.supplier && i.supplier.trim())),
-          czk: toCZK(i, fxRate),
+          czk: toEUR(i, fxRate),
         });
       });
     });
@@ -3693,7 +3695,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
       if (filterCategory !== 'all' && r.category?.id !== filterCategory) return false;
       // Filter: project
       if (filterProject !== 'all' && r.projectId !== filterProject) return false;
-      // Fulltext (vč. jména klienta)
+      // Fulltext (vč. mená klienta)
       if (query.trim()) {
         if (!searchMatch(query, [
           r.item.name, r.item.notes, r.item.unit,
@@ -3707,7 +3709,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
 
   const activeFilters = (filterSupplier !== 'all' ? 1 : 0) + (filterCategory !== 'all' ? 1 : 0) + (filterProject !== 'all' ? 1 : 0);
 
-  // Focus/scroll/highlight když přijdeme z dashboardu
+  // Focus/scroll/highlight keď prídeme z dashboardu
   const rowRefs = useRef({});
   const focusedKey = focusKey ? `${focusKey.projectId}:${focusKey.itemId}` : null;
   useEffect(() => {
@@ -3738,12 +3740,12 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
       let key, label, sublabel;
       if (groupBy === 'supplier') {
         key = r.supplier?.id || (r.hasSupplier ? `free_${r.supplierName}` : '__nosupplier__');
-        label = r.hasSupplier ? r.supplierName : '⚠ Bez přiřazeného dodavatele';
+        label = r.hasSupplier ? r.supplierName : '⚠ Bez priradeného dodávateľa';
       } else if (groupBy === 'category') { key = r.category?.id || 'unknown'; label = r.category?.name || 'Neznámé'; }
       else {
         key = r.projectId;
         label = r.projectName;
-        sublabel = r.projectClient || ''; // jméno klienta jako podtitulek
+        sublabel = r.projectClient || ''; // meno klienta ako podtitulek
       }
       if (!map.has(key)) map.set(key, { key, label, sublabel: sublabel || '', rows: [], total: 0, isNoSupplier: key === '__nosupplier__' });
       const g = map.get(key);
@@ -3784,7 +3786,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
 
   const openOrderModal = () => {
     if (selectedMissingSupplier.length > 0) {
-      alert(`${selectedMissingSupplier.length} vybraných položek zatím nemá přiřazeného dodavatele. Před označením jako objednané přiřaďte ke každé dodavatele (klikněte na „Nastavit dodavatele" na řádku).`);
+      alert(`${selectedMissingSupplier.length} vybraných položek zatiaľ nemá priradeného dodávateľa. Pred označením ako objednané priraďte ke každé dodávateľa (kliknite na „Nastaviť dodávateľa" na riadku).`);
       return;
     }
     setOrderModal({ rows: selectedRows });
@@ -3796,9 +3798,9 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
     <main style={styles.main}>
       <div style={styles.mainHeader}>
         <div>
-          <h2 style={styles.projectTitle}>Nákupní seznam</h2>
+          <h2 style={styles.projectTitle}>Nákupný zoznam</h2>
           <p style={{ margin: '6px 0 0', color: '#64748b', fontSize: 14 }}>
-            Položky plánované napříč všemi projekty, které ještě nebyly objednány. Vyberte položky → „Označit jako objednané" pro vytvoření objednávky.
+            Položky plánované naprieč všetkými projekty, ktoré ešte nebyly objednány. Vyberte položky → „Označiť ako objednané" pre vytvorenie objednávky.
           </p>
         </div>
       </div>
@@ -3817,7 +3819,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
           <button
             style={{ ...styles.sortBtn, padding: '7px 12px' }}
             onClick={() => { setQuery(''); setFilterSupplier('all'); setFilterCategory('all'); setFilterProject('all'); }}
-          >Vymazat vše</button>
+          >Vymazať všetko</button>
         )}
         <div style={{ fontSize: 12, color: '#64748b', marginLeft: 'auto' }}>
           {filteredItems.length} / {allItems.length} položek
@@ -3828,9 +3830,9 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
         <div style={styles.filterPanel}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
             <div>
-              <label style={styles.label}>Dodavatel</label>
+              <label style={styles.label}>Dodávateľ</label>
               <select style={styles.input} value={filterSupplier} onChange={e => setFilterSupplier(e.target.value)}>
-                <option value="all">Všichni</option>
+                <option value="all">Všetci</option>
                 <option value="__nosupplier__">⚠ Bez dodavatele</option>
                 {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
               </select>
@@ -3838,14 +3840,14 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
             <div>
               <label style={styles.label}>Kategorie</label>
               <select style={styles.input} value={filterCategory} onChange={e => setFilterCategory(e.target.value)}>
-                <option value="all">Všechny</option>
+                <option value="all">Všetky</option>
                 {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
               </select>
             </div>
             <div>
               <label style={styles.label}>Projekt</label>
               <select style={styles.input} value={filterProject} onChange={e => setFilterProject(e.target.value)}>
-                <option value="all">Všechny</option>
+                <option value="all">Všetky</option>
                 {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
               </select>
             </div>
@@ -3855,10 +3857,10 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
 
       <div style={styles.cfControls}>
         <div>
-          <div style={styles.label}>Seskupit podle</div>
+          <div style={styles.label}>Seskupit podľa</div>
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
-            <button onClick={() => setGroupBy('supplier')} style={groupBy === 'supplier' ? styles.sortBtnActive : styles.sortBtn}>Dodavatel</button>
-            <button onClick={() => setGroupBy('category')} style={groupBy === 'category' ? styles.sortBtnActive : styles.sortBtn}>Kategorie</button>
+            <button onClick={() => setGroupBy('supplier')} style={groupBy === 'supplier' ? styles.sortBtnActive : styles.sortBtn}>Dodávateľ</button>
+            <button onClick={() => setGroupBy('category')} style={groupBy === 'category' ? styles.sortBtnActive : styles.sortBtn}>Kategórie</button>
             <button onClick={() => setGroupBy('project')} style={groupBy === 'project' ? styles.sortBtnActive : styles.sortBtn}>Projekt</button>
           </div>
         </div>
@@ -3866,28 +3868,28 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
 
       {!readOnly && selected.size > 0 && (
         <div style={styles.actionBar}>
-          <div><strong>{selected.size}</strong> vybráno · <strong>{fmt(selectedTotal)}</strong>
+          <div><strong>{selected.size}</strong> vybrané · <strong>{fmt(selectedTotal)}</strong>
             {selectedMissingSupplier.length > 0 && (
               <span style={{ marginLeft: 10, padding: '2px 8px', background: '#dc2626', borderRadius: 4, fontSize: 11, fontWeight: 700 }}>
-                ⚠ {selectedMissingSupplier.length} bez dodavatele
+                ⚠ {selectedMissingSupplier.length} bez dodávateľa
               </span>
             )}
           </div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            <button style={styles.sortBtn} onClick={() => setSelected(new Set())}>Vymazat</button>
+            <button style={styles.sortBtn} onClick={() => setSelected(new Set())}>Vymazať</button>
             <button style={styles.sortBtn} onClick={() => {
               const rows = filteredItems.filter(r => selected.has(r.key));
               if (rows.length === 0) return;
               setBulkSupplierModal({ rows });
             }}>
-              <Users size={14} /> Nastavit dodavatele
+              <Users size={14} /> Nastaviť dodávateľa
             </button>
             <button style={styles.sortBtn} onClick={() => {
               const rows = filteredItems.filter(r => selected.has(r.key));
               if (rows.length === 0) return;
               setBulkDatesModal({ rows });
             }}>
-              <Calendar size={14} /> Nastavit datumy
+              <Calendar size={14} /> Nastaviť dátumy
             </button>
             <button style={styles.primaryBtn} onClick={openOrderModal}>
               <ShoppingCart size={14} /> Mark ordered →
@@ -3899,7 +3901,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
       {grouped.length === 0 ? (
         <div style={styles.emptyItems}>
           <CheckCircle2 size={32} style={{ color: '#10b981' }} />
-          <p style={{ color: '#64748b', margin: '12px 0 0' }}>Není co objednat — všechny plánované položky byly zpracovány.</p>
+          <p style={{ color: '#64748b', margin: '12px 0 0' }}>Nie je co objednat — všetky plánované položky byly spracované.</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -3926,13 +3928,13 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
                     <thead>
                       <tr>
                         <th style={{ ...styles.th, width: 36 }}></th>
-                        {groupBy !== 'supplier' && <th style={styles.th}>Dodavatel</th>}
-                        {groupBy !== 'category' && <th style={styles.th}>Kategorie</th>}
+                        {groupBy !== 'supplier' && <th style={styles.th}>Dodávateľ</th>}
+                        {groupBy !== 'category' && <th style={styles.th}>Kategórie</th>}
                         {groupBy !== 'project' && <th style={styles.th}>Projekt</th>}
                         <th style={styles.th}>Položka</th>
-                        <th style={{ ...styles.th, textAlign: 'right' }}>Celkem</th>
+                        <th style={{ ...styles.th, textAlign: 'right' }}>Spolu</th>
                         <th style={styles.th}>Plán. objednávka</th>
-                        <th style={styles.th}>Plán. dodání</th>
+                        <th style={styles.th}>Plán. dodanie</th>
                         <th style={{ ...styles.th, width: 60 }}></th>
                       </tr>
                     </thead>
@@ -3983,7 +3985,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
                             <td style={styles.td}>
                               <div style={{ fontWeight: 500 }}>{r.item.name}</div>
                               <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2, display: 'flex', alignItems: 'center', gap: 6 }}>
-                                <span>{r.item.quantity} {r.item.unit} × {fmt2(r.item.unitPrice, r.item.currency || 'CZK')}</span>
+                                <span>{r.item.quantity} {r.item.unit} × {fmt2(r.item.unitPrice, r.item.currency || 'EUR')}</span>
                                 {!readOnly && (
                                   <button
                                     type="button"
@@ -4015,7 +4017,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
                             </td>
                             <td style={styles.td}>
                               {!readOnly && g.isNoSupplier && (
-                                <button style={styles.sortBtn} onClick={() => setQuickSupplier(r)}>Nastavit dodavatele</button>
+                                <button style={styles.sortBtn} onClick={() => setQuickSupplier(r)}>Nastaviť dodávateľa</button>
                               )}
                             </td>
                           </tr>
@@ -4061,7 +4063,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
         <BulkDatesModal
           rows={bulkDatesModal.rows}
           onConfirm={(plannedOrderDate, plannedDeliveryDate) => {
-            // Aplikovat jen ta pole, která byla zadána (null = nezměnit)
+            // Aplikovať len ta pole, ktorá byla zadána (null = nezmeniť)
             const patch = {};
             if (plannedOrderDate !== null) patch.plannedOrderDate = plannedOrderDate;
             if (plannedDeliveryDate !== null) patch.plannedDeliveryDate = plannedDeliveryDate;
@@ -4110,44 +4112,44 @@ function QuickSupplierModal({ row, suppliers, onSave, onClose }) {
   };
 
   return (
-    <Modal title="Přiřadit dodavatele" onClose={onClose} maxWidth={480}>
+    <Modal title="Priradiť dodavatele" onClose={onClose} maxWidth={480}>
       <p style={{ color: '#64748b', fontSize: 13, margin: '0 0 12px' }}>
         Položka: <strong>{row.item.name}</strong> ({row.projectName})
       </p>
       <div style={styles.formRow}>
-        <label style={styles.label}>Ze seznamu dodavatelů</label>
+        <label style={styles.label}>Zo zozname dodávateľov</label>
         <select style={styles.input} value={supplierId} onChange={e => setSupplierId(e.target.value)} autoFocus>
-          <option value="">— Vyberte dodavatele —</option>
+          <option value="">— Vyberte dodávateľa —</option>
           {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
         </select>
       </div>
-      <div style={{ fontSize: 11, color: '#94a3b8', textAlign: 'center', margin: '10px 0' }}>— nebo —</div>
+      <div style={{ fontSize: 11, color: '#94a3b8', textAlign: 'center', margin: '10px 0' }}>— alebo —</div>
       <div style={styles.formRow}>
-        <label style={styles.label}>Vlastní název dodavatele</label>
+        <label style={styles.label}>Vlastný názov dodávateľa</label>
         <input style={styles.input} value={freeText} onChange={e => { setFreeText(e.target.value); if (e.target.value) setSupplierId(''); }} placeholder="Název dodavatele" />
-        <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Použijte, pokud dodavatel ještě není ve vašem registru.</div>
+        <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>Použite, ak dodávateľ ešte nie je ve vašom registru.</div>
       </div>
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={submit}>Přiřadit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>Priradiť</button>
       </div>
     </Modal>
   );
 }
 
 // ==========================================================================
-// Bulk Supplier modal — přiřadit jednoho dodavatele více položkám najednou
+// Bulk Supplier modal — priradiť jedného dodávateľa viac položkám naraz
 // ==========================================================================
 
 function BulkSupplierModal({ rows, suppliers, onConfirm, onClose }) {
   const [supplierId, setSupplierId] = useState('');
   const [freeText, setFreeText] = useState('');
 
-  // Statistiky o aktuálních dodavatelích vybraných položek
+  // Statistiky o aktuálnych dodávateľoch vybraných položek
   const currentStats = useMemo(() => {
     const map = new Map();
     rows.forEach(r => {
-      const label = r.hasSupplier ? r.supplierName : '⚠ Bez dodavatele';
+      const label = r.hasSupplier ? r.supplierName : '⚠ Bez dodávateľa';
       map.set(label, (map.get(label) || 0) + 1);
     });
     return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
@@ -4161,14 +4163,14 @@ function BulkSupplierModal({ rows, suppliers, onConfirm, onClose }) {
     } else if (freeText.trim()) {
       onConfirm('', freeText.trim());
     } else {
-      alert('Vyberte dodavatele nebo zadejte vlastní název.');
+      alert('Vyberte dodávateľa alebo zadajte vlastný názov.');
     }
   };
 
   return (
-    <Modal title={`Nastavit dodavatele pro ${rows.length} ${rows.length === 1 ? 'položku' : rows.length < 5 ? 'položky' : 'položek'}`} onClose={onClose} maxWidth={520}>
+    <Modal title={`Nastaviť dodávateľa pre ${rows.length} ${rows.length === 1 ? 'položku' : rows.length < 5 ? 'položky' : 'položek'}`} onClose={onClose} maxWidth={520}>
       <div style={{ marginBottom: 14, padding: 10, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 6, fontSize: 12, color: '#166534' }}>
-        Vybráno <strong>{rows.length}</strong> {rows.length === 1 ? 'položka' : 'položek'}. Aktuálně:
+        Vybrané <strong>{rows.length}</strong> {rows.length === 1 ? 'položka' : 'položek'}. Aktuálne:
         <ul style={{ margin: '6px 0 0', paddingLeft: 20 }}>
           {currentStats.map(([label, count]) => (
             <li key={label}>{label} — <strong>{count}</strong></li>
@@ -4176,32 +4178,32 @@ function BulkSupplierModal({ rows, suppliers, onConfirm, onClose }) {
         </ul>
         {willOverwrite > 0 && (
           <div style={{ marginTop: 8, color: '#92400e', fontWeight: 600 }}>
-            ⚠ U {willOverwrite} {willOverwrite === 1 ? 'položky' : willOverwrite < 5 ? 'položek' : 'položek'} se přepíše stávající dodavatel.
+            ⚠ U {willOverwrite} {willOverwrite === 1 ? 'položky' : willOverwrite < 5 ? 'položek' : 'položek'} sa prepíše stávající dodávateľ.
           </div>
         )}
       </div>
 
       <div style={styles.formRow}>
-        <label style={styles.label}>Ze seznamu dodavatelů</label>
+        <label style={styles.label}>Zo zozname dodávateľov</label>
         <select style={styles.input} value={supplierId} onChange={e => {
           setSupplierId(e.target.value);
           if (e.target.value) setFreeText('');
         }} autoFocus>
-          <option value="">— Vyberte dodavatele —</option>
+          <option value="">— Vyberte dodávateľa —</option>
           {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
         </select>
       </div>
 
-      <div style={{ fontSize: 11, color: '#94a3b8', textAlign: 'center', margin: '10px 0' }}>— nebo —</div>
+      <div style={{ fontSize: 11, color: '#94a3b8', textAlign: 'center', margin: '10px 0' }}>— alebo —</div>
 
       <div style={styles.formRow}>
-        <label style={styles.label}>Vlastní název dodavatele</label>
+        <label style={styles.label}>Vlastný názov dodávateľa</label>
         <input style={styles.input} value={freeText} onChange={e => {
           setFreeText(e.target.value);
           if (e.target.value) setSupplierId('');
         }} placeholder="Název dodavatele" />
         <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
-          Použijte, pokud dodavatel ještě není ve vašem registru.
+          Použite, ak dodávateľ ešte nie je ve vašom registru.
         </div>
       </div>
 
@@ -4211,7 +4213,7 @@ function BulkSupplierModal({ rows, suppliers, onConfirm, onClose }) {
             <tr>
               <th style={styles.th}>Položka</th>
               <th style={styles.th}>Projekt</th>
-              <th style={styles.th}>Aktuální dodavatel</th>
+              <th style={styles.th}>Aktuálny dodávateľ</th>
             </tr>
           </thead>
           <tbody>
@@ -4220,7 +4222,7 @@ function BulkSupplierModal({ rows, suppliers, onConfirm, onClose }) {
                 <td style={styles.td}>{r.item.name}</td>
                 <td style={{ ...styles.td, fontSize: 10, color: '#64748b' }}>{r.projectName}</td>
                 <td style={{ ...styles.td, fontSize: 10, color: r.hasSupplier ? '#475569' : '#dc2626' }}>
-                  {r.hasSupplier ? r.supplierName : '— žádný —'}
+                  {r.hasSupplier ? r.supplierName : '— žiadny —'}
                 </td>
               </tr>
             ))}
@@ -4229,9 +4231,9 @@ function BulkSupplierModal({ rows, suppliers, onConfirm, onClose }) {
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit}>
-          <Users size={14} /> Přiřadit všem
+          <Users size={14} /> Priradiť všetkým
         </button>
       </div>
     </Modal>
@@ -4239,7 +4241,7 @@ function BulkSupplierModal({ rows, suppliers, onConfirm, onClose }) {
 }
 
 // ==========================================================================
-// Bulk Dates modal — hromadné nastavení plánovaných datumů
+// Bulk Dates modal — hromadné nastavenia plánovaných dátumov
 // ==========================================================================
 
 function BulkDatesModal({ rows, onConfirm, onClose }) {
@@ -4247,11 +4249,11 @@ function BulkDatesModal({ rows, onConfirm, onClose }) {
   const [deliveryDate, setDeliveryDate] = useState('');
   const [setOrder, setSetOrder] = useState(true);
   const [setDelivery, setSetDelivery] = useState(true);
-  // Mód "Vymazat" - nastavuje pole na prázdné
+  // Mód "Vymazat" - nastavuje pole na prázdne
   const [clearOrder, setClearOrder] = useState(false);
   const [clearDelivery, setClearDelivery] = useState(false);
 
-  // Statistiky o aktuálních datumech vybraných položek
+  // Statistiky o aktuálnych dátumoch vybraných položek
   const stats = useMemo(() => {
     const withOrder = rows.filter(r => r.item.plannedOrderDate).length;
     const withDelivery = rows.filter(r => r.item.plannedDeliveryDate).length;
@@ -4262,38 +4264,38 @@ function BulkDatesModal({ rows, onConfirm, onClose }) {
   }, [rows]);
 
   const submit = () => {
-    // Co se aplikuje:
+    // Co sa aplikuje:
     // - setOrder=true & clearOrder=true → ''
-    // - setOrder=true & clearOrder=false → orderDate (musí být vyplněn)
-    // - setOrder=false → null (nezměnit)
+    // - setOrder=true & clearOrder=false → orderDate (musí byť vyplnený)
+    // - setOrder=false → null (nezmeniť)
     let plannedOrderDate = null;
     let plannedDeliveryDate = null;
     if (setOrder) {
       if (clearOrder) plannedOrderDate = '';
       else if (orderDate) plannedOrderDate = orderDate;
-      else { alert('Vyplňte plánované datum objednání nebo zaškrtněte „Vymazat".'); return; }
+      else { alert('Vyplňte plánované dátum objednanie alebo zaškrtnite „Vymazať".'); return; }
     }
     if (setDelivery) {
       if (clearDelivery) plannedDeliveryDate = '';
       else if (deliveryDate) plannedDeliveryDate = deliveryDate;
-      else { alert('Vyplňte plánované datum dodání nebo zaškrtněte „Vymazat".'); return; }
+      else { alert('Vyplňte plánované dátum dodanie alebo zaškrtnite „Vymazať".'); return; }
     }
     if (plannedOrderDate === null && plannedDeliveryDate === null) {
-      alert('Vyberte alespoň jedno pole k nastavení.');
+      alert('Vyberte aspoň jedno pole k nastavenia.');
       return;
     }
-    // Validace: datum dodání by mělo být >= datum objednání
+    // Validace: dátum dodanie by malo byť >= dátum objednanie
     if (typeof plannedOrderDate === 'string' && plannedOrderDate &&
         typeof plannedDeliveryDate === 'string' && plannedDeliveryDate &&
         plannedDeliveryDate < plannedOrderDate) {
-      if (!window.confirm('Plánované datum dodání je dříve než datum objednání. Pokračovat?')) return;
+      if (!window.confirm('Plánované dátum dodanie je skôr než dátum objednanie. Pokračovať?')) return;
     }
     onConfirm(plannedOrderDate, plannedDeliveryDate);
   };
 
-  // Pomocný shortcut: nastavit dodání = objednání + N dní
+  // Pomocný shortcut: nastaviť dodanie = objednanie + N dní
   const addDaysToOrder = (days) => {
-    if (!orderDate) { alert('Nejprve nastavte plánované datum objednání.'); return; }
+    if (!orderDate) { alert('Nejprve nastavte plánované dátum objednanie.'); return; }
     const d = new Date(orderDate + 'T00:00:00Z');
     d.setUTCDate(d.getUTCDate() + days);
     setDeliveryDate(d.toISOString().slice(0, 10));
@@ -4301,21 +4303,21 @@ function BulkDatesModal({ rows, onConfirm, onClose }) {
   };
 
   return (
-    <Modal title={`Nastavit plánované datumy pro ${rows.length} ${rows.length === 1 ? 'položku' : rows.length < 5 ? 'položky' : 'položek'}`} onClose={onClose} maxWidth={560}>
+    <Modal title={`Nastaviť plánované dátumy pre ${rows.length} ${rows.length === 1 ? 'položku' : rows.length < 5 ? 'položky' : 'položek'}`} onClose={onClose} maxWidth={560}>
       <div style={{ marginBottom: 14, padding: 10, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 6, fontSize: 12, color: '#166534' }}>
-        Vybráno <strong>{rows.length}</strong> {rows.length === 1 ? 'položka' : 'položek'}.
-        Aktuálně:
+        Vybrané <strong>{rows.length}</strong> {rows.length === 1 ? 'položka' : 'položek'}.
+        Aktuálne:
         <ul style={{ margin: '6px 0 0', paddingLeft: 20 }}>
-          <li>📅 Plán. objednání: <strong>{stats.withOrder}</strong> nastaveno · <strong>{stats.withoutOrder}</strong> bez data</li>
-          <li>📦 Plán. dodání: <strong>{stats.withDelivery}</strong> nastaveno · <strong>{stats.withoutDelivery}</strong> bez data</li>
+          <li>📅 Plán. objednanie: <strong>{stats.withOrder}</strong> nastavené · <strong>{stats.withoutOrder}</strong> bez data</li>
+          <li>📦 Plán. dodanie: <strong>{stats.withDelivery}</strong> nastavené · <strong>{stats.withoutDelivery}</strong> bez data</li>
         </ul>
       </div>
 
-      {/* Plánované objednání */}
+      {/* Plánované objednanie */}
       <div style={{ padding: 10, border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 10 }}>
         <label style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, cursor: 'pointer' }}>
           <input type="checkbox" checked={setOrder} onChange={e => setSetOrder(e.target.checked)} />
-          <span style={{ fontWeight: 700, fontSize: 13 }}>📅 Plánované datum objednání</span>
+          <span style={{ fontWeight: 700, fontSize: 13 }}>📅 Plánované dátum objednanie</span>
         </label>
         {setOrder && (
           <div style={{ paddingLeft: 24 }}>
@@ -4329,18 +4331,18 @@ function BulkDatesModal({ rows, onConfirm, onClose }) {
               />
               <label style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, cursor: 'pointer' }}>
                 <input type="checkbox" checked={clearOrder} onChange={e => { setClearOrder(e.target.checked); if (e.target.checked) setOrderDate(''); }} />
-                Vymazat
+                Vymazať
               </label>
             </div>
           </div>
         )}
       </div>
 
-      {/* Plánované dodání */}
+      {/* Plánované dodanie */}
       <div style={{ padding: 10, border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 10 }}>
         <label style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8, cursor: 'pointer' }}>
           <input type="checkbox" checked={setDelivery} onChange={e => setSetDelivery(e.target.checked)} />
-          <span style={{ fontWeight: 700, fontSize: 13 }}>📦 Plánované datum dodání</span>
+          <span style={{ fontWeight: 700, fontSize: 13 }}>📦 Plánované dátum dodanie</span>
         </label>
         {setDelivery && (
           <>
@@ -4355,12 +4357,12 @@ function BulkDatesModal({ rows, onConfirm, onClose }) {
                 />
                 <label style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 11, cursor: 'pointer' }}>
                   <input type="checkbox" checked={clearDelivery} onChange={e => { setClearDelivery(e.target.checked); if (e.target.checked) setDeliveryDate(''); }} />
-                  Vymazat
+                  Vymazať
                 </label>
               </div>
               {orderDate && !clearDelivery && (
                 <div style={{ display: 'flex', gap: 4, marginTop: 6, fontSize: 11, color: '#64748b', flexWrap: 'wrap' }}>
-                  <span style={{ alignSelf: 'center' }}>Rychle: objednání +</span>
+                  <span style={{ alignSelf: 'center' }}>Rýchlo: objednanie +</span>
                   {[3, 7, 14, 21, 30].map(d => (
                     <button key={d} type="button" onClick={() => addDaysToOrder(d)}
                       style={{ padding: '2px 8px', fontSize: 11, background: '#f1f5f9', border: '1px solid #cbd5e1', borderRadius: 4, cursor: 'pointer' }}>
@@ -4405,9 +4407,9 @@ function BulkDatesModal({ rows, onConfirm, onClose }) {
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit}>
-          <Calendar size={14} /> Aplikovat datumy
+          <Calendar size={14} /> Aplikovať dátumy
         </button>
       </div>
     </Modal>
@@ -4422,10 +4424,10 @@ function QuickPriceModal({ row, fxRate, onSave, onClose }) {
   const [quantity, setQuantity] = useState(row.item.quantity);
   const [unit, setUnit] = useState(row.item.unit || 'pcs');
   const [unitPrice, setUnitPrice] = useState(row.item.unitPrice);
-  const [currency, setCurrency] = useState(row.item.currency || 'CZK');
+  const [currency, setCurrency] = useState(row.item.currency || 'EUR');
 
   const line = (parseFloat(quantity) || 0) * (parseFloat(unitPrice) || 0);
-  const lineCZK = currency === 'EUR' ? line * fxRate : line;
+  const lineEUR = currency === 'CZK' ? (fxRate > 0 ? line / fxRate : line) : line;
 
   const submit = () => {
     const patch = {
@@ -4448,12 +4450,12 @@ function QuickPriceModal({ row, fxRate, onSave, onClose }) {
       </p>
       {!row.hasSupplier && (
         <div style={{ padding: 10, background: '#fef3c7', color: '#92400e', borderRadius: 6, fontSize: 12, marginBottom: 12 }}>
-          ⓘ Zatím není přiřazen žádný dodavatel. Cenu zde můžete upřesnit; pozdější přiřazení dodavatele toto nepřepíše.
+          ⓘ Zatiaľ nie je priradený žiadny dodávateľ. Cenu tu môžete upresniť; neskorší priradenie dodávateľa toto neprepíše.
         </div>
       )}
       <div style={styles.formRowGroup}>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Množství *</label>
+          <label style={styles.label}>Množstvo *</label>
           <input type="number" step="0.01" style={styles.input} value={quantity}
             onChange={e => setQuantity(e.target.value)} autoFocus />
         </div>
@@ -4474,20 +4476,20 @@ function QuickPriceModal({ row, fxRate, onSave, onClose }) {
             onChange={e => setUnitPrice(e.target.value)} />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Měna</label>
+          <label style={styles.label}>Mena</label>
           <select style={styles.input} value={currency} onChange={e => setCurrency(e.target.value)}>
-            <option value="CZK">CZK</option>
             <option value="EUR">EUR</option>
+            <option value="CZK">CZK</option>
           </select>
         </div>
       </div>
       <div style={styles.totalPreview}>
         Line total: <strong>{fmt2(line, currency)}</strong>
-        {currency === 'EUR' && <> → <strong>{fmt(lineCZK)}</strong></>}
+        {currency === 'EUR' && <> → <strong>{fmt(lineEUR)}</strong></>}
       </div>
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={submit}>Uložit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>Uložiť</button>
       </div>
     </Modal>
   );
@@ -4553,9 +4555,9 @@ function OrderBatchModal({ rows, suppliers, onConfirm, onClose }) {
   const grandTotal = rows.reduce((s, r) => s + r.czk, 0);
 
   return (
-    <Modal title="Vytvořit objednávku(y)" onClose={onClose} maxWidth={720}>
+    <Modal title="Vytvoriť objednávku(y)" onClose={onClose} maxWidth={720}>
       <p style={{ color: '#64748b', fontSize: 14, margin: '0 0 14px' }}>
-        {rows.length} {rows.length === 1 ? 'položka' : (rows.length >= 2 && rows.length <= 4 ? 'položky' : 'položek')} · {fmt(grandTotal)} · seskupeno do <strong>{groups.length} {groups.length === 1 ? 'objednávky' : 'objednávek'}</strong> podle dodavatele. Pro každou vyplňte číslo objednávky a plánované datum dodání.
+        {rows.length} {rows.length === 1 ? 'položka' : (rows.length >= 2 && rows.length <= 4 ? 'položky' : 'položek')} · {fmt(grandTotal)} · seskupeno do <strong>{groups.length} {groups.length === 1 ? 'objednávky' : 'objednávok'}</strong> podľa dodávateľa. Pre každú vyplňte číslo objednávky a plánované dátum dodanie.
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 14, maxHeight: '60vh', overflowY: 'auto' }}>
@@ -4578,12 +4580,12 @@ function OrderBatchModal({ rows, suppliers, onConfirm, onClose }) {
                     placeholder="e.g. PO-2026-0042" />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <label style={styles.label}>Datum objednávky *</label>
+                  <label style={styles.label}>Dátum objednávky *</label>
                   <input type="date" style={styles.input} value={f.orderDate || ''}
                     onChange={e => updateForm(g.key, { orderDate: e.target.value })} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <label style={styles.label}>Plán. dodání</label>
+                  <label style={styles.label}>Plán. dodanie</label>
                   <input type="date" style={styles.input} value={f.plannedDeliveryDate || ''}
                     onChange={e => updateForm(g.key, { plannedDeliveryDate: e.target.value })} />
                 </div>
@@ -4599,9 +4601,9 @@ function OrderBatchModal({ rows, suppliers, onConfirm, onClose }) {
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit} disabled={!allValid}>
-          <ShoppingCart size={15} /> Vytvořit {groups.length} {groups.length === 1 ? 'objednávku' : (groups.length >= 2 && groups.length <= 4 ? 'objednávky' : 'objednávek')} →
+          <ShoppingCart size={15} /> Vytvoriť {groups.length} {groups.length === 1 ? 'objednávku' : (groups.length >= 2 && groups.length <= 4 ? 'objednávky' : 'objednávok')} →
         </button>
       </div>
     </Modal>
@@ -4619,7 +4621,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
   const [filterSupplier, setFilterSupplier] = useState('all');
   const [filterStatus, setFilterStatus] = useState('all');
   const [filterInvoiced, setFilterInvoiced] = useState('all'); // all | yes | no
-  const [showCompleted, setShowCompleted] = useState(false); // ve výchozím stavu skrýt dokončené objednávky
+  const [showCompleted, setShowCompleted] = useState(false); // v predvolenom stavu skryť dokončené objednávky
   const [filterProject, setFilterProject] = useState('all');
   const [filtersOpen, setFiltersOpen] = useState(false);
 
@@ -4635,8 +4637,8 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
         out.push({
           key: `${p.id}:${i.id}`, projectId: p.id, projectName: p.name, projectClient: p.client || '',
           item: i, category: cat, supplier: sup,
-          supplierName: sup?.name || i.supplier || '(bez dodavatele)',
-          czk: toCZK(i, fxRate),
+          supplierName: sup?.name || i.supplier || '(bez dodávateľa)',
+          czk: toEUR(i, fxRate),
           status,
           orderKey: i.orderNumber
             ? `${i.orderNumber}__${i.supplierId || i.supplier || 'x'}`
@@ -4650,10 +4652,10 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
   const filteredItems = useMemo(() => {
     return orderItems.filter(r => {
       if (filterSupplier !== 'all' && r.supplier?.id !== filterSupplier) return false;
-      // Stav dodání — physical progress
+      // Stav dodanie — physical progress
       if (filterStatus === 'ordered' && r.status !== 'ordered') return false;
       if (filterStatus === 'delivered' && r.status !== 'delivered') return false;
-      // Stav fakturace — samostatná dimenze
+      // Stav fakturácia — samostatná dimenze
       if (filterInvoiced === 'yes' && !r.item.isInvoiced) return false;
       if (filterInvoiced === 'no' && r.item.isInvoiced) return false;
       if (filterProject !== 'all' && r.projectId !== filterProject) return false;
@@ -4670,7 +4672,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
 
   const activeFilters = (filterSupplier !== 'all' ? 1 : 0) + (filterStatus !== 'all' ? 1 : 0) + (filterInvoiced !== 'all' ? 1 : 0) + (filterProject !== 'all' ? 1 : 0);
 
-  // Focus/scroll/highlight když přijdeme z dashboardu
+  // Focus/scroll/highlight keď prídeme z dashboardu
   const rowRefs = useRef({});
   const focusedKey = focusKey ? `${focusKey.projectId}:${focusKey.itemId}` : null;
   useEffect(() => {
@@ -4686,11 +4688,11 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
       setFiltersOpen(true);
       return;
     }
-    // Když focus obsahuje orderNumber (např. při skoku ze skladu),
+    // Keď focus obsahuje orderNumber (napr. pri skoku zo sklade),
     // automaticky nastavíme filter na dané číslo objednávky.
     if (focusKey.orderNumber) {
       setQuery(focusKey.orderNumber);
-      // Vyresetovat ostatní filtry, aby objednávka byla určitě viditelná
+      // Vyresetovať ostatné filtry, aby objednávka byla určite viditelná
       setFilterSupplier('all');
       setFilterStatus('all');
       setFilterInvoiced('all');
@@ -4721,16 +4723,16 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
       o.rows.push(r); o.total += r.czk;
     });
 
-    // Označit dokončené objednávky:
-    // ✓ všechny položky status='delivered'
-    // ✓ všechny položky isInvoiced=true
-    // ✓ všechny materiálové položky plně naskladněné (nemateriálové se ignorují — nemají sklad)
+    // Označiť dokončené objednávky:
+    // ✓ všetky položky status='delivered'
+    // ✓ všetky položky isInvoiced=true
+    // ✓ všetky materiálové položky plne naskladnené (nemateriálové sa ignorují — nemají sklad)
     const out = Array.from(map.values()).map(o => {
       const allDelivered = o.rows.every(r => r.item.status === 'delivered');
       const allInvoiced = o.rows.every(r => r.item.isInvoiced);
       const allStocked = o.rows.every(r => {
         const isMaterial = r.category?.kind === 'material';
-        if (!isMaterial) return true; // nemateriál se neposkládá
+        if (!isMaterial) return true; // nemateriál sa neposkládá
         const stockedCount = stockItems
           .filter(s => s.sourceOrderItemId === r.item.id)
           .reduce((sum, s) => sum + (parseInt(s.batchQuantity, 10) || 1), 0);
@@ -4743,13 +4745,13 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
     return out;
   }, [filteredItems, stockItems]);
 
-  // Rozdělit na aktivní a dokončené
+  // Rozdeliť na aktivní a dokončené
   const activeOrders = useMemo(() => orders.filter(o => !o.isCompleted), [orders]);
   const completedOrders = useMemo(() => orders.filter(o => o.isCompleted), [orders]);
   const visibleOrders = showCompleted ? completedOrders : activeOrders;
 
-  // Když přijdeme z jiné sekce s focusKey.orderNumber a objednávka je jen v archivu,
-  // automaticky přepneme na záložku Archiv (jinak by uživatel viděl prázdný seznam).
+  // Keď prídeme z iné sekce s focusKey.orderNumber a objednávka je len v archivu,
+  // automaticky prepneme na záložku Archiv (inak by používateľ videl prázdny zoznam).
   useEffect(() => {
     if (!focusKey?.orderNumber) return;
     const num = focusKey.orderNumber;
@@ -4762,20 +4764,20 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
     }
   }, [focusKey?.ts, activeOrders, completedOrders]);
 
-  // Wrapper kolem onUpdateItem — před uložením zkontroluje, jestli by změna neoznačila
-  // objednávku jako dokončenou přesto, že některé MATERIÁLOVÉ položky ještě nejsou plně
-  // naskladněné. Pokud ano, zeptá se uživatele na potvrzení.
-  // (Nemateriálové položky jako obchodní provize se neposkládají, ty aplikace ignoruje.)
+  // Wrapper kolem onUpdateItem — pred uložením skontroluje, ak by zmena neoznačila
+  // objednávku ako dokončenou napriek tomu, že niektoré MATERIÁLOVÉ položky ešte nie sú plne
+  // naskladnené. Ak ano, zeptá sa používateľa na potvrdenie.
+  // (Nemateriálové položky ako obchodní provízia sa neposkládají, ty aplikácia ignoruje.)
   const wrappedUpdateItem = (projectId, itemId, patch) => {
-    // Najít objednávku, do které tato položka spadá
+    // Nájsť objednávku, do ktoré táto položka spadá
     const order = orders.find(o => o.rows.some(r => r.projectId === projectId && r.item.id === itemId));
     if (!order || order.isCompleted) {
-      // Není v objednávce, nebo už je hotová — jen aplikuj
+      // Nie je v objednávke, alebo už je hotová — len aplikuj
       onUpdateItem(projectId, itemId, patch);
       return;
     }
 
-    // Simulovat, jak by objednávka vypadala po změně
+    // Simulovať, ako by objednávka vypadala po zmene
     const simulatedRows = order.rows.map(r => {
       if (r.projectId === projectId && r.item.id === itemId) {
         return { ...r, item: { ...r.item, ...patch } };
@@ -4791,7 +4793,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
       return;
     }
 
-    // Prověřit, jestli jsou nedodělaná naskladnění
+    // Preveriť, ak sú nedokončená naskladnenie
     const unstockedMaterials = simulatedRows.filter(r => {
       const isMaterial = r.category?.kind === 'material';
       if (!isMaterial) return false;
@@ -4802,19 +4804,19 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
     });
 
     if (unstockedMaterials.length === 0) {
-      // Všechen materiál je naskladněn — v pořádku, jen aplikuj (objednávka se skryje jako dokončená)
+      // Všetok materiál je naskladnený — v poriadku, len aplikuj (objednávka sa skryje ako dokončená)
       onUpdateItem(projectId, itemId, patch);
       return;
     }
 
-    // Něco není naskladněno — zeptat se
+    // Niečo nie je naskladnené — zeptat sa
     const names = unstockedMaterials.slice(0, 5).map(r => `• ${r.item.name}`).join('\n');
-    const more = unstockedMaterials.length > 5 ? `\n… a další ${unstockedMaterials.length - 5}` : '';
-    const msg = `Objednávka bude po této změně označena jako DOKONČENÁ a skryta ze seznamu.\n\nTěchto ${unstockedMaterials.length} materiálových položek ale ještě není naskladněno:\n\n${names}${more}\n\nOpravdu chcete pokračovat?`;
+    const more = unstockedMaterials.length > 5 ? `\n… a ďalší ${unstockedMaterials.length - 5}` : '';
+    const msg = `Objednávka bude po tejto zmene označená ako DOKONČENÁ a skryta zo zozname.\n\nTěchto ${unstockedMaterials.length} materiálových položek ale ešte nie je naskladnené:\n\n${names}${more}\n\nOpravdu chcete pokračovať?`;
     if (window.confirm(msg)) {
       onUpdateItem(projectId, itemId, patch);
     }
-    // else: neaplikovat — checkbox se nezmění, dropdown zůstane jak byl (React vrátí controlled state)
+    // else: neaplikovať — checkbox sa nezmení, dropdown zostane ako byl (React vrátí controlled state)
   };
 
   const toggleRow = (key) => {
@@ -4843,17 +4845,17 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
           <h2 style={styles.projectTitle}>Objednávky</h2>
           <p style={{ margin: '6px 0 0', color: '#64748b', fontSize: 14 }}>
             {showCompleted
-              ? `${completedOrders.length} ${completedOrders.length === 1 ? 'dokončená objednávka' : (completedOrders.length >= 2 && completedOrders.length <= 4 ? 'dokončené objednávky' : 'dokončených objednávek')} v archivu.`
-              : `${activeOrders.length} ${activeOrders.length === 1 ? 'aktivní objednávka' : (activeOrders.length >= 2 && activeOrders.length <= 4 ? 'aktivní objednávky' : 'aktivních objednávek')} · ${orderItems.length} ${orderItems.length === 1 ? 'položka' : (orderItems.length >= 2 && orderItems.length <= 4 ? 'položky' : 'položek')}. Označte jako dodané / vyfakturované, jakmile budou známy skutečné údaje.`}
+              ? `${completedOrders.length} ${completedOrders.length === 1 ? 'dokončená objednávka' : (completedOrders.length >= 2 && completedOrders.length <= 4 ? 'dokončené objednávky' : 'dokončených objednávok')} v archivu.`
+              : `${activeOrders.length} ${activeOrders.length === 1 ? 'aktivní objednávka' : (activeOrders.length >= 2 && activeOrders.length <= 4 ? 'aktivní objednávky' : 'aktivních objednávok')} · ${orderItems.length} ${orderItems.length === 1 ? 'položka' : (orderItems.length >= 2 && orderItems.length <= 4 ? 'položky' : 'položek')}. Označte ako dodané / vyfakturované, jakmile budú známy skutočné údaje.`}
           </p>
         </div>
         {!readOnly && (
           <div style={styles.headerActions}>
-            <button style={styles.secondaryBtn} onClick={onImportPDF} title="Import faktury / objednávky z PDF pomocí AI">
+            <button style={styles.secondaryBtn} onClick={onImportPDF} title="Import faktury / objednávky z PDF pomocou AI">
               <FileText size={14} /> Import z PDF (AI)
             </button>
             <button style={styles.primaryBtn} onClick={onImportOrder}>
-              <Upload size={14} /> Importovat objednávku
+              <Upload size={14} /> Importovať objednávku
             </button>
           </div>
         )}
@@ -4914,7 +4916,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
           <button
             style={{ ...styles.sortBtn, padding: '7px 12px' }}
             onClick={() => { setQuery(''); setFilterSupplier('all'); setFilterStatus('all'); setFilterInvoiced('all'); setFilterProject('all'); }}
-          >Vymazat vše</button>
+          >Vymazať všetko</button>
         )}
         <div style={{ fontSize: 12, color: '#64748b', marginLeft: 'auto' }}>
           {filteredItems.length} / {orderItems.length} položek
@@ -4925,32 +4927,32 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
         <div style={styles.filterPanel}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 12 }}>
             <div>
-              <label style={styles.label}>Dodavatel</label>
+              <label style={styles.label}>Dodávateľ</label>
               <select style={styles.input} value={filterSupplier} onChange={e => setFilterSupplier(e.target.value)}>
-                <option value="all">Všichni</option>
+                <option value="all">Všetci</option>
                 {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
               </select>
             </div>
             <div>
-              <label style={styles.label}>Stav dodání</label>
+              <label style={styles.label}>Stav dodanie</label>
               <select style={styles.input} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
-                <option value="all">Všechny</option>
-                <option value="ordered">Objednáno (nedodáno)</option>
-                <option value="delivered">Dodáno</option>
+                <option value="all">Všetky</option>
+                <option value="ordered">Objednané (nedodané)</option>
+                <option value="delivered">Dodané</option>
               </select>
             </div>
             <div>
-              <label style={styles.label}>Stav fakturace</label>
+              <label style={styles.label}>Stav fakturácia</label>
               <select style={styles.input} value={filterInvoiced} onChange={e => setFilterInvoiced(e.target.value)}>
-                <option value="all">Všechny</option>
-                <option value="yes">✓ Vyfakturováno</option>
-                <option value="no">Nevyfakturováno</option>
+                <option value="all">Všetky</option>
+                <option value="yes">✓ Vyfakturované</option>
+                <option value="no">Nevyfakturované</option>
               </select>
             </div>
             <div>
               <label style={styles.label}>Projekt</label>
               <select style={styles.input} value={filterProject} onChange={e => setFilterProject(e.target.value)}>
-                <option value="all">Všechny</option>
+                <option value="all">Všetky</option>
                 {projects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
               </select>
             </div>
@@ -4960,11 +4962,11 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
 
       {!readOnly && selected.size > 0 && (
         <div style={styles.actionBar}>
-          <div><strong>{selected.size}</strong> vybráno · <strong>{fmt(selectedTotal)}</strong></div>
+          <div><strong>{selected.size}</strong> vybrané · <strong>{fmt(selectedTotal)}</strong></div>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-            <button style={styles.sortBtn} onClick={() => setSelected(new Set())}>Vymazat</button>
-            <button style={styles.secondaryBtnDark} onClick={() => setBatchModal({ action: 'delivered', rows: selectedRows })}><Truck size={14} /> Dodáno</button>
-            <button style={styles.primaryBtn} onClick={() => setBatchModal({ action: 'invoiced', rows: selectedRows })}><FileText size={14} /> Vyfakturováno</button>
+            <button style={styles.sortBtn} onClick={() => setSelected(new Set())}>Vymazať</button>
+            <button style={styles.secondaryBtnDark} onClick={() => setBatchModal({ action: 'delivered', rows: selectedRows })}><Truck size={14} /> Dodané</button>
+            <button style={styles.primaryBtn} onClick={() => setBatchModal({ action: 'invoiced', rows: selectedRows })}><FileText size={14} /> Vyfakturované</button>
           </div>
         </div>
       )}
@@ -4974,10 +4976,10 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
           <ListChecks size={32} style={{ color: '#cbd5e1' }} />
           <p style={{ color: '#64748b', margin: '12px 0 0' }}>
             {showCompleted
-              ? 'V archivu nejsou žádné dokončené objednávky.'
+              ? 'V archivu nie sú žiadne dokončené objednávky.'
               : (orders.length === 0
-                ? 'Žádné aktivní objednávky. Vytvořte novou z Nákupního seznamu.'
-                : 'Všechny objednávky jsou dokončené — přepněte se do záložky Archiv nahoře.')}
+                ? 'Žiadne aktivní objednávky. Vytvorte novou z Nákupného zozname.'
+                : 'Všetky objednávky sú dokončené — prepnite sa do záložky Archiv hore.')}
           </p>
         </div>
       ) : (
@@ -4994,7 +4996,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
             else if (statuses.has('ordered')) orderStatus = 'ordered';
             else if (statuses.has('delivered')) orderStatus = 'delivered';
 
-            // Vyfakturováno na úrovni objednávky = všechny řádky vyfakturované
+            // Vyfakturované na úrovni objednávky = všetky riadky vyfakturované
             const allInvoiced = o.rows.every(r => r.item.isInvoiced);
             const someInvoiced = o.rows.some(r => r.item.isInvoiced);
 
@@ -5021,7 +5023,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                             background: '#166534', color: '#fff',
                             display: 'inline-flex', alignItems: 'center', gap: 4,
                           }}>
-                            <CheckCircle2 size={11} /> Dokončeno
+                            <CheckCircle2 size={11} /> Dokončené
                           </span>
                         )}
                         {!readOnly && !o.isCompleted && (
@@ -5037,9 +5039,9 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                               borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit',
                               display: 'inline-flex', alignItems: 'center', gap: 4,
                             }}
-                            title="Přehrát objednávku daty z faktury (PDF/AI)"
+                            title="Prehrať objednávku daty z faktury (PDF/AI)"
                           >
-                            <FileText size={11} /> Přehrát z faktury
+                            <FileText size={11} /> Prehrať z faktúry
                           </button>
                         )}
                         {pdfAttachmentId && (
@@ -5049,7 +5051,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                               e.stopPropagation();
                               try {
                                 const record = await getPdfFromDb(pdfAttachmentId);
-                                if (!record) { alert('PDF již není v databázi.'); return; }
+                                if (!record) { alert('PDF již nie je v databáza.'); return; }
                                 const bytes = Uint8Array.from(atob(record.base64), c => c.charCodeAt(0));
                                 const blob = new Blob([bytes], { type: 'application/pdf' });
                                 const url = URL.createObjectURL(blob);
@@ -5062,7 +5064,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                 document.body.removeChild(a);
                                 setTimeout(() => URL.revokeObjectURL(url), 60000);
                               } catch (err) {
-                                alert('PDF nelze otevřít: ' + err.message);
+                                alert('PDF nemožno otvoriť: ' + err.message);
                               }
                             }}
                             style={{
@@ -5071,16 +5073,16 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                               borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit',
                               display: 'inline-flex', alignItems: 'center', gap: 4,
                             }}
-                            title="Otevřít archivované PDF v novém tabu"
+                            title="Otvoriť archivované PDF v novém tabu"
                           >
                             📎 PDF
                           </button>
                         )}
                       </div>
                       <div style={{ fontSize: 12, color: '#64748b', marginTop: 3, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                        <span><ShoppingCart size={10} style={{ verticalAlign: 'middle' }} /> Objednáno {o.orderDate || '—'}</span>
+                        <span><ShoppingCart size={10} style={{ verticalAlign: 'middle' }} /> Objednané {o.orderDate || '—'}</span>
                         {plannedDeliveries.length > 0 && (
-                          <span><Truck size={10} style={{ verticalAlign: 'middle' }} /> Plán. dodání {plannedDeliveries.join(', ')}</span>
+                          <span><Truck size={10} style={{ verticalAlign: 'middle' }} /> Plán. dodanie {plannedDeliveries.join(', ')}</span>
                         )}
                         <span>{o.rows.length} {o.rows.length === 1 ? 'položka' : (o.rows.length >= 2 && o.rows.length <= 4 ? 'položky' : 'položek')}</span>
                         <span style={{ fontWeight: 600, color: '#0f172a' }}>{fmt(o.total)}</span>
@@ -5096,9 +5098,9 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                         <th style={styles.th}>Stav</th>
                         <th style={styles.th}>Projekt</th>
                         <th style={styles.th}>Položka</th>
-                        <th style={{ ...styles.th, textAlign: 'right' }}>Celkem</th>
-                        <th style={styles.th}>Dodáno</th>
-                        <th style={styles.th}>Vyfakturováno</th>
+                        <th style={{ ...styles.th, textAlign: 'right' }}>Spolu</th>
+                        <th style={styles.th}>Dodané</th>
+                        <th style={styles.th}>Vyfakturované</th>
                         {!readOnly && <th style={{ ...styles.th, width: 110 }}>Sklad</th>}
                       </tr>
                     </thead>
@@ -5165,7 +5167,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                   value={r.item.invoicedDate || ''}
                                   onChange={e => {
                                     const patch = { invoicedDate: e.target.value };
-                                    // Zadání data fakturace automaticky značí položku jako vyfakturovanou
+                                    // Zadanie data fakturácia automaticky značí položku ako vyfakturovanú
                                     if (e.target.value) patch.isInvoiced = true;
                                     else patch.isInvoiced = false;
                                     wrappedUpdateItem(r.projectId, r.item.id, patch);
@@ -5175,9 +5177,9 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                             {!readOnly && (
                               <td style={styles.td}>
                                 {(() => {
-                                  // Najít kusy ve skladu, které byly naskladněny z této objednávkové položky
+                                  // Nájsť kusy ve sklade, ktoré byly naskladnené z tejto objednávkové položky
                                   const stockedItems = stockItems.filter(s => s.sourceOrderItemId === r.item.id);
-                                  // Sumovat batchQuantity (batch může mít 22, jednotlivý 1)
+                                  // Sumovať batchQuantity (batch môže mít 22, jednotlivý 1)
                                   const stockedCount = stockedItems.reduce((sum, s) => sum + (parseInt(s.batchQuantity, 10) || 1), 0);
                                   const orderedQty = parseFloat(r.item.quantity) || 0;
                                   const isMaterial = r.category?.kind === 'material';
@@ -5200,12 +5202,12 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                         }}
                                         title="Naskladnit položku"
                                       >
-                                        <Warehouse size={11} /> Naskladnit
+                                        <Warehouse size={11} /> Naskladniť
                                       </button>
                                     );
                                   }
 
-                                  // Položka už je (alespoň částečně) naskladněna
+                                  // Položka už je (aspoň čiastočne) naskladnená
                                   const isFullyReceived = stockedCount >= orderedQty;
                                   const firstStockId = stockedItems[0]?.id;
                                   return (
@@ -5221,10 +5223,10 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                           border: `1px solid ${isFullyReceived ? '#93c5fd' : '#fcd34d'}`,
                                           cursor: 'pointer', fontFamily: 'inherit',
                                         }}
-                                        title={isFullyReceived ? 'Zobrazit ve skladu' : 'Částečně naskladněno - zobrazit ve skladu'}
+                                        title={isFullyReceived ? 'Zobraziť ve sklade' : 'Čiastočne naskladnené - zobraziť ve sklade'}
                                       >
                                         <CheckCircle2 size={11} />
-                                        {isFullyReceived ? 'Naskladněno' : `Část (${stockedCount}/${orderedQty})`}
+                                        {isFullyReceived ? 'Naskladnené' : `Část (${stockedCount}/${orderedQty})`}
                                       </button>
                                       {!isFullyReceived && (
                                         <button
@@ -5236,9 +5238,9 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                             fontSize: 10, fontWeight: 600,
                                             border: '1px solid #10b981', cursor: 'pointer', fontFamily: 'inherit',
                                           }}
-                                          title="Naskladnit zbývající kusy"
+                                          title="Naskladnit zostávajúci kusy"
                                         >
-                                          + Doplnit
+                                          + Doplniť
                                         </button>
                                       )}
                                     </div>
@@ -5263,13 +5265,13 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
           onConfirm={(date) => {
             let updates;
             if (batchModal.action === 'invoiced') {
-              // Vyfakturování je nezávislé — nemění status, jen nastaví isInvoiced + invoicedDate
+              // Vyfakturovanie je nezávislé — nemení status, len nastaví isInvoiced + invoicedDate
               updates = batchModal.rows.map(r => ({
                 projectId: r.projectId, itemId: r.item.id,
                 patch: { isInvoiced: true, invoicedDate: date },
               }));
             } else {
-              // Dodání → mění status + deliveredDate
+              // Dodanie → mení status + deliveredDate
               const dateField = 'deliveredDate';
               updates = batchModal.rows.map(r => ({
                 projectId: r.projectId, itemId: r.item.id,
@@ -5287,8 +5289,8 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
 function BatchActionModal({ action, rows, onConfirm, onClose }) {
   const [date, setDate] = useState(todayISO());
   const titles = {
-    delivered: { title: 'Označit položky jako dodané', label: 'Skut. datum dodání', icon: <Truck size={16} /> },
-    invoiced: { title: 'Označit položky jako vyfakturované', label: 'Datum fakturace', icon: <FileText size={16} /> },
+    delivered: { title: 'Označiť položky ako dodané', label: 'Skut. dátum dodanie', icon: <Truck size={16} /> },
+    invoiced: { title: 'Označiť položky ako vyfakturované', label: 'Dátum fakturácia', icon: <FileText size={16} /> },
   };
   const t = titles[action];
   const total = rows.reduce((s, r) => s + r.czk, 0);
@@ -5297,7 +5299,7 @@ function BatchActionModal({ action, rows, onConfirm, onClose }) {
   return (
     <Modal title={t.title} onClose={onClose} maxWidth={520}>
       <p style={{ color: '#64748b', fontSize: 14, margin: '0 0 12px' }}>
-        {rows.length} {rows.length === 1 ? 'položka' : (rows.length >= 2 && rows.length <= 4 ? 'položky' : 'položek')} napříč {Object.keys(byProject).length} {Object.keys(byProject).length === 1 ? 'projektem' : (Object.keys(byProject).length >= 2 && Object.keys(byProject).length <= 4 ? 'projekty' : 'projekty')}.
+        {rows.length} {rows.length === 1 ? 'položka' : (rows.length >= 2 && rows.length <= 4 ? 'položky' : 'položek')} naprieč {Object.keys(byProject).length} {Object.keys(byProject).length === 1 ? 'projektom' : (Object.keys(byProject).length >= 2 && Object.keys(byProject).length <= 4 ? 'projekty' : 'projekty')}.
       </p>
       <div style={{ ...styles.totalPreview, borderLeftColor: '#6366f1', marginTop: 0, marginBottom: 14 }}>
         {Object.entries(byProject).map(([name, count]) => (
@@ -5306,7 +5308,7 @@ function BatchActionModal({ action, rows, onConfirm, onClose }) {
           </div>
         ))}
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 13, fontWeight: 700, marginTop: 8, paddingTop: 8, borderTop: '1px solid #e2e8f0' }}>
-          <span>Celkem</span><span>{fmt(total)}</span>
+          <span>Spolu</span><span>{fmt(total)}</span>
         </div>
       </div>
       <div style={styles.formRow}>
@@ -5314,8 +5316,8 @@ function BatchActionModal({ action, rows, onConfirm, onClose }) {
         <input type="date" style={styles.input} value={date} onChange={e => setDate(e.target.value)} autoFocus />
       </div>
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={() => onConfirm(date)} disabled={!date}>{t.icon} Použít</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={() => onConfirm(date)} disabled={!date}>{t.icon} Použiť</button>
       </div>
     </Modal>
   );
@@ -5333,14 +5335,14 @@ function OverdueChip() {
       background: '#dc2626', color: '#fff',
       fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em',
       marginLeft: 4,
-    }} title="Tento řádek obsahuje platby po splatnosti">
+    }} title="Tento riadok obsahuje platby po splatnosti">
       <AlertTriangle size={9} /> po splatnosti
     </span>
   );
 }
 
 // ==========================================================================
-// StockView — skladové hospodářství
+// StockView — skladové hospodárstvo
 // ==========================================================================
 
 function StockView({ stockItems, stockMovements, locations, categories, projects, suppliers, fxRate, readOnly, focusKey, onAddStock, onEditStock, onTransferStock, onConsumeStock, onDeleteStock, onManageLocations, onBulkTransfer, onBulkConsume, onGoToOrders }) {
@@ -5350,26 +5352,26 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
   const [filterStatus, setFilterStatus] = useState('available'); // available | consumed | all
   const [query, setQuery] = useState('');
   const [confirmDeleteId, setConfirmDeleteId] = useState(null);
-  // Zobrazení: aggregated (default) — kusy se stejným názvem se sečtou; nebo detailed — každý kus na řádku
+  // Zobrazenie: aggregated (default) — kusy sa rovnakým názvom sa spočítajú; alebo detailed — každý kus na riadku
   const [viewMode, setViewMode] = useState('aggregated');
-  // Které skupiny jsou rozbalené (v aggregated módu)
+  // Ktoré skupiny sú rozbalené (v aggregated módu)
   const [expandedGroups, setExpandedGroups] = useState(() => new Set());
-  // Selekce pro bulk operace
+  // Selekce pre bulk operace
   const [selected, setSelected] = useState(() => new Set());
   const [bulkModal, setBulkModal] = useState(null); // { type: 'transfer'|'consume', items: [] }
 
-  // Focus & scroll do konkrétního řádku, když přijdeme z OrdersView
+  // Focus & scroll do konkrétního riadku, keď prídeme z OrdersView
   const rowRefs = useRef({});
   useEffect(() => {
     if (!focusKey) return;
-    // Pokud máme stockItemId, najít řádek; jinak orderItemId hledat napříč stockItems
+    // Ak máme stockItemId, nájsť riadok; inak orderItemId hledat naprieč stockItems
     let targetId = focusKey.stockItemId;
     if (!targetId && focusKey.orderItemId) {
       const match = stockItems.find(s => s.sourceOrderItemId === focusKey.orderItemId);
       targetId = match?.id;
     }
     if (!targetId) return;
-    // Zaručit, že je položka vidět v aktuálním filtru: přepnout na "vše"
+    // Zaručit, že je položka vidieť v aktuálnom filtru: prepnúť na "vše"
     setTab('overview');
     setFilterStatus('all');
     setFilterLocation('all');
@@ -5389,7 +5391,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
 
   // Filtrované položky
   const filteredItems = useMemo(() => {
-    // Když filtr = "na cestě", schováme skutečné stock items — zobrazíme jen virtuální transit
+    // Keď filtr = "na ceste", skryjeme skutočné stock items — zobrazíme len virtuální transit
     if (filterStatus === 'transit') return [];
     return stockItems.filter(s => {
       if (filterStatus === 'available' && s.status === 'consumed') return false;
@@ -5397,7 +5399,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
       if (filterLocation !== 'all' && s.locationId !== filterLocation) return false;
       if (filterCategory !== 'all' && s.category !== filterCategory) return false;
       if (query.trim()) {
-        // Zjistit jméno projektu + klienta (přednost má consumed, pak zdrojový non-stock)
+        // Zistiť meno projektu + klienta (prednosť má consumed, pak zdrojový non-stock)
         let projId;
         if (s.consumedToProjectId) projId = s.consumedToProjectId;
         else if (s.sourceProjectId) {
@@ -5414,29 +5416,29 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
     });
   }, [stockItems, filterLocation, filterCategory, filterStatus, query, projects]);
 
-  // Virtuální kusy "Na cestě" — vygenerované z objednávek, které jsou objednané (status='ordered')
-  // ale ještě nebyly (zcela) naskladněny.
-  // Zobrazují se jen v Souhrnu (aggregated view) a jsou read-only.
+  // Virtuální kusy "Na ceste" — vygenerované z objednávok, ktoré sú objednané (status='ordered')
+  // ale ešte nebyly (zcela) naskladnené.
+  // Zobrazujú sa len v Súhrne (aggregated view) a sú read-only.
   const transitItems = useMemo(() => {
-    // Transit se zobrazuje jen když filter je "na cestě" nebo "vše" (jinak jen skutečné kusy)
+    // Transit sa zobrazuje len keď filter je "na ceste" nebo "vše" (inak len skutočné kusy)
     if (filterStatus !== 'transit' && filterStatus !== 'all') return [];
-    // Vynechat, pokud filtr lokace explicitně vylučuje transit
+    // Vynechat, ak filtr lokalita explicitne vylučuje transit
     if (filterLocation !== 'all' && filterLocation !== TRANSIT_LOCATION_ID) return [];
     const out = [];
     projects.forEach(p => {
       (p.items || []).forEach(item => {
-        // Objednávka je "na cestě" pokud je ordered (ne planned, ne delivered)
+        // Objednávka je "na ceste" ak je ordered (ne planned, ne delivered)
         if ((item.status || 'planned') !== 'ordered') return;
-        // Zjistit, jaké množství už bylo naskladněno (pro tento konkrétní order item)
+        // Zistiť, jaké množstvo už bylo naskladnené (pre tento konkrétny order item)
         const stockedQty = stockItems
           .filter(s => s.sourceOrderItemId === item.id)
           .reduce((sum, s) => sum + (parseInt(s.batchQuantity, 10) || 1), 0);
         const orderedQty = parseFloat(item.quantity) || 0;
         const remaining = orderedQty - stockedQty;
-        if (remaining <= 0) return; // vše je naskladněné
-        // Aplikovat filter kategorie
+        if (remaining <= 0) return; // všetko je naskladnené
+        // Aplikovať filter kategórie
         if (filterCategory !== 'all' && item.category !== filterCategory) return;
-        // Aplikovat text search
+        // Aplikovať text search
         if (query.trim()) {
           const sup = suppliers.find(s => s.id === item.supplierId);
           if (!searchMatch(query, [
@@ -5445,18 +5447,18 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
         }
         const cat = categories.find(c => c.id === item.category);
         const sup = suppliers.find(s => s.id === item.supplierId);
-        // Vytvořit virtuální stock záznam (nemá skutečné id, jen zobrazovací účel)
+        // Vytvoriť virtuální stock záznam (nemá skutočné id, len zobrazovací účel)
         out.push({
           id: `transit_${item.id}`,
-          isTransit: true, // příznak pro UI
+          isTransit: true, // príznak pre UI
           name: item.name,
           category: item.category,
           categoryName: cat?.name || '',
           locationId: TRANSIT_LOCATION_ID,
           serialNumber: '',
           batchQuantity: remaining,
-          purchasePriceCZK: (parseFloat(item.unitPrice) || 0) * remaining * (item.currency === 'EUR' ? (fxRate || 25) : 1),
-          receivedDate: '', // ještě nenaskladněno
+          purchasePriceEUR: (parseFloat(item.unitPrice) || 0) * remaining * (item.currency === 'CZK' ? 1 / (fxRate || 25) : 1),
+          receivedDate: '', // ešte nenaskladnené
           warrantyUntil: '',
           notes: `Očekáváno ${item.plannedDeliveryDate || item.paymentDueDate || 'brzy'} · Objednávka #${item.orderNumber || '(bez čísla)'}`,
           orderNumber: item.orderNumber,
@@ -5472,11 +5474,11 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
     return out;
   }, [projects, stockItems, categories, suppliers, filterStatus, filterLocation, filterCategory, query, fxRate]);
 
-  // Agregace: sečteme kusy se stejným názvem + kategorií + lokací + stavem
-  // (různé stavy nebo lokace zůstávají odděleně, aby uživatel viděl "10 v Sklad + 5 u Elektrikáře")
+  // Agregace: spočítame kusy sa rovnakým názvom + kategórií + lokalít + stavem
+  // (rôzne stavy alebo lokalita zostávajú oddelene, aby používateľ videl "10 v Sklad + 5 u Elektrikára")
   const groupedItems = useMemo(() => {
     const map = new Map();
-    // Skutečné skladové kusy + virtuální "na cestě"
+    // Skutočné skladové kusy + virtuální "na ceste"
     const combined = [...filteredItems, ...transitItems];
     combined.forEach(s => {
       const nameLower = (s.name || '').trim().toLowerCase();
@@ -5491,7 +5493,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
           isTransit: !!s.isTransit,
           items: [],
           totalCount: 0,
-          totalValueCZK: 0,
+          totalValueEUR: 0,
           minPrice: Infinity,
           maxPrice: -Infinity,
           hasSerials: false,
@@ -5501,8 +5503,8 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
       const qty = parseInt(s.batchQuantity, 10) || 1;
       g.items.push(s);
       g.totalCount += qty;
-      const price = parseFloat(s.purchasePriceCZK) || 0;
-      g.totalValueCZK += price;
+      const price = parseFloat(s.purchasePriceEUR) || 0;
+      g.totalValueEUR += price;
       if (price > 0) {
         g.minPrice = Math.min(g.minPrice, price / qty);
         g.maxPrice = Math.max(g.maxPrice, price / qty);
@@ -5514,7 +5516,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
       minPrice: g.minPrice === Infinity ? 0 : g.minPrice,
       maxPrice: g.maxPrice === -Infinity ? 0 : g.maxPrice,
     }));
-    // Řadit: transit dolů, ostatní podle názvu
+    // Radiť: transit dole, ostatné podľa názvu
     out.sort((a, b) => {
       if (a.isTransit && !b.isTransit) return 1;
       if (!a.isTransit && b.isTransit) return -1;
@@ -5526,22 +5528,22 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
   // Statistiky
   const stats = useMemo(() => {
     const available = stockItems.filter(s => s.status !== 'consumed');
-    const totalValue = available.reduce((s, item) => s + (parseFloat(item.purchasePriceCZK) || 0), 0);
-    // Počet kusů: batchQuantity bere v úvahu (1 batch = N kusů, jednotlivý záznam = 1 kus)
+    const totalValue = available.reduce((s, item) => s + (parseFloat(item.purchasePriceEUR) || 0), 0);
+    // Počet kusov: batchQuantity bere v úvahu (1 batch = N kusov, jednotlivý záznam = 1 kus)
     const totalUnits = available.reduce((s, item) => s + (parseInt(item.batchQuantity, 10) || 1), 0);
     const totalRecords = available.length;
 
-    // Pro každou lokaci: počet kusů + celková hodnota (v Kč)
+    // Pre každú lokalitu: počet kusov + celková hodnota (v EUR)
     const byLocation = locations.reduce((acc, loc) => {
       const items = available.filter(s => s.locationId === loc.id);
       acc[loc.id] = {
         count: items.reduce((sum, i) => sum + (parseInt(i.batchQuantity, 10) || 1), 0),
-        value: items.reduce((sum, i) => sum + (parseFloat(i.purchasePriceCZK) || 0), 0),
+        value: items.reduce((sum, i) => sum + (parseFloat(i.purchasePriceEUR) || 0), 0),
       };
       return acc;
     }, {});
 
-    // Přidat statistiku "Na cestě" — z objednávek, které jsou objednané, ale nenaskladněné
+    // Pridať statistiku "Na ceste" — z objednávok, ktoré sú objednané, ale nenaskladnené
     let transitCount = 0;
     let transitValue = 0;
     projects.forEach(p => {
@@ -5553,8 +5555,8 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
         const remaining = (parseFloat(item.quantity) || 0) - stockedQty;
         if (remaining <= 0) return;
         transitCount += remaining;
-        const priceCZK = (parseFloat(item.unitPrice) || 0) * remaining * (item.currency === 'EUR' ? (fxRate || 25) : 1);
-        transitValue += priceCZK;
+        const priceEUR = (parseFloat(item.unitPrice) || 0) * remaining * (item.currency === 'CZK' ? 1 / (fxRate || 25) : 1);
+        transitValue += priceEUR;
       });
     });
     if (byLocation[TRANSIT_LOCATION_ID]) {
@@ -5571,7 +5573,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
     return { totalCount: totalUnits, totalRecords, totalValue, byLocation, warrantyExpiringSoon, warrantyExpired };
   }, [stockItems, locations, projects, fxRate]);
 
-  // Filtry pro tabulku pohybů (per-sloupec)
+  // Filtry pre tabuľku pohybov (per-stĺpec)
   const [mvFilters, setMvFilters] = useState({
     dateFrom: '',
     dateTo: '',
@@ -5587,10 +5589,10 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
     return [...stockMovements].sort((a, b) => (b.createdAt || b.date).localeCompare(a.createdAt || a.date));
   }, [stockMovements]);
 
-  // Filtrované pohyby podle mvFilters
+  // Filtrované pohyby podľa mvFilters
   const filteredMovements = useMemo(() => {
     return recentMovements.filter(m => {
-      // Datum
+      // Dátum
       if (mvFilters.dateFrom && (m.date || '') < mvFilters.dateFrom) return false;
       if (mvFilters.dateTo && (m.date || '') > mvFilters.dateTo) return false;
       // Typ
@@ -5599,12 +5601,12 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
       if (mvFilters.item.trim() && !searchMatch(mvFilters.item, [m.itemName])) return false;
       // Sériové (text)
       if (mvFilters.serial.trim() && !searchMatch(mvFilters.serial, [m.serialNumber])) return false;
-      // Z lokace
+      // Z lokalita
       if (mvFilters.from !== 'all') {
         if (mvFilters.from === '__empty__') { if (m.fromLocationId) return false; }
         else if (m.fromLocationId !== mvFilters.from) return false;
       }
-      // Do (může být locationId nebo projekt)
+      // Do (môže byť locationId alebo projekt)
       if (mvFilters.to !== 'all') {
         if (mvFilters.to === '__empty__') { if (m.toLocationId || m.projectId) return false; }
         else if (mvFilters.to === 'anyProject') { if (!m.projectId) return false; }
@@ -5629,10 +5631,10 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
         <div>
           <h2 style={styles.projectTitle}><Warehouse size={20} style={{ verticalAlign: 'middle', marginRight: 8 }} /> Sklad</h2>
           <p style={{ margin: '6px 0 0', color: '#64748b', fontSize: 14 }}>
-            {stats.totalCount} {stats.totalCount === 1 ? 'kus' : stats.totalCount < 5 ? 'kusy' : 'kusů'} na skladě · hodnota {fmt(stats.totalValue)}
+            {stats.totalCount} {stats.totalCount === 1 ? 'kus' : stats.totalCount < 5 ? 'kusy' : 'kusov'} na sklade · hodnota {fmt(stats.totalValue)}
             {stats.warrantyExpiringSoon > 0 && (
               <span style={{ marginLeft: 8, color: '#f59e0b', fontWeight: 600 }}>
-                · ⚠ {stats.warrantyExpiringSoon} kusů s blížícím se koncem záruky
+                · ⚠ {stats.warrantyExpiringSoon} kusov s blížícím sa koncem záruky
               </span>
             )}
           </p>
@@ -5642,24 +5644,24 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
             style={styles.sortBtn}
             onClick={() => exportStockToExcel({ stockItems, stockMovements, locations, categories, projects, suppliers })}
             disabled={stockItems.length === 0}
-            title="Stáhnout sklad jako Excel (přehled kusů + pohyby)"
+            title="Stiahnuť sklad ako Excel (prehľad kusov + pohyby)"
           >
             <Download size={14} /> Export Excel
           </button>
           {!readOnly && (
             <>
               <button style={styles.sortBtn} onClick={onManageLocations}>
-                <MapPin size={14} /> Lokace ({locations.length})
+                <MapPin size={14} /> Lokalita ({locations.length})
               </button>
               <button style={styles.primaryBtn} onClick={onAddStock}>
-                <Plus size={14} /> Naskladnit ručně
+                <Plus size={14} /> Naskladniť ručne
               </button>
             </>
           )}
         </div>
       </div>
 
-      {/* Souhrn po lokacích */}
+      {/* Súhrn po lokalitách */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 12, marginBottom: 16 }}>
         {locations.map(loc => {
           const locStats = stats.byLocation[loc.id] || { count: 0, value: 0 };
@@ -5672,11 +5674,11 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
             }} onClick={() => setFilterLocation(filterLocation === loc.id ? 'all' : loc.id)}>
               <div style={{ fontSize: 11, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'flex', alignItems: 'center', gap: 4 }}>
                 {isTransit ? <Truck size={12} /> : loc.type === 'warehouse' ? <Warehouse size={12} /> : <UserIcon size={12} />}
-                {isTransit ? 'Objednáno' : loc.type === 'warehouse' ? 'Sklad' : 'Elektrikář'}
+                {isTransit ? 'Objednané' : loc.type === 'warehouse' ? 'Sklad' : 'Elektrikár'}
               </div>
               <div style={{ fontSize: 14, fontWeight: 600, marginTop: 4, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{loc.name}</div>
               <div style={{ fontSize: 22, fontWeight: 700, marginTop: 6, color: locStats.count > 0 ? '#0f172a' : '#cbd5e1' }}>
-                {locStats.count} <span style={{ fontSize: 12, fontWeight: 400, color: '#64748b' }}>{locStats.count === 1 ? 'kus' : locStats.count < 5 ? 'kusy' : 'kusů'}</span>
+                {locStats.count} <span style={{ fontSize: 12, fontWeight: 400, color: '#64748b' }}>{locStats.count === 1 ? 'kus' : locStats.count < 5 ? 'kusy' : 'kusov'}</span>
               </div>
               <div style={{ fontSize: 12, color: locStats.value > 0 ? '#64748b' : '#cbd5e1', marginTop: 2 }}>
                 {locStats.value > 0 ? fmt(locStats.value) : '—'}
@@ -5689,10 +5691,10 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
       {/* Tabs */}
       <div style={{ display: 'flex', gap: 4, borderBottom: '1px solid #e2e8f0', marginBottom: 12 }}>
         {[
-          { id: 'overview', label: 'Přehled kusů', icon: <Package size={13} /> },
+          { id: 'overview', label: 'Prehľad kusov', icon: <Package size={13} /> },
           { id: 'movements', label: `Pohyby (${stockMovements.length})`, icon: <History size={13} /> },
           { id: 'warranty', label: 'Záruky', icon: <ShieldCheck size={13} /> },
-          { id: 'byOrder', label: 'Podle objednávek', icon: <ListChecks size={13} /> },
+          { id: 'byOrder', label: 'Podľa objednávok', icon: <ListChecks size={13} /> },
         ].map(t => (
           <button
             key={t.id}
@@ -5713,22 +5715,22 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
         <>
           <div style={styles.searchBar}>
             <div style={{ flex: 1, minWidth: 220 }}>
-              <SearchInput value={query} onChange={setQuery} placeholder="Hledat položku, S/N, dodavatele, objednávku, projekt, klienta..." />
+              <SearchInput value={query} onChange={setQuery} placeholder="Hledat položku, S/N, dodávateľa, objednávku, projekt, klienta..." />
             </div>
             <select style={{ ...styles.input, width: 'auto', minWidth: 160 }} value={filterCategory} onChange={e => setFilterCategory(e.target.value)}>
-              <option value="all">Všechny kategorie</option>
+              <option value="all">Všetky kategórie</option>
               {categories.filter(c => c.kind === 'material').map(c => (
                 <option key={c.id} value={c.id}>{c.name}</option>
               ))}
             </select>
             <select style={{ ...styles.input, width: 'auto', minWidth: 140 }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
               <option value="available">Skladem</option>
-              <option value="transit">Na cestě</option>
-              <option value="consumed">Spotřebováno</option>
-              <option value="all">Vše</option>
+              <option value="transit">Na ceste</option>
+              <option value="consumed">Spotrebované</option>
+              <option value="all">Všetko</option>
             </select>
             <div style={{ fontSize: 12, color: '#64748b', marginLeft: 'auto' }}>
-              {filteredItems.length + transitItems.length} / {stockItems.length} kusů
+              {filteredItems.length + transitItems.length} / {stockItems.length} kusov
             </div>
           </div>
 
@@ -5742,9 +5744,9 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                 color: viewMode === 'aggregated' ? '#fff' : '#64748b',
                 border: 'none', cursor: 'pointer',
               }}
-              title="Sečtené kusy podle názvu"
+              title="Spočítané kusy podľa názvu"
             >
-              📦 Souhrn
+              📦 Súhrn
             </button>
             <button
               onClick={() => setViewMode('detailed')}
@@ -5754,13 +5756,13 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                 color: viewMode === 'detailed' ? '#fff' : '#64748b',
                 border: 'none', cursor: 'pointer',
               }}
-              title="Každý kus samostatně"
+              title="Každý kus samostatne"
             >
               📋 Detail
             </button>
           </div>
 
-          {/* Bulk action bar - zobrazí se když je vybrána aspoň 1 položka */}
+          {/* Bulk action bar - zobrazí sa keď je vybrána aspoň 1 položka */}
           {!readOnly && selected.size > 0 && (
             <div style={{
               display: 'flex', alignItems: 'center', gap: 10, padding: '10px 14px',
@@ -5768,7 +5770,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
               flexWrap: 'wrap',
             }}>
               <span style={{ fontWeight: 700, fontSize: 13 }}>
-                {selected.size} {selected.size === 1 ? 'kus' : selected.size < 5 ? 'kusy' : 'kusů'} vybráno
+                {selected.size} {selected.size === 1 ? 'kus' : selected.size < 5 ? 'kusy' : 'kusov'} vybrané
               </span>
               <button
                 onClick={() => setSelected(new Set())}
@@ -5776,13 +5778,13 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                   padding: '4px 10px', fontSize: 11, background: 'transparent', color: '#c4ff3d',
                   border: '1px solid #c4ff3d', borderRadius: 4, cursor: 'pointer',
                 }}>
-                Vymazat výběr
+                Vymazať výber
               </button>
               <div style={{ flex: 1 }} />
               <button
                 onClick={() => {
                   const items = filteredItems.filter(s => selected.has(s.id) && s.status !== 'consumed');
-                  if (items.length === 0) { alert('Žádný z vybraných kusů nelze přesunout (jsou spotřebované).'); return; }
+                  if (items.length === 0) { alert('Žiadny z vybraných kusov nemožno presunúť (sú spotrebované).'); return; }
                   setBulkModal({ type: 'transfer', items });
                 }}
                 style={{
@@ -5790,12 +5792,12 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                   background: '#c4ff3d', color: '#0d3825', border: 'none', borderRadius: 4,
                   cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6,
                 }}>
-                <ArrowRight size={12} /> Přesunout
+                <ArrowRight size={12} /> Presunúť
               </button>
               <button
                 onClick={() => {
                   const items = filteredItems.filter(s => selected.has(s.id) && s.status !== 'consumed');
-                  if (items.length === 0) { alert('Žádný z vybraných kusů nelze spotřebovat (jsou spotřebované).'); return; }
+                  if (items.length === 0) { alert('Žiadny z vybraných kusov nemožno spotrebovať (sú spotrebované).'); return; }
                   setBulkModal({ type: 'consume', items });
                 }}
                 style={{
@@ -5803,7 +5805,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                   background: '#f59e0b', color: '#fff', border: 'none', borderRadius: 4,
                   cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6,
                 }}>
-                ✂️ Spotřebovat
+                ✂️ Spotrebovať
               </button>
               <button
                 onClick={() => {
@@ -5824,7 +5826,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
             <div style={styles.emptyItems}>
               <Warehouse size={32} style={{ color: '#cbd5e1' }} />
               <p style={{ color: '#64748b', margin: '12px 0 0' }}>
-                {stockItems.length === 0 ? 'Sklad je prázdný. Naskladněte první položku.' : 'Žádné kusy nevyhovují filtru.'}
+                {stockItems.length === 0 ? 'Sklad je prázdny. Naskladnite prvý položku.' : 'Žiadne kusy nevyhovují filtru.'}
               </p>
             </div>
           ) : viewMode === 'aggregated' ? (
@@ -5834,12 +5836,12 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                   <tr>
                     <th style={{ ...styles.th, width: 30 }}></th>
                     <th style={styles.th}>Položka</th>
-                    <th style={styles.th}>Kategorie</th>
-                    <th style={styles.th}>Lokace</th>
+                    <th style={styles.th}>Kategórie</th>
+                    <th style={styles.th}>Lokalita</th>
                     <th style={styles.th}>Stav / Projekt</th>
-                    <th style={{ ...styles.th, textAlign: 'right' }}>Kusů</th>
-                    <th style={{ ...styles.th, textAlign: 'right' }}>Cena za kus (Kč)</th>
-                    <th style={{ ...styles.th, textAlign: 'right' }}>Celková hodnota (Kč)</th>
+                    <th style={{ ...styles.th, textAlign: 'right' }}>Kusov</th>
+                    <th style={{ ...styles.th, textAlign: 'right' }}>Cena za kus (€)</th>
+                    <th style={{ ...styles.th, textAlign: 'right' }}>Celková hodnota (€)</th>
                     <th style={styles.th}>S/N</th>
                     {!readOnly && <th style={{ ...styles.th, width: 240 }}>Akce</th>}
                   </tr>
@@ -5850,7 +5852,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                     const loc = locations.find(l => l.id === g.locationId);
                     const isExpanded = expandedGroups.has(g.key);
                     const isConsumed = g.status === 'consumed';
-                    const avgPrice = g.totalCount > 0 ? g.totalValueCZK / g.totalCount : 0;
+                    const avgPrice = g.totalCount > 0 ? g.totalValueEUR / g.totalCount : 0;
                     const priceRange = g.minPrice !== g.maxPrice
                       ? `${fmt(g.minPrice)} – ${fmt(g.maxPrice)}`
                       : fmt(avgPrice);
@@ -5885,9 +5887,9 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                           <td style={{ ...styles.td, fontSize: 11 }}>{loc?.name || '—'}</td>
                           <td style={styles.td}>
                             {g.isTransit ? (
-                              <span style={{ padding: '2px 7px', borderRadius: 4, background: '#dbeafe', color: '#1d4ed8', fontSize: 10, fontWeight: 700 }}>NA CESTĚ</span>
+                              <span style={{ padding: '2px 7px', borderRadius: 4, background: '#dbeafe', color: '#1d4ed8', fontSize: 10, fontWeight: 700 }}>NA CESTE</span>
                             ) : isConsumed ? (
-                              <span style={{ padding: '2px 7px', borderRadius: 4, background: '#fee2e2', color: '#991b1b', fontSize: 10, fontWeight: 700 }}>SPOTŘEBOVÁNO</span>
+                              <span style={{ padding: '2px 7px', borderRadius: 4, background: '#fee2e2', color: '#991b1b', fontSize: 10, fontWeight: 700 }}>SPOTREBOVANÉ</span>
                             ) : (
                               <span style={{ padding: '2px 7px', borderRadius: 4, background: '#dcfce7', color: '#15803d', fontSize: 10, fontWeight: 700 }}>SKLADEM</span>
                             )}
@@ -5898,10 +5900,10 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                             </span>
                           </td>
                           <td style={{ ...styles.td, textAlign: 'right', fontSize: 11 }}>{priceRange}</td>
-                          <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600 }}>{fmt(g.totalValueCZK)}</td>
+                          <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600 }}>{fmt(g.totalValueEUR)}</td>
                           <td style={styles.td}>
                             {g.hasSerials ? (
-                              <span style={{ padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontSize: 10, fontWeight: 700 }} title="Kusy mají sériové čísla — rozbalte pro detail">📝 S/N</span>
+                              <span style={{ padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontSize: 10, fontWeight: 700 }} title="Kusy mají sériové čísla — rozbaľte pre detail">📝 S/N</span>
                             ) : (
                               <span style={{ color: '#cbd5e1', fontSize: 10 }}>—</span>
                             )}
@@ -5910,28 +5912,28 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                             <td style={styles.td}>
                               {g.isTransit ? (
                                 <span style={{ fontSize: 10, color: '#64748b', fontStyle: 'italic' }}>
-                                  Přejít do Objednávek pro naskladnění
+                                  Prejsť do Objednávok pre naskladnenie
                                 </span>
                               ) : !isConsumed && (
                                 <div style={{ display: 'inline-flex', gap: 4 }}>
                                   <button
                                     onClick={() => {
-                                      // Vybrat všechny kusy skupiny a otevřít bulk-transfer
+                                      // Vybrať všetky kusy skupiny a otvoriť bulk-transfer
                                       setBulkModal({ type: 'transfer', items: g.items });
                                     }}
                                     style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px' }}
-                                    title="Přesunout kusy — v modálu si můžete vybrat konkrétní"
+                                    title="Presunúť kusy — v modálu si môžete vybrať konkrétny"
                                   >
-                                    <ArrowRight size={10} /> Přesun
+                                    <ArrowRight size={10} /> Presun
                                   </button>
                                   <button
                                     onClick={() => {
                                       setBulkModal({ type: 'consume', items: g.items });
                                     }}
                                     style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px', background: '#f59e0b', color: '#fff', borderColor: '#f59e0b' }}
-                                    title="Spotřebovat kusy — v modálu si můžete vybrat konkrétní"
+                                    title="Spotrebovať kusy — v modálu si môžete vybrať konkrétny"
                                   >
-                                    <Package size={10} /> Spotřebovat
+                                    <Package size={10} /> Spotrebovať
                                   </button>
                                 </div>
                               )}
@@ -5946,23 +5948,23 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                           const proj = projId ? projects.find(p => p.id === projId) : null;
                           const isConsumedRow = !!s.consumedToProjectId;
                           if (s.isTransit) {
-                            // Zvláštní vzhled pro transit řádek
+                            // Zvláštny vzhľad pre transit riadok
                             return (
                               <tr key={s.id} style={{ ...styles.tr }}>
                                 <td style={styles.td}></td>
                                 <td style={{ ...styles.td, paddingLeft: 22, fontSize: 11, color: '#1e40af' }} colSpan={4}>
-                                  🚚 <strong>{s.batchQuantity} ks</strong> objednáno · {s.notes}
+                                  🚚 <strong>{s.batchQuantity} ks</strong> objednané · {s.notes}
                                 </td>
                                 <td style={{ ...styles.td, fontSize: 11 }}>{s.projectName}</td>
                                 <td style={{ ...styles.td, textAlign: 'right', fontSize: 11 }}>{s.batchQuantity}</td>
-                                <td style={{ ...styles.td, textAlign: 'right', fontSize: 11 }}>{fmt(s.purchasePriceCZK)}</td>
+                                <td style={{ ...styles.td, textAlign: 'right', fontSize: 11 }}>{fmt(s.purchasePriceEUR)}</td>
                                 <td style={{ ...styles.td, fontSize: 11 }}>{s.orderNumber || '—'}</td>
                                 {!readOnly && (
                                   <td style={styles.td}>
                                     <button
                                       onClick={() => onGoToOrders && onGoToOrders(s.orderNumber, s.sourceOrderItemId)}
                                       style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px' }}
-                                      title="Přejít do Objednávek"
+                                      title="Prejsť do Objednávok"
                                     >
                                       → Objednávka
                                     </button>
@@ -5991,11 +5993,11 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                               <td style={{ ...styles.td, paddingLeft: 22, fontSize: 11, color: '#64748b' }}>
                                 └ kus #{g.items.indexOf(s) + 1}
                               </td>
-                              {/* 3. Kategorie — datum naskladnění (per-kus meta) */}
+                              {/* 3. Kategórie — dátum naskladnenie (per-kus meta) */}
                               <td style={{ ...styles.td, fontSize: 10, color: '#64748b' }}>
                                 Naskl.: {s.receivedDate || '—'}
                               </td>
-                              {/* 4. Lokace — záruka (per-kus info) */}
+                              {/* 4. Lokalita — záruka (per-kus info) */}
                               <td style={{ ...styles.td, fontSize: 10 }}>
                                 {warrantyDays !== null ? (
                                   warrantyDays < 0
@@ -6009,7 +6011,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                               <td style={styles.td}>
                                 <div>
                                   {isConsumedRow ? (
-                                    <span style={{ padding: '1px 6px', borderRadius: 3, fontSize: 10, fontWeight: 700, background: '#fee2e2', color: '#991b1b' }}>SPOTŘEB.</span>
+                                    <span style={{ padding: '1px 6px', borderRadius: 3, fontSize: 10, fontWeight: 700, background: '#fee2e2', color: '#991b1b' }}>SPOTREB.</span>
                                   ) : (
                                     <span style={{ padding: '1px 6px', borderRadius: 3, fontSize: 10, fontWeight: 700, background: '#dcfce7', color: '#15803d' }}>SKLADEM</span>
                                   )}
@@ -6021,22 +6023,22 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                   </div>
                                 )}
                               </td>
-                              {/* 6. Kusů */}
+                              {/* 6. Kusov */}
                               <td style={{ ...styles.td, textAlign: 'right', fontSize: 11 }}>{parseInt(s.batchQuantity, 10) || 1}</td>
                               {/* 7. Cena za kus */}
                               <td style={{ ...styles.td, textAlign: 'right', fontSize: 11 }}>
                                 {(() => {
                                   const qty = parseInt(s.batchQuantity, 10) || 1;
-                                  const total = parseFloat(s.purchasePriceCZK) || 0;
+                                  const total = parseFloat(s.purchasePriceEUR) || 0;
                                   const perUnit = qty > 0 ? total / qty : total;
                                   return fmt(perUnit);
-                                })()} Kč
+                                })()}
                               </td>
                               {/* 8. Celková hodnota */}
                               <td style={{ ...styles.td, textAlign: 'right', fontSize: 11, fontWeight: 600 }}>
-                                {fmt(parseFloat(s.purchasePriceCZK) || 0)} Kč
+                                {fmt(parseFloat(s.purchasePriceEUR) || 0)}
                               </td>
-                              {/* 9. S/N — jen sériové číslo */}
+                              {/* 9. S/N — len sériové číslo */}
                               <td style={{ ...styles.td, fontSize: 11, fontFamily: 'monospace' }}>
                                 {s.serialNumber || <span style={{ color: '#cbd5e1', fontFamily: 'inherit' }}>—</span>}
                               </td>
@@ -6046,11 +6048,11 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                   <div style={{ display: 'inline-flex', gap: 3 }}>
                                     {!isConsumed && (
                                       <>
-                                        <button onClick={() => onTransferStock(s)} style={{ ...styles.iconBtn, padding: 3 }} title="Přesunout"><ArrowRight size={11} /></button>
-                                        <button onClick={() => onConsumeStock(s)} style={{ ...styles.iconBtn, padding: 3 }} title="Spotřebovat"><Package size={11} /></button>
+                                        <button onClick={() => onTransferStock(s)} style={{ ...styles.iconBtn, padding: 3 }} title="Presunúť"><ArrowRight size={11} /></button>
+                                        <button onClick={() => onConsumeStock(s)} style={{ ...styles.iconBtn, padding: 3 }} title="Spotrebovať"><Package size={11} /></button>
                                       </>
                                     )}
-                                    <button onClick={() => onEditStock(s)} style={{ ...styles.iconBtn, padding: 3 }} title="Upravit"><Edit3 size={11} /></button>
+                                    <button onClick={() => onEditStock(s)} style={{ ...styles.iconBtn, padding: 3 }} title="Upraviť"><Edit3 size={11} /></button>
                                     <button onClick={() => onDeleteStock(s.id)} style={{ ...styles.iconBtn, padding: 3, color: '#dc2626' }} title="Smazat"><Trash2 size={11} /></button>
                                   </div>
                                 </td>
@@ -6083,19 +6085,19 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                             }
                             setSelected(newSel);
                           }}
-                          title="Vybrat všechny"
+                          title="Vybrať všetky"
                         />
                       </th>
                     )}
                     <th style={styles.th}>Položka</th>
                     <th style={styles.th}>Sériové číslo</th>
-                    <th style={styles.th}>Kategorie</th>
-                    <th style={styles.th}>Lokace</th>
+                    <th style={styles.th}>Kategórie</th>
+                    <th style={styles.th}>Lokalita</th>
                     <th style={styles.th}>Projekt</th>
                     <th style={styles.th}>Objednávka</th>
-                    <th style={styles.th}>Dodavatel</th>
+                    <th style={styles.th}>Dodávateľ</th>
                     <th style={{ ...styles.th, textAlign: 'right' }}>Cena</th>
-                    <th style={styles.th}>Naskladněno</th>
+                    <th style={styles.th}>Naskladnené</th>
                     <th style={styles.th}>Záruka do</th>
                     {!readOnly && <th style={{ ...styles.th, width: 160 }}>Akce</th>}
                   </tr>
@@ -6169,7 +6171,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                           </span>
                           {isConsumed && (
                             <div style={{ fontSize: 10, color: '#dc2626', fontWeight: 600, marginTop: 2 }}>
-                              SPOTŘEBOVÁNO
+                              SPOTREBOVANÉ
                               {s.consumedToProjectId && (() => {
                                 const p = projects.find(pr => pr.id === s.consumedToProjectId);
                                 return p ? <span> · {p.name}</span> : null;
@@ -6180,9 +6182,9 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                         <td style={styles.td}>
                           {(() => {
                             // Priorita:
-                            // 1) Pokud je spotřebováno → zobrazit cílový projekt (kam bylo spotřebováno)
-                            // 2) Jinak zobrazit zdrojový projekt (pro který bylo naskladněno)
-                            //    ALE pouze pokud to není systémový Sklad — ten je pro uživatele „bez projektu"
+                            // 1) Ak je spotrebované → zobraziť cílový projekt (kam bylo spotrebované)
+                            // 2) Inak zobraziť zdrojový projekt (pre ktorý bylo naskladnené)
+                            //    ALE iba ak to nie je systémový Sklad — ten je pre používateľa „bez projektu"
                             let projId, isConsumedProject;
                             if (s.consumedToProjectId) {
                               projId = s.consumedToProjectId;
@@ -6207,7 +6209,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                   borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit',
                                   textAlign: 'left', maxWidth: 180,
                                 }}
-                                title={isConsumedProject ? `Spotřebováno na projekt: ${proj.name}` : `Naskladněno pro projekt: ${proj.name}`}
+                                title={isConsumedProject ? `Spotrebované na projekt: ${proj.name}` : `Naskladnené pre projekt: ${proj.name}`}
                               >
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                                   <Briefcase size={11} />
@@ -6233,7 +6235,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                 borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit',
                                 display: 'inline-flex', alignItems: 'center', gap: 4, maxWidth: 160,
                               }}
-                              title={`Přejít na objednávku #${s.orderNumber}`}
+                              title={`Prejsť na objednávku #${s.orderNumber}`}
                             >
                               <ShoppingCart size={11} />
                               <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontFamily: 'monospace' }}>#{s.orderNumber}</span>
@@ -6249,7 +6251,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                           })()}
                         </td>
                         <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600 }}>
-                          {s.purchasePriceCZK > 0 ? fmt(s.purchasePriceCZK) : <span style={{ color: '#cbd5e1' }}>—</span>}
+                          {s.purchasePriceEUR > 0 ? fmt(s.purchasePriceEUR) : <span style={{ color: '#cbd5e1' }}>—</span>}
                         </td>
                         <td style={{ ...styles.td, fontSize: 11 }}>{s.receivedDate || '—'}</td>
                         <td style={styles.td}>
@@ -6259,7 +6261,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                               color: warrantyExpired ? '#dc2626' : warrantyExpiring ? '#f59e0b' : '#10b981',
                             }}>
                               {s.warrantyUntil}
-                              {warrantyExpired && <span style={{ marginLeft: 4 }}>(prošlá)</span>}
+                              {warrantyExpired && <span style={{ marginLeft: 4 }}>(po platnosti)</span>}
                               {warrantyExpiring && <span style={{ marginLeft: 4 }}>(za {warrantyDays} d)</span>}
                             </span>
                           ) : <span style={{ color: '#cbd5e1' }}>—</span>}
@@ -6274,7 +6276,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                   title="Potvrdit"><Trash2 size={12} /></button>
                                 <button onClick={() => setConfirmDeleteId(null)}
                                   style={{ ...styles.iconBtn, color: '#64748b' }}
-                                  title="Zrušit"><X size={12} /></button>
+                                  title="Zrušiť"><X size={12} /></button>
                               </div>
                             ) : (
                               <div style={{ display: 'inline-flex', gap: 4 }}>
@@ -6283,10 +6285,10 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                 </button>
                                 {!isConsumed && (
                                   <>
-                                    <button onClick={() => onTransferStock(s)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11 }} title="Přesunout">
+                                    <button onClick={() => onTransferStock(s)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11 }} title="Presunúť">
                                       <ArrowRight size={12} />
                                     </button>
-                                    <button onClick={() => onConsumeStock(s)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11, color: '#f59e0b' }} title="Spotřebovat na projekt">
+                                    <button onClick={() => onConsumeStock(s)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11, color: '#f59e0b' }} title="Spotrebovať na projekt">
                                       ✂️
                                     </button>
                                   </>
@@ -6314,8 +6316,8 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8, fontSize: 12, color: '#64748b' }}>
             <div>
               {anyMvFilterActive
-                ? <>Zobrazeno <strong>{filteredMovements.length}</strong> z {recentMovements.length} pohybů (filtry aktivní)</>
-                : <>Celkem <strong>{recentMovements.length}</strong> pohybů</>
+                ? <>Zobrazené <strong>{filteredMovements.length}</strong> z {recentMovements.length} pohybov (filtry aktivní)</>
+                : <>Spolu <strong>{recentMovements.length}</strong> pohybov</>
               }
             </div>
             {anyMvFilterActive && (
@@ -6328,18 +6330,18 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
             {recentMovements.length === 0 ? (
               <div style={styles.emptyItems}>
                 <History size={32} style={{ color: '#cbd5e1' }} />
-                <p style={{ color: '#64748b', margin: '12px 0 0' }}>Zatím žádné pohyby na skladě.</p>
+                <p style={{ color: '#64748b', margin: '12px 0 0' }}>Zatiaľ žiadne pohyby na sklade.</p>
               </div>
             ) : (
               <table style={{ ...styles.table, fontSize: 12, minWidth: 1100 }}>
                 <thead>
                   <tr>
-                    <th style={styles.th}>Datum</th>
+                    <th style={styles.th}>Dátum</th>
                     <th style={styles.th}>Typ</th>
                     <th style={styles.th}>Položka</th>
                     <th style={styles.th}>Sériové číslo</th>
-                    <th style={{ ...styles.th, textAlign: 'right' }}>Množství</th>
-                    <th style={{ ...styles.th, textAlign: 'right' }}>Částka (Kč)</th>
+                    <th style={{ ...styles.th, textAlign: 'right' }}>Množstvo</th>
+                    <th style={{ ...styles.th, textAlign: 'right' }}>Suma (€)</th>
                     <th style={styles.th}>Z</th>
                     <th style={styles.th}>Do</th>
                     <th style={styles.th}>Poznámka</th>
@@ -6357,7 +6359,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                     <th style={{ ...styles.th, padding: '4px 8px' }}>
                       <select value={mvFilters.type} onChange={e => setMvFilters({ ...mvFilters, type: e.target.value })}
                         style={{ ...styles.input, padding: '3px 5px', fontSize: 10 }}>
-                        <option value="all">Vše</option>
+                        <option value="all">Všetko</option>
                         {Object.entries(MOVEMENT_TYPES).map(([k, v]) => (
                           <option key={k} value={k}>{v.label}</option>
                         ))}
@@ -6376,8 +6378,8 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                     <th style={{ ...styles.th, padding: '4px 8px' }}>
                       <select value={mvFilters.from} onChange={e => setMvFilters({ ...mvFilters, from: e.target.value })}
                         style={{ ...styles.input, padding: '3px 5px', fontSize: 10 }}>
-                        <option value="all">Vše</option>
-                        <option value="__empty__">— (bez lokace)</option>
+                        <option value="all">Všetko</option>
+                        <option value="__empty__">— (bez lokalita)</option>
                         {locations.map(l => (
                           <option key={l.id} value={l.id}>{l.name}</option>
                         ))}
@@ -6386,10 +6388,10 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                     <th style={{ ...styles.th, padding: '4px 8px' }}>
                       <select value={mvFilters.to} onChange={e => setMvFilters({ ...mvFilters, to: e.target.value })}
                         style={{ ...styles.input, padding: '3px 5px', fontSize: 10 }}>
-                        <option value="all">Vše</option>
+                        <option value="all">Všetko</option>
                         <option value="__empty__">— (bez cíle)</option>
                         <option value="anyProject">Jakýkoli projekt</option>
-                        <optgroup label="Lokace">
+                        <optgroup label="Lokalita">
                           {locations.map(l => (
                             <option key={l.id} value={l.id}>{l.name}</option>
                           ))}
@@ -6411,7 +6413,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                 {filteredMovements.length === 0 ? (
                   <tr>
                     <td colSpan={9} style={{ ...styles.td, textAlign: 'center', color: '#94a3b8', fontStyle: 'italic', padding: 24 }}>
-                      Žádné pohyby nevyhovují filtru.
+                      Žiadne pohyby nevyhovují filtru.
                     </td>
                   </tr>
                 ) : filteredMovements.map(m => {
@@ -6419,9 +6421,9 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                   const toLoc = m.toLocationId ? locations.find(l => l.id === m.toLocationId) : null;
                   const proj = m.projectId ? projects.find(p => p.id === m.projectId) : null;
                   const movType = MOVEMENT_TYPES[m.type] || MOVEMENT_TYPES.adjust;
-                  // Dohledat cenu — přednost má snapshot v pohybu, jinak z stockItem
+                  // Dohledat cenu — prednosť má snapshot v pohybe, inak z stockItem
                   const stk = m.stockItemId ? stockItems.find(s => s.id === m.stockItemId) : null;
-                  const price = m.amountCZK != null ? m.amountCZK : (stk ? parseFloat(stk.purchasePriceCZK) || 0 : 0);
+                  const price = m.amountEUR != null ? m.amountEUR : (stk ? parseFloat(stk.purchasePriceEUR) || 0 : 0);
                   return (
                     <tr key={m.id} style={styles.tr}>
                       <td style={{ ...styles.td, fontSize: 11, whiteSpace: 'nowrap' }}>{m.date}</td>
@@ -6497,11 +6499,11 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
 }
 
 // ==========================================================================
-// StockByOrderTab — seskupení skladu podle objednávek
+// StockByOrderTab — seskupení sklade podľa objednávok
 // ==========================================================================
 
 function StockByOrderTab({ stockItems, locations, categories, suppliers, projects, onGoToOrders }) {
-  // Seskupit položky podle orderNumber
+  // Seskupit položky podľa orderNumber
   const groups = useMemo(() => {
     const map = new Map();
     stockItems.forEach(s => {
@@ -6509,11 +6511,11 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
       if (!map.has(key)) map.set(key, []);
       map.get(key).push(s);
     });
-    // Seřadit: položky s objednávkou nejdřív, podle data (sestupně)
+    // Zoradiť: položky s objednávkou najskôr, podľa data (zostupne)
     const arr = Array.from(map.entries()).map(([key, items]) => {
       const sample = items[0];
       const sup = sample.supplierId ? suppliers.find(sp => sp.id === sample.supplierId) : null;
-      const totalValue = items.reduce((s, it) => s + (parseFloat(it.purchasePriceCZK) || 0), 0);
+      const totalValue = items.reduce((s, it) => s + (parseFloat(it.purchasePriceEUR) || 0), 0);
       const available = items.filter(it => it.status !== 'consumed').length;
       const consumed = items.filter(it => it.status === 'consumed').length;
       const latestDate = items.map(it => it.receivedDate).filter(Boolean).sort().pop() || '';
@@ -6537,13 +6539,13 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
     return arr;
   }, [stockItems, suppliers]);
 
-  const [expanded, setExpanded] = useState(() => new Set()); // výchozí: vše sbalené
+  const [expanded, setExpanded] = useState(() => new Set()); // predvolený: všetko zbalené
 
   if (groups.length === 0) {
     return (
       <div style={styles.emptyItems}>
         <Warehouse size={32} style={{ color: '#cbd5e1' }} />
-        <p style={{ color: '#64748b', margin: '12px 0 0' }}>Sklad je prázdný.</p>
+        <p style={{ color: '#64748b', margin: '12px 0 0' }}>Sklad je prázdny.</p>
       </div>
     );
   }
@@ -6551,7 +6553,7 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
   return (
     <div>
       <p style={{ color: '#64748b', fontSize: 13, margin: '0 0 14px' }}>
-        Skladové položky seskupené podle čísla objednávky. Kliknutím na řádek rozbalíte detail.
+        Skladové položky seskupené podľa čísla objednávky. Kliknutím na riadok rozbalíte detail.
       </p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {groups.map(g => {
@@ -6583,11 +6585,11 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
                     )}
                   </div>
                   <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>
-                    {g.total} {g.total === 1 ? 'kus' : g.total < 5 ? 'kusy' : 'kusů'}
+                    {g.total} {g.total === 1 ? 'kus' : g.total < 5 ? 'kusy' : 'kusov'}
                     {' · '}
                     <strong style={{ color: '#10b981' }}>{g.available}</strong> skladem
-                    {g.consumed > 0 && (<>{' · '}<strong style={{ color: '#dc2626' }}>{g.consumed}</strong> spotřebováno</>)}
-                    {g.latestDate && <> · poslední naskladnění {g.latestDate}</>}
+                    {g.consumed > 0 && (<>{' · '}<strong style={{ color: '#dc2626' }}>{g.consumed}</strong> spotrebované</>)}
+                    {g.latestDate && <> · posledný naskladnenie {g.latestDate}</>}
                   </div>
                 </div>
                 <div style={{ textAlign: 'right' }}>
@@ -6602,7 +6604,7 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
                       borderRadius: 4, cursor: 'pointer',
                     }}
                   >
-                    Otevřít →
+                    Otvoriť →
                   </button>
                 )}
               </div>
@@ -6613,10 +6615,10 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
                       <tr>
                         <th style={styles.th}>Položka</th>
                         <th style={styles.th}>S/N</th>
-                        <th style={styles.th}>Kategorie</th>
-                        <th style={styles.th}>Lokace</th>
+                        <th style={styles.th}>Kategórie</th>
+                        <th style={styles.th}>Lokalita</th>
                         <th style={{ ...styles.th, textAlign: 'right' }}>Cena</th>
-                        <th style={styles.th}>Naskladněno</th>
+                        <th style={styles.th}>Naskladnené</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -6639,7 +6641,7 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
                             <td style={styles.td}>
                               {isConsumed ? (
                                 <span style={{ color: '#dc2626', fontWeight: 600 }}>
-                                  ✓ Spotřebováno
+                                  ✓ Spotrebované
                                   {s.consumedToProjectId && (() => {
                                     const p = projects.find(pr => pr.id === s.consumedToProjectId);
                                     return p ? <span> · {p.name}</span> : null;
@@ -6648,7 +6650,7 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
                               ) : (loc?.name || '—')}
                             </td>
                             <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600 }}>
-                              {s.purchasePriceCZK > 0 ? fmt(s.purchasePriceCZK) : '—'}
+                              {s.purchasePriceEUR > 0 ? fmt(s.purchasePriceEUR) : '—'}
                             </td>
                             <td style={styles.td}>{s.receivedDate || '—'}</td>
                           </tr>
@@ -6667,13 +6669,13 @@ function StockByOrderTab({ stockItems, locations, categories, suppliers, project
 }
 
 // ==========================================================================
-// BulkTransferModal — přesun více kusů najednou
+// BulkTransferModal — presun viac kusov naraz
 // ==========================================================================
 
 function BulkTransferModal({ items, locations, onSave, onClose }) {
   const [toLocationId, setToLocationId] = useState('loc_warehouse');
   const [notes, setNotes] = useState('');
-  // Výběr konkrétních kusů — ve výchozím stavu jsou vybrané všechny
+  // Výber konkrétnych kusov — v predvolenom stavu sú vybrané všetky
   const [selectedIds, setSelectedIds] = useState(() => new Set(items.map(i => i.id)));
 
   const toggleOne = (id) => {
@@ -6695,10 +6697,10 @@ function BulkTransferModal({ items, locations, onSave, onClose }) {
   };
 
   return (
-    <Modal title={`Přesun kusů`} onClose={onClose} maxWidth={640}>
+    <Modal title={`Presun kusov`} onClose={onClose} maxWidth={640}>
       <div style={{ marginBottom: 14, padding: 10, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 6, fontSize: 12, color: '#166534' }}>
-        Označte konkrétní kusy k přesunu (např. podle sériového čísla).
-        Ve výchozím nastavení jsou vybrané <strong>všechny</strong>.
+        Označte konkrétny kusy k presunu (napr. podľa sériového čísla).
+        V predvolenom nastavenia sú vybrané <strong>všetky</strong>.
       </div>
 
       <div style={{ marginBottom: 12, maxHeight: 260, overflow: 'auto', border: '1px solid #e2e8f0', borderRadius: 6 }}>
@@ -6707,12 +6709,12 @@ function BulkTransferModal({ items, locations, onSave, onClose }) {
             <tr>
               <th style={{ ...styles.th, width: 30, textAlign: 'center' }}>
                 <input type="checkbox" checked={selectedIds.size === items.length && items.length > 0}
-                  onChange={toggleAll} title="Vybrat vše"/>
+                  onChange={toggleAll} title="Vybrať všetko"/>
               </th>
               <th style={styles.th}>Sériové číslo</th>
-              <th style={styles.th}>Lokace</th>
-              <th style={styles.th}>Naskladněno</th>
-              <th style={{ ...styles.th, textAlign: 'right' }}>Množství</th>
+              <th style={styles.th}>Lokalita</th>
+              <th style={styles.th}>Naskladnené</th>
+              <th style={{ ...styles.th, textAlign: 'right' }}>Množstvo</th>
             </tr>
           </thead>
           <tbody>
@@ -6740,11 +6742,11 @@ function BulkTransferModal({ items, locations, onSave, onClose }) {
       </div>
 
       <div style={{ marginBottom: 10, fontSize: 12, color: '#0d3825', fontWeight: 600 }}>
-        Vybráno: <strong>{chosen.length}</strong> z {items.length} kusů
+        Vybrané: <strong>{chosen.length}</strong> z {items.length} kusov
       </div>
 
       <div style={styles.formRow}>
-        <label style={styles.label}>Cílová lokace *</label>
+        <label style={styles.label}>Cílová lokalita *</label>
         <select style={styles.input} value={toLocationId} onChange={e => setToLocationId(e.target.value)}>
           {locations.map(l => (
             <option key={l.id} value={l.id}>
@@ -6755,14 +6757,14 @@ function BulkTransferModal({ items, locations, onSave, onClose }) {
       </div>
 
       <div style={styles.formRow}>
-        <label style={styles.label}>Poznámka k přesunu</label>
-        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="Důvod přesunu, paleta č. ..." />
+        <label style={styles.label}>Poznámka k presunu</label>
+        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="Dôvod presunu, paleta č. ..." />
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit} disabled={chosen.length === 0}>
-          <ArrowRight size={14} /> Přesunout {chosen.length} {chosen.length === 1 ? 'kus' : 'kusů'}
+          <ArrowRight size={14} /> Presunúť {chosen.length} {chosen.length === 1 ? 'kus' : 'kusov'}
         </button>
       </div>
     </Modal>
@@ -6770,7 +6772,7 @@ function BulkTransferModal({ items, locations, onSave, onClose }) {
 }
 
 // ==========================================================================
-// BulkConsumeModal — spotřeba více kusů najednou na projekt
+// BulkConsumeModal — spotreba viac kusov naraz na projekt
 // ==========================================================================
 
 function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
@@ -6789,7 +6791,7 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
   };
 
   const chosen = items.filter(it => selectedIds.has(it.id));
-  const totalValue = chosen.reduce((s, it) => s + (parseFloat(it.purchasePriceCZK) || 0), 0);
+  const totalValue = chosen.reduce((s, it) => s + (parseFloat(it.purchasePriceEUR) || 0), 0);
 
   const submit = () => {
     if (!projectId) { alert('Vyberte projekt.'); return; }
@@ -6798,9 +6800,9 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
   };
 
   return (
-    <Modal title={`Spotřeba kusů na projekt`} onClose={onClose} maxWidth={640}>
+    <Modal title={`Spotreba kusov na projekt`} onClose={onClose} maxWidth={640}>
       <div style={{ marginBottom: 14, padding: 10, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 6, fontSize: 12, color: '#92400e' }}>
-        <strong>⚠ Pozor:</strong> spotřebovaných kusů již nelze vzít zpět. Vyberte konkrétní kusy (např. podle sériového čísla), které jste použili.
+        <strong>⚠ Pozor:</strong> spotrebovaných kusov již nemožno vzít späť. Vyberte konkrétny kusy (napr. podľa sériového čísla), ktoré jste použili.
       </div>
 
       <div style={styles.formRow}>
@@ -6818,8 +6820,8 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
       </div>
 
       <div style={styles.formRow}>
-        <label style={styles.label}>Poznámka ke spotřebě</label>
-        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="Důvod spotřeby, technik..." />
+        <label style={styles.label}>Poznámka ke spotrebe</label>
+        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="Dôvod spotreby, technik..." />
       </div>
 
       <div style={{ marginBottom: 8, fontSize: 12, color: '#0d3825', fontWeight: 600 }}>
@@ -6832,12 +6834,12 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
             <tr>
               <th style={{ ...styles.th, width: 30, textAlign: 'center' }}>
                 <input type="checkbox" checked={selectedIds.size === items.length && items.length > 0}
-                  onChange={toggleAll} title="Vybrat vše"/>
+                  onChange={toggleAll} title="Vybrať všetko"/>
               </th>
               <th style={styles.th}>Sériové číslo</th>
-              <th style={styles.th}>Lokace</th>
-              <th style={styles.th}>Naskladněno</th>
-              <th style={{ ...styles.th, textAlign: 'right' }}>Cena (Kč)</th>
+              <th style={styles.th}>Lokalita</th>
+              <th style={styles.th}>Naskladnené</th>
+              <th style={{ ...styles.th, textAlign: 'right' }}>Cena (€)</th>
             </tr>
           </thead>
           <tbody>
@@ -6856,7 +6858,7 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
                   </td>
                   <td style={{ ...styles.td, fontSize: 11 }}>{loc?.name || '—'}</td>
                   <td style={{ ...styles.td, fontSize: 11 }}>{it.receivedDate || '—'}</td>
-                  <td style={{ ...styles.td, textAlign: 'right' }}>{fmt(parseFloat(it.purchasePriceCZK) || 0)}</td>
+                  <td style={{ ...styles.td, textAlign: 'right' }}>{fmt(parseFloat(it.purchasePriceEUR) || 0)}</td>
                 </tr>
               );
             })}
@@ -6865,13 +6867,13 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
       </div>
 
       <div style={{ marginBottom: 10, fontSize: 12, color: '#92400e', fontWeight: 600 }}>
-        Celková hodnota spotřebovaného materiálu: <strong>{fmt(totalValue)}</strong>
+        Celková hodnota spotrebovaného materiálu: <strong>{fmt(totalValue)}</strong>
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit} disabled={chosen.length === 0}>
-          ✂️ Spotřebovat {chosen.length} {chosen.length === 1 ? 'kus' : 'kusů'}
+          ✂️ Spotrebovať {chosen.length} {chosen.length === 1 ? 'kus' : 'kusov'}
         </button>
       </div>
     </Modal>
@@ -6887,8 +6889,8 @@ function exportStockToCSV(items, locations, categories, projects, suppliers) {
   const today = todayISO();
   const headers = [
     'Název', 'Sériové číslo', 'Kategorie', 'Lokace', 'Stav',
-    'Cena (CZK)', 'Naskladněno', 'Záruka do', 'Dnů do konce záruky',
-    'Č. objednávky', 'Dodavatel', 'Projekt (spotřebováno)', 'Poznámka'
+    'Cena (EUR)', 'Naskladnené', 'Záruka do', 'Dní do konca záruky',
+    'Č. objednávky', 'Dodavatel', 'Projekt (spotrebované)', 'Poznámka'
   ];
   const rows = items.map(s => {
     const cat = categories.find(c => c.id === s.category);
@@ -6901,8 +6903,8 @@ function exportStockToCSV(items, locations, categories, projects, suppliers) {
       s.serialNumber || '',
       cat?.name || '',
       loc?.name || '',
-      s.status === 'consumed' ? 'Spotřebováno' : 'Skladem',
-      s.purchasePriceCZK || 0,
+      s.status === 'consumed' ? 'Spotrebované' : 'Skladem',
+      s.purchasePriceEUR || 0,
       s.receivedDate || '',
       s.warrantyUntil || '',
       days === '' ? '' : days,
@@ -6913,7 +6915,7 @@ function exportStockToCSV(items, locations, categories, projects, suppliers) {
     ];
   });
 
-  // CSV s českým středníkem (Excel CZ kompatibilní)
+  // CSV s českým bodkočiarkou (Excel CZ kompatibilní)
   const csvEscape = (v) => {
     const s = String(v ?? '');
     if (s.includes(';') || s.includes('"') || s.includes('\n')) {
@@ -6921,7 +6923,7 @@ function exportStockToCSV(items, locations, categories, projects, suppliers) {
     }
     return s;
   };
-  const csv = '\uFEFF' + // BOM pro správné zobrazení v Excelu
+  const csv = '\uFEFF' + // BOM pre správné zobrazenie v Excelu
     headers.map(csvEscape).join(';') + '\n' +
     rows.map(r => r.map(csvEscape).join(';')).join('\n');
 
@@ -6958,7 +6960,7 @@ function WarrantyTab({ stockItems, categories, locations, projects }) {
         <ShieldCheck size={14} /> {title} ({count})
       </h3>
       {items.length === 0 ? (
-        <div style={{ padding: 12, color: '#94a3b8', fontSize: 12, fontStyle: 'italic' }}>Žádné položky</div>
+        <div style={{ padding: 12, color: '#94a3b8', fontSize: 12, fontStyle: 'italic' }}>Žiadne položky</div>
       ) : (
         <div style={{ border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'auto', background: '#fff' }}>
           <table style={{ ...styles.table, fontSize: 12, minWidth: 700 }}>
@@ -6968,7 +6970,7 @@ function WarrantyTab({ stockItems, categories, locations, projects }) {
                 <th style={styles.th}>Sériové č.</th>
                 <th style={styles.th}>Záruka do</th>
                 <th style={styles.th}>Stav</th>
-                <th style={styles.th}>Lokace</th>
+                <th style={styles.th}>Lokalita</th>
               </tr>
             </thead>
             <tbody>
@@ -6982,7 +6984,7 @@ function WarrantyTab({ stockItems, categories, locations, projects }) {
                     <td style={{ ...styles.td, fontFamily: 'monospace', fontSize: 11 }}>{s.serialNumber || '—'}</td>
                     <td style={{ ...styles.td, fontWeight: 600 }}>{s.warrantyUntil}</td>
                     <td style={{ ...styles.td, fontSize: 11, color }}>
-                      {days < 0 ? `${-days} dnů po záruce` : days === 0 ? 'Dnes končí' : `za ${days} dnů`}
+                      {days < 0 ? `${-days} dní po záruke` : days === 0 ? 'Dnes končí' : `za ${days} dní`}
                     </td>
                     <td style={{ ...styles.td, fontSize: 11 }}>
                       {s.status === 'consumed' && proj ? `Projekt: ${proj.name}` : (loc?.name || '—')}
@@ -6999,10 +7001,10 @@ function WarrantyTab({ stockItems, categories, locations, projects }) {
 
   return (
     <div>
-      <Section title="Po záruce" items={expired} color="#dc2626" count={expired.length} />
-      <Section title="Záruka končí do 30 dnů" items={expiring30} color="#f59e0b" count={expiring30.length} />
-      <Section title="Záruka končí za 30–90 dnů" items={expiring90} color="#3b82f6" count={expiring90.length} />
-      <Section title="V záruce" items={valid} color="#10b981" count={valid.length} />
+      <Section title="Po záruke" items={expired} color="#dc2626" count={expired.length} />
+      <Section title="Záruka končí do 30 dní" items={expiring30} color="#f59e0b" count={expiring30.length} />
+      <Section title="Záruka končí za 30–90 dní" items={expiring90} color="#3b82f6" count={expiring90.length} />
+      <Section title="V záruke" items={valid} color="#10b981" count={valid.length} />
     </div>
   );
 }
@@ -7012,12 +7014,12 @@ function WarrantyTab({ stockItems, categories, locations, projects }) {
 // ==========================================================================
 
 function StockAddModal({ locations, categories, catalog, suppliers, projects, fxRate, fromOrderItem, onSave, onClose }) {
-  // Pokud naskladňujeme z objednávky, předvyplnit pole
-  const orderTotal = fromOrderItem ? toCZK(fromOrderItem.item, fxRate) : 0;
+  // Ak naskladňujeme z objednávky, predvyplniť pole
+  const orderTotal = fromOrderItem ? toEUR(fromOrderItem.item, fxRate) : 0;
   const orderUnitPrice = fromOrderItem && fromOrderItem.item.quantity > 0 ? orderTotal / fromOrderItem.item.quantity : 0;
   const defaultQty = fromOrderItem ? Math.max(1, parseInt(fromOrderItem.item.quantity) || 1) : 1;
   const orderCategory = fromOrderItem?.item.category || '';
-  // Najdi supplierId z objednávky (přes supplierName nebo přímo)
+  // Nájdi supplierId z objednávky (cez supplierName alebo priamo)
   const orderSupplierId = useMemo(() => {
     if (!fromOrderItem) return '';
     if (fromOrderItem.item.supplierId) return fromOrderItem.item.supplierId;
@@ -7031,9 +7033,9 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
   const [quantity, setQuantity] = useState(defaultQty);
   const [name, setName] = useState(fromOrderItem?.item.name || '');
   const [category, setCategory] = useState(orderCategory);
-  // Režim naskladnění: 'individual' (po kusech, vznikne N záznamů) / 'batch' (1 záznam, celková hodnota)
-  // Inteligentní default: per-kus pro kategorie vyžadující S/N (panely, měniče, baterie),
-  // batch pro ostatní (kabely, drobný materiál, atd.)
+  // Režim naskladnenie: 'individual' (po kusoch, vznikne N záznamov) / 'batch' (1 záznam, celková hodnota)
+  // Inteligentní default: per-kus pre kategórie vyžadujúci S/N (panely, meniče, batérie),
+  // batch pre ostatné (káble, drobný materiál, atď.)
   const [receiveMode, setReceiveMode] = useState(() =>
     SERIAL_REQUIRED_CATEGORIES.includes(orderCategory) ? 'individual' : 'batch'
   );
@@ -7042,15 +7044,15 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
   const [orderNumber, setOrderNumber] = useState(fromOrderItem?.item.orderNumber || '');
   const [locationId, setLocationId] = useState('loc_warehouse');
   const [receivedDate, setReceivedDate] = useState(fromOrderItem?.item.deliveredDate || todayISO());
-  const [purchasePriceCZK, setPurchasePriceCZK] = useState(orderUnitPrice);
+  const [purchasePriceEUR, setPurchasePriceEUR] = useState(orderUnitPrice);
   const [warrantyYears, setWarrantyYears] = useState(0);
   const [warrantyUntil, setWarrantyUntil] = useState('');
   const [notes, setNotes] = useState('');
-  const [movementNotes, setMovementNotes] = useState(fromOrderItem ? `Naskladnění z objednávky ${fromOrderItem.item.orderNumber || ''}` : '');
-  // Sériová čísla jako pole stringů (jeden pro každý kus)
+  const [movementNotes, setMovementNotes] = useState(fromOrderItem ? `Naskladnenie z objednávky ${fromOrderItem.item.orderNumber || ''}` : '');
+  // Sériová čísla ako pole stringov (jeden pre každý kus)
   const [serials, setSerials] = useState(() => Array(defaultQty).fill(''));
 
-  // Když uživatel změní kategorii, předvolíme režim podle ní
+  // Keď používateľ zmení kategóriu, predvolíme režim podľa ní
   useEffect(() => {
     setReceiveMode(SERIAL_REQUIRED_CATEGORIES.includes(category) ? 'individual' : 'batch');
   }, [category]);
@@ -7065,7 +7067,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
   const videoRef = useRef(null);
   const scannerStreamRef = useRef(null);
 
-  // Když se změní počet, upravit pole serials
+  // Keď sa zmení počet, upraviť pole serials
   const handleQuantityChange = (v) => {
     const n = Math.max(1, parseInt(v, 10) || 1);
     setQuantity(n);
@@ -7076,7 +7078,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
     });
   };
 
-  // Když je nastavena záruka v letech, automaticky spočítej datum
+  // Keď je nastavená záruka v rokoch, automaticky spočítaj dátum
   const handleWarrantyYearsChange = (v) => {
     const years = parseInt(v, 10) || 0;
     setWarrantyYears(years);
@@ -7092,17 +7094,17 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
     const lines = bulkText.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
     if (lines.length === 0) { alert('Nejsou rozpoznána žádná sériová čísla.'); return; }
 
-    // Pokud je řádků více než kusů, navrhnout úpravu počtu
+    // Ak je riadkov viac než kusov, navrhnúť úpravu počtu
     if (lines.length !== quantity) {
       const confirm = window.confirm(
-        `Rozpoznáno ${lines.length} sériových čísel, ale aktuální počet kusů je ${quantity}. ` +
-        `Chcete upravit počet kusů na ${lines.length}?`
+        `Rozpoznáno ${lines.length} sériových čísel, ale aktuálny počet kusov je ${quantity}. ` +
+        `Chcete upraviť počet kusov na ${lines.length}?`
       );
       if (confirm) {
         setQuantity(lines.length);
         setSerials(lines);
       } else {
-        // Vzít jen prvních N nebo doplnit prázdnými
+        // Vzít len prvých N alebo doplniť prázdnými
         const adjusted = lines.slice(0, quantity);
         while (adjusted.length < quantity) adjusted.push('');
         setSerials(adjusted);
@@ -7110,7 +7112,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
     } else {
       setSerials(lines);
     }
-    setSnTab('manual'); // přepnout zpět na manuální pro vizuální kontrolu
+    setSnTab('manual'); // prepnúť späť na manuální pre vizuální kontrolu
   };
 
   // ===== Excel import S/N =====
@@ -7134,8 +7136,8 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
         throw new Error('Soubor je prázdný.');
       }
 
-      // Heuristika: najít sloupec se sériovými čísly
-      // 1) Hledat v hlavičkách (první řádek) — pokud obsahuje "serial", "sériové", "S/N"
+      // Heuristika: nájsť stĺpec sa sériovými čísly
+      // 1) Hledat v hlavičkách (prvý riadok) — ak obsahuje "serial", "sériové", "S/N"
       let snColIdx = -1;
       let dataStartRow = 0;
       if (allRows[0]) {
@@ -7148,7 +7150,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
           }
         }
       }
-      // 2) Pokud nenalezeno, vzít první sloupec
+      // 2) Ak nenalezeno, vzít prvý stĺpec
       if (snColIdx === -1) snColIdx = 0;
 
       const sns = [];
@@ -7157,13 +7159,13 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
         if (val && !/^(s[ée]riov|serial|s\/n|sn)$/i.test(val)) sns.push(val);
       }
 
-      if (sns.length === 0) throw new Error('Nebyla rozpoznána žádná sériová čísla.');
+      if (sns.length === 0) throw new Error('Nebyla rozpoznána žiadna sériová čísla.');
 
-      // Aplikovat - stejně jako bulk paste
+      // Aplikovať - rovnako ako bulk paste
       if (sns.length !== quantity) {
         const confirm = window.confirm(
-          `V souboru je ${sns.length} sériových čísel, ale aktuální počet kusů je ${quantity}. ` +
-          `Chcete upravit počet kusů na ${sns.length}?`
+          `V súbore je ${sns.length} sériových čísel, ale aktuálny počet kusov je ${quantity}. ` +
+          `Chcete upraviť počet kusov na ${sns.length}?`
         );
         if (confirm) {
           setQuantity(sns.length);
@@ -7178,7 +7180,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
       }
       setSnTab('manual');
     } catch (e) {
-      setExcelError('Chyba při čtení souboru: ' + (e?.message || 'neznámá chyba'));
+      setExcelError('Chyba pri čítanie souboru: ' + (e?.message || 'neznámá chyba'));
     } finally {
       setExcelLoading(false);
     }
@@ -7189,12 +7191,12 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
     setScannerError('');
     try {
       if (!navigator.mediaDevices?.getUserMedia) {
-        throw new Error('Vaše zařízení nepodporuje přístup ke kameře.');
+        throw new Error('Vaše zariadenie nepodporuje prístup ke kamere.');
       }
-      // Načíst BarcodeDetector nebo fallback
+      // Načítať BarcodeDetector alebo fallback
       const hasBarcodeDetector = typeof window !== 'undefined' && 'BarcodeDetector' in window;
       if (!hasBarcodeDetector) {
-        throw new Error('Tento prohlížeč nepodporuje skenování čárových kódů (Chrome/Edge na Android funguje, Safari iOS bohužel ne). Použijte hromadné vložení nebo Excel.');
+        throw new Error('Tento prohlížeč nepodporuje skenování čárových kódov (Chrome/Edge na Android funguje, Safari iOS bohužel ne). Použijte hromadné vložení nebo Excel.');
       }
 
       const stream = await navigator.mediaDevices.getUserMedia({
@@ -7222,12 +7224,12 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
             if (v && !detected.has(v)) {
               detected.add(v);
               const next = [...serials];
-              // Najít první prázdné pole
+              // Nájsť prvý prázdne pole
               const emptyIdx = next.findIndex(s => !s);
               if (emptyIdx >= 0) {
                 next[emptyIdx] = v;
               } else {
-                // Žádné prázdné, přidat na konec (a zvýšit počet)
+                // Žiadne prázdne, pridať na konec (a zvýšit počet)
                 next.push(v);
                 setQuantity(prev => Math.max(prev, next.length));
               }
@@ -7249,7 +7251,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
       // Cleanup function
       return () => { active = false; };
     } catch (e) {
-      setScannerError(e?.message || 'Nepodařilo se spustit kameru.');
+      setScannerError(e?.message || 'Nepodarilo se spustit kameru.');
       setScannerActive(false);
     }
   };
@@ -7278,26 +7280,26 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
     if (!name.trim()) { alert('Zadejte název položky'); return; }
     if (!category) { alert('Vyberte kategorii'); return; }
 
-    const unitPrice = parseFloat(purchasePriceCZK) || 0;
+    const unitPrice = parseFloat(purchasePriceEUR) || 0;
     const items = [];
 
     if (receiveMode === 'batch') {
-      // BATCH režim: 1 záznam s celkovou hodnotou pro daný počet kusů
-      // Použito např. pro kabely, drobný materiál - 22 ks kabelů jako 1 batch
+      // BATCH režim: 1 záznam s celkovú hodnotou pre daný počet kusov
+      // Použito napr. pre káble, drobný materiál - 22 ks káblov ako 1 batch
       const totalValue = unitPrice * quantity;
       items.push({
         id: uid('stk'),
         name: name.trim(),
         category,
         serialNumber: '', // batch nemá S/N
-        batchQuantity: quantity, // počet kusů v batch (informativní)
+        batchQuantity: quantity, // počet kusov v batch (informativní)
         unit: fromOrderItem?.item.unit || 'ks',
         supplierName: supplierName.trim(),
         supplierId: supplierId || '',
         orderNumber: orderNumber.trim(),
         locationId,
         receivedDate,
-        purchasePriceCZK: totalValue, // CELKOVÁ hodnota batche
+        purchasePriceEUR: totalValue, // CELKOVÁ hodnota batche
         warrantyUntil: warrantyUntil || '',
         notes: notes.trim(),
         sourceOrderItemId: fromOrderItem?.item.id || null,
@@ -7305,8 +7307,8 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
         status: 'available',
       });
     } else {
-      // INDIVIDUAL režim: jeden stockItem pro každý kus
-      // S/N je "doporučené" pro některé kategorie (panels/inverters/batteries), ale ne blokující.
+      // INDIVIDUAL režim: jeden stockItem pre každý kus
+      // S/N je "odporúčané" pre niektoré kategórie (panels/inverters/batteries), ale ne blokující.
       const missingSerials = [];
       for (let i = 0; i < quantity; i++) {
         const sn = (serials[i] || '').trim();
@@ -7323,7 +7325,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
           orderNumber: orderNumber.trim(),
           locationId,
           receivedDate,
-          purchasePriceCZK: unitPrice,
+          purchasePriceEUR: unitPrice,
           warrantyUntil: warrantyUntil || '',
           notes: notes.trim(),
           sourceOrderItemId: fromOrderItem?.item.id || null,
@@ -7334,8 +7336,8 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
       if (missingSerials.length > 0) {
         const catName = categories.find(c => c.id === category)?.name || category;
         const msg = missingSerials.length === quantity
-          ? `Kategorie ${catName} obvykle vyžaduje sériové číslo, ale žádný kus (${quantity} ks) ho nemá.\n\nPokračovat s prázdnými S/N?`
-          : `Kategorie ${catName} obvykle vyžaduje sériové číslo.\nChybí u ${missingSerials.length} z ${quantity} kusů (# ${missingSerials.slice(0, 5).join(', ')}${missingSerials.length > 5 ? '…' : ''}).\n\nPokračovat?`;
+          ? `Kategórie ${catName} obvykle vyžaduje sériové číslo, ale žiadny kus (${quantity} ks) ho nemá.\n\nPokračovať s prázdnými S/N?`
+          : `Kategórie ${catName} obvykle vyžaduje sériové číslo.\nChybí u ${missingSerials.length} z ${quantity} kusov (# ${missingSerials.slice(0, 5).join(', ')}${missingSerials.length > 5 ? '…' : ''}).\n\nPokračovať?`;
         if (!window.confirm(msg)) return;
       }
     }
@@ -7343,20 +7345,20 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
   };
 
   return (
-    <Modal title={fromOrderItem ? 'Naskladnit z objednávky' : 'Naskladnit ručně'} onClose={onClose} maxWidth={780}>
+    <Modal title={fromOrderItem ? 'Naskladnit z objednávky' : 'Naskladnit ručne'} onClose={onClose} maxWidth={780}>
       {fromOrderItem && (
         <div style={{ padding: 10, background: '#dbeafe', color: '#1e40af', borderRadius: 6, marginBottom: 12, fontSize: 12 }}>
-          Naskladnění z objednávky <strong>{fromOrderItem.item.orderNumber || '(bez čísla)'}</strong> · projekt <strong>{fromOrderItem.projectName}</strong> · dodavatel <strong>{fromOrderItem.supplierName}</strong>
+          Naskladnenie z objednávky <strong>{fromOrderItem.item.orderNumber || '(bez čísla)'}</strong> · projekt <strong>{fromOrderItem.projectName}</strong> · dodávateľ <strong>{fromOrderItem.supplierName}</strong>
         </div>
       )}
 
       <div style={styles.formRowGroup}>
         <div style={{ flex: 2 }}>
-          <label style={styles.label}>Název položky *</label>
-          <input style={styles.input} value={name} onChange={e => setName(e.target.value)} placeholder="např. JA Solar 450W" />
+          <label style={styles.label}>Názov položky *</label>
+          <input style={styles.input} value={name} onChange={e => setName(e.target.value)} placeholder="napr. JA Solar 450W" />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Kategorie *</label>
+          <label style={styles.label}>Kategórie *</label>
           <select style={styles.input} value={category} onChange={e => setCategory(e.target.value)}>
             <option value="">— Vyberte —</option>
             {categories.filter(c => c.kind === 'material').map(c => (
@@ -7365,14 +7367,14 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
           </select>
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>{receiveMode === 'batch' ? 'Počet ks v batchi *' : 'Počet kusů *'}</label>
+          <label style={styles.label}>{receiveMode === 'batch' ? 'Počet ks v batchi *' : 'Počet kusov *'}</label>
           <input type="number" min="1" style={styles.input} value={quantity} onChange={e => handleQuantityChange(e.target.value)} />
         </div>
       </div>
 
-      {/* Režim naskladnění */}
+      {/* Režim naskladnenie */}
       <div style={{ marginTop: 12, padding: 10, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8 }}>
-        <label style={{ ...styles.label, marginBottom: 8 }}>Režim naskladnění</label>
+        <label style={{ ...styles.label, marginBottom: 8 }}>Režim naskladnenie</label>
         <div style={{ display: 'flex', gap: 8 }}>
           <button
             type="button"
@@ -7386,11 +7388,11 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
             }}
           >
             <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 2 }}>
-              📦 Po kusech ({quantity}× záznam)
+              📦 Po kusoch ({quantity}× záznam)
             </div>
             <div style={{ fontSize: 11, opacity: 0.85 }}>
-              Vznikne {quantity} {quantity === 1 ? 'záznam' : quantity < 5 ? 'záznamy' : 'záznamů'} ve skladu, každý lze opatřit S/N.
-              Hodí se pro panely, měniče, baterie.
+              Vznikne {quantity} {quantity === 1 ? 'záznam' : quantity < 5 ? 'záznamy' : 'záznamov'} ve sklade, každý lze zaobstarať S/N.
+              Hodí sa pre panely, meniče, batérie.
             </div>
           </button>
           <button
@@ -7405,30 +7407,30 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
             }}
           >
             <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 2 }}>
-              📦 Jako batch (1× záznam)
+              📦 Ako batch (1× záznam)
             </div>
             <div style={{ fontSize: 11, opacity: 0.85 }}>
-              1 záznam o {quantity} {quantity === 1 ? 'kusu' : quantity < 5 ? 'kusech' : 'kusech'} s celkovou hodnotou.
-              Hodí se pro kabely, drobný materiál, dopravu.
+              1 záznam o {quantity} {quantity === 1 ? 'kusu' : quantity < 5 ? 'kusech' : 'kusech'} s celkovú hodnotou.
+              Hodí sa pre káble, drobný materiál, dopravu.
             </div>
           </button>
         </div>
         {receiveMode === 'individual' && isSerialRequired && (
           <div style={{ marginTop: 8, fontSize: 11, color: '#92400e', background: '#fef3c7', padding: 6, borderRadius: 4 }}>
-            ⚠ Pro kategorii „{categories.find(c => c.id === category)?.name}" jsou sériová čísla povinná.
+            ⚠ Pre kategóriu „{categories.find(c => c.id === category)?.name}" sú sériová čísla povinná.
           </div>
         )}
       </div>
 
       <div style={styles.formRowGroup}>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Dodavatel</label>
+          <label style={styles.label}>Dodávateľ</label>
           <select style={styles.input} value={supplierId} onChange={e => {
             setSupplierId(e.target.value);
             const s = suppliers.find(sp => sp.id === e.target.value);
             if (s) setSupplierName(s.name);
           }}>
-            <option value="">— Žádný —</option>
+            <option value="">— Žiadny —</option>
             {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
         </div>
@@ -7437,7 +7439,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
           <input style={styles.input} value={orderNumber} onChange={e => setOrderNumber(e.target.value)} placeholder="OBJ-2026-001" />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Lokace *</label>
+          <label style={styles.label}>Lokalita *</label>
           <select style={styles.input} value={locationId} onChange={e => setLocationId(e.target.value)}>
             {locations.map(l => (
               <option key={l.id} value={l.id}>
@@ -7447,18 +7449,18 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
           </select>
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Datum naskladnění *</label>
+          <label style={styles.label}>Dátum naskladnenie *</label>
           <input type="date" style={styles.input} value={receivedDate} onChange={e => setReceivedDate(e.target.value)} />
         </div>
       </div>
 
       <div style={styles.formRowGroup}>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Nákupní cena za kus (CZK)</label>
-          <input type="number" step="0.01" min="0" style={styles.input} value={purchasePriceCZK} onChange={e => setPurchasePriceCZK(e.target.value)} />
+          <label style={styles.label}>Nákupná cena za kus (€)</label>
+          <input type="number" step="0.01" min="0" style={styles.input} value={purchasePriceEUR} onChange={e => setPurchasePriceEUR(e.target.value)} />
           {receiveMode === 'batch' && quantity > 1 && (
             <div style={{ fontSize: 11, color: '#0d3825', fontWeight: 600, marginTop: 4 }}>
-              ⇒ Celková hodnota batche: <strong>{fmt((parseFloat(purchasePriceCZK) || 0) * quantity)}</strong>
+              ⇒ Celková hodnota batche: <strong>{fmt((parseFloat(purchasePriceEUR) || 0) * quantity)}</strong>
             </div>
           )}
         </div>
@@ -7467,28 +7469,28 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
           <input type="number" min="0" max="30" style={styles.input} value={warrantyYears} onChange={e => handleWarrantyYearsChange(e.target.value)} placeholder="0" />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Záruka do (datum)</label>
+          <label style={styles.label}>Záruka do (dátum)</label>
           <input type="date" style={styles.input} value={warrantyUntil} onChange={e => { setWarrantyUntil(e.target.value); setWarrantyYears(0); }} />
         </div>
       </div>
 
-      {/* Sériová čísla — tabbed input (jen v režimu po kusech) */}
+      {/* Sériová čísla — tabbed input (len v režimu po kusoch) */}
       {receiveMode === 'individual' && (
       <div style={{ marginTop: 16, padding: 12, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
           <label style={{ ...styles.label, margin: 0 }}>
-            Sériová čísla {isSerialRequired ? <span style={{ color: '#f59e0b' }}>(doporučené)</span> : '(volitelné)'}
+            Sériová čísla {isSerialRequired ? <span style={{ color: '#f59e0b' }}>(odporúčané)</span> : '(voliteľné)'}
           </label>
           <div style={{ fontSize: 11, color: '#64748b' }}>
-            Vyplněno: <strong style={{ color: serials.filter(Boolean).length === quantity ? '#10b981' : '#f59e0b' }}>{serials.filter(Boolean).length}/{quantity}</strong>
+            Vyplnené: <strong style={{ color: serials.filter(Boolean).length === quantity ? '#10b981' : '#f59e0b' }}>{serials.filter(Boolean).length}/{quantity}</strong>
           </div>
         </div>
 
         {/* Tab switcher */}
         <div style={{ display: 'flex', gap: 4, marginBottom: 8, borderBottom: '1px solid #e2e8f0' }}>
           {[
-            { id: 'manual', label: 'Manuálně', icon: <Edit3 size={11} /> },
-            { id: 'bulk', label: 'Hromadné vložení', icon: <FileText size={11} /> },
+            { id: 'manual', label: 'Manuálne', icon: <Edit3 size={11} /> },
+            { id: 'bulk', label: 'Hromadné vloženie', icon: <FileText size={11} /> },
             { id: 'excel', label: 'Import z Excelu', icon: <Upload size={11} /> },
             { id: 'scanner', label: 'Skener', icon: '📷' },
           ].map(t => (
@@ -7528,7 +7530,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
         {snTab === 'bulk' && (
           <div>
             <p style={{ fontSize: 12, color: '#64748b', margin: '0 0 6px' }}>
-              Vložte sériová čísla, jedno na řádek. Můžete zkopírovat ze sloupce v Excelu.
+              Vložte sériová čísla, jedno na riadok. Môžete skopírovať zo stĺpce v Excelu.
             </p>
             <textarea
               style={{ ...styles.input, fontFamily: 'monospace', fontSize: 12, minHeight: 120, resize: 'vertical' }}
@@ -7538,10 +7540,10 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
             />
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 6 }}>
               <span style={{ fontSize: 11, color: '#64748b' }}>
-                Rozpoznáno: <strong>{bulkText.split(/\r?\n/).map(l => l.trim()).filter(Boolean).length}</strong> řádků
+                Rozpoznáno: <strong>{bulkText.split(/\r?\n/).map(l => l.trim()).filter(Boolean).length}</strong> riadkov
               </span>
               <button style={{ ...styles.primaryBtn, padding: '6px 12px', fontSize: 12 }} onClick={applyBulkSerials}>
-                Použít sériová čísla
+                Použiť sériová čísla
               </button>
             </div>
           </div>
@@ -7550,7 +7552,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
         {snTab === 'excel' && (
           <div>
             <p style={{ fontSize: 12, color: '#64748b', margin: '0 0 6px' }}>
-              Nahrajte Excel/CSV se sériovými čísly. Aplikace najde sloupec automaticky (hledá hlavičku „Sériové č.", „S/N", apod.) nebo vezme první sloupec.
+              Nahrajte Excel/CSV sa sériovými čísly. Aplikácia nájde stĺpec automaticky (hledá hlavičku „Sériové č.", „S/N", a pod.) alebo vezme prvý stĺpec.
             </p>
             <input
               type="file"
@@ -7563,7 +7565,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
               }}
             />
             {excelLoading && (
-              <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>⏳ Načítám soubor...</div>
+              <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>⏳ Načítavam súbor...</div>
             )}
             {excelError && (
               <div style={{ marginTop: 6, padding: 8, background: '#fee2e2', color: '#b91c1c', borderRadius: 4, fontSize: 11 }}>
@@ -7578,14 +7580,14 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
             {!scannerActive ? (
               <div>
                 <p style={{ fontSize: 12, color: '#64748b', margin: '0 0 8px' }}>
-                  📷 Skenování čárových kódů kamerou. Funguje na mobilních zařízeních s Chrome / Edge.
-                  Naskenovaný kód se automaticky doplní do prvního prázdného pole.
+                  📷 Skenovanie čiarových kódov kamerou. Funguje na mobilních zariadeniach s Chrome / Edge.
+                  Naskenovaný kód sa automaticky doplní do prvého prázdného pole.
                 </p>
                 <button
                   style={styles.primaryBtn}
                   onClick={startScanner}
                 >
-                  📷 Spustit kameru
+                  📷 Spustiť kameru
                 </button>
                 {scannerError && (
                   <div style={{ marginTop: 6, padding: 8, background: '#fee2e2', color: '#b91c1c', borderRadius: 4, fontSize: 11 }}>
@@ -7605,9 +7607,9 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 6 }}>
                   <span style={{ fontSize: 11, color: '#10b981', fontWeight: 600 }}>
-                    🟢 Snímám... namiřte na čárový kód
+                    🟢 Snímam... namierte na čiarový kód
                   </span>
-                  <button style={styles.sortBtn} onClick={stopScanner}>Zastavit</button>
+                  <button style={styles.sortBtn} onClick={stopScanner}>Zastaviť</button>
                 </div>
               </div>
             )}
@@ -7618,20 +7620,20 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
 
       <div style={{ marginTop: 12 }}>
         <label style={styles.label}>Poznámka k položce</label>
-        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="např. žluté pásky, kontrola výrobních čísel..." />
+        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="napr. žlté pásky, kontrola výrobních čísel..." />
       </div>
 
       <div style={{ marginTop: 12 }}>
-        <label style={styles.label}>Poznámka k pohybu (uloží se do historie)</label>
-        <input style={styles.input} value={movementNotes} onChange={e => setMovementNotes(e.target.value)} placeholder="Důvod naskladnění, paleta č. ..." />
+        <label style={styles.label}>Poznámka k pohybe (uloží sa do historie)</label>
+        <input style={styles.input} value={movementNotes} onChange={e => setMovementNotes(e.target.value)} placeholder="Dôvod naskladnenie, paleta č. ..." />
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit}>
           <Plus size={14} /> {receiveMode === 'batch'
-            ? `Naskladnit batch (${quantity} ks)`
-            : `Naskladnit ${quantity} ${quantity === 1 ? 'kus' : quantity < 5 ? 'kusy' : 'kusů'}`}
+            ? `Naskladniť batch (${quantity} ks)`
+            : `Naskladniť ${quantity} ${quantity === 1 ? 'kus' : quantity < 5 ? 'kusy' : 'kusov'}`}
         </button>
       </div>
     </Modal>
@@ -7644,33 +7646,33 @@ function StockEditModal({ stockItem, locations, categories, onSave, onClose }) {
     serialNumber: stockItem.serialNumber || '',
     category: stockItem.category || '',
     locationId: stockItem.locationId || 'loc_warehouse',
-    purchasePriceCZK: stockItem.purchasePriceCZK || 0,
+    purchasePriceEUR: stockItem.purchasePriceEUR || 0,
     warrantyUntil: stockItem.warrantyUntil || '',
     notes: stockItem.notes || '',
     supplierName: stockItem.supplierName || '',
   });
 
   const submit = () => {
-    if (!form.name.trim()) { alert('Zadejte název'); return; }
+    if (!form.name.trim()) { alert('Zadajte názov'); return; }
     onSave({
       ...form,
       name: form.name.trim(),
       serialNumber: form.serialNumber.trim(),
       supplierName: form.supplierName.trim(),
       notes: form.notes.trim(),
-      purchasePriceCZK: parseFloat(form.purchasePriceCZK) || 0,
+      purchasePriceEUR: parseFloat(form.purchasePriceEUR) || 0,
     });
   };
 
   return (
-    <Modal title="Upravit skladový kus" onClose={onClose} maxWidth={620}>
+    <Modal title="Upraviť skladový kus" onClose={onClose} maxWidth={620}>
       <div style={styles.formRowGroup}>
         <div style={{ flex: 2 }}>
-          <label style={styles.label}>Název</label>
+          <label style={styles.label}>Názov</label>
           <input style={styles.input} value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Kategorie</label>
+          <label style={styles.label}>Kategórie</label>
           <select style={styles.input} value={form.category} onChange={e => setForm({ ...form, category: e.target.value })}>
             {categories.filter(c => c.kind === 'material').map(c => (
               <option key={c.id} value={c.id}>{c.name}</option>
@@ -7685,7 +7687,7 @@ function StockEditModal({ stockItem, locations, categories, onSave, onClose }) {
           <input style={{ ...styles.input, fontFamily: 'monospace' }} value={form.serialNumber} onChange={e => setForm({ ...form, serialNumber: e.target.value })} />
         </div>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Lokace</label>
+          <label style={styles.label}>Lokalita</label>
           <select style={styles.input} value={form.locationId} onChange={e => setForm({ ...form, locationId: e.target.value })}>
             {locations.map(l => (
               <option key={l.id} value={l.id}>{l.type === 'warehouse' ? '🏢 ' : '👷 '}{l.name}</option>
@@ -7696,8 +7698,8 @@ function StockEditModal({ stockItem, locations, categories, onSave, onClose }) {
 
       <div style={styles.formRowGroup}>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Nákupní cena (CZK)</label>
-          <input type="number" step="0.01" min="0" style={styles.input} value={form.purchasePriceCZK} onChange={e => setForm({ ...form, purchasePriceCZK: e.target.value })} />
+          <label style={styles.label}>Nákupná cena (€)</label>
+          <input type="number" step="0.01" min="0" style={styles.input} value={form.purchasePriceEUR} onChange={e => setForm({ ...form, purchasePriceEUR: e.target.value })} />
         </div>
         <div style={{ flex: 1 }}>
           <label style={styles.label}>Záruka do</label>
@@ -7706,7 +7708,7 @@ function StockEditModal({ stockItem, locations, categories, onSave, onClose }) {
       </div>
 
       <div style={{ marginTop: 12 }}>
-        <label style={styles.label}>Dodavatel</label>
+        <label style={styles.label}>Dodávateľ</label>
         <input style={styles.input} value={form.supplierName} onChange={e => setForm({ ...form, supplierName: e.target.value })} />
       </div>
 
@@ -7716,8 +7718,8 @@ function StockEditModal({ stockItem, locations, categories, onSave, onClose }) {
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={submit}>Uložit změny</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>Uložiť zmeny</button>
       </div>
     </Modal>
   );
@@ -7731,12 +7733,12 @@ function StockTransferModal({ stockItem, locations, onConfirm, onClose }) {
   const targetLoc = locations.find(l => l.id === toLocationId);
 
   const submit = () => {
-    if (!toLocationId) { alert('Vyberte cílovou lokaci'); return; }
+    if (!toLocationId) { alert('Vyberte cílovou lokalitu'); return; }
     onConfirm(toLocationId, notes.trim());
   };
 
   return (
-    <Modal title="Přesunout kus" onClose={onClose} maxWidth={520}>
+    <Modal title="Presunúť kus" onClose={onClose} maxWidth={520}>
       <div style={{ padding: 12, background: '#f8fafc', borderRadius: 6, marginBottom: 12 }}>
         <div style={{ fontWeight: 600 }}>{stockItem.name}</div>
         {stockItem.serialNumber && (
@@ -7763,14 +7765,14 @@ function StockTransferModal({ stockItem, locations, onConfirm, onClose }) {
       </div>
 
       <div>
-        <label style={styles.label}>Poznámka k přesunu</label>
-        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="např. pro instalaci na Vyšehradě..." />
+        <label style={styles.label}>Poznámka k presunu</label>
+        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="napr. montáž na streche v Bratislave..." />
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit}>
-          <ArrowRight size={14} /> Přesunout
+          <ArrowRight size={14} /> Presunúť
         </button>
       </div>
     </Modal>
@@ -7788,19 +7790,19 @@ function StockConsumeModal({ stockItem, projects, onConfirm, onClose }) {
   };
 
   return (
-    <Modal title="Spotřebovat kus na projekt" onClose={onClose} maxWidth={520}>
+    <Modal title="Spotrebovať kus na projekt" onClose={onClose} maxWidth={520}>
       <div style={{ padding: 12, background: '#f8fafc', borderRadius: 6, marginBottom: 12 }}>
         <div style={{ fontWeight: 600 }}>{stockItem.name}</div>
         {stockItem.serialNumber && (
           <div style={{ fontFamily: 'monospace', fontSize: 11, color: '#64748b', marginTop: 2 }}>S/N: {stockItem.serialNumber}</div>
         )}
-        {stockItem.purchasePriceCZK > 0 && (
-          <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>Nákupní cena: <strong>{fmt(stockItem.purchasePriceCZK)}</strong></div>
+        {stockItem.purchasePriceEUR > 0 && (
+          <div style={{ fontSize: 11, color: '#64748b', marginTop: 2 }}>Nákupný cena: <strong>{fmt(stockItem.purchasePriceEUR)}</strong></div>
         )}
       </div>
 
       <div style={{ padding: 10, background: '#fef3c7', color: '#92400e', borderRadius: 6, marginBottom: 12, fontSize: 12 }}>
-        ⚠ Kus bude označen jako spotřebovaný a nepůjde dál přesouvat. Pohyb se zaznamená do historie skladu.
+        ⚠ Kus bude označený ako spotrebovaný a nepôjde dál presúvať. Pohyb sa zaznamená do historie sklade.
       </div>
 
       <div>
@@ -7815,13 +7817,13 @@ function StockConsumeModal({ stockItem, projects, onConfirm, onClose }) {
 
       <div style={{ marginTop: 12 }}>
         <label style={styles.label}>Poznámka</label>
-        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="např. instalace na střechu, datum instalace..." />
+        <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="napr. inštalácia na strechu, dátum inštalácia..." />
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={submit}>
-          ✂️ Spotřebovat
+          ✂️ Spotrebovať
         </button>
       </div>
     </Modal>
@@ -7829,23 +7831,23 @@ function StockConsumeModal({ stockItem, projects, onConfirm, onClose }) {
 }
 
 // ==========================================================================
-// CashFlowView — zjednodušená verze: jen výdaje za položky projektů (po měsících)
+// CashFlowView — zjednodušená verze: len výdavky za položky projektov (po mesiacoch)
 // ==========================================================================
 
 function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
   const [groupBy, setGroupBy] = useState('category'); // category | project | supplier
   const [period, setPeriod] = useState('month');      // week | month
   const [dateMode, setDateMode] = useState('due');    // due | planned | order
-  const [includeInvoiced, setIncludeInvoiced] = useState(false); // ve výchozím stavu vyfakturované skrýt
-  const [showWithVAT, setShowWithVAT] = useState(true); // ve výchozím stavu zobrazovat s DPH (realistický cash flow)
+  const [includeInvoiced, setIncludeInvoiced] = useState(false); // v predvolenom stavu vyfakturované skryť
+  const [showWithVAT, setShowWithVAT] = useState(true); // v predvolenom stavu zobrazovať s DPH (realistický cash flow)
   const [breakdownModal, setBreakdownModal] = useState(null); // { title, rows: [...], side: 'expense'|'income', vatMode }
 
   const periodKey = period === 'week' ? ywKey : ymKey;
   const today = todayISO();
 
-  // DPH na nákupy — přidává se do výdajů v cash flow (typicky 21 % v ČR).
-  // Položky se zadávají bez DPH, ale z účtu odejde s DPH.
-  // Uživatel může DPH dočasně vypnout přepínačem v UI (showWithVAT).
+  // DPH na nákupy — pridáva sa do výdavkov v cash flow (typicky 23 % na Slovensku).
+  // Položky sa zadávají bez DPH, ale z účtu odíde s DPH.
+  // Používateľ môže DPH dočasne vypnúť prepínačom v UI (showWithVAT).
   const expenseVatRate = parseFloat(settings?.expenseVatRate) || 0;
   const vatMultiplier = showWithVAT ? (1 + expenseVatRate / 100) : 1;
 
@@ -7855,18 +7857,18 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
 
     projects.forEach(p => {
       (p.items || []).forEach(item => {
-        // Vyfakturované položky jsou vedeny v saldu závazků jinde — pro cash flow je vynecháváme,
-        // pokud uživatel nezapne "Zobrazit vyfakturované"
+        // Vyfakturované položky sú vedeny v saldu záväzkov jinde — pre cash flow je vynecháváme,
+        // ak používateľ nezapne "Zobraziť vyfakturované"
         if (!includeInvoiced && item.isInvoiced) return;
         const sup = suppliers.find(s => s.id === item.supplierId);
         const qty = parseFloat(item.quantity) || 0;
-        const unitCZK = item.currency === 'EUR'
-          ? (parseFloat(item.unitPrice) || 0) * fxRate
+        const unitEUR = item.currency === 'CZK'
+          ? (fxRate > 0 ? (parseFloat(item.unitPrice) || 0) / fxRate : (parseFloat(item.unitPrice) || 0))
           : (parseFloat(item.unitPrice) || 0);
-        const totalCZK = unitCZK * qty;
-        const payments = computePayments(item, sup, totalCZK);
+        const totalEUR = unitEUR * qty;
+        const payments = computePayments(item, sup, totalEUR);
         payments.forEach((pay, idx) => {
-          // Vybrat datum podle dateMode
+          // Vybrať dátum podľa dateMode
           let useDate;
           if (dateMode === 'order') useDate = item.purchaseDate || item.plannedOrderDate;
           else if (dateMode === 'planned') useDate = item.plannedOrderDate || item.purchaseDate;
@@ -7879,8 +7881,8 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
             projectName: p.name,
             projectClient: p.client || '',
             item,
-            amount: pay.amount * vatMultiplier, // <-- VÝDAJ S DPH
-            amountNet: pay.amount,              // <-- pro detail / tooltip
+            amount: pay.amount * vatMultiplier, // <-- VÝDAVOK S DPH
+            amountNet: pay.amount,              // <-- pre detail / tooltip
             bucket: b,
             tranche: pay.tranche,
             overdue: !!pay.dueDate && pay.dueDate < today,
@@ -7904,20 +7906,20 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         return {
           key: `proj_${x.projectId}`,
           label: x.projectName,
-          sublabel: x.projectClient || '', // jméno klienta
+          sublabel: x.projectClient || '', // meno klienta
           color: '#3b82f6',
         };
       } else if (groupBy === 'supplier') {
         const sup = suppliers.find(s => s.id === x.item.supplierId);
-        return { key: `sup_${x.item.supplierId || 'none'}`, label: sup?.name || 'Bez dodavatele', color: '#dc2626' };
+        return { key: `sup_${x.item.supplierId || 'none'}`, label: sup?.name || 'Bez dodávateľa', color: '#dc2626' };
       }
-      return { key: 'all', label: 'Vše', color: '#0f172a' };
+      return { key: 'all', label: 'Všetko', color: '#0f172a' };
     };
 
     const groupMap = new Map();
     rows.forEach(r => {
       const g = rowKeyFn(r);
-      r.groupKey = g.key; // <-- pro filtrování v breakdown modalu
+      r.groupKey = g.key; // <-- pre filtrování v breakdown modalu
       if (!groupMap.has(g.key)) groupMap.set(g.key, { ...g, byBucket: {} });
       const grp = groupMap.get(g.key);
       if (!grp.byBucket[r.bucket]) grp.byBucket[r.bucket] = 0;
@@ -7944,28 +7946,28 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
     return { buckets, groups, totals, cumulative, rows, totalRows: rows.length };
   }, [projects, categories, suppliers, fxRate, groupBy, period, dateMode, today, periodKey, includeInvoiced, vatMultiplier]);
 
-  // ===== Příjmy od klientů (z project.clientPayments) =====
-  // Klientské platby se vytvářejí z hodnoty smlouvy včetně DPH (čili amount = gross).
-  // Pokud uživatel chce zobrazit "bez DPH", dělíme každou platbu (1 + project.vatRate/100).
+  // ===== Príjmy od klientov (z project.clientPayments) =====
+  // Klientské platby sa vytvárajú z hodnoty zmluvy vrátane DPH (čili amount = gross).
+  // Ak používateľ chce zobraziť "bez DPH", delíme každú platbu (1 + project.vatRate/100).
   const incomeData = useMemo(() => {
     const bucketSet = new Set();
     const rows = [];
 
     projects.forEach(p => {
       const projectVatRate = parseFloat(p.vatRate) || 0;
-      // Divizor pro převod gross → net: 1.21 → 1 (pokud nezobrazujeme s DPH)
-      // Pokud showWithVAT = true → ponecháme částku jak je (gross)
-      // Pokud showWithVAT = false → dělíme (1 + vat/100), aby byla bez DPH
+      // Divizor pre prevod gross → net: 1.21 → 1 (ak nezobrazujeme s DPH)
+      // Ak showWithVAT = true → ponecháme sumu ako je (gross)
+      // Ak showWithVAT = false → delíme (1 + vat/100), aby byla bez DPH
       const incomeDivisor = showWithVAT ? 1 : (1 + projectVatRate / 100);
 
       (p.clientPayments || []).forEach(cp => {
-        // status 'paid' = peníze fyzicky přišly → není to budoucí příjem
+        // status 'paid' = peniaze fyzicky prišli → nie je to budúci príjem
         if (cp.status === 'paid') return;
 
         const amount = parseFloat(cp.amount) || 0;
         if (amount === 0) return;
-        const amountCZK = (cp.currency === 'EUR') ? amount * fxRate : amount;
-        const adjustedAmount = amountCZK / incomeDivisor;
+        const amountEUR = (cp.currency === 'CZK') ? (fxRate > 0 ? amount / fxRate : amount) : amount;
+        const adjustedAmount = amountEUR / incomeDivisor;
 
         const useDate = cp.dueDate;
         const b = periodKey(useDate);
@@ -7978,7 +7980,7 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
           projectVatRate,
           payment: cp,
           amount: adjustedAmount,
-          amountGross: amountCZK, // pro detail
+          amountGross: amountEUR, // pre detail
           bucket: b,
           overdue: !!cp.dueDate && cp.dueDate < today && cp.status !== 'paid',
         });
@@ -7993,7 +7995,7 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
     return { buckets: Array.from(bucketSet), totals, rows, totalRows: rows.length };
   }, [projects, fxRate, periodKey, today, showWithVAT]);
 
-  // ===== Sloučená seznam bucketů (výdaje + příjmy) =====
+  // ===== Sloučená zoznam bucketov (výdavky + príjmy) =====
   const allBuckets = useMemo(() => {
     const set = new Set([...data.buckets, ...incomeData.buckets]);
     return Array.from(set).sort((a, b) => {
@@ -8003,13 +8005,13 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
     });
   }, [data.buckets, incomeData.buckets]);
 
-  // ===== Saldo (příjmy - výdaje) =====
+  // ===== Saldo (príjmy - výdavky) =====
   const balance = useMemo(() => {
     const perBucket = {};
     allBuckets.forEach(b => {
       perBucket[b] = (incomeData.totals[b] || 0) - (data.totals[b] || 0);
     });
-    // Kumulativně
+    // Kumulatívne
     const cumulative = {};
     let running = 0;
     allBuckets.forEach(b => {
@@ -8031,13 +8033,13 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         <div>
           <h2 style={styles.projectTitle}>Cash Flow</h2>
           <p style={{ margin: '6px 0 0', color: '#64748b', fontSize: 14 }}>
-            Plánované výdaje na položky projektů
+            Plánované výdavky na položky projektov
             {expenseVatRate > 0 && (
               showWithVAT
-                ? <span style={{ color: '#15803d', fontWeight: 600 }}> · výdaje s DPH {expenseVatRate}%</span>
+                ? <span style={{ color: '#15803d', fontWeight: 600 }}> · výdavky s DPH {expenseVatRate}%</span>
                 : <span style={{ color: '#64748b', fontWeight: 600 }}> · bez DPH</span>
             )}
-            {!includeInvoiced && <span style={{ color: '#8b5cf6', fontWeight: 600 }}> · vyfakturované skryty</span>}
+            {!includeInvoiced && <span style={{ color: '#8b5cf6', fontWeight: 600 }}> · vyfakturované skryté</span>}
           </p>
         </div>
         <div style={styles.headerActions}>
@@ -8045,7 +8047,7 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
             style={styles.primaryBtn}
             onClick={() => exportCashFlowToExcel(data, { groupBy, period, dateMode, formatBucket })}
             disabled={data.totalRows === 0}
-            title="Stáhnout sestavu jako Excel"
+            title="Stiahnuť sestavu ako Excel"
           >
             <Download size={14} /> Export Excel
           </button>
@@ -8055,27 +8057,27 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
       {/* Filtry */}
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 14 }}>
         <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b', alignSelf: 'center' }}>SESKUPENÍ:</span>
-        <button onClick={() => setGroupBy('category')} style={groupBy === 'category' ? styles.sortBtnActive : styles.sortBtn}>Kategorie</button>
+        <button onClick={() => setGroupBy('category')} style={groupBy === 'category' ? styles.sortBtnActive : styles.sortBtn}>Kategórie</button>
         <button onClick={() => setGroupBy('project')} style={groupBy === 'project' ? styles.sortBtnActive : styles.sortBtn}>Projekt</button>
-        <button onClick={() => setGroupBy('supplier')} style={groupBy === 'supplier' ? styles.sortBtnActive : styles.sortBtn}>Dodavatel</button>
+        <button onClick={() => setGroupBy('supplier')} style={groupBy === 'supplier' ? styles.sortBtnActive : styles.sortBtn}>Dodávateľ</button>
         <span style={{ width: 1, background: '#e2e8f0', margin: '0 6px' }} />
         <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b', alignSelf: 'center' }}>PERIODA:</span>
-        <button onClick={() => setPeriod('week')} style={period === 'week' ? styles.sortBtnActive : styles.sortBtn}>Týden</button>
-        <button onClick={() => setPeriod('month')} style={period === 'month' ? styles.sortBtnActive : styles.sortBtn}>Měsíc</button>
+        <button onClick={() => setPeriod('week')} style={period === 'week' ? styles.sortBtnActive : styles.sortBtn}>Týždeň</button>
+        <button onClick={() => setPeriod('month')} style={period === 'month' ? styles.sortBtnActive : styles.sortBtn}>Mesiac</button>
         <span style={{ width: 1, background: '#e2e8f0', margin: '0 6px' }} />
-        <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b', alignSelf: 'center' }}>DATUM:</span>
+        <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b', alignSelf: 'center' }}>DÁTUM:</span>
         <button onClick={() => setDateMode('due')} style={dateMode === 'due' ? styles.sortBtnActive : styles.sortBtn}>Splatnost</button>
-        <button onClick={() => setDateMode('order')} style={dateMode === 'order' ? styles.sortBtnActive : styles.sortBtn}>Objednání</button>
+        <button onClick={() => setDateMode('order')} style={dateMode === 'order' ? styles.sortBtnActive : styles.sortBtn}>Objednanie</button>
         <span style={{ width: 1, background: '#e2e8f0', margin: '0 6px' }} />
         <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b', alignSelf: 'center' }}>VYFAKTUROVANÉ:</span>
         <button
           onClick={() => setIncludeInvoiced(!includeInvoiced)}
           style={includeInvoiced ? styles.sortBtnActive : styles.sortBtn}
           title={includeInvoiced
-            ? 'Vyfakturované jsou zobrazené. Klikněte pro skrytí (typicky jsou už v saldu závazků).'
-            : 'Vyfakturované jsou skryté (jsou v saldu závazků). Klikněte pro zobrazení.'}
+            ? 'Vyfakturované sú zobrazené. Kliknite pre skrytí (typicky sú už v saldu záväzkov).'
+            : 'Vyfakturované sú skryté (sú v saldu záväzkov). Kliknite pre zobrazenie.'}
         >
-          {includeInvoiced ? '✓ Zahrnout' : 'Skrýt'}
+          {includeInvoiced ? '✓ Zahrnúť' : 'Skryť'}
         </button>
         {expenseVatRate > 0 && (
           <>
@@ -8084,14 +8086,14 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
             <button
               onClick={() => setShowWithVAT(true)}
               style={showWithVAT ? styles.sortBtnActive : styles.sortBtn}
-              title="Výdaje včetně DPH — realistická částka, která odejde z účtu"
+              title="Výdavky vrátane DPH — realistická suma, ktorá odíde z účtu"
             >
               S DPH
             </button>
             <button
               onClick={() => setShowWithVAT(false)}
               style={!showWithVAT ? styles.sortBtnActive : styles.sortBtn}
-              title="Výdaje bez DPH — nákupní ceny dodavatelů"
+              title="Výdavky bez DPH — nákupný ceny dodávateľov"
             >
               Bez DPH
             </button>
@@ -8102,8 +8104,8 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
       {data.totalRows === 0 && incomeData.totalRows === 0 ? (
         <div style={{ padding: 60, textAlign: 'center', color: '#94a3b8', border: '1px dashed #cbd5e1', borderRadius: 10, background: '#fff' }}>
           <Calendar size={36} style={{ opacity: 0.4, marginBottom: 12 }} />
-          <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 6, color: '#475569' }}>Žádná data k zobrazení</div>
-          <div style={{ fontSize: 13 }}>Přidejte projekty a položky (výdaje) nebo platby od klientů (příjmy) pro zobrazení cash flow.</div>
+          <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 6, color: '#475569' }}>Žiadna data k zobrazenie</div>
+          <div style={{ fontSize: 13 }}>Pridajte projekty a položky (výdavky) alebo platby od klientov (príjmy) pre zobrazenie cash flow.</div>
         </div>
       ) : (
         <div style={styles.tableWrap}>
@@ -8114,15 +8116,15 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                 {allBuckets.map(b => (
                   <th key={b} style={{ ...styles.th, textAlign: 'right', minWidth: 100 }}>{formatBucket(b)}</th>
                 ))}
-                <th style={{ ...styles.th, textAlign: 'right', fontWeight: 700 }}>Celkem</th>
+                <th style={{ ...styles.th, textAlign: 'right', fontWeight: 700 }}>Spolu</th>
               </tr>
             </thead>
             <tbody>
-              {/* ======= VÝDAJE (červeně) ======= */}
+              {/* ======= VÝDAVKY (červene) ======= */}
               {data.groups.length > 0 && (
                 <tr style={{ background: '#fef2f2' }}>
                   <td colSpan={allBuckets.length + 2} style={{ ...styles.td, fontSize: 11, fontWeight: 700, color: '#991b1b', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '6px 12px' }}>
-                    ⬇ Výdaje (závazky vůči dodavatelům)
+                    ⬇ Výdavky (záväzky voči dodávateľom)
                   </td>
                 </tr>
               )}
@@ -8152,7 +8154,7 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                             rows: data.rows.filter(r => r.groupKey === g.key && r.bucket === b),
                             total: v, showWithVAT, expenseVatRate,
                           })}
-                          title="Klikněte pro detail plateb"
+                          title="Kliknite pre detail platieb"
                         >
                           -{fmt(v)}
                         </td>
@@ -8164,21 +8166,21 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                         cursor: 'pointer',
                       }}
                       onClick={() => setBreakdownModal({
-                        side: 'expense', title: `${g.label} · celkem`,
+                        side: 'expense', title: `${g.label} · spolu`,
                         rows: data.rows.filter(r => r.groupKey === g.key),
                         total: rowTotal, showWithVAT, expenseVatRate,
                       })}
-                      title="Klikněte pro detail plateb"
+                      title="Kliknite pre detail platieb"
                     >
                       -{fmt(rowTotal)}
                     </td>
                   </tr>
                 );
               })}
-              {/* Totals row - výdaje */}
+              {/* Totals row - výdavky */}
               {data.groups.length > 0 && (
                 <tr style={{ background: '#7f1d1d', color: '#fff' }}>
-                  <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#7f1d1d', color: '#fff', fontWeight: 700 }}>Celkem výdaje</td>
+                  <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#7f1d1d', color: '#fff', fontWeight: 700 }}>Spolu výdavky</td>
                   {allBuckets.map(b => (
                     <td key={b} style={{ ...styles.td, textAlign: 'right', color: '#fca5a5', fontWeight: 700 }}>
                       {data.totals[b] ? '-' + fmt(data.totals[b]) : '—'}
@@ -8190,17 +8192,17 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                 </tr>
               )}
 
-              {/* ======= PŘÍJMY (zeleně) ======= */}
+              {/* ======= PRÍJMY (zelene) ======= */}
               {incomeData.totalRows > 0 && (
                 <>
                   <tr style={{ background: '#f0fdf4' }}>
                     <td colSpan={allBuckets.length + 2} style={{ ...styles.td, fontSize: 11, fontWeight: 700, color: '#166534', textTransform: 'uppercase', letterSpacing: '0.05em', padding: '6px 12px' }}>
-                      ⬆ Příjmy (platby od klientů)
+                      ⬆ Príjmy (platby od klientov)
                     </td>
                   </tr>
                   {/* Per-projekt rows */}
                   {(() => {
-                    // Seskupit příjmy podle projektu pro zobrazení
+                    // Seskupit príjmy podľa projektu pre zobrazenie
                     const byProject = new Map();
                     incomeData.rows.forEach(r => {
                       const k = r.projectId;
@@ -8239,7 +8241,7 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                                   rows: incomeData.rows.filter(r => r.projectId === grp.projectId && r.bucket === b),
                                   total: v, showWithVAT,
                                 })}
-                                title="Klikněte pro detail plateb"
+                                title="Kliknite pre detail platieb"
                               >
                                 +{fmt(v)}
                               </td>
@@ -8251,11 +8253,11 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                               cursor: 'pointer',
                             }}
                             onClick={() => setBreakdownModal({
-                              side: 'income', title: `${grp.projectName} · celkem`,
+                              side: 'income', title: `${grp.projectName} · spolu`,
                               rows: incomeData.rows.filter(r => r.projectId === grp.projectId),
                               total: rowTotal, showWithVAT,
                             })}
-                            title="Klikněte pro detail plateb"
+                            title="Kliknite pre detail platieb"
                           >
                             +{fmt(rowTotal)}
                           </td>
@@ -8263,9 +8265,9 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                       );
                     });
                   })()}
-                  {/* Totals row - příjmy */}
+                  {/* Totals row - príjmy */}
                   <tr style={{ background: '#15803d', color: '#fff' }}>
-                    <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#15803d', color: '#fff', fontWeight: 700 }}>Celkem příjmy</td>
+                    <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#15803d', color: '#fff', fontWeight: 700 }}>Spolu príjmy</td>
                     {allBuckets.map(b => (
                       <td key={b} style={{ ...styles.td, textAlign: 'right', color: '#bbf7d0', fontWeight: 700 }}>
                         {incomeData.totals[b] ? '+' + fmt(incomeData.totals[b]) : '—'}
@@ -8281,7 +8283,7 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
               {/* ======= SALDO ======= */}
               {(data.groups.length > 0 || incomeData.totalRows > 0) && (
                 <tr style={{ background: '#0d3825', color: '#fff' }}>
-                  <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#0d3825', color: '#fff', fontWeight: 700 }}>SALDO (příjmy − výdaje)</td>
+                  <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#0d3825', color: '#fff', fontWeight: 700 }}>SALDO (príjmy − výdavky)</td>
                   {allBuckets.map(b => {
                     const v = balance.perBucket[b] || 0;
                     return (
@@ -8299,9 +8301,9 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
                 </tr>
               )}
 
-              {/* ======= KUMULATIVNĚ ======= */}
+              {/* ======= KUMULATÍVNE ======= */}
               <tr style={{ background: '#f8fafc' }}>
-                <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#f8fafc', fontStyle: 'italic', color: '#64748b', fontWeight: 600 }}>Kumulativně (saldo)</td>
+                <td style={{ ...styles.td, position: 'sticky', left: 0, background: '#f8fafc', fontStyle: 'italic', color: '#64748b', fontWeight: 600 }}>Kumulatívne (saldo)</td>
                 {allBuckets.map(b => {
                   const v = balance.cumulative[b];
                   if (v == null) return <td key={b} style={{ ...styles.td, textAlign: 'right', color: '#cbd5e1' }}>—</td>;
@@ -8329,12 +8331,12 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
 }
 
 // ==========================================================================
-// CashFlowBreakdownModal — detail plateb tvořících konkrétní částku
+// CashFlowBreakdownModal — detail platieb tvoriacich konkrétny sumu
 // ==========================================================================
 
 function CashFlowBreakdownModal({ side, title, rows, total, showWithVAT, expenseVatRate, onClose }) {
   const isExpense = side === 'expense';
-  // Seřadit podle splatnosti
+  // Zoradiť podľa splatnosti
   const sorted = [...rows].sort((a, b) => {
     const da = isExpense ? (a.item?.paymentDueDate || a.bucket) : (a.payment?.dueDate || '');
     const db = isExpense ? (b.item?.paymentDueDate || b.bucket) : (b.payment?.dueDate || '');
@@ -8342,7 +8344,7 @@ function CashFlowBreakdownModal({ side, title, rows, total, showWithVAT, expense
   });
 
   return (
-    <Modal title={`Detail plateb · ${title}`} onClose={onClose} maxWidth={720}>
+    <Modal title={`Detail platieb · ${title}`} onClose={onClose} maxWidth={720}>
       <div style={{
         marginBottom: 12, padding: 10, borderRadius: 6,
         background: isExpense ? '#fef2f2' : '#f0fdf4',
@@ -8350,7 +8352,7 @@ function CashFlowBreakdownModal({ side, title, rows, total, showWithVAT, expense
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
       }}>
         <span style={{ fontSize: 13, color: isExpense ? '#991b1b' : '#166534' }}>
-          {sorted.length} {sorted.length === 1 ? 'platba' : sorted.length < 5 ? 'platby' : 'plateb'}
+          {sorted.length} {sorted.length === 1 ? 'platba' : sorted.length < 5 ? 'platby' : 'platieb'}
           {isExpense && expenseVatRate > 0 && (
             <span style={{ marginLeft: 8, fontSize: 11 }}>
               ({showWithVAT ? `s DPH ${expenseVatRate} %` : 'bez DPH'})
@@ -8377,14 +8379,14 @@ function CashFlowBreakdownModal({ side, title, rows, total, showWithVAT, expense
                   <th style={styles.th}>Projekt</th>
                   <th style={styles.th}>Tranše</th>
                   <th style={styles.th}>Splatnost</th>
-                  <th style={{ ...styles.th, textAlign: 'right' }}>Částka</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Suma</th>
                 </>
               ) : (
                 <>
                   <th style={styles.th}>Popis splátky</th>
                   <th style={styles.th}>Status</th>
                   <th style={styles.th}>Splatnost</th>
-                  <th style={{ ...styles.th, textAlign: 'right' }}>Částka</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Suma</th>
                 </>
               )}
             </tr>
@@ -8401,7 +8403,7 @@ function CashFlowBreakdownModal({ side, title, rows, total, showWithVAT, expense
                   <span style={{
                     padding: '1px 6px', borderRadius: 3, fontSize: 10, fontWeight: 600,
                     background: '#e0e7ff', color: '#3730a3',
-                  }}>{r.tranche || 'celkem'}</span>
+                  }}>{r.tranche || 'spolu'}</span>
                 </td>
                 <td style={{ ...styles.td, fontSize: 11 }}>
                   {r.item?.paymentDueDate || <span style={{ color: '#cbd5e1' }}>—</span>}
@@ -8452,7 +8454,7 @@ function CashFlowBreakdownModal({ side, title, rows, total, showWithVAT, expense
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.primaryBtn} onClick={onClose}>Zavřít</button>
+        <button style={styles.primaryBtn} onClick={onClose}>Zavrieť</button>
       </div>
     </Modal>
   );
@@ -8464,32 +8466,32 @@ function CashFlowBreakdownModal({ side, title, rows, total, showWithVAT, expense
 
 async function exportCashFlowToExcel(data, opts) {
   if (!data || data.totalRows === 0) {
-    alert('Žádná data k exportu.');
+    alert('Žiadna data k exportu.');
     return;
   }
   try {
     const XLSX = await loadXLSX();
     const { groupBy, period, dateMode, formatBucket } = opts;
 
-    const groupByLabel = { category: 'Kategorie', project: 'Projekt', supplier: 'Dodavatel' }[groupBy] || 'Skupina';
-    const periodLabel = period === 'week' ? 'týdně' : 'měsíčně';
-    const dateModeLabel = { due: 'splatnost', order: 'datum objednání', planned: 'plánované objednání' }[dateMode] || dateMode;
+    const groupByLabel = { category: 'Kategórie', project: 'Projekt', supplier: 'Dodávateľ' }[groupBy] || 'Skupina';
+    const periodLabel = period === 'week' ? 'týždenne' : 'mesačne';
+    const dateModeLabel = { due: 'splatnost', order: 'dátum objednanie', planned: 'plánované objednanie' }[dateMode] || dateMode;
 
-    // ===== Tabulka jako 2D array =====
-    const today = new Date().toLocaleDateString('cs-CZ');
+    // ===== Tabuľka ako 2D array =====
+    const today = new Date().toLocaleDateString('sk-SK');
     const rows = [];
 
     // Hlavička sestavy
     rows.push([`Cash Flow sestava — Electree Solar`]);
-    rows.push([`Vygenerováno: ${today}`]);
-    rows.push([`Seskupení: ${groupByLabel} · Perioda: ${periodLabel} · Datum: ${dateModeLabel}`]);
-    rows.push([]); // prázdný řádek
+    rows.push([`Vygenerované: ${today}`]);
+    rows.push([`Seskupení: ${groupByLabel} · Perioda: ${periodLabel} · Dátum: ${dateModeLabel}`]);
+    rows.push([]); // prázdny riadok
 
-    // Hlavička tabulky
-    const header = [groupByLabel, ...data.buckets.map(b => formatBucket(b)), 'Celkem'];
+    // Hlavička tabuľky
+    const header = [groupByLabel, ...data.buckets.map(b => formatBucket(b)), 'Spolu'];
     rows.push(header);
 
-    // Datové řádky
+    // Datové riadky
     data.groups.forEach(g => {
       const rowTotal = Object.values(g.byBucket).reduce((s, v) => s + v, 0);
       const row = [g.label];
@@ -8500,8 +8502,8 @@ async function exportCashFlowToExcel(data, opts) {
       rows.push(row);
     });
 
-    // Součty
-    const totalsRow = ['CELKEM'];
+    // Súčty
+    const totalsRow = ['SPOLU'];
     let grandTotal = 0;
     data.buckets.forEach(b => {
       totalsRow.push(data.totals[b] || 0);
@@ -8510,9 +8512,9 @@ async function exportCashFlowToExcel(data, opts) {
     totalsRow.push(grandTotal);
     rows.push(totalsRow);
 
-    // Kumulativně
+    // Kumulatívne
     if (data.cumulative) {
-      const cumRow = ['Kumulativně'];
+      const cumRow = ['Kumulatívne'];
       data.buckets.forEach(b => {
         cumRow.push(data.cumulative[b] != null ? data.cumulative[b] : '');
       });
@@ -8520,16 +8522,16 @@ async function exportCashFlowToExcel(data, opts) {
       rows.push(cumRow);
     }
 
-    // ===== Vytvořit worksheet =====
+    // ===== Vytvoriť worksheet =====
     const ws = XLSX.utils.aoa_to_sheet(rows);
 
-    // Šířky sloupců
+    // Šírky stĺpcov
     const colWidths = [{ wch: 30 }];
     data.buckets.forEach(() => colWidths.push({ wch: 14 }));
-    colWidths.push({ wch: 16 }); // Celkem
+    colWidths.push({ wch: 16 }); // Spolu
     ws['!cols'] = colWidths;
 
-    // Sloučit první 3 řádky (hlavičky sestavy) přes všechny sloupce
+    // Sloučit prvý 3 riadky (hlavičky sestavy) cez všetky stĺpce
     const totalCols = data.buckets.length + 2;
     ws['!merges'] = [
       { s: { r: 0, c: 0 }, e: { r: 0, c: totalCols - 1 } },
@@ -8537,15 +8539,15 @@ async function exportCashFlowToExcel(data, opts) {
       { s: { r: 2, c: 0 }, e: { r: 2, c: totalCols - 1 } },
     ];
 
-    // Číselný formát pro datové buňky (Kč s mezerou jako tisícoddělovač)
-    const numberFormat = '#,##0\\ "Kč";\\-#,##0\\ "Kč";"—"';
-    const headerRowIdx = 4; // 0-based: po 3 řádcích hlavičky + 1 prázdný
+    // Číselný formát pre datové bunky (Kč s mezerou ako oddeľovač-tisícov)
+    const numberFormat = '#,##0\\ "€";\\-#,##0\\ "€";"—"';
+    const headerRowIdx = 4; // 0-based: po 3 riadkoch hlavičky + 1 prázdny
     const dataStartRow = headerRowIdx + 1;
     const dataEndRow = dataStartRow + data.groups.length - 1;
     const totalsRowIdx = dataEndRow + 1;
     const cumRowIdx = data.cumulative ? totalsRowIdx + 1 : null;
 
-    // Aplikovat formátování na všechny buňky s čísly (od sloupce 1 do konce)
+    // Aplikovať formátování na všetky bunky s čísly (od stĺpce 1 do konce)
     for (let r = dataStartRow; r <= (cumRowIdx || totalsRowIdx); r++) {
       for (let c = 1; c < totalCols; c++) {
         const cellRef = XLSX.utils.encode_cell({ r, c });
@@ -8556,33 +8558,33 @@ async function exportCashFlowToExcel(data, opts) {
       }
     }
 
-    // Styling — pomocí celleního atributu 's' (jen pokud SheetJS Pro je dostupné; jinak ignorováno).
-    // Pro CE Community Edition použijeme alespoň tučné hlavičky přes !rows výšky.
+    // Styling — pomocou celleního atributu 's' (len ak SheetJS Pre je dostupné; inak ignorováno).
+    // Pre CE Community Edition použijeme aspoň tučné hlavičky cez !rows výšky.
     ws['!rows'] = [];
     ws['!rows'][0] = { hpt: 22 }; // Title
     ws['!rows'][4] = { hpt: 22 }; // Table header
     ws['!rows'][totalsRowIdx] = { hpt: 20 };
 
-    // ===== Vytvořit workbook =====
+    // ===== Vytvoriť workbook =====
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Cash Flow');
 
-    // Druhý list: detailní seznam položek (jeden řádek = jedna platba)
+    // Druhý list: detailní zoznam položek (jeden riadok = jedna platba)
     const detailRows = [];
     detailRows.push([
       'Skupina', 'Bucket', 'Projekt', 'Položka', 'Tranše', 'Splatnost',
-      'Částka (Kč)', 'Po splatnosti'
+      'Suma (EUR)', 'Po splatnosti'
     ]);
-    // ZNOVU iterujeme zdrojová data — bohužel je nemáme k dispozici (data.groups je již agregované).
-    // Detail list vynecháme, pokud nemáme přístup k surovým řádkům.
-    // → Alternativa: jen seskupený přehled stačí.
+    // ZNOVA iterujeme zdrojová data — bohužel je nemáme k dispozícii (data.groups je již agregované).
+    // Detail list vynecháme, ak nemáme prístup k surovým riadkom.
+    // → Alternativa: len seskupený prehľad stačí.
 
-    // ===== Stáhnout =====
+    // ===== Stiahnuť =====
     const filename = `cashflow_${new Date().toISOString().slice(0, 10)}.xlsx`;
     XLSX.writeFile(wb, filename);
   } catch (e) {
     console.error(e);
-    alert('Chyba při exportu: ' + (e?.message || 'neznámá chyba'));
+    alert('Chyba pri exportu: ' + (e?.message || 'neznáma chyba'));
   }
 }
 
@@ -8605,11 +8607,12 @@ function Modal({ title, children, onClose, maxWidth = 540 }) {
   );
 }
 
-// Aplikovatelné sazby DPH v ČR pro FVE projekty
+// Aplikovateľné sadzby DPH na Slovensku pre FVE projekty (§ 27 zákona o DPH, od 1. 1. 2025)
 const VAT_RATES = [
-  { id: 0,  label: '0 % — přenesená daňová povinnost (B2B FVE)', short: '0 %' },
-  { id: 12, label: '12 % — soukromé osoby (rodinné domy)',        short: '12 %' },
-  { id: 21, label: '21 % — firmy (standardní sazba)',             short: '21 %' },
+  { id: 0,  label: '0 % — prenesenie daňovej povinnosti (tuzemské samozdanenie, stavebné práce B2B)', short: '0 %' },
+  { id: 5,  label: '5 % — druhá znížená sadzba (napr. štátom podporované nájomné bývanie)',            short: '5 %' },
+  { id: 19, label: '19 % — prvá znížená sadzba (vybrané tovary a služby)',                             short: '19 %' },
+  { id: 23, label: '23 % — základná sadzba (firmy aj domácnosti)',                                     short: '23 %' },
 ];
 
 function ProjectModal({ project, onSave, onClose }) {
@@ -8617,13 +8620,13 @@ function ProjectModal({ project, onSave, onClose }) {
   const [client, setClient] = useState(project?.client || '');
   const [power, setPower] = useState(project?.power || '');
   const [contractValue, setContractValue] = useState(project?.contractValue ?? '');
-  const [vatRate, setVatRate] = useState(project?.vatRate ?? 21);
+  const [vatRate, setVatRate] = useState(project?.vatRate ?? 23);
 
   const net = parseFloat(contractValue) || 0;
   const gross = net * (1 + vatRate / 100);
 
   const submit = () => {
-    if (!name.trim()) { alert('Zadejte název projektu'); return; }
+    if (!name.trim()) { alert('Zadajte názov projektu'); return; }
     onSave({
       name: name.trim(),
       client: client.trim(),
@@ -8634,9 +8637,9 @@ function ProjectModal({ project, onSave, onClose }) {
   };
 
   return (
-    <Modal title={project ? 'Upravit projekt' : 'Nový projekt'} onClose={onClose} maxWidth={580}>
+    <Modal title={project ? 'Upraviť projekt' : 'Nový projekt'} onClose={onClose} maxWidth={580}>
       <div style={styles.formRow}>
-        <label style={styles.label}>Název projektu *</label>
+        <label style={styles.label}>Názov projektu *</label>
         <input autoFocus style={styles.input} value={name} onChange={e => setName(e.target.value)} />
       </div>
       <div style={styles.formRow}>
@@ -8644,28 +8647,28 @@ function ProjectModal({ project, onSave, onClose }) {
         <input style={styles.input} value={client} onChange={e => setClient(e.target.value)} />
       </div>
       <div style={styles.formRow}>
-        <label style={styles.label}>Instalovaný výkon (kWp)</label>
+        <label style={styles.label}>Inštalovaný výkon (kWp)</label>
         <input type="number" step="0.1" style={styles.input} value={power} onChange={e => setPower(e.target.value)} />
       </div>
 
-      {/* Hodnota smlouvy + DPH */}
+      {/* Hodnota zmluvy + DPH */}
       <div style={{ marginTop: 12, padding: 12, background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 8 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: '#166534', marginBottom: 8 }}>
-          💰 Hodnota smlouvy s klientem
+          💰 Hodnota zmluvy s klientem
         </div>
         <div style={styles.formRowGroup}>
           <div style={{ flex: 2 }}>
-            <label style={styles.label}>Hodnota smlouvy bez DPH (CZK)</label>
+            <label style={styles.label}>Hodnota zmluvy bez DPH (€)</label>
             <input
               type="number" step="0.01" min="0"
               style={styles.input}
               value={contractValue}
               onChange={e => setContractValue(e.target.value)}
-              placeholder="např. 450000"
+              placeholder="napr. 450000"
             />
           </div>
           <div style={{ flex: 2 }}>
-            <label style={styles.label}>Sazba DPH</label>
+            <label style={styles.label}>Sadzba DPH</label>
             <select style={styles.input} value={vatRate} onChange={e => setVatRate(parseFloat(e.target.value))}>
               {VAT_RATES.map(v => (
                 <option key={v.id} value={v.id}>{v.label}</option>
@@ -8690,16 +8693,16 @@ function ProjectModal({ project, onSave, onClose }) {
           </div>
         )}
         <div style={{ fontSize: 11, color: '#166534', marginTop: 6 }}>
-          Tato hodnota se použije pro platební plán a cash flow (příjmy).
+          Táto hodnota sa použije pre platobný plán a cash flow (príjmy).
         </div>
       </div>
 
       <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 10, marginBottom: 8 }}>
-        EUR → CZK kurz nastavíte v <strong>Nastavení</strong>.
+        Kurz pre položky v CZK nastavíte v <strong>Nastavenia</strong>.
       </div>
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={submit}>{project ? 'Uložit změny' : 'Vytvořit projekt'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>{project ? 'Uložiť zmeny' : 'Vytvoriť projekt'}</button>
       </div>
     </Modal>
   );
@@ -8712,12 +8715,12 @@ function SettingsModal({ settings, categories, locations, paymentPlanTemplates, 
   const userRole = role || 'admin';
   const allowedTabs = ROLE_SETTINGS_TABS[userRole] || ROLE_SETTINGS_TABS.editor;
   const [tab, setTab] = useState(() => {
-    // Pokud je zadaný initialTab a je povolený, otevřít ho; jinak první povolený
+    // Ak je zadaný initialTab a je povolený, otvoriť ho; inak prvý povolený
     if (initialTab && allowedTabs.includes(initialTab)) return initialTab;
     return allowedTabs[0] || 'fx';
   });
 
-  // Pokud aktuální tab není povolený, přepnout na první povolený
+  // Ak aktuálny tab nie je povolený, prepnúť na prvý povolený
   useEffect(() => {
     if (!allowedTabs.includes(tab)) {
       setTab(allowedTabs[0] || 'fx');
@@ -8728,22 +8731,22 @@ function SettingsModal({ settings, categories, locations, paymentPlanTemplates, 
     <Modal title="Nastavení" onClose={onClose} maxWidth={780}>
       <div style={{ display: 'flex', gap: 4, marginBottom: 16, borderBottom: '1px solid #e2e8f0', paddingBottom: 0, flexWrap: 'wrap' }}>
         {allowedTabs.includes('fx') && (
-          <SettingsTab active={tab === 'fx'} onClick={() => setTab('fx')} icon={<TrendingUp size={13} />}>Ostatní</SettingsTab>
+          <SettingsTab active={tab === 'fx'} onClick={() => setTab('fx')} icon={<TrendingUp size={13} />}>Ostatné</SettingsTab>
         )}
         {allowedTabs.includes('categories') && (
-          <SettingsTab active={tab === 'categories'} onClick={() => setTab('categories')} icon={<Package size={13} />}>Kategorie</SettingsTab>
+          <SettingsTab active={tab === 'categories'} onClick={() => setTab('categories')} icon={<Package size={13} />}>Kategórie</SettingsTab>
         )}
         {allowedTabs.includes('locations') && (
-          <SettingsTab active={tab === 'locations'} onClick={() => setTab('locations')} icon={<MapPin size={13} />}>Skladové lokace</SettingsTab>
+          <SettingsTab active={tab === 'locations'} onClick={() => setTab('locations')} icon={<MapPin size={13} />}>Skladové lokalita</SettingsTab>
         )}
         {allowedTabs.includes('paymentPlans') && (
-          <SettingsTab active={tab === 'paymentPlans'} onClick={() => setTab('paymentPlans')} icon={<FileText size={13} />}>Platební plány</SettingsTab>
+          <SettingsTab active={tab === 'paymentPlans'} onClick={() => setTab('paymentPlans')} icon={<FileText size={13} />}>Platobný plány</SettingsTab>
         )}
         {allowedTabs.includes('pdfArchive') && (
           <SettingsTab active={tab === 'pdfArchive'} onClick={() => setTab('pdfArchive')} icon={<FileText size={13} />}>PDF archiv</SettingsTab>
         )}
         {allowedTabs.includes('backup') && (
-          <SettingsTab active={tab === 'backup'} onClick={() => setTab('backup')} icon={<Download size={13} />}>Zálohování</SettingsTab>
+          <SettingsTab active={tab === 'backup'} onClick={() => setTab('backup')} icon={<Download size={13} />}>Zálohovanie</SettingsTab>
         )}
       </div>
 
@@ -8777,7 +8780,7 @@ function SettingsTab({ active, onClick, icon, children }) {
 // --- FX rate tab ---
 function FxSettingsTab({ settings, onSave, onClose, readOnly }) {
   const [fxRate, setFxRate] = useState(settings?.fxRate ?? 25);
-  const [expenseVatRate, setExpenseVatRate] = useState(settings?.expenseVatRate ?? 21);
+  const [expenseVatRate, setExpenseVatRate] = useState(settings?.expenseVatRate ?? 23);
   const [anthropicApiKey, setAnthropicApiKey] = useState(settings?.anthropicApiKey ?? '');
   const [anthropicModel, setAnthropicModel] = useState(settings?.anthropicModel ?? 'claude-sonnet-4-5');
   const [showApiKey, setShowApiKey] = useState(false);
@@ -8798,44 +8801,44 @@ function FxSettingsTab({ settings, onSave, onClose, readOnly }) {
     <>
       {readOnly && <ReadOnlyBanner />}
       <div style={styles.formRow}>
-        <label style={styles.label}>Směnný kurz EUR → CZK *</label>
+        <label style={styles.label}>Kurz: 1 EUR = ? CZK *</label>
         <input type="number" step="0.01" min="0" style={styles.input}
           value={fxRate} onChange={e => setFxRate(e.target.value)} autoFocus={!readOnly} disabled={readOnly} />
         <div style={{ fontSize: 12, color: '#64748b', marginTop: 6 }}>
-          Tento kurz se globálně použije na každou položku, fakturu dodavatele a smlouvu se zákazníkem v EUR. Jeho změna okamžitě přepočítá všechny EUR částky napříč všemi projekty.
+          Bázová mena aplikácie je EUR. Tento kurz sa použije na každú položku, faktúru dodávateľa alebo zmluvu zadanú v CZK — prepočíta sa na EUR. Jeho zmena okamžite prepočíta všetky CZK sumy naprieč všetkými projekty.
         </div>
       </div>
       <div style={{ ...styles.totalPreview, borderLeftColor: '#3b82f6', marginTop: 12 }}>
         <div style={{ fontSize: 12, color: '#475569' }}>
-          Příklad: €1 000 → <strong>{fmt((parseFloat(fxRate) || 0) * 1000)}</strong>
+          Príklad: €1 000 → <strong>{fmt((parseFloat(fxRate) || 0) * 1000)}</strong>
         </div>
       </div>
 
       <div style={{ marginTop: 18, padding: 12, background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 8 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: '#166534', marginBottom: 8 }}>
-          🧾 DPH na nákupy (výdaje v cash flow)
+          🧾 DPH na nákupy (výdavky v cash flow)
         </div>
         <div style={styles.formRow}>
-          <label style={styles.label}>Sazba DPH pro výdaje (%)</label>
+          <label style={styles.label}>Sadzba DPH pre výdavky (%)</label>
           <input type="number" step="0.1" min="0" max="100" style={styles.input}
             value={expenseVatRate} onChange={e => setExpenseVatRate(e.target.value)} disabled={readOnly} />
           <div style={{ fontSize: 12, color: '#166534', marginTop: 6 }}>
-            Ceny položek zadáváte bez DPH (nákupní ceny). V cash flow se výdaje zobrazí <strong>včetně DPH</strong> — protože tolik reálně odejde z účtu. Standardně 21 % v ČR. Pokud má váš dodavatel přenesenou daňovou povinnost, zadejte 0.
+            Ceny položiek zadávate bez DPH (nákupné ceny). V cash flow sa výdavky zobrazia <strong>vrátane DPH</strong> — pretože toľko reálne odíde z účtu. Štandardná sadzba na Slovensku je 23 %. Ak dodávateľ fakturuje v režime prenesenia daňovej povinnosti (tuzemské samozdanenie), zadajte 0.
           </div>
         </div>
         <div style={{ ...styles.totalPreview, borderLeftColor: '#10b981', marginTop: 6, background: '#fff' }}>
           <div style={{ fontSize: 12, color: '#475569' }}>
-            Příklad: položka za 100 000 Kč bez DPH → <strong style={{ color: '#15803d' }}>{fmt(100000 * (1 + (parseFloat(expenseVatRate) || 0) / 100))}</strong> v cash flow (s DPH {parseFloat(expenseVatRate) || 0} %)
+            Príklad: položka za 100 000 € bez DPH → <strong style={{ color: '#15803d' }}>{fmt(100000 * (1 + (parseFloat(expenseVatRate) || 0) / 100))}</strong> v cash flow (s DPH {parseFloat(expenseVatRate) || 0} %)
           </div>
         </div>
       </div>
 
       <div style={{ marginTop: 18, padding: 12, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 8 }}>
         <div style={{ fontSize: 13, fontWeight: 700, color: '#92400e', marginBottom: 8 }}>
-          🤖 Import PDF faktur / objednávek přes AI
+          🤖 Import PDF faktúr / objednávok cez AI
         </div>
         <div style={{ fontSize: 12, color: '#78350f', marginBottom: 10 }}>
-          Zadejte klíč k Anthropic API pro automatickou extrakci položek z PDF dokumentů. Klíč získáte v <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer" style={{ color: '#78350f', fontWeight: 600 }}>console.anthropic.com</a>. Klíč se ukládá jen ve vašem prohlížeči.
+          Zadajte klíč k Anthropic API pre automatickou extrakci položek z PDF dokumentov. Klíč získáte v <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer" style={{ color: '#78350f', fontWeight: 600 }}>console.anthropic.com</a>. Klíč sa ukladá len ve vašom prehliadači.
         </div>
         <div style={styles.formRow}>
           <label style={styles.label}>Anthropic API klíč</label>
@@ -8853,7 +8856,7 @@ function FxSettingsTab({ settings, onSave, onClose, readOnly }) {
               type="button"
               onClick={() => setShowApiKey(!showApiKey)}
               style={styles.sortBtn}
-              title={showApiKey ? 'Skrýt klíč' : 'Zobrazit klíč'}
+              title={showApiKey ? 'Skryť klíč' : 'Zobraziť klíč'}
             >
               <Eye size={12} />
             </button>
@@ -8867,23 +8870,23 @@ function FxSettingsTab({ settings, onSave, onClose, readOnly }) {
             onChange={e => setAnthropicModel(e.target.value)}
             disabled={readOnly}
           >
-            <option value="claude-sonnet-4-5">Claude Sonnet 4.5 (doporučeno · nejvyšší přesnost)</option>
-            <option value="claude-haiku-4-5">Claude Haiku 4.5 (rychlé · levné · lehce nižší přesnost)</option>
-            <option value="claude-opus-4-5">Claude Opus 4.5 (nejnáročnější dokumenty · dražší)</option>
+            <option value="claude-sonnet-4-5">Claude Sonnet 4.5 (odporúčané · najvyšší presnosť)</option>
+            <option value="claude-haiku-4-5">Claude Haiku 4.5 (rýchle · lacné · lehce nižší presnosť)</option>
+            <option value="claude-opus-4-5">Claude Opus 4.5 (najnáročnejší dokumenty · drahší)</option>
           </select>
           <div style={{ fontSize: 11, color: '#78350f', marginTop: 4 }}>
-            Náklady: Sonnet ~0.01–0.03 $ za fakturu · Haiku ~0.002–0.005 $ · Opus ~0.05–0.15 $
+            Náklady: Sonnet ~0.01–0.03 $ za faktúru · Haiku ~0.002–0.005 $ · Opus ~0.05–0.15 $
           </div>
         </div>
         <div style={{ fontSize: 11, color: '#78350f', marginTop: 8, padding: 8, background: '#fff', borderRadius: 6, border: '1px solid #fcd34d' }}>
-          ⚠ <strong>Bezpečnost:</strong> API klíč se ukládá v <code>localStorage</code> prohlížeče. Nesdílejte veřejný počítač s někým, komu nedůvěřujete. Doporučujeme klíč omezit spend limitem v Anthropic Console.
+          ⚠ <strong>Bezpečnosť:</strong> API klíč sa ukladá v <code>localStorage</code> prehliadača. Nesdílejte verejný počítač s niekým, komu nedôverujete. Odporúčame klíč omezit spend limitem v Anthropic Console.
         </div>
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavřít' : 'Zrušit'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavrieť' : 'Zrušiť'}</button>
         {!readOnly && (
-          <button style={styles.primaryBtn} onClick={submit} disabled={!fxRate || parseFloat(fxRate) <= 0}>Uložit</button>
+          <button style={styles.primaryBtn} onClick={submit} disabled={!fxRate || parseFloat(fxRate) <= 0}>Uložiť</button>
         )}
       </div>
     </>
@@ -8897,33 +8900,33 @@ function ReadOnlyBanner() {
       background: '#dbeafe', border: '1px solid #bfdbfe', color: '#1d4ed8',
       fontSize: 12, display: 'flex', alignItems: 'center', gap: 8,
     }}>
-      <Eye size={14} style={{ flexShrink: 0 }} /> <strong>Pouze pro čtení</strong> — vaše role nemá oprávnění k úpravám.
+      <Eye size={14} style={{ flexShrink: 0 }} /> <strong>Iba pre čítanie</strong> — vaše role nemá oprávnenie k úpravám.
     </div>
   );
 }
 function CategoriesSettingsTab({ categories, onSave, onClose, readOnly }) {
   const [list, setList] = useState(categories);
   const [confirmDeleteId, setConfirmDeleteId] = useState(null);
-  const addCat = (kind) => { if (readOnly) return; setList([...list, { id: uid('cat'), name: 'Nová kategorie', color: PALETTE[list.length % PALETTE.length], kind }]); };
+  const addCat = (kind) => { if (readOnly) return; setList([...list, { id: uid('cat'), name: 'Nová kategórie', color: PALETTE[list.length % PALETTE.length], kind }]); };
   const update = (id, patch) => { if (readOnly) return; setList(list.map(c => c.id === id ? { ...c, ...patch } : c)); };
   const remove = (id) => { if (readOnly) return; setList(list.filter(c => c.id !== id)); setConfirmDeleteId(null); };
   const groups = [
     { kind: 'material', label: 'Materiál', icon: <Package size={14} /> },
-    { kind: 'labor', label: 'Práce a subdodavatelé', icon: <Wrench size={14} /> },
-    { kind: 'commission', label: 'Provize a řízení', icon: <Briefcase size={14} /> },
+    { kind: 'labor', label: 'Práca a subdodávatelia', icon: <Wrench size={14} /> },
+    { kind: 'commission', label: 'Provízia a riadenie', icon: <Briefcase size={14} /> },
   ];
   return (
     <>
       {readOnly && <ReadOnlyBanner />}
       <p style={{ color: '#64748b', fontSize: 13, margin: '0 0 12px' }}>
-        Kategorie se používají v položkách, rozpočtech a cash flow reportech.
+        Kategórie sa používajú v položkách, rozpočtech a cash flow reportech.
       </p>
       {groups.map(g => (
         <div key={g.kind} style={{ marginBottom: 18 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
             <div style={styles.groupLabel}>{g.icon} {g.label}</div>
             {!readOnly && (
-              <button style={styles.sortBtn} onClick={() => addCat(g.kind)}><Plus size={12} /> Přidat</button>
+              <button style={styles.sortBtn} onClick={() => addCat(g.kind)}><Plus size={12} /> Pridať</button>
             )}
           </div>
           {list.filter(c => c.kind === g.kind).map(cat => (
@@ -8932,7 +8935,7 @@ function CategoriesSettingsTab({ categories, onSave, onClose, readOnly }) {
               <input style={{ ...styles.input, flex: 1 }} value={cat.name} onChange={e => update(cat.id, { name: e.target.value })} disabled={readOnly} />
               <select style={{ ...styles.input, width: 140 }} value={cat.kind} onChange={e => update(cat.id, { kind: e.target.value })} disabled={readOnly}>
                 <option value="material">Materiál</option>
-                <option value="labor">Práce</option>
+                <option value="labor">Práca</option>
                 <option value="commission">Provize</option>
               </select>
               {!readOnly && (
@@ -8959,21 +8962,21 @@ function CategoriesSettingsTab({ categories, onSave, onClose, readOnly }) {
         </div>
       ))}
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavřít' : 'Zrušit'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavrieť' : 'Zrušiť'}</button>
         {!readOnly && (
-          <button style={styles.primaryBtn} onClick={() => onSave(list.filter(c => c.name.trim()))}>Uložit</button>
+          <button style={styles.primaryBtn} onClick={() => onSave(list.filter(c => c.name.trim()))}>Uložiť</button>
         )}
       </div>
     </>
   );
 }
 // ==========================================================================
-// Locations Settings Tab — správa skladových lokací
+// Locations Settings Tab — správa skladových lokalít
 // ==========================================================================
 
-// SELF-CONTAINED ROW: každý řádek si drží vlastní state pro name/phone/notes.
-// Parent LocationsSettingsTab dělá jen add/remove — nikdy nezmění existující data
-// řádku. Tím je LocationRow imunní proti re-renderům parenta (React.memo).
+// SELF-CONTAINED ROW: každý riadok si drží vlastný state pre name/phone/notes.
+// Parent LocationsSettingsTab robí len add/remove — nikdy nezmení existující data
+// riadku. Tým je LocationRow imunní proti re-renderom parenta (React.memo).
 const LocationRow = React.memo(function LocationRow({
   initialData, type, inUse, isProtected, readOnly, onRemove, onDataChange,
 }) {
@@ -8982,7 +8985,7 @@ const LocationRow = React.memo(function LocationRow({
   const [notes, setNotes] = useState(initialData.notes || '');
   const [confirmDel, setConfirmDel] = useState(false);
 
-  // Uložit změny do parenta (pomocí ref-based callbacku, nemá vliv na re-render)
+  // Uložiť zmeny do parenta (pomocou ref-based callbacku, nemá vliv na re-render)
   useEffect(() => { onDataChange(initialData.id, { name, phone, notes, type }); }, [name, phone, notes]);
 
   return (
@@ -8991,7 +8994,7 @@ const LocationRow = React.memo(function LocationRow({
         style={{ ...styles.input, flex: 1 }}
         value={name}
         onChange={e => setName(e.target.value)}
-        placeholder="Název"
+        placeholder="Názov"
         disabled={readOnly}
       />
       {type === 'person' && (
@@ -9011,7 +9014,7 @@ const LocationRow = React.memo(function LocationRow({
         disabled={readOnly}
       />
       {inUse > 0 && (
-        <span style={{ fontSize: 11, color: '#64748b', whiteSpace: 'nowrap' }}>{inUse} kusů</span>
+        <span style={{ fontSize: 11, color: '#64748b', whiteSpace: 'nowrap' }}>{inUse} kusov</span>
       )}
       {!readOnly && !isProtected && (
         confirmDel ? (
@@ -9027,7 +9030,7 @@ const LocationRow = React.memo(function LocationRow({
           <button
             style={{ ...styles.iconBtn, opacity: inUse > 0 ? 0.4 : 1 }}
             disabled={inUse > 0}
-            title={inUse > 0 ? 'Nelze smazat — na lokaci jsou kusy' : 'Smazat'}
+            title={inUse > 0 ? 'Nemožno vymazať — na lokalitu sú kusy' : 'Vymazať'}
             onClick={() => setConfirmDel(true)}
           ><Trash2 size={14} /></button>
         )
@@ -9035,8 +9038,8 @@ const LocationRow = React.memo(function LocationRow({
     </div>
   );
 }, (prev, next) => {
-  // Přerenderovat jen když se opravdu mění strukturální props.
-  // initialData je stabilní (nikdy se neupdatuje ze zvenčí).
+  // Prerenderovať len keď sa opravdu mení strukturální props.
+  // initialData je stabilní (nikdy sa neupdatuje zo zvenčí).
   return prev.initialData === next.initialData
     && prev.type === next.type
     && prev.inUse === next.inUse
@@ -9045,13 +9048,13 @@ const LocationRow = React.memo(function LocationRow({
 });
 
 function LocationsSettingsTab({ locations, stockItems, onSave, onClose, readOnly }) {
-  // Systémová lokace "Na cestě" se v Nastavení nezobrazuje — je automatická.
-  // Při ukládání ji zase přidáme zpět.
+  // Systémová lokalita "Na ceste" sa v Nastavenia nezobrazuje — je automatická.
+  // Pri ukládání ji zase pridáme späť.
   const editableLocations = useMemo(() => locations.filter(l => l.type !== 'transit'), [locations]);
   const transitLoc = useMemo(() => locations.find(l => l.type === 'transit'), [locations]);
 
   // Struktura: pole { id, type, initialData } — initialData je STABILNÍ reference
-  // po dobu života řádku (dokud řádek existuje). React.memo pak nikdy nepřerendruje řádek.
+  // po dobu života riadku (kým riadok existuje). React.memo pak nikdy neprerenderuje riadok.
   const [rows, setRows] = useState(() =>
     editableLocations.map(l => ({
       id: l.id,
@@ -9060,16 +9063,16 @@ function LocationsSettingsTab({ locations, stockItems, onSave, onClose, readOnly
     }))
   );
 
-  // Aktuální hodnoty všech řádků (drženo v ref, nikoli state — nezpůsobuje re-render)
+  // Aktuálny hodnoty všetkých riadkov (drženo v ref, nikoli state — nespôsobuje re-render)
   const currentValuesRef = useRef({});
   useEffect(() => {
-    // Inicializace pro existující řádky
+    // Inicializace pre existující riadky
     editableLocations.forEach(l => {
       if (!currentValuesRef.current[l.id]) {
         currentValuesRef.current[l.id] = { name: l.name || '', phone: l.phone || '', notes: l.notes || '', type: l.type };
       }
     });
-  }, []); // jen jednou
+  }, []); // len jednou
 
   const handleDataChange = useCallback((id, data) => {
     currentValuesRef.current[id] = { ...currentValuesRef.current[id], ...data };
@@ -9084,7 +9087,7 @@ function LocationsSettingsTab({ locations, stockItems, onSave, onClose, readOnly
   const addLocation = (type) => {
     if (readOnly) return;
     const id = uid('loc');
-    const defaultName = type === 'warehouse' ? 'Nový sklad' : 'Nový elektrikář';
+    const defaultName = type === 'warehouse' ? 'Nový sklad' : 'Nový elektrikár';
     currentValuesRef.current[id] = { name: defaultName, phone: '', notes: '', type };
     setRows(prev => [...prev, {
       id, type,
@@ -9111,9 +9114,9 @@ function LocationsSettingsTab({ locations, stockItems, onSave, onClose, readOnly
       })
       .filter(l => l.name);
     if (!cleaned.some(l => l.id === 'loc_warehouse')) {
-      cleaned.unshift({ id: 'loc_warehouse', name: 'Hlavní sklad', type: 'warehouse', notes: '' });
+      cleaned.unshift({ id: 'loc_warehouse', name: 'Hlavný sklad', type: 'warehouse', notes: '' });
     }
-    // Zachovat systémovou lokaci "Na cestě"
+    // Zachovať systémovú lokalitu "Na ceste"
     if (transitLoc && !cleaned.some(l => l.id === TRANSIT_LOCATION_ID)) {
       cleaned.push(transitLoc);
     }
@@ -9128,11 +9131,11 @@ function LocationsSettingsTab({ locations, stockItems, onSave, onClose, readOnly
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
         <div style={styles.groupLabel}>{icon} {title}</div>
         {!readOnly && (
-          <button style={styles.sortBtn} onClick={() => addLocation(type)}><Plus size={12} /> Přidat</button>
+          <button style={styles.sortBtn} onClick={() => addLocation(type)}><Plus size={12} /> Pridať</button>
         )}
       </div>
       {items.length === 0 ? (
-        <div style={{ padding: 12, color: '#94a3b8', fontSize: 12, fontStyle: 'italic' }}>Žádné záznamy</div>
+        <div style={{ padding: 12, color: '#94a3b8', fontSize: 12, fontStyle: 'italic' }}>Žiadne záznamy</div>
       ) : items.map(r => (
         <LocationRow
           key={r.id}
@@ -9152,14 +9155,14 @@ function LocationsSettingsTab({ locations, stockItems, onSave, onClose, readOnly
     <>
       {readOnly && <ReadOnlyBanner />}
       <p style={{ color: '#64748b', fontSize: 13, margin: '0 0 14px' }}>
-        Lokace určují, kde se aktuálně nachází jednotlivé skladové kusy. „Hlavní sklad" nelze smazat.
+        Lokalita určují, kde sa aktuálne nachází jednotlivé skladové kusy. „Hlavný sklad" nemožno vymazať.
       </p>
       {renderSection('Sklady', <Warehouse size={14} />, warehouses, 'warehouse')}
-      {renderSection('Elektrikáři', <UserIcon size={14} />, electricians, 'person')}
+      {renderSection('Elektrikári', <UserIcon size={14} />, electricians, 'person')}
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavřít' : 'Zrušit'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavrieť' : 'Zrušiť'}</button>
         {!readOnly && (
-          <button style={styles.primaryBtn} onClick={handleSave}>Uložit</button>
+          <button style={styles.primaryBtn} onClick={handleSave}>Uložiť</button>
         )}
       </div>
     </>
@@ -9168,7 +9171,7 @@ function LocationsSettingsTab({ locations, stockItems, onSave, onClose, readOnly
 
 
 // ==========================================================================
-// PaymentPlansSettingsTab — správa šablon platebních plánů
+// PaymentPlansSettingsTab — správa šablón platebních plánov
 // ==========================================================================
 
 function PaymentPlansSettingsTab({ templates, onSave, readOnly }) {
@@ -9193,11 +9196,11 @@ function PaymentPlansSettingsTab({ templates, onSave, readOnly }) {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <p style={{ margin: 0, color: '#64748b', fontSize: 13 }}>
-          Šablony platebních plánů můžete aplikovat na projekty pro automatické vygenerování splátek.
+          Šablóny platebních plánov môžete aplikovať na projekty pre automatické vygenerování splátok.
         </p>
         {!readOnly && (
           <button style={styles.primaryBtn} onClick={() => setEditing({})}>
-            <Plus size={14} /> Nová šablona
+            <Plus size={14} /> Nová šablóna
           </button>
         )}
       </div>
@@ -9206,10 +9209,10 @@ function PaymentPlansSettingsTab({ templates, onSave, readOnly }) {
         <div style={{ padding: 30, textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 8 }}>
           <FileText size={32} style={{ color: '#cbd5e1', marginBottom: 8 }} />
           <p style={{ color: '#64748b', fontSize: 13, margin: 0 }}>
-            Zatím nemáte žádné šablony.
+            Zatiaľ nemáte žiadne šablóny.
           </p>
           <p style={{ color: '#94a3b8', fontSize: 12, margin: '4px 0 0' }}>
-            Příklady: „30 % záloha + 60 % po dodání + 10 % po předání", „50 % záloha + 12 měs. splátek"
+            Príklady: „30 % záloha + 60 % po dodanie + 10 % po odovzdanie", „50 % záloha + 12 mes. splátok"
           </p>
         </div>
       ) : (
@@ -9223,7 +9226,7 @@ function PaymentPlansSettingsTab({ templates, onSave, readOnly }) {
                     <div style={{ fontSize: 12, color: '#64748b', marginTop: 2 }}>{t.description}</div>
                   )}
                   <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 4 }}>
-                    {t.installments?.length || 0} {t.installments?.length === 1 ? 'splátka' : t.installments?.length < 5 ? 'splátky' : 'splátek'}
+                    {t.installments?.length || 0} {t.installments?.length === 1 ? 'splátka' : t.installments?.length < 5 ? 'splátky' : 'splátok'}
                   </div>
                 </div>
                 {!readOnly && (
@@ -9244,7 +9247,7 @@ function PaymentPlansSettingsTab({ templates, onSave, readOnly }) {
                 )}
               </div>
 
-              {/* Mini-přehled splátek */}
+              {/* Mini-prehľad splátek */}
               {t.installments && t.installments.length > 0 && (
                 <div style={{ marginTop: 8, padding: 8, background: '#f8fafc', borderRadius: 6, fontSize: 11 }}>
                   {t.installments.map((inst, idx) => {
@@ -9257,12 +9260,12 @@ function PaymentPlansSettingsTab({ templates, onSave, readOnly }) {
                           padding: '1px 6px', borderRadius: 3, fontSize: 10, fontWeight: 600,
                           background: '#e0e7ff', color: '#3730a3',
                         }}>
-                          {inst.type === 'fixed' && `${inst.amount} Kč`}
+                          {inst.type === 'fixed' && `${inst.amount} €`}
                           {inst.type === 'percent' && `${inst.amount} %`}
-                          {inst.type === 'recurring' && `${inst.amount} měs.`}
+                          {inst.type === 'recurring' && `${inst.amount} mes.`}
                         </span>
                         <span style={{ color: '#94a3b8', minWidth: 130, textAlign: 'right', fontSize: 10 }}>
-                          🚩 {inst.dueDateOffsetDays > 0 ? `milník + ${inst.dueDateOffsetDays} dní` : 'v den milníku'}
+                          🚩 {inst.dueDateOffsetDays > 0 ? `míľnik + ${inst.dueDateOffsetDays} dní` : 'v deň míľnika'}
                         </span>
                       </div>
                     );
@@ -9286,7 +9289,7 @@ function PaymentPlansSettingsTab({ templates, onSave, readOnly }) {
 }
 
 // ==========================================================================
-// PaymentTemplateEditModal — vytvořit / upravit šablonu
+// PaymentTemplateEditModal — vytvoriť / upraviť šablónu
 // ==========================================================================
 
 function PaymentTemplateEditModal({ template, onSave, onClose }) {
@@ -9300,7 +9303,7 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
     const defaults = {
       fixed:     { label: 'Záloha', amount: 0, dueDateOffsetDays: 0 },
       percent:   { label: 'Záloha', amount: 30, dueDateOffsetDays: 0 },
-      recurring: { label: 'Měsíční splátka zbytku', amount: 12, dueDateOffsetDays: 30 },
+      recurring: { label: 'Mesačné splátka zbytku', amount: 12, dueDateOffsetDays: 30 },
     };
     setInstallments([...installments, { type, ...defaults[type] }]);
   };
@@ -9326,14 +9329,14 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
     setInstallments(next);
   };
 
-  // Kontrola: pokud jsou jen procenta, součet by měl být 100 (nebo s recurring < 100)
+  // Kontrola: ak sú len percentá, súčet by mal byť 100 (alebo s recurring < 100)
   const sumPercent = installments.filter(i => i.type === 'percent').reduce((s, i) => s + (parseFloat(i.amount) || 0), 0);
   const hasRecurring = installments.some(i => i.type === 'recurring');
   const hasFixed = installments.some(i => i.type === 'fixed');
 
   const submit = () => {
-    if (!name.trim()) { alert('Zadejte název šablony.'); return; }
-    if (installments.length === 0) { alert('Přidejte alespoň jednu splátku.'); return; }
+    if (!name.trim()) { alert('Zadajte názov šablóny.'); return; }
+    if (installments.length === 0) { alert('Pridajte aspoň jednu splátku.'); return; }
     onSave({
       name: name.trim(),
       description: description.trim(),
@@ -9342,34 +9345,34 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
   };
 
   return (
-    <Modal title={template ? 'Upravit šablonu' : 'Nová šablona platebního plánu'} onClose={onClose} maxWidth={780}>
+    <Modal title={template ? 'Upraviť šablónu' : 'Nová šablóna platebního plánu'} onClose={onClose} maxWidth={780}>
       <div style={styles.formRowGroup}>
         <div style={{ flex: 2 }}>
-          <label style={styles.label}>Název šablony *</label>
+          <label style={styles.label}>Názov šablóny *</label>
           <input style={styles.input} value={name} onChange={e => setName(e.target.value)}
-            placeholder="např. Standard FVE - 30/60/10" autoFocus />
+            placeholder="napr. Standard FVE - 30/60/10" autoFocus />
         </div>
       </div>
       <div style={styles.formRow}>
-        <label style={styles.label}>Popis (volitelně)</label>
+        <label style={styles.label}>Popis (voliteľne)</label>
         <input style={styles.input} value={description} onChange={e => setDescription(e.target.value)}
-          placeholder="např. 30 % záloha při podpisu, 60 % po dodání, 10 % po předání" />
+          placeholder="napr. 30 % záloha pri podpise, 60 % po dodanie, 10 % po odovzdanie" />
       </div>
 
       <h3 style={{ margin: '16px 0 8px', fontSize: 14 }}>
         Splátky ({installments.length})
         {sumPercent !== 0 && (
           <span style={{ fontSize: 12, fontWeight: 500, color: sumPercent === 100 ? '#10b981' : (hasRecurring ? '#64748b' : '#f59e0b'), marginLeft: 8 }}>
-            · součet procent: {sumPercent}%
-            {sumPercent !== 100 && !hasRecurring && !hasFixed && ' ⚠ doporučujeme 100% nebo přidat fixní/recurring'}
-            {sumPercent < 100 && hasRecurring && ' (zbytek se rozdělí do měs. splátek)'}
+            · súčet procent: {sumPercent}%
+            {sumPercent !== 100 && !hasRecurring && !hasFixed && ' ⚠ odporúčame 100% alebo pridať fixný/recurring'}
+            {sumPercent < 100 && hasRecurring && ' (zvyšok sa rozdelí do mes. splátok)'}
           </span>
         )}
       </h3>
 
       {installments.length === 0 ? (
         <div style={{ padding: 20, textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 8, marginBottom: 8 }}>
-          <p style={{ fontSize: 13, color: '#64748b', margin: 0 }}>Žádné splátky. Přidejte první níže.</p>
+          <p style={{ fontSize: 13, color: '#64748b', margin: 0 }}>Žiadne splátky. Pridajte prvý nižšie.</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, marginBottom: 8 }}>
@@ -9379,7 +9382,7 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
               <div key={idx} style={{
                 padding: 10, border: '1px solid #e2e8f0', borderRadius: 6, background: '#fff',
               }}>
-                {/* Horní řádek: pořadí, název, částka, mazat */}
+                {/* Horní riadok: poradie, název, částka, mazat */}
                 <div style={{
                   display: 'grid', gridTemplateColumns: '20px 1fr auto auto', gap: 8, alignItems: 'center',
                 }}>
@@ -9393,7 +9396,7 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
                     style={{ ...styles.input, padding: '6px 8px', fontSize: 12 }}
                     value={inst.label || ''}
                     onChange={e => updateInstallment(idx, { label: e.target.value })}
-                    placeholder="Název milníku (např. Závoz materiálu, Provedení UTP, Revizní zpráva)"
+                    placeholder="Názov míľnika (napr. Závoz materiálu, Provedení UTP, Revizní správa)"
                   />
                   <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                     <input
@@ -9411,18 +9414,18 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
                     }} title={type?.label}>{type?.shortLabel}</span>
                   </div>
                   <button type="button" onClick={() => removeInstallment(idx)}
-                    style={{ ...styles.iconBtn, color: '#dc2626' }} title="Odebrat splátku">
+                    style={{ ...styles.iconBtn, color: '#dc2626' }} title="Odobrať splátku">
                     <Trash2 size={12} />
                   </button>
                 </div>
 
-                {/* Dolní řádek: offset po milníku */}
+                {/* Dolní riadok: offset po milníku */}
                 <div style={{
                   marginTop: 6, paddingLeft: 28,
                   display: 'flex', alignItems: 'center', gap: 6, fontSize: 11, color: '#64748b', flexWrap: 'wrap',
                 }}>
                   <span style={{ fontWeight: 600 }}>🚩 Splatnost:</span>
-                  <span>{inst.dueDateOffsetDays > 0 ? 'po milníku +' : 'v den milníku'}</span>
+                  <span>{inst.dueDateOffsetDays > 0 ? 'po míľnika +' : 'v deň míľnika'}</span>
                   {inst.dueDateOffsetDays === 0 ? null : null}
                   <input
                     type="number"
@@ -9436,7 +9439,7 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
                   />
                   <span>dní</span>
                   <span style={{ fontSize: 10, color: '#3730a3', background: '#e0e7ff', padding: '2px 6px', borderRadius: 3, marginLeft: 'auto' }}>
-                    Datum milníku zadáte při použití šablony
+                    Dátum míľnika zadáte pri použitie šablóny
                   </span>
                 </div>
               </div>
@@ -9445,9 +9448,9 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
         </div>
       )}
 
-      {/* Přidat splátku */}
+      {/* Pridať splátku */}
       <div style={{ marginTop: 10, padding: 10, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8 }}>
-        <div style={{ fontSize: 12, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Přidat splátku:</div>
+        <div style={{ fontSize: 12, fontWeight: 600, color: '#475569', marginBottom: 6 }}>Pridať splátku:</div>
         <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
           {INSTALLMENT_TYPES.map(t => (
             <button
@@ -9466,23 +9469,23 @@ function PaymentTemplateEditModal({ template, onSave, onClose }) {
           ))}
         </div>
         <div style={{ marginTop: 8, fontSize: 11, color: '#94a3b8' }}>
-          • <strong>Fixní</strong> = pevná částka v Kč  &nbsp; • <strong>Procento</strong> = % z hodnoty projektu  &nbsp; • <strong>Měsíční</strong> = zbytek hodnoty rozdělený do X měsíců
+          • <strong>Fixný</strong> = pevná suma v EUR  &nbsp; • <strong>Percento</strong> = % z hodnoty projektu  &nbsp; • <strong>Mesačné</strong> = zvyšok hodnoty rozdelený do X mesiacov
         </div>
         <div style={{ marginTop: 4, fontSize: 11, color: '#3730a3', background: '#e0e7ff', padding: 6, borderRadius: 4 }}>
-          💡 <strong>Každá splátka je vlastní milník.</strong> Splatnost = datum milníku + počet dní (typicky +14 pro běžnou platební dobu). Datumy konkrétních milníků zadáte teprve při aplikaci šablony na projekt.
+          💡 <strong>Každá splátka je vlastný míľnik.</strong> Splatnost = dátum míľnika + počet dní (typicky +14 pre bežnú platobný dobu). Dátumy konkrétnych míľnikov zadáte len pri aplikácii šablóny na projekt.
         </div>
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={submit}>{template ? 'Uložit změny' : 'Vytvořit šablonu'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>{template ? 'Uložiť zmeny' : 'Vytvoriť šablónu'}</button>
       </div>
     </Modal>
   );
 }
 
 // ==========================================================================
-// PdfArchiveSettingsTab — archiv importovaných PDF dokumentů
+// PdfArchiveSettingsTab — archiv importovaných PDF dokumentov
 // ==========================================================================
 
 function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
@@ -9491,8 +9494,11 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
   const [error, setError] = useState('');
   const [zipping, setZipping] = useState(false);
   const [zipProgress, setZipProgress] = useState(0);
+  const [busyBackup, setBusyBackup] = useState(false);
+  const [importResult, setImportResult] = useState(null); // { imported, skipped, total }
+  const backupFileInputRef = useRef(null);
 
-  // Odhadovaná velikost úložiště
+  // Odhadovaná velikost úložisko
   const [storageInfo, setStorageInfo] = useState(null);
   useEffect(() => {
     if (navigator.storage && navigator.storage.estimate) {
@@ -9517,13 +9523,13 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
     setError('');
     setOpeningId(attachmentId);
     try {
-      // Otevřít v novém tabu přes blob URL
+      // Otvoriť v novém tabu cez blob URL
       const record = await getPdfFromDb(attachmentId);
-      if (!record) throw new Error('PDF již není v databázi (možná bylo smazáno).');
+      if (!record) throw new Error('PDF již nie je v databáze (možná bylo smazáno).');
       const bytes = Uint8Array.from(atob(record.base64), c => c.charCodeAt(0));
       const blob = new Blob([bytes], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
-      // Použít <a> místo window.open aby fungovalo i s blokátory pop-upů
+      // Použiť <a> namiesto window.open aby fungovalo i s blokátory pop-upov
       const a = document.createElement('a');
       a.href = url;
       a.target = '_blank';
@@ -9534,7 +9540,7 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
       setTimeout(() => URL.revokeObjectURL(url), 60000);
     } catch (e) {
       console.error(e);
-      setError(e.message || 'Nepodařilo se otevřít PDF.');
+      setError(e.message || 'Nepodarilo sa otvoriť PDF.');
     } finally {
       setOpeningId(null);
     }
@@ -9544,7 +9550,7 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
     setError('');
     try {
       const record = await getPdfFromDb(attachment.id);
-      if (!record) throw new Error('PDF již není v databázi.');
+      if (!record) throw new Error('PDF již nie je v databáze.');
       const bytes = Uint8Array.from(atob(record.base64), c => c.charCodeAt(0));
       const blob = new Blob([bytes], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
@@ -9557,11 +9563,77 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
       setTimeout(() => URL.revokeObjectURL(url), 5000);
     } catch (e) {
       console.error(e);
-      setError(e.message || 'Nepodařilo se stáhnout PDF.');
+      setError(e.message || 'Nepodarilo sa stiahnuť PDF.');
     }
   };
 
-  // Stáhnout všechna PDF jako jeden ZIP archiv
+  // Exportovať celú IndexedDB (všetky PDF v base64) do JSON súboru
+  const exportPdfBackup = async () => {
+    setError('');
+    setBusyBackup(true);
+    try {
+      const records = await getAllPdfsFromDb();
+      const backup = {
+        exportDate: new Date().toISOString(),
+        appVersion: APP_VERSION,
+        dbName: 'fve-planner-pdfs',
+        storeName: 'pdfs',
+        count: records.length,
+        records,
+      };
+      const json = JSON.stringify(backup);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `fve-planner-pdfs-backup-${new Date().toISOString().slice(0, 10)}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 5000);
+    } catch (e) {
+      setError('Nepodarilo sa exportovať PDF zálohu: ' + (e.message || e));
+    } finally {
+      setBusyBackup(false);
+    }
+  };
+
+  const handleBackupFile = async (e) => {
+    setError('');
+    setImportResult(null);
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setBusyBackup(true);
+    try {
+      const text = await file.text();
+      const parsed = JSON.parse(text);
+      if (!parsed.records || !Array.isArray(parsed.records)) {
+        throw new Error('Neplatný formát zálohy — chýba pole "records".');
+      }
+      const total = parsed.records.length;
+      if (total === 0) throw new Error('Záloha je prázdna (0 záznamov).');
+      const first = parsed.records[0];
+      if (!first.id || !first.base64) {
+        throw new Error('Neplatný formát záznamu — chýba "id" alebo "base64".');
+      }
+      const overwrite = window.confirm(
+        `Nájdených ${total} PDF v zálohe.\n\n` +
+        `Chcete prepísať existujúce záznamy s rovnakým id?\n\n` +
+        `OK = prepísať všetko (odporúčané pri obnove)\n` +
+        `Zrušiť = preskočiť existujúce (bezpečnejšie)`
+      );
+      const mode = overwrite ? 'overwrite' : 'skip';
+      const result = await importPdfsToDb(parsed.records, mode);
+      setImportResult({ ...result, total });
+    } catch (err) {
+      setError('Import zálohy zlyhal: ' + (err.message || err));
+    } finally {
+      setBusyBackup(false);
+      e.target.value = '';
+    }
+  };
+
+  // Stiahnuť všechna PDF jako jeden ZIP archiv
   const downloadAllAsZip = async () => {
     setError('');
     setZipping(true);
@@ -9569,17 +9641,17 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
     try {
       const JSZip = await loadJSZip();
       const zip = new JSZip();
-      const usedNames = new Set(); // pro rozlišení duplicitních názvů
+      const usedNames = new Set(); // pro rozlišení duplicitních názvov
 
       for (let i = 0; i < attachments.length; i++) {
         const att = attachments[i];
         try {
           const record = await getPdfFromDb(att.id);
           if (!record) {
-            console.warn(`PDF ${att.filename} není v databázi, přeskakuji.`);
+            console.warn(`PDF ${att.filename} nie je v databáze, preskakujem.`);
             continue;
           }
-          // Vygenerovat unikátní název (přidat suffix pokud kolize)
+          // Vygenerovať unikátní názov (pridať suffix ak kolize)
           let filename = buildFilename(att);
           let baseName = filename.replace(/\.pdf$/i, '');
           let n = 2;
@@ -9589,22 +9661,22 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
           }
           usedNames.add(filename);
 
-          // Přidat do ZIPu (raw base64 → binary)
+          // Pridať do ZIPu (raw base64 → binary)
           const bytes = Uint8Array.from(atob(record.base64), c => c.charCodeAt(0));
           zip.file(filename, bytes);
         } catch (e) {
-          console.error(`Chyba při přidávání ${att.filename}:`, e);
+          console.error(`Chyba pri pridávanie ${att.filename}:`, e);
         }
         setZipProgress(Math.round(((i + 1) / attachments.length) * 100));
       }
 
-      // Generovat ZIP
+      // Generovať ZIP
       const blob = await zip.generateAsync({
         type: 'blob',
         compression: 'DEFLATE',
         compressionOptions: { level: 6 },
       }, (metadata) => {
-        // Poslední fáze: komprese
+        // Posledný fáze: komprese
         setZipProgress(Math.round(metadata.percent));
       });
 
@@ -9618,14 +9690,14 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
       setTimeout(() => URL.revokeObjectURL(url), 10000);
     } catch (e) {
       console.error(e);
-      setError(e.message || 'Nepodařilo se vytvořit ZIP archiv.');
+      setError(e.message || 'Nepodarilo sa vytvoriť ZIP archiv.');
     } finally {
       setZipping(false);
       setZipProgress(0);
     }
   };
 
-  // Seřazené sestupně podle data importu
+  // Zoradené zostupne podle data importu
   const sorted = [...attachments].sort((a, b) =>
     (b.importedAt || '').localeCompare(a.importedAt || '')
   );
@@ -9633,15 +9705,15 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
   return (
     <div>
       <div style={{ padding: 10, marginBottom: 12, background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: 6, fontSize: 12, color: '#1e40af' }}>
-        <div style={{ fontWeight: 700, marginBottom: 4 }}>📁 Kde jsou PDF uložená?</div>
+        <div style={{ fontWeight: 700, marginBottom: 4 }}>📁 Kde sú PDF uložená?</div>
         <div>
-          PDF se ukládají do <strong>IndexedDB</strong> vašeho prohlížeče (název databáze: <code>fve-planner-pdfs</code>).
-          To znamená, že soubory jsou <strong>jen na tomto počítači</strong> — když otevřete aplikaci z jiného zařízení,
-          PDF tam nebudou. Zálohování dat (v záložce „Zálohování") <strong>PDF neobsahuje</strong>, jen odkazy na ně.
+          PDF sa ukladajú do <strong>IndexedDB</strong> vášho prehliadača (názov databáza: <code>fve-planner-pdfs</code>).
+          To znamená, že súbory sú <strong>len na tomto počítači</strong> — keď otvorte aplikácii z iného zariadenie,
+          PDF tam nebudou. Zálohovanie dat (v záložce „Zálohovanie") <strong>PDF neobsahuje</strong>, len odkazy na ne.
         </div>
         {storageInfo && (
           <div style={{ marginTop: 6, fontSize: 11 }}>
-            Prohlížeč využívá {formatBytes(storageInfo.used)} z {formatBytes(storageInfo.quota)} dostupných.
+            Prehliadač využívá {formatBytes(storageInfo.used)} z {formatBytes(storageInfo.quota)} dostupných.
           </div>
         )}
       </div>
@@ -9652,10 +9724,66 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
         </div>
       )}
 
+      {/* Záloha & obnova — nezávislá na počte príloh (kvôli importu) */}
+      <div style={{ marginBottom: 12, padding: '10px 12px', background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: 6 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+          <div style={{ fontSize: 12, color: '#92400e', flex: '1 1 auto' }}>
+            🛡️ <strong>Kompletná záloha PDF</strong> — obsahuje binárne dáta všetkých PDF vrátane ich ID (pre obnovu do iného prehliadača/inštalácie).
+          </div>
+          <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+            <button
+              onClick={exportPdfBackup}
+              disabled={busyBackup || attachments.length === 0}
+              style={{
+                padding: '6px 12px', fontSize: 12, fontWeight: 600,
+                background: (busyBackup || attachments.length === 0) ? '#e5e7eb' : '#0d3825',
+                color: (busyBackup || attachments.length === 0) ? '#94a3b8' : '#fff',
+                border: 'none', borderRadius: 4, cursor: (busyBackup || attachments.length === 0) ? 'default' : 'pointer', fontFamily: 'inherit',
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+              }}
+              title="Stiahne JSON obsahujúci všetky PDF (kompletná záloha pre obnovu)"
+            >
+              <Download size={13} /> Export zálohy PDF
+            </button>
+            {!readOnly && (
+              <>
+                <input
+                  ref={backupFileInputRef}
+                  type="file"
+                  accept="application/json,.json"
+                  onChange={handleBackupFile}
+                  style={{ display: 'none' }}
+                />
+                <button
+                  onClick={() => backupFileInputRef.current?.click()}
+                  disabled={busyBackup}
+                  style={{
+                    padding: '6px 12px', fontSize: 12, fontWeight: 600,
+                    background: busyBackup ? '#e5e7eb' : '#fff',
+                    color: busyBackup ? '#94a3b8' : '#0d3825',
+                    border: '1px solid #0d3825', borderRadius: 4, cursor: busyBackup ? 'default' : 'pointer', fontFamily: 'inherit',
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                  }}
+                  title="Nahrať zálohu PDF (JSON) a obnoviť ju do IndexedDB"
+                >
+                  <Upload size={13} /> Import zálohy PDF
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+        {importResult && (
+          <div style={{ marginTop: 8, padding: 8, background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 4, fontSize: 12, color: '#166534' }}>
+            ✅ Import dokončený: <strong>{importResult.imported}</strong> obnovených, <strong>{importResult.skipped}</strong> preskočených (z {importResult.total} celkom).
+            {importResult.imported > 0 && ' Obnovte prosím stránku (F5), aby sa zmeny prejavili.'}
+          </div>
+        )}
+      </div>
+
       {attachments.length > 0 && (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10, padding: '8px 10px', background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 6 }}>
           <div style={{ fontSize: 12, color: '#166534' }}>
-            💾 <strong>Chcete si udělat zálohu?</strong> Stáhněte si všechny PDF jako jeden ZIP archiv.
+            💾 <strong>Chcete si urobiť zálohu?</strong> Stiahnite si všetky PDF ako jeden ZIP archiv.
           </div>
           <button
             onClick={downloadAllAsZip}
@@ -9675,11 +9803,11 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
                   width: 12, height: 12, border: '2px solid #fff', borderTopColor: 'transparent',
                   borderRadius: '50%', animation: 'spin 0.8s linear infinite',
                 }} />
-                Připravuji ZIP... {zipProgress}%
+                Pripravujem ZIP... {zipProgress}%
               </>
             ) : (
               <>
-                <Download size={13} /> Stáhnout vše ({attachments.length}) jako ZIP
+                <Download size={13} /> Stiahnuť všetko ({attachments.length}) ako ZIP
               </>
             )}
           </button>
@@ -9691,10 +9819,10 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
         <div style={{ padding: 30, textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 8 }}>
           <FileText size={32} style={{ color: '#cbd5e1', marginBottom: 8 }} />
           <p style={{ color: '#64748b', fontSize: 13, margin: 0 }}>
-            Zatím nemáte žádné importované PDF.
+            Zatiaľ nemáte žiadne importované PDF.
           </p>
           <p style={{ color: '#94a3b8', fontSize: 12, margin: '4px 0 0' }}>
-            Použijte <strong>Objednávky → Import z PDF (AI)</strong> pro automatické načtení faktury nebo objednávky.
+            Použite <strong>Objednávky → Import z PDF (AI)</strong> pre automatické načítanie faktúry alebo objednávky.
           </p>
         </div>
       ) : (
@@ -9702,11 +9830,11 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
           <table style={{ ...styles.table, fontSize: 12 }}>
             <thead>
               <tr>
-                <th style={styles.th}>Soubor</th>
-                <th style={styles.th}>Dodavatel</th>
-                <th style={styles.th}>Č. faktury</th>
+                <th style={styles.th}>Súbor</th>
+                <th style={styles.th}>Dodávateľ</th>
+                <th style={styles.th}>Č. faktúry</th>
                 <th style={styles.th}>Projekt</th>
-                <th style={styles.th}>Importováno</th>
+                <th style={styles.th}>Importované</th>
                 <th style={styles.th}>Položek</th>
                 <th style={{ ...styles.th, textAlign: 'right' }}>Akce</th>
               </tr>
@@ -9730,10 +9858,10 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
                           <div>{proj.name}</div>
                           {proj.client && <div style={{ fontSize: 10, color: '#94a3b8' }}>{proj.client}</div>}
                         </>
-                      ) : <span style={{ color: '#94a3b8' }}>(smazaný projekt)</span>}
+                      ) : <span style={{ color: '#94a3b8' }}>(vymazaný projekt)</span>}
                     </td>
                     <td style={{ ...styles.td, fontSize: 11, color: '#64748b' }}>
-                      {att.importedAt ? new Date(att.importedAt).toLocaleString('cs-CZ', {
+                      {att.importedAt ? new Date(att.importedAt).toLocaleString('sk-SK', {
                         day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
                       }) : '—'}
                     </td>
@@ -9752,14 +9880,14 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
                             ...styles.sortBtn,
                             background: '#0d3825', color: '#fff', borderColor: '#0d3825',
                           }}
-                          title="Otevřít PDF v novém tabu"
+                          title="Otvoriť PDF v novém tabu"
                         >
-                          <Eye size={12} /> Otevřít
+                          <Eye size={12} /> Otvoriť
                         </button>
                         <button
                           onClick={() => downloadPdf(att)}
                           style={styles.sortBtn}
-                          title="Stáhnout PDF do počítače"
+                          title="Stiahnuť PDF do počítača"
                         >
                           <Download size={12} />
                         </button>
@@ -9802,7 +9930,7 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
       {attachments.length > 0 && (
         <div style={{ marginTop: 12, fontSize: 11, color: '#64748b' }}>
           <strong>{attachments.length}</strong> {attachments.length === 1 ? 'PDF' : attachments.length < 5 ? 'PDF' : 'PDF'} v archivu.
-          Celkem <strong>{attachments.reduce((s, a) => s + (a.itemCount || 0), 0)}</strong> importovaných položek.
+          Spolu <strong>{attachments.reduce((s, a) => s + (a.itemCount || 0), 0)}</strong> importovaných položek.
         </div>
       )}
     </div>
@@ -9810,7 +9938,7 @@ function PdfArchiveSettingsTab({ attachments, projects, onDelete, readOnly }) {
 }
 
 // ==========================================================================
-// Backup / Restore tab — export/import všech dat aplikace
+// Backup / Restore tab — export/import všetkých dat aplikácia
 // ==========================================================================
 
 function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
@@ -9848,13 +9976,13 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
         const parsed = JSON.parse(String(ev.target.result || ''));
         // Validace: očekáváme formát z exportAll
         if (!parsed.data || typeof parsed.data !== 'object') {
-          throw new Error('Soubor neobsahuje očekávanou strukturu (chybí klíč "data").');
+          throw new Error('Súbor neobsahuje očekávanou strukturu (chýba klíč "data").');
         }
         const d = parsed.data;
         if (!Array.isArray(d.projects)) {
-          throw new Error('Chybí pole "projects".');
+          throw new Error('Chýba pole "projects".');
         }
-        // Vytvořit přehled obsahu
+        // Vytvoriť prehľad obsahu
         const summary = {
           projects: d.projects?.length || 0,
           categories: d.categories?.length || 0,
@@ -9863,29 +9991,29 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
           locations: d.locations?.length || 0,
           stockItems: d.stockItems?.length || 0,
           stockMovements: d.stockMovements?.length || 0,
-          exportedAt: parsed._exportedAt || 'neznámé datum',
-          appVersion: parsed._appVersion || 'neznámá verze',
+          exportedAt: parsed._exportedAt || 'neznámé dátum',
+          appVersion: parsed._appVersion || 'neznáma verze',
         };
         setImportPreview({ newData: d, summary });
         setImportStep('preview');
       } catch (err) {
-        setImportError('Chyba při čtení souboru: ' + (err?.message || 'neplatný JSON formát'));
+        setImportError('Chyba pri čítanie súbore: ' + (err?.message || 'neplatný JSON formát'));
       }
     };
-    reader.onerror = () => setImportError('Chyba při čtení souboru z disku.');
+    reader.onerror = () => setImportError('Chyba pri čítanie súbore z disku.');
     reader.readAsText(file);
-    // Reset input aby šel zvolit stejný soubor podruhé
+    // Reset input aby šel zvoliť rovnaký súbor podruhé
     e.target.value = '';
   };
 
   const confirmImport = () => {
     if (!importPreview) return;
-    // Před importem: udělat automatickou bezpečnostní zálohu
+    // Pred importem: urobiť automatickou bezpečnostný zálohu
     const safetyBackup = {
       _appName: 'CashFlow Planner',
       _appVersion: APP_VERSION,
       _exportedAt: new Date().toISOString(),
-      _note: 'AUTOMATICKÁ záloha před importem — pro případ návratu',
+      _note: 'AUTOMATICKÁ záloha pred importem — pre prípad návratu',
       _storageKey: STORAGE_KEY,
       data: fullData,
     };
@@ -9898,7 +10026,7 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
 
-    // Nahradit data
+    // Nahradiť data
     onRestoreData(importPreview.newData);
     setImportPreview(null);
     setImportStep('idle');
@@ -9911,7 +10039,7 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
     setImportError('');
   };
 
-  // Statistika aktuálních dat
+  // Statistika aktuálnych dat
   const currentStats = {
     projects: fullData?.projects?.length || 0,
     categories: fullData?.categories?.length || 0,
@@ -9930,19 +10058,19 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
         background: '#f0fdf4', border: '1px solid #bbf7d0',
       }}>
         <h3 style={{ margin: '0 0 8px', fontSize: 15, color: '#166534', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Download size={16} /> Export všech dat
+          <Download size={16} /> Export všetkých dat
         </h3>
         <p style={{ margin: '0 0 12px', fontSize: 13, color: '#166534', lineHeight: 1.5 }}>
-          Stáhne kompletní zálohu (projekty, položky, dodavatelé, kategorie, katalog, sklad) jako JSON soubor.
-          Použijte pro pravidelné zálohy nebo přenos dat na jiný počítač.
+          Stiahne kompletní zálohu (projekty, položky, dodávatelia, kategórie, katalog, sklad) ako JSON súbor.
+          Použite pre pravidelné zálohy alebo prenos dat na iný počítač.
         </p>
         <div style={{ fontSize: 12, color: '#475569', marginBottom: 12, padding: 10, background: 'rgba(255,255,255,0.6)', borderRadius: 6 }}>
-          <strong>Aktuální obsah:</strong> {currentStats.projects} projektů, {currentStats.suppliers} dodavatelů,
-          {' '}{currentStats.catalog} položek v katalogu, {currentStats.categories} kategorií,
-          {' '}{currentStats.stockItems} skladových kusů, {currentStats.stockMovements} pohybů
+          <strong>Aktuálny obsah:</strong> {currentStats.projects} projektov, {currentStats.suppliers} dodávateľov,
+          {' '}{currentStats.catalog} položek v katalogu, {currentStats.categories} kategórií,
+          {' '}{currentStats.stockItems} skladových kusov, {currentStats.stockMovements} pohybov
         </div>
         <button style={styles.primaryBtn} onClick={exportAll}>
-          <Download size={15} /> Stáhnout zálohu (JSON)
+          <Download size={15} /> Stiahnuť zálohu (JSON)
         </button>
       </div>
 
@@ -9952,11 +10080,11 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
         background: '#fef3c7', border: '1px solid #fcd34d',
       }}>
         <h3 style={{ margin: '0 0 8px', fontSize: 15, color: '#92400e', display: 'flex', alignItems: 'center', gap: 8 }}>
-          <Upload size={16} /> Obnova ze zálohy
+          <Upload size={16} /> Obnova zo zálohy
         </h3>
         <p style={{ margin: '0 0 12px', fontSize: 13, color: '#92400e', lineHeight: 1.5 }}>
-          <strong>Pozor:</strong> Import <strong>nahradí všechna aktuální data</strong> daty ze souboru.
-          Před nahrazením se automaticky stáhne bezpečnostní záloha aktuálního stavu (pro případ vrácení).
+          <strong>Pozor:</strong> Import <strong>nahradí všetka aktuálny data</strong> daty zo súbore.
+          Pred nahradením sa automaticky stiahne bezpečnostný záloha aktuálního stavu (pre prípad vrátenie).
         </p>
 
         {importStep === 'idle' && (
@@ -9973,7 +10101,7 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
               }}
               onClick={() => fileInputRef.current?.click()}
             >
-              <Upload size={15} /> Vybrat JSON soubor zálohy
+              <Upload size={15} /> Vybrať JSON súbor zálohy
             </button>
           </>
         )}
@@ -9987,28 +10115,28 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
         {importStep === 'preview' && importPreview && (
           <div style={{ marginTop: 12, padding: 12, background: 'rgba(255,255,255,0.7)', borderRadius: 6 }}>
             <div style={{ fontSize: 13, fontWeight: 600, color: '#92400e', marginBottom: 8 }}>
-              Náhled obsahu zálohy:
+              Náhľad obsahu zálohy:
             </div>
             <table style={{ width: '100%', fontSize: 12, color: '#475569' }}>
               <tbody>
-                <tr><td style={{ padding: '2px 0' }}>Datum exportu:</td><td><strong>{importPreview.summary.exportedAt}</strong></td></tr>
-                <tr><td>Verze aplikace:</td><td><strong>{importPreview.summary.appVersion}</strong></td></tr>
+                <tr><td style={{ padding: '2px 0' }}>Dátum exportu:</td><td><strong>{importPreview.summary.exportedAt}</strong></td></tr>
+                <tr><td>Verze aplikácia:</td><td><strong>{importPreview.summary.appVersion}</strong></td></tr>
                 <tr><td colSpan={2} style={{ paddingTop: 8, borderTop: '1px solid #fcd34d' }}></td></tr>
-                <tr><td>Projekty:</td><td><strong>{importPreview.summary.projects}</strong> (aktuálně: {currentStats.projects})</td></tr>
-                <tr><td>Dodavatelé:</td><td><strong>{importPreview.summary.suppliers}</strong> (aktuálně: {currentStats.suppliers})</td></tr>
-                <tr><td>Katalogové položky:</td><td><strong>{importPreview.summary.catalog}</strong> (aktuálně: {currentStats.catalog})</td></tr>
-                <tr><td>Kategorie:</td><td><strong>{importPreview.summary.categories}</strong> (aktuálně: {currentStats.categories})</td></tr>
-                <tr><td>Skladové lokace:</td><td><strong>{importPreview.summary.locations || 0}</strong> (aktuálně: {currentStats.locations})</td></tr>
-                <tr><td>Skladové kusy:</td><td><strong>{importPreview.summary.stockItems || 0}</strong> (aktuálně: {currentStats.stockItems})</td></tr>
-                <tr><td>Skladové pohyby:</td><td><strong>{importPreview.summary.stockMovements || 0}</strong> (aktuálně: {currentStats.stockMovements})</td></tr>
+                <tr><td>Projekty:</td><td><strong>{importPreview.summary.projects}</strong> (aktuálne: {currentStats.projects})</td></tr>
+                <tr><td>Dodávatelia:</td><td><strong>{importPreview.summary.suppliers}</strong> (aktuálne: {currentStats.suppliers})</td></tr>
+                <tr><td>Katalogové položky:</td><td><strong>{importPreview.summary.catalog}</strong> (aktuálne: {currentStats.catalog})</td></tr>
+                <tr><td>Kategórie:</td><td><strong>{importPreview.summary.categories}</strong> (aktuálne: {currentStats.categories})</td></tr>
+                <tr><td>Skladové lokalita:</td><td><strong>{importPreview.summary.locations || 0}</strong> (aktuálne: {currentStats.locations})</td></tr>
+                <tr><td>Skladové kusy:</td><td><strong>{importPreview.summary.stockItems || 0}</strong> (aktuálne: {currentStats.stockItems})</td></tr>
+                <tr><td>Skladové pohyby:</td><td><strong>{importPreview.summary.stockMovements || 0}</strong> (aktuálne: {currentStats.stockMovements})</td></tr>
               </tbody>
             </table>
             <div style={{ marginTop: 12, padding: 10, background: '#fee2e2', color: '#b91c1c', borderRadius: 6, fontSize: 12, fontWeight: 600 }}>
-              ⚠ Po potvrzení budou aktuální data NAHRAZENA daty ze zálohy.
-              Aktuální stav se nejdříve automaticky stáhne jako bezpečnostní záloha.
+              ⚠ Po potvrdenie budú aktuálny data NAHRADENÁ daty zo zálohy.
+              Aktuálny stav sa najskôr automaticky stiahne ako bezpečnostný záloha.
             </div>
             <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
-              <button style={styles.sortBtn} onClick={cancelImport}>Zrušit</button>
+              <button style={styles.sortBtn} onClick={cancelImport}>Zrušiť</button>
               <button style={{ ...styles.primaryBtn, background: '#dc2626' }} onClick={confirmImport}>
                 Provést import (nahradí data)
               </button>
@@ -10018,12 +10146,12 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
       </div>
 
       <div style={{ marginTop: 16, padding: 12, background: '#f1f5f9', borderRadius: 6, fontSize: 12, color: '#475569', lineHeight: 1.6 }}>
-        <strong>💡 Tipy pro sdílení dat napříč počítači:</strong>
+        <strong>💡 Tipy pre zdieľanie dat naprieč počítači:</strong>
         <ul style={{ margin: '6px 0 0 18px', padding: 0 }}>
-          <li>Pro pravidelné zálohy — exportujte týdně, ukládejte do OneDrive nebo SharePoint</li>
-          <li>Pro sdílení s kolegou — vyexportujte, pošlete soubor (e-mailem, OneDrive, Teams), kolega importuje</li>
-          <li>Vždy pracuje jen jeden — pokud upravujete oba současně, poslední import přepíše předchozí změny</li>
-          <li>Při importu se VŽDY stáhne bezpečnostní záloha — můžete ji zase importovat zpět pokud něco nesedí</li>
+          <li>Pre pravidelné zálohy — exportujte týždenne, ukladajte do OneDrive alebo SharePoint</li>
+          <li>Pre zdieľanie s kolegou — vyexportujte, pošlete súbor (e-mailom, OneDrive, Teams), kolega importuje</li>
+          <li>Vždy pracuje len jeden — ak upravujete oba súčasne, posledný import prepíše predchádzajúci zmeny</li>
+          <li>Pri importu sa VŽDY stiahne bezpečnostný záloha — môžete ji zase importovať späť ak niečo nesedí</li>
         </ul>
       </div>
     </div>
@@ -10037,7 +10165,7 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
   const [form, setForm] = useState(item || {
     category: categories[0]?.id || '',
     name: '', supplier: '', supplierId: '', catalogId: '',
-    quantity: 1, unit: 'pcs', unitPrice: 0, currency: 'CZK',
+    quantity: 1, unit: 'pcs', unitPrice: 0, currency: 'EUR',
     status: 'planned',
     // Planned dates (for cash flow before ordering)
     plannedOrderDate: '', plannedDeliveryDate: '',
@@ -10054,14 +10182,14 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
 
   useEffect(() => {
     if (linkedCatalog) {
-      setForm(f => ({ ...f, name: linkedCatalog.name, unit: linkedCatalog.unit || f.unit, unitPrice: linkedCatalog.unitPrice, currency: linkedCatalog.currency || 'CZK' }));
+      setForm(f => ({ ...f, name: linkedCatalog.name, unit: linkedCatalog.unit || f.unit, unitPrice: linkedCatalog.unitPrice, currency: linkedCatalog.currency || 'EUR' }));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [linkedCatalog?.unitPrice, linkedCatalog?.name, linkedCatalog?.unit, linkedCatalog?.currency]);
 
   const lineTotal = (parseFloat(form.quantity) || 0) * (parseFloat(form.unitPrice) || 0);
-  const lineCZK = form.currency === 'EUR' ? lineTotal * exchangeRate : lineTotal;
-  const payments = useMemo(() => computePayments(form, selectedSupplier, lineCZK), [form, selectedSupplier, lineCZK]);
+  const lineEUR = form.currency === 'CZK' ? (exchangeRate > 0 ? lineTotal / exchangeRate : lineTotal) : lineTotal;
+  const payments = useMemo(() => computePayments(form, selectedSupplier, lineEUR), [form, selectedSupplier, lineEUR]);
 
   const handleSupplierChange = (newSupplierId) => {
     setForm(f => {
@@ -10079,7 +10207,7 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
     if (!catId) { setForm(f => ({ ...f, catalogId: '' })); return; }
     const entry = catalog.find(c => c.id === catId);
     if (!entry) return;
-    setForm(f => ({ ...f, catalogId: entry.id, name: entry.name, unit: entry.unit || f.unit, unitPrice: entry.unitPrice, currency: entry.currency || 'CZK' }));
+    setForm(f => ({ ...f, catalogId: entry.id, name: entry.name, unit: entry.unit || f.unit, unitPrice: entry.unitPrice, currency: entry.currency || 'EUR' }));
   };
 
   const isFieldOverridden = (field) => {
@@ -10087,7 +10215,7 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
     if (field === 'name') return form.name !== linkedCatalog.name;
     if (field === 'unit') return (form.unit || '') !== (linkedCatalog.unit || '');
     if (field === 'unitPrice') return parseFloat(form.unitPrice) !== parseFloat(linkedCatalog.unitPrice);
-    if (field === 'currency') return form.currency !== (linkedCatalog.currency || 'CZK');
+    if (field === 'currency') return form.currency !== (linkedCatalog.currency || 'EUR');
     return false;
   };
   const anyOverride = ['name', 'unit', 'unitPrice', 'currency'].some(isFieldOverridden);
@@ -10110,14 +10238,14 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
   const isOrdered = status !== 'planned';
 
   return (
-    <Modal title={item ? 'Upravit položku' : 'Přidat položku'} onClose={onClose} maxWidth={720}>
+    <Modal title={item ? 'Upraviť položku' : 'Pridať položku'} onClose={onClose} maxWidth={720}>
       <div style={styles.formRowGroup}>
         <div style={{ flex: 2 }}>
-          <label style={styles.label}>Kategorie *</label>
+          <label style={styles.label}>Kategórie *</label>
           <select style={styles.input} value={form.category} onChange={e => setForm({ ...form, category: e.target.value })}>
             <optgroup label="Materiál">{categories.filter(c => c.kind === 'material').map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>
-            <optgroup label="Práce a subdodavatelé">{categories.filter(c => c.kind === 'labor').map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>
-            <optgroup label="Provize a řízení">{categories.filter(c => c.kind === 'commission').map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>
+            <optgroup label="Práca a subdodávatelia">{categories.filter(c => c.kind === 'labor').map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>
+            <optgroup label="Provízia a riadenie">{categories.filter(c => c.kind === 'commission').map(c => <option key={c.id} value={c.id}>{c.name}</option>)}</optgroup>
           </select>
         </div>
         <div style={{ flex: 1 }}>
@@ -10131,14 +10259,14 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
       {/* Supplier — optional */}
       <div style={styles.formRow}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
-          <label style={{ ...styles.label, margin: 0 }}>Dodavatel / kontraktor <span style={{ color: '#94a3b8', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>(volitelné — přiřaďte později v Nákupním seznamu)</span></label>
+          <label style={{ ...styles.label, margin: 0 }}>Dodávateľ / kontraktor <span style={{ color: '#94a3b8', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>(voliteľné — priraďte neskôr v Nákupnom zozname)</span></label>
           <div style={{ display: 'flex', gap: 4 }}>
-            <button type="button" style={styles.sortBtn} onClick={onOpenSuppliers}><Settings size={11} /> Spravovat</button>
+            <button type="button" style={styles.sortBtn} onClick={onOpenSuppliers}><Settings size={11} /> Spravovať</button>
           </div>
         </div>
         {suppliers.length > 0 ? (
           <select style={styles.input} value={form.supplierId || ''} onChange={e => handleSupplierChange(e.target.value)}>
-            <option value="">— Bez dodavatele (nastavit později) —</option>
+            <option value="">— Bez dodávateľa (nastaviť neskôr) —</option>
             {suppliers.map(s => {
               const parts = [];
               if (s.depositPercent > 0) parts.push(`${s.depositPercent}% dep`);
@@ -10147,10 +10275,10 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
             })}
           </select>
         ) : (
-          <input style={styles.input} value={form.supplier} onChange={e => setForm({ ...form, supplier: e.target.value })} placeholder="Název dodavatele (optional)" />
+          <input style={styles.input} value={form.supplier} onChange={e => setForm({ ...form, supplier: e.target.value })} placeholder="Názov dodávateľa (optional)" />
         )}
         {suppliers.length > 0 && !form.supplierId && (
-          <input style={{ ...styles.input, marginTop: 6 }} value={form.supplier} onChange={e => setForm({ ...form, supplier: e.target.value })} placeholder="Nebo zadejte vlastní název dodavatele (volitelné)" />
+          <input style={{ ...styles.input, marginTop: 6 }} value={form.supplier} onChange={e => setForm({ ...form, supplier: e.target.value })} placeholder="Alebo zadajte vlastný názov dodávateľa (voliteľné)" />
         )}
       </div>
 
@@ -10158,18 +10286,18 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
       {form.supplierId && supplierCatalog.length > 0 && (
         <div style={styles.formRow}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
-            <label style={{ ...styles.label, margin: 0 }}>Katalogová položka <span style={{ color: '#94a3b8', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>(volitelné — nebo zadejte vlastní níže)</span></label>
-            <button type="button" style={styles.sortBtn} onClick={onOpenCatalog}><BookOpen size={11} /> Spravovat</button>
+            <label style={{ ...styles.label, margin: 0 }}>Katalogová položka <span style={{ color: '#94a3b8', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>(voliteľné — alebo zadajte vlastný nižšie)</span></label>
+            <button type="button" style={styles.sortBtn} onClick={onOpenCatalog}><BookOpen size={11} /> Spravovať</button>
           </div>
           <select style={styles.input} value={form.catalogId || ''} onChange={e => handleCatalogPick(e.target.value)}>
-            <option value="">— Vlastní položka (vyplňte pole níže) —</option>
+            <option value="">— Vlastný položka (vyplňte pole nižšie) —</option>
             {supplierCatalog.map(c => (
-              <option key={c.id} value={c.id}>{c.name} · {fmt2(c.unitPrice, c.currency || 'CZK')} / {c.unit || 'pcs'}</option>
+              <option key={c.id} value={c.id}>{c.name} · {fmt2(c.unitPrice, c.currency || 'EUR')} / {c.unit || 'pcs'}</option>
             ))}
           </select>
           {linkedCatalog && (
             <div style={{ fontSize: 11, color: anyOverride ? '#d97706' : '#3b82f6', marginTop: 4 }}>
-              {anyOverride ? '⚠ Upravené hodnoty — uloží se jako vlastní (nepropojená) položka' : '✓ Propojeno s katalogem (živé aktualizace cen)'}
+              {anyOverride ? '⚠ Upravené hodnoty — uloží sa ako vlastný (nepropojená) položka' : '✓ Propojeno s katalogem (živé aktualizace cen)'}
             </div>
           )}
         </div>
@@ -10177,14 +10305,14 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
 
       {/* Item fields */}
       <div style={styles.formRow}>
-        <label style={styles.label}>Název položky / služby *</label>
+        <label style={styles.label}>Názov položky / služby *</label>
         <input autoFocus={!linkedCatalog} style={{ ...styles.input, background: linkedCatalog && !isFieldOverridden('name') ? '#f0f9ff' : '#fff' }}
           value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="e.g. JA Solar 450W panels" />
       </div>
 
       <div style={styles.formRowGroup}>
         <div style={{ flex: 1 }}>
-          <label style={styles.label}>Množství *</label>
+          <label style={styles.label}>Množstvo *</label>
           <input type="number" step="0.01" style={styles.input} value={form.quantity} onChange={e => setForm({ ...form, quantity: e.target.value })} />
         </div>
         <div style={{ flex: 1 }}>
@@ -10202,10 +10330,10 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
             value={form.unitPrice} onChange={e => setForm({ ...form, unitPrice: e.target.value })} />
         </div>
         <div style={{ flex: 0.8 }}>
-          <label style={styles.label}>Měna *</label>
+          <label style={styles.label}>Mena *</label>
           <select style={{ ...styles.input, background: linkedCatalog && !isFieldOverridden('currency') ? '#f0f9ff' : '#fff' }}
             value={form.currency} onChange={e => setForm({ ...form, currency: e.target.value })}>
-            <option value="CZK">CZK</option><option value="EUR">EUR</option>
+            <option value="EUR">EUR</option><option value="CZK">CZK</option>
           </select>
         </div>
       </div>
@@ -10213,15 +10341,15 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
       {/* PLANNED DATES — always visible, drive cash flow before ordering */}
       <div style={styles.dateSection}>
         <div style={styles.dateSectionHeader}>
-          <Clock size={12} /> Plánovaná data <span style={{ color: '#94a3b8', fontWeight: 400, textTransform: 'none', letterSpacing: 0, fontSize: 11 }}>— ovlivňují prognózu cash flow, dokud skutečně neobjednáte</span>
+          <Clock size={12} /> Plánovaná data <span style={{ color: '#94a3b8', fontWeight: 400, textTransform: 'none', letterSpacing: 0, fontSize: 11 }}>— ovlivňují prognózu cash flow, kým skutočne neobjednáte</span>
         </div>
         <div style={styles.formRowGroup}>
           <div style={{ flex: 1 }}>
-            <label style={styles.label}>Plán. datum objednávky</label>
+            <label style={styles.label}>Plán. dátum objednávky</label>
             <input type="date" style={styles.input} value={form.plannedOrderDate || ''} onChange={e => setForm({ ...form, plannedOrderDate: e.target.value })} />
           </div>
           <div style={{ flex: 1 }}>
-            <label style={styles.label}>Plán. datum dodání</label>
+            <label style={styles.label}>Plán. dátum dodanie</label>
             <input type="date" style={styles.input} value={form.plannedDeliveryDate || ''} onChange={e => setForm({ ...form, plannedDeliveryDate: e.target.value })} />
           </div>
         </div>
@@ -10230,7 +10358,7 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
       {/* ACTUAL DATES — faded when not ordered yet (suggest using Purchase List/Orders workflow) */}
       <div style={{ ...styles.dateSection, background: '#fef3c7', borderColor: '#fcd34d' }}>
         <div style={styles.dateSectionHeader}>
-          <CheckCircle2 size={12} /> Skutečná data <span style={{ color: '#92400e', fontWeight: 400, textTransform: 'none', letterSpacing: 0, fontSize: 11 }}>— obvykle se nastaví přes Nákupní seznam / Objednávky</span>
+          <CheckCircle2 size={12} /> Skutočná data <span style={{ color: '#92400e', fontWeight: 400, textTransform: 'none', letterSpacing: 0, fontSize: 11 }}>— obvykle sa nastaví cez Nákupný zoznam / Objednávky</span>
         </div>
         {isOrdered && (
           <div style={styles.formRow}>
@@ -10240,11 +10368,11 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
         )}
         <div style={styles.formRowGroup}>
           <div style={{ flex: 1 }}>
-            <label style={styles.label}>Skut. datum objednávky</label>
+            <label style={styles.label}>Skut. dátum objednávky</label>
             <input type="date" style={styles.input} value={form.purchaseDate || ''} onChange={e => setForm({ ...form, purchaseDate: e.target.value })} />
           </div>
           <div style={{ flex: 1 }}>
-            <label style={styles.label}>Skut. datum dodání</label>
+            <label style={styles.label}>Skut. dátum dodanie</label>
             <input type="date" style={styles.input} value={form.deliveredDate || ''} onChange={e => setForm({ ...form, deliveredDate: e.target.value })} />
           </div>
         </div>
@@ -10254,24 +10382,24 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
             <input type="date" style={styles.input} value={form.invoicedDate || ''} onChange={e => setForm({ ...form, invoicedDate: e.target.value })} />
           </div>
           <div style={{ flex: 1 }}>
-            <label style={styles.label}>Splatnost (přepsat)</label>
+            <label style={styles.label}>Splatnost (prepísať)</label>
             <input type="date" style={styles.input} value={form.paymentDueDate || ''} onChange={e => setForm({ ...form, paymentDueDate: e.target.value })} />
           </div>
         </div>
       </div>
 
       {/* Payment schedule preview */}
-      {lineCZK > 0 && (form.plannedOrderDate || form.purchaseDate) && (
+      {lineEUR > 0 && (form.plannedOrderDate || form.purchaseDate) && (
         <div style={{ ...styles.totalPreview, borderLeftColor: '#6366f1' }}>
-          <div style={{ fontWeight: 600, marginBottom: 6 }}>Platební plán {payments.some(p => p.basis === 'planned') && <span style={{ fontSize: 11, color: '#94a3b8', fontWeight: 400 }}>(podle plánovaných dat)</span>}</div>
+          <div style={{ fontWeight: 600, marginBottom: 6 }}>Platobný plán {payments.some(p => p.basis === 'planned') && <span style={{ fontSize: 11, color: '#94a3b8', fontWeight: 400 }}>(podľa plánovaných dat)</span>}</div>
           {payments.map((p, i) => (
             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 2 }}>
               <span style={{ color: '#64748b' }}>
                 {p.label}
                 {p.basis === 'planned' && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#f1f5f9', color: '#64748b' }}>plánované</span>}
-                {p.basis === 'actual' && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#dcfce7', color: '#15803d' }}>skutečné</span>}
+                {p.basis === 'actual' && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#dcfce7', color: '#15803d' }}>skutočné</span>}
               </span>
-              <span><strong>{fmt(p.amount)}</strong> <span style={{ color: p.dueDate ? '#0f172a' : '#dc2626', marginLeft: 8 }}>{p.dueDate || '⚠ chybí spouštěcí datum'}</span></span>
+              <span><strong>{fmt(p.amount)}</strong> <span style={{ color: p.dueDate ? '#0f172a' : '#dc2626', marginLeft: 8 }}>{p.dueDate || '⚠ chýba spúšťací dátum'}</span></span>
             </div>
           ))}
         </div>
@@ -10284,12 +10412,12 @@ function ItemModal({ item, categories, suppliers, catalog, exchangeRate, onSave,
 
       <div style={styles.totalPreview}>
         Line total: <strong>{fmt2(lineTotal, form.currency)}</strong>
-        {form.currency === 'EUR' && <> → <strong>{fmt(lineCZK)}</strong></>}
+        {form.currency === 'EUR' && <> → <strong>{fmt(lineEUR)}</strong></>}
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={submit}>{item ? 'Uložit změny' : 'Přidat položku'}</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>{item ? 'Uložiť zmeny' : 'Pridať položku'}</button>
       </div>
     </Modal>
   );
@@ -10300,11 +10428,11 @@ function BudgetModal({ categories, budgets, onSave, onClose }) {
   const total = Object.values(form).reduce((a, b) => a + (parseFloat(b) || 0), 0);
   const groups = [
     { kind: 'material', label: 'Materiál' },
-    { kind: 'labor', label: 'Práce a subdodavatelé' },
-    { kind: 'commission', label: 'Provize a řízení' },
+    { kind: 'labor', label: 'Práca a subdodávatelia' },
+    { kind: 'commission', label: 'Provízia a riadenie' },
   ];
   return (
-    <Modal title="Nastavit rozpočty kategorií (Kč)" onClose={onClose} maxWidth={580}>
+    <Modal title="Nastaviť rozpočty kategórií (€)" onClose={onClose} maxWidth={580}>
       {groups.map(g => {
         const cats = categories.filter(c => c.kind === g.kind);
         if (cats.length === 0) return null;
@@ -10320,17 +10448,17 @@ function BudgetModal({ categories, budgets, onSave, onClose }) {
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
                   <input type="number" step="1000" style={{ ...styles.input, width: 160, textAlign: 'right' }}
                     value={form[cat.id] || 0} onChange={e => setForm({ ...form, [cat.id]: parseFloat(e.target.value) || 0 })} />
-                  <span style={{ color: '#64748b', fontSize: 13 }}>Kč</span>
+                  <span style={{ color: '#64748b', fontSize: 13 }}>€</span>
                 </div>
               </div>
             ))}
           </div>
         );
       })}
-      <div style={styles.totalPreview}>Celkem: <strong>{fmt(total)}</strong></div>
+      <div style={styles.totalPreview}>Spolu: <strong>{fmt(total)}</strong></div>
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={() => onSave(form)}>Uložit rozpočty</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={() => onSave(form)}>Uložiť rozpočty</button>
       </div>
     </Modal>
   );
@@ -10339,28 +10467,28 @@ function BudgetModal({ categories, budgets, onSave, onClose }) {
 function CategoryModal({ categories, onSave, onClose }) {
   const [list, setList] = useState(categories);
   const [confirmDeleteId, setConfirmDeleteId] = useState(null);
-  const addCat = (kind) => setList([...list, { id: uid('cat'), name: 'Nová kategorie', color: PALETTE[list.length % PALETTE.length], kind }]);
+  const addCat = (kind) => setList([...list, { id: uid('cat'), name: 'Nová kategórie', color: PALETTE[list.length % PALETTE.length], kind }]);
   const update = (id, patch) => setList(list.map(c => c.id === id ? { ...c, ...patch } : c));
   const remove = (id) => { setList(list.filter(c => c.id !== id)); setConfirmDeleteId(null); };
   const groups = [
     { kind: 'material', label: 'Materiál', icon: <Package size={14} /> },
-    { kind: 'labor', label: 'Práce a subdodavatelé', icon: <Wrench size={14} /> },
-    { kind: 'commission', label: 'Provize a řízení', icon: <Briefcase size={14} /> },
+    { kind: 'labor', label: 'Práca a subdodávatelia', icon: <Wrench size={14} /> },
+    { kind: 'commission', label: 'Provízia a riadenie', icon: <Briefcase size={14} /> },
   ];
   return (
-    <Modal title="Správa kategorií" onClose={onClose} maxWidth={680}>
+    <Modal title="Správa kategórií" onClose={onClose} maxWidth={680}>
       {groups.map(g => (
         <div key={g.kind} style={{ marginBottom: 18 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
             <div style={styles.groupLabel}>{g.icon} {g.label}</div>
-            <button style={styles.sortBtn} onClick={() => addCat(g.kind)}><Plus size={12} /> Přidat</button>
+            <button style={styles.sortBtn} onClick={() => addCat(g.kind)}><Plus size={12} /> Pridať</button>
           </div>
           {list.filter(c => c.kind === g.kind).map(cat => (
             <div key={cat.id} style={styles.catRow}>
               <input type="color" value={cat.color} onChange={e => update(cat.id, { color: e.target.value })} style={styles.colorInput} />
               <input style={{ ...styles.input, flex: 1 }} value={cat.name} onChange={e => update(cat.id, { name: e.target.value })} />
               <select style={{ ...styles.input, width: 140 }} value={cat.kind} onChange={e => update(cat.id, { kind: e.target.value })}>
-                <option value="material">Materiál</option><option value="labor">Práce</option><option value="commission">Provize</option>
+                <option value="material">Materiál</option><option value="labor">Práca</option><option value="commission">Provízia</option>
               </select>
               {confirmDeleteId === cat.id ? (
                 <div style={{ display: 'inline-flex', gap: 4, alignItems: 'center' }}>
@@ -10368,12 +10496,12 @@ function CategoryModal({ categories, onSave, onClose }) {
                   <button
                     onClick={() => remove(cat.id)}
                     style={{ ...styles.iconBtn, color: '#dc2626', background: '#fee2e2', border: '1px solid #fca5a5' }}
-                    title="Potvrdit smazání"
+                    title="Potvrdiť vymazanie"
                   ><Trash2 size={14} /></button>
                   <button
                     onClick={() => setConfirmDeleteId(null)}
                     style={{ ...styles.iconBtn, color: '#64748b' }}
-                    title="Zrušit"
+                    title="Zrušiť"
                   ><X size={14} /></button>
                 </div>
               ) : (
@@ -10384,8 +10512,8 @@ function CategoryModal({ categories, onSave, onClose }) {
         </div>
       ))}
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
-        <button style={styles.primaryBtn} onClick={() => onSave(list.filter(c => c.name.trim()))}>Uložit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={() => onSave(list.filter(c => c.name.trim()))}>Uložiť</button>
       </div>
     </Modal>
   );
@@ -10396,7 +10524,7 @@ function SupplierModal({ suppliers, readOnly, onSave, onClose }) {
   const [confirmDeleteId, setConfirmDeleteId] = useState(null);
   const addSupplier = () => setList([...list, {
     id: uid('sup'), name: '', paymentTermsDays: 14, depositPercent: 0,
-    balanceTrigger: 'order', defaultCurrency: 'CZK', contact: '', notes: '',
+    balanceTrigger: 'order', defaultCurrency: 'EUR', contact: '', notes: '',
   }]);
   const update = (id, patch) => setList(list.map(s => s.id === id ? { ...s, ...patch } : s));
   const remove = (id) => { setList(list.filter(s => s.id !== id)); setConfirmDeleteId(null); };
@@ -10409,23 +10537,23 @@ function SupplierModal({ suppliers, readOnly, onSave, onClose }) {
     })));
   };
   return (
-    <Modal title={readOnly ? "Dodavatelé (jen čtení)" : "Dodavatelé a platební podmínky"} onClose={onClose} maxWidth={920}>
+    <Modal title={readOnly ? "Dodávatelia (len čítanie)" : "Dodávatelia a platobný podmínky"} onClose={onClose} maxWidth={920}>
       {!readOnly && (
         <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 10 }}>
-          <button style={styles.sortBtn} onClick={addSupplier}><Plus size={12} /> Přidat dodavatele</button>
+          <button style={styles.sortBtn} onClick={addSupplier}><Plus size={12} /> Pridať dodávateľa</button>
         </div>
       )}
       {list.length === 0 ? (
-        <div style={{ padding: 30, textAlign: 'center', color: '#94a3b8', border: '1px dashed #cbd5e1', borderRadius: 8 }}>Zatím žádní dodavatelé.</div>
+        <div style={{ padding: 30, textAlign: 'center', color: '#94a3b8', border: '1px dashed #cbd5e1', borderRadius: 8 }}>Zatiaľ žiadni dodávatelia.</div>
       ) : (
         <div style={{ border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'auto' }}>
           <table style={{ ...styles.table, fontSize: 12, minWidth: 820 }}>
             <thead><tr>
-              <th style={{ ...styles.th, padding: '9px 8px' }}>Název {!readOnly && '*'}</th>
+              <th style={{ ...styles.th, padding: '9px 8px' }}>Názov {!readOnly && '*'}</th>
               <th style={{ ...styles.th, padding: '9px 8px', width: 90 }}>Záloha %</th>
-              <th style={{ ...styles.th, padding: '9px 8px', width: 90 }}>Splatnost (dnů)</th>
+              <th style={{ ...styles.th, padding: '9px 8px', width: 90 }}>Splatnost (dní)</th>
               <th style={{ ...styles.th, padding: '9px 8px', width: 130 }}>Splatnost od</th>
-              <th style={{ ...styles.th, padding: '9px 8px', width: 80 }}>Měna</th>
+              <th style={{ ...styles.th, padding: '9px 8px', width: 80 }}>Mena</th>
               <th style={{ ...styles.th, padding: '9px 8px' }}>Kontakt</th>
               {!readOnly && <th style={{ ...styles.th, padding: '9px 8px', width: 110 }}></th>}
             </tr></thead>
@@ -10443,12 +10571,12 @@ function SupplierModal({ suppliers, readOnly, onSave, onClose }) {
                   </td>
                   <td style={{ ...styles.td, padding: 5 }}>
                     <select style={styles.input} value={s.balanceTrigger || 'order'} onChange={e => update(s.id, { balanceTrigger: e.target.value })} disabled={readOnly}>
-                      <option value="order">Data objednávky</option><option value="delivered">Data dodání</option>
+                      <option value="order">Data objednávky</option><option value="delivered">Data dodanie</option>
                     </select>
                   </td>
                   <td style={{ ...styles.td, padding: 5 }}>
-                    <select style={styles.input} value={s.defaultCurrency || 'CZK'} onChange={e => update(s.id, { defaultCurrency: e.target.value })} disabled={readOnly}>
-                      <option value="CZK">CZK</option><option value="EUR">EUR</option>
+                    <select style={styles.input} value={s.defaultCurrency || 'EUR'} onChange={e => update(s.id, { defaultCurrency: e.target.value })} disabled={readOnly}>
+                      <option value="EUR">EUR</option><option value="CZK">CZK</option>
                     </select>
                   </td>
                   <td style={{ ...styles.td, padding: 5 }}><input style={styles.input} value={s.contact || ''} onChange={e => update(s.id, { contact: e.target.value })} disabled={readOnly} /></td>
@@ -10459,19 +10587,19 @@ function SupplierModal({ suppliers, readOnly, onSave, onClose }) {
                           <button
                             onClick={() => remove(s.id)}
                             style={{ ...styles.iconBtn, color: '#dc2626', background: '#fee2e2', border: '1px solid #fca5a5' }}
-                            title="Potvrdit smazání"
+                            title="Potvrdiť vymazanie"
                           ><Trash2 size={14} /></button>
                           <button
                             onClick={() => setConfirmDeleteId(null)}
                             style={{ ...styles.iconBtn, color: '#64748b' }}
-                            title="Zrušit"
+                            title="Zrušiť"
                           ><X size={14} /></button>
                         </div>
                       ) : (
                         <button
                           style={styles.iconBtn}
                           onClick={() => setConfirmDeleteId(s.id)}
-                          title="Smazat dodavatele"
+                          title="Vymazať dodávateľa"
                         ><Trash2 size={14} /></button>
                       )}
                     </td>
@@ -10483,8 +10611,8 @@ function SupplierModal({ suppliers, readOnly, onSave, onClose }) {
         </div>
       )}
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavřít' : 'Zrušit'}</button>
-        {!readOnly && <button style={styles.primaryBtn} onClick={submit}>Uložit</button>}
+        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavrieť' : 'Zrušiť'}</button>
+        {!readOnly && <button style={styles.primaryBtn} onClick={submit}>Uložiť</button>}
       </div>
     </Modal>
   );
@@ -10503,7 +10631,7 @@ function CatalogModal({ catalog, suppliers, readOnly, onSave, onClose, onOpenSup
 
   const addItem = (supplierId) => {
     const sup = suppliers.find(s => s.id === supplierId);
-    setList([...list, { id: uid('cat'), supplierId, name: '', unit: 'pcs', unitPrice: 0, currency: sup?.defaultCurrency || 'CZK' }]);
+    setList([...list, { id: uid('cat'), supplierId, name: '', unit: 'pcs', unitPrice: 0, currency: sup?.defaultCurrency || 'EUR' }]);
     setExpanded(s => new Set([...s, supplierId]));
   };
   const update = (id, patch) => setList(list.map(c => c.id === id ? { ...c, ...patch } : c));
@@ -10511,23 +10639,23 @@ function CatalogModal({ catalog, suppliers, readOnly, onSave, onClose, onOpenSup
   const toggleGroup = (sid) => { const next = new Set(expanded); if (next.has(sid)) next.delete(sid); else next.add(sid); setExpanded(next); };
   const submit = () => onSave(list.filter(c => c.name.trim() && c.supplierId).map(c => ({
     ...c, name: c.name.trim(), unit: (c.unit || 'pcs').trim(),
-    unitPrice: parseFloat(c.unitPrice) || 0, currency: c.currency || 'CZK',
+    unitPrice: parseFloat(c.unitPrice) || 0, currency: c.currency || 'EUR',
   })));
 
   if (suppliers.length === 0) {
     return (
       <Modal title="Katalog" onClose={onClose} maxWidth={500}>
         <div style={{ padding: 24, textAlign: 'center', color: '#64748b' }}>
-          <p>Nejprve potřebujete alespoň jednoho dodavatele.</p>
-          <button style={styles.primaryBtn} onClick={onOpenSuppliers}><Users size={15} /> Otevřít dodavatele</button>
+          <p>Nejprve potrebujete aspoň jedného dodávateľa.</p>
+          <button style={styles.primaryBtn} onClick={onOpenSuppliers}><Users size={15} /> Otvoriť dodávateľa</button>
         </div>
-        <div style={styles.modalActions}><button style={styles.secondaryBtn} onClick={onClose}>Zavřít</button></div>
+        <div style={styles.modalActions}><button style={styles.secondaryBtn} onClick={onClose}>Zavrieť</button></div>
       </Modal>
     );
   }
 
   return (
-    <Modal title="Katalog materiálu dodavatele" onClose={onClose} maxWidth={860}>
+    <Modal title="Katalog materiálu dodávateľa" onClose={onClose} maxWidth={860}>
       <p style={{ color: '#64748b', fontSize: 14, margin: '0 0 12px' }}>
         Reusable item cards per supplier. Editing the price here updates linked items on all projects automatically.
       </p>
@@ -10542,19 +10670,19 @@ function CatalogModal({ catalog, suppliers, readOnly, onSave, onClose, onOpenSup
                   <span style={{ fontWeight: 700 }}>{supplier.name}</span>
                   <span style={{ fontSize: 12, color: '#64748b' }}>{items.length} item{items.length !== 1 ? 's' : ''}</span>
                 </div>
-                <button style={styles.sortBtn} onClick={(e) => { e.stopPropagation(); addItem(supplier.id); }} disabled={readOnly} hidden={readOnly}><Plus size={11} /> Přidat</button>
+                <button style={styles.sortBtn} onClick={(e) => { e.stopPropagation(); addItem(supplier.id); }} disabled={readOnly} hidden={readOnly}><Plus size={11} /> Pridať</button>
               </div>
               {isOpen && (
                 <div style={{ padding: '4px 0', borderTop: '1px solid #e2e8f0' }}>
                   {items.length === 0 ? (
-                    <div style={{ padding: 14, fontSize: 13, color: '#94a3b8', textAlign: 'center' }}>Zatím žádné katalogové položky.</div>
+                    <div style={{ padding: 14, fontSize: 13, color: '#94a3b8', textAlign: 'center' }}>Zatiaľ žiadne katalogové položky.</div>
                   ) : (
                     <table style={{ ...styles.table, fontSize: 13 }}>
                       <thead><tr>
-                        <th style={{ ...styles.th, padding: '8px 10px' }}>Název {!readOnly && '*'}</th>
+                        <th style={{ ...styles.th, padding: '8px 10px' }}>Názov {!readOnly && '*'}</th>
                         <th style={{ ...styles.th, padding: '8px 10px', width: 110 }}>Jednotka</th>
                         <th style={{ ...styles.th, padding: '8px 10px', width: 130, textAlign: 'right' }}>Jednotková cena {!readOnly && '*'}</th>
-                        <th style={{ ...styles.th, padding: '8px 10px', width: 80 }}>Měna</th>
+                        <th style={{ ...styles.th, padding: '8px 10px', width: 80 }}>Mena</th>
                         {!readOnly && <th style={{ ...styles.th, padding: '8px 10px', width: 40 }}></th>}
                       </tr></thead>
                       <tbody>
@@ -10572,8 +10700,8 @@ function CatalogModal({ catalog, suppliers, readOnly, onSave, onClose, onOpenSup
                               <input type="number" step="0.01" style={{ ...styles.input, textAlign: 'right' }} value={c.unitPrice} onChange={e => update(c.id, { unitPrice: e.target.value })} disabled={readOnly} />
                             </td>
                             <td style={{ ...styles.td, padding: 5 }}>
-                              <select style={styles.input} value={c.currency || 'CZK'} onChange={e => update(c.id, { currency: e.target.value })} disabled={readOnly}>
-                                <option value="CZK">CZK</option><option value="EUR">EUR</option>
+                              <select style={styles.input} value={c.currency || 'EUR'} onChange={e => update(c.id, { currency: e.target.value })} disabled={readOnly}>
+                                <option value="EUR">EUR</option><option value="CZK">CZK</option>
                               </select>
                             </td>
                             {!readOnly && <td style={{ ...styles.td, padding: 5, textAlign: 'center' }}><button style={styles.iconBtn} onClick={() => remove(c.id)}><Trash2 size={14} /></button></td>}
@@ -10589,8 +10717,8 @@ function CatalogModal({ catalog, suppliers, readOnly, onSave, onClose, onOpenSup
         })}
       </div>
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavřít' : 'Zrušit'}</button>
-        {!readOnly && <button style={styles.primaryBtn} onClick={submit}>Uložit katalog</button>}
+        <button style={styles.secondaryBtn} onClick={onClose}>{readOnly ? 'Zavrieť' : 'Zrušiť'}</button>
+        {!readOnly && <button style={styles.primaryBtn} onClick={submit}>Uložiť katalog</button>}
       </div>
     </Modal>
   );
@@ -10629,15 +10757,15 @@ async function savePdfToDb(id, filename, base64) {
   });
 }
 
-// Vytvořit hezký název souboru pro PDF přílohu: [dodavatel]_[cislo].pdf
-// Sanitizace: nahradit diakritiku a znaky nepovolené v názvech souborů
+// Vytvoriť pekný názov súbore pre PDF prílohu: [dodávateľ]_[cislo].pdf
+// Sanitizace: nahradiť diakritiku a znaky nepovolené v názvoch súborov
 function buildFilename(att) {
   const sanitize = (s) => (s || '')
     .toString()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // diakritika
     .replace(/[<>:"/\\|?*]+/g, '')                     // zakázané znaky ve Windows/Unix
     .replace(/\s+/g, '_')                              // mezery → _
-    .replace(/[^A-Za-z0-9_\-\.]/g, '')                 // jen ASCII alfanum + _-.
+    .replace(/[^A-Za-z0-9_\-\.]/g, '')                 // len ASCII alfanum + _-.
     .replace(/_+/g, '_')                               // duplicitní _
     .replace(/^_|_$/g, '');                            // trim _
   const supplier = sanitize(att.supplierName);
@@ -10673,7 +10801,55 @@ async function deletePdfFromDb(id) {
   });
 }
 
-// Otevřít PDF v novém tabu (blob URL)
+// Získať všetky PDF záznamy z IndexedDB (pre export zálohy)
+async function getAllPdfsFromDb() {
+  const db = await openPdfDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction([PDF_STORE_NAME], 'readonly');
+    const store = tx.objectStore(PDF_STORE_NAME);
+    const req = store.getAll();
+    req.onsuccess = () => resolve(req.result || []);
+    req.onerror = () => reject(req.error);
+  });
+}
+
+// Import celej sady PDF záznamov do IndexedDB (obnova zo zálohy)
+// mode: 'overwrite' prepíše existujúce, 'skip' preskočí existujúce
+// Vracia { imported, skipped }
+async function importPdfsToDb(records, mode = 'overwrite') {
+  const db = await openPdfDB();
+  let imported = 0;
+  let skipped = 0;
+  for (const r of records) {
+    if (!r.id || !r.base64) { skipped++; continue; }
+    if (mode === 'skip') {
+      const existing = await new Promise((res, rej) => {
+        const tx = db.transaction([PDF_STORE_NAME], 'readonly');
+        const store = tx.objectStore(PDF_STORE_NAME);
+        const req = store.get(r.id);
+        req.onsuccess = () => res(req.result);
+        req.onerror = () => rej(req.error);
+      });
+      if (existing) { skipped++; continue; }
+    }
+    await new Promise((res, rej) => {
+      const tx = db.transaction([PDF_STORE_NAME], 'readwrite');
+      const store = tx.objectStore(PDF_STORE_NAME);
+      const req = store.put({
+        id: r.id,
+        filename: r.filename || 'imported.pdf',
+        base64: r.base64,
+        savedAt: r.savedAt || new Date().toISOString(),
+      });
+      req.onsuccess = () => res();
+      req.onerror = () => rej(req.error);
+    });
+    imported++;
+  }
+  return { imported, skipped };
+}
+
+// Otvoriť PDF v novém tabu (blob URL)
 async function openPdfInNewTab(id) {
   const record = await getPdfFromDb(id);
   if (!record) throw new Error('PDF nenalezeno v databázi');
@@ -10681,7 +10857,7 @@ async function openPdfInNewTab(id) {
   const bytes = Uint8Array.from(atob(record.base64), c => c.charCodeAt(0));
   const blob = new Blob([bytes], { type: 'application/pdf' });
   const url = URL.createObjectURL(blob);
-  // Použít <a> místo window.open aby fungovalo i s blokátory pop-upů
+  // Použiť <a> namiesto window.open aby fungovalo i s blokátory pop-upov
   const a = document.createElement('a');
   a.href = url;
   a.target = '_blank';
@@ -10689,7 +10865,7 @@ async function openPdfInNewTab(id) {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  // Vyčistit URL po 60 s (po otevření je již držen prohlížečem)
+  // Vyčistit URL po 60 s (po otvorenie je již držen prohlížečem)
   setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
@@ -10699,7 +10875,7 @@ function fileToBase64(file) {
     const reader = new FileReader();
     reader.onload = () => {
       const result = reader.result;
-      // Odstraníme "data:application/pdf;base64,"
+      // Odstránime "data:application/pdf;base64,"
       const commaIdx = result.indexOf(',');
       resolve(commaIdx >= 0 ? result.slice(commaIdx + 1) : result);
     };
@@ -10709,49 +10885,49 @@ function fileToBase64(file) {
 }
 
 // ==========================================================================
-// Claude API — extrakce položek z PDF faktury / objednávky
+// Claude API — extrakce položek z PDF faktúry / objednávky
 // ==========================================================================
 
 async function extractPdfWithClaude(pdfBase64, apiKey, model = 'claude-sonnet-4-5', categoriesHint = []) {
   if (!apiKey) throw new Error('Není nastaven Anthropic API klíč. Doplňte ho v Nastavení.');
 
   const categoriesGuide = categoriesHint.length > 0
-    ? `\n\nDoporučené kategorie (přiřaď každé položce jednu z nich podle jejího názvu, jinak nech prázdné):\n${categoriesHint.map(c => `- ${c.id}: ${c.name}`).join('\n')}`
+    ? `\n\nDoporučené kategórie (prirad každé položce jednu z nich podľa jejího názvu, inak nech prázdne):\n${categoriesHint.map(c => `- ${c.id}: ${c.name}`).join('\n')}`
     : '';
 
-  const prompt = `Jsi asistent pro extrakci dat z českých fakturačních dokumentů (faktury, objednávky, nabídky) v oblasti fotovoltaiky.
+  const prompt = `Jsi asistent pre extrakci dat z českých fakturačních dokumentov (faktúry, objednávky, ponuky) v oblasti fotovoltaiky.
 
-Prostuduj přiložený PDF dokument a extrahuj VŠECHNY položky materiálu / služeb.
+Prostuduj priložený PDF dokument a extrahuj VŠETKY položky materiálu / služeb.
 
-Vrať POUZE validní JSON (žádný komentář, žádné \`\`\` bloky) v tomto formátu:
+Vrať IBA validní JSON (žiadny komentár, žiadne \`\`\` bloky) v tomto formátu:
 {
-  "supplier": "název dodavatele",
-  "supplierIco": "IČO dodavatele nebo prázdné",
-  "orderNumber": "číslo faktury/objednávky",
-  "issueDate": "datum vystavení ISO YYYY-MM-DD nebo prázdné",
-  "dueDate": "datum splatnosti ISO YYYY-MM-DD nebo prázdné",
-  "currency": "CZK nebo EUR",
+  "supplier": "názov dodávateľa",
+  "supplierIco": "IČO dodávateľa alebo prázdne",
+  "orderNumber": "číslo faktúry/objednávky",
+  "issueDate": "dátum vystavení ISO YYYY-MM-DD alebo prázdne",
+  "dueDate": "dátum splatnosti ISO YYYY-MM-DD alebo prázdne",
+  "currency": "CZK alebo EUR",
   "items": [
     {
-      "name": "název položky",
-      "quantity": číslo (množství),
+      "name": "názov položky",
+      "quantity": číslo (množstvo),
       "unit": "jednotka (ks, m, kg, ...)",
       "unitPrice": číslo (jednotková cena BEZ DPH),
-      "notes": "volitelná poznámka",
-      "category": "id kategorie z nabídnutého seznamu, nebo prázdné"
+      "notes": "voliteľná poznámka",
+      "category": "id kategórie z nabídnutého zozname, alebo prázdne"
     }
   ],
-  "totalWithoutVat": číslo (celkem bez DPH),
-  "vatRate": číslo (sazba DPH, obvykle 0, 12 nebo 21),
-  "totalWithVat": číslo (celkem s DPH)
+  "totalWithoutVat": číslo (spolu bez DPH),
+  "vatRate": číslo (sadzba DPH, obvykle 0, 12 alebo 21),
+  "totalWithVat": číslo (spolu s DPH)
 }
 
 Pravidla:
-- Ceny bez DPH (aplikace přidává DPH sama v cash flow)
-- Pokud PDF obsahuje cenu s DPH i bez DPH, vezmi cenu BEZ DPH
-- Množství přesně jak je uvedeno v dokumentu (např. 22 ks kabelu = 22, ne délka)
-- Vynech řádky "Celkem", "Součet", "Doprava zdarma" pokud nejsou samostatnými položkami
-- Poznámky (např. rozměry, barva) dej do "notes"${categoriesGuide}`;
+- Ceny bez DPH (aplikácia pridáva DPH sama v cash flow)
+- Ak PDF obsahuje cenu s DPH i bez DPH, vezmi cenu BEZ DPH
+- Množstvo presne ako je uvedeno v dokumentu (napr. 22 ks kabelu = 22, ne délka)
+- Vynech riadky "Spolu", "Súčet", "Doprava zdarma" ak nie sú samostatnými položkami
+- Poznámky (napr. rozmery, barva) dej do "notes"${categoriesGuide}`;
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -10793,9 +10969,9 @@ Pravidla:
 
   const data = await response.json();
   const textBlock = data.content?.find(b => b.type === 'text');
-  if (!textBlock) throw new Error('Odpověď API neobsahuje text.');
+  if (!textBlock) throw new Error('Odpoveď API neobsahuje text.');
 
-  // Robustně vytáhnout JSON (pro případ, že Claude vrátí i markdown)
+  // Robustne vytiahnuť JSON (pre prípad, že Claude vrátí i markdown)
   let jsonText = textBlock.text.trim();
   jsonText = jsonText.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '');
   const firstBrace = jsonText.indexOf('{');
@@ -10807,22 +10983,22 @@ Pravidla:
   try {
     return JSON.parse(jsonText);
   } catch (e) {
-    throw new Error('Odpověď AI se nepodařilo naparsovat jako JSON. Text: ' + textBlock.text.slice(0, 200));
+    throw new Error('Odpoveď AI sa nepodarilo naparsovať ako JSON. Text: ' + textBlock.text.slice(0, 200));
   }
 }
 
 // ==========================================================================
-// Export Skladu do Excelu (.xlsx) — dva listy: Přehled kusů + Pohyby
+// Export Sklade do Excelu (.xlsx) — dva listy: Prehľad kusov + Pohyby
 // ==========================================================================
 
 async function exportStockToExcel({ stockItems, stockMovements, locations, categories, projects, suppliers }) {
   if (!stockItems || stockItems.length === 0) {
-    alert('Sklad je prázdný — není co exportovat.');
+    alert('Sklad je prázdny — nie je co exportovať.');
     return;
   }
   try {
     const XLSX = await loadXLSX();
-    const today = new Date().toLocaleDateString('cs-CZ');
+    const today = new Date().toLocaleDateString('sk-SK');
     const todayStr = todayISO();
 
     const findName = (arr, id) => arr.find(x => x.id === id)?.name || '';
@@ -10831,19 +11007,19 @@ async function exportStockToExcel({ stockItems, stockMovements, locations, categ
       return p ? (p.client ? `${p.name} · ${p.client}` : p.name) : '';
     };
 
-    // ========== LIST 1: Přehled kusů ==========
+    // ========== LIST 1: Prehľad kusov ==========
     const itemsRows = [
-      ['Přehled skladu — Electree Solar'],
-      [`Vygenerováno: ${today}`],
-      [`Celkem kusů: ${stockItems.length} · dostupných: ${stockItems.filter(s => s.status !== 'consumed').length} · spotřebováno: ${stockItems.filter(s => s.status === 'consumed').length}`],
+      ['Prehľad sklade — Electree Solar'],
+      [`Vygenerované: ${today}`],
+      [`Spolu kusov: ${stockItems.length} · dostupných: ${stockItems.filter(s => s.status !== 'consumed').length} · spotrebované: ${stockItems.filter(s => s.status === 'consumed').length}`],
       [],
     ];
 
     // Hlavička
     itemsRows.push([
-      'Stav', 'Položka', 'Kategorie', 'Sériové číslo', 'Lokace',
-      'Zdrojový projekt', 'Cílový projekt', 'Objednávka', 'Dodavatel',
-      'Nákupní cena (Kč)', 'Naskladněno', 'Záruka do', 'Poznámka',
+      'Stav', 'Položka', 'Kategórie', 'Sériové číslo', 'Lokalita',
+      'Zdrojový projekt', 'Cílový projekt', 'Objednávka', 'Dodávateľ',
+      'Nákupný cena (EUR)', 'Naskladnené', 'Záruka do', 'Poznámka',
     ]);
 
     stockItems.forEach(s => {
@@ -10852,8 +11028,8 @@ async function exportStockToExcel({ stockItems, stockMovements, locations, categ
       const sup = s.supplierId ? suppliers.find(x => x.id === s.supplierId) : null;
       const warrantyDays = s.warrantyUntil ? daysBetween(s.warrantyUntil, todayStr) : null;
       let statusLabel;
-      if (s.status === 'consumed') statusLabel = 'Spotřebováno';
-      else if (warrantyDays !== null && warrantyDays < 0) statusLabel = 'Prošlá záruka';
+      if (s.status === 'consumed') statusLabel = 'Spotrebované';
+      else if (warrantyDays !== null && warrantyDays < 0) statusLabel = 'Po platnosti záruka';
       else if (warrantyDays !== null && warrantyDays <= 90) statusLabel = 'Záruka končí';
       else statusLabel = 'Dostupné';
 
@@ -10867,7 +11043,7 @@ async function exportStockToExcel({ stockItems, stockMovements, locations, categ
         findProject(s.consumedToProjectId),
         s.orderNumber || '',
         sup?.name || s.supplierName || '',
-        parseFloat(s.purchasePriceCZK) || 0,
+        parseFloat(s.purchasePriceEUR) || 0,
         s.receivedDate || '',
         s.warrantyUntil || '',
         s.notes || '',
@@ -10875,63 +11051,63 @@ async function exportStockToExcel({ stockItems, stockMovements, locations, categ
     });
 
     const itemsSheet = XLSX.utils.aoa_to_sheet(itemsRows);
-    // Šířky sloupců
+    // Šírky stĺpcov
     itemsSheet['!cols'] = [
       { wch: 14 }, // Stav
       { wch: 32 }, // Položka
-      { wch: 16 }, // Kategorie
+      { wch: 16 }, // Kategórie
       { wch: 18 }, // S/N
-      { wch: 20 }, // Lokace
+      { wch: 20 }, // Lokalita
       { wch: 26 }, // Zdroj proj
       { wch: 26 }, // Cíl proj
       { wch: 16 }, // Obj
-      { wch: 22 }, // Dodavatel
+      { wch: 22 }, // Dodávateľ
       { wch: 14 }, // Cena
-      { wch: 12 }, // Naskladněno
+      { wch: 12 }, // Naskladnené
       { wch: 12 }, // Záruka
       { wch: 24 }, // Poznámka
     ];
 
     // ========== LIST 2: Pohyby ==========
     const movementsRows = [
-      ['Pohyby skladu — Electree Solar'],
-      [`Vygenerováno: ${today}`],
-      [`Celkem pohybů: ${stockMovements?.length || 0}`],
+      ['Pohyby sklade — Electree Solar'],
+      [`Vygenerované: ${today}`],
+      [`Spolu pohybov: ${stockMovements?.length || 0}`],
       [],
     ];
 
     movementsRows.push([
-      'Datum', 'Typ', 'Položka', 'Kategorie', 'Množství', 'Částka (Kč)',
-      'Z lokace', 'Do lokace', 'Projekt', 'Uživatel', 'Poznámka',
+      'Dátum', 'Typ', 'Položka', 'Kategórie', 'Množstvo', 'Suma (EUR)',
+      'Z lokalita', 'Do lokalita', 'Projekt', 'Používateľ', 'Poznámka',
     ]);
 
     const typeLabels = {
-      receive: 'Naskladnění',
-      transfer: 'Přesun',
-      consume: 'Spotřeba',
+      receive: 'Naskladnenie',
+      transfer: 'Presun',
+      consume: 'Spotreba',
       adjustment: 'Úprava',
-      return: 'Vrácení',
-      delete: 'Smazání',
+      return: 'Vrátenie',
+      delete: 'Vymazanie',
     };
 
-    // Seřadit pohyby sestupně dle data
+    // Zoradiť pohyby zostupne dle data
     const sortedMovements = [...(stockMovements || [])].sort((a, b) =>
       (b.date || '').localeCompare(a.date || '')
     );
 
     sortedMovements.forEach(m => {
-      // Najít položku (může být již smazaná)
+      // Nájsť položku (môže byť již vymazaná)
       const item = stockItems.find(s => s.id === m.stockItemId);
       const cat = item ? categories.find(c => c.id === item.category) : null;
       const fromLoc = m.fromLocationId ? findName(locations, m.fromLocationId) : '';
       const toLoc = m.toLocationId ? findName(locations, m.toLocationId) : '';
       const proj = m.projectId ? findProject(m.projectId) : '';
-      const amount = m.amountCZK != null ? m.amountCZK : (item ? parseFloat(item.purchasePriceCZK) || 0 : 0);
+      const amount = m.amountEUR != null ? m.amountEUR : (item ? parseFloat(item.purchasePriceEUR) || 0 : 0);
 
       movementsRows.push([
         m.date || '',
         typeLabels[m.type] || m.type,
-        item?.name || m.itemName || '(smazaná položka)',
+        item?.name || m.itemName || '(vymazaná položka)',
         cat?.name || '',
         m.quantity || 1,
         amount || '',
@@ -10945,32 +11121,32 @@ async function exportStockToExcel({ stockItems, stockMovements, locations, categ
 
     const movementsSheet = XLSX.utils.aoa_to_sheet(movementsRows);
     movementsSheet['!cols'] = [
-      { wch: 12 }, // Datum
+      { wch: 12 }, // Dátum
       { wch: 14 }, // Typ
       { wch: 32 }, // Položka
-      { wch: 16 }, // Kategorie
-      { wch: 10 }, // Množství
-      { wch: 14 }, // Částka
-      { wch: 20 }, // Z lokace
-      { wch: 20 }, // Do lokace
+      { wch: 16 }, // Kategórie
+      { wch: 10 }, // Množstvo
+      { wch: 14 }, // Suma
+      { wch: 20 }, // Z lokalita
+      { wch: 20 }, // Do lokalita
       { wch: 26 }, // Projekt
-      { wch: 16 }, // Uživatel
+      { wch: 16 }, // Používateľ
       { wch: 24 }, // Poznámka
     ];
 
     // ========== Sestavit workbook ==========
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, itemsSheet, 'Přehled kusů');
+    XLSX.utils.book_append_sheet(wb, itemsSheet, 'Prehľad kusov');
     XLSX.utils.book_append_sheet(wb, movementsSheet, 'Pohyby');
 
     XLSX.writeFile(wb, `Sklad_Electree_${todayStr}.xlsx`);
   } catch (e) {
     console.error(e);
-    alert('Chyba při exportu skladu do Excelu: ' + (e.message || e));
+    alert('Chyba pri exportu sklade do Excelu: ' + (e.message || e));
   }
 }
 
-// Lazy loader pro JSZip — načte se z CDN při prvním použití
+// Lazy loader pre JSZip — načíta sa z CDN pri prvom použitie
 let _jszipPromise = null;
 function loadJSZip() {
   if (typeof window !== 'undefined' && window.JSZip) return Promise.resolve(window.JSZip);
@@ -10979,7 +11155,7 @@ function loadJSZip() {
     const existing = document.querySelector('script[data-jszip-loader]');
     if (existing) {
       existing.addEventListener('load', () => resolve(window.JSZip));
-      existing.addEventListener('error', () => reject(new Error('Nepodařilo se načíst JSZip knihovnu z CDN.')));
+      existing.addEventListener('error', () => reject(new Error('Nepodarilo sa načítať JSZip knihovnu z CDN.')));
       return;
     }
     const script = document.createElement('script');
@@ -10988,16 +11164,16 @@ function loadJSZip() {
     script.dataset.jszipLoader = '1';
     script.onload = () => {
       if (window.JSZip) resolve(window.JSZip);
-      else reject(new Error('JSZip načteno, ale window.JSZip není dostupné.'));
+      else reject(new Error('JSZip načítané, ale window.JSZip nie je dostupné.'));
     };
-    script.onerror = () => reject(new Error('Nepodařilo se načíst JSZip knihovnu z CDN.'));
+    script.onerror = () => reject(new Error('Nepodarilo sa načítať JSZip knihovnu z CDN.'));
     document.head.appendChild(script);
   });
   return _jszipPromise;
 }
 
-// Lazy loader pro SheetJS (xlsx) — načte UMD bundle z CDN při prvním použití.
-// Funguje v artifact prostředí i na Vercelu (jako fallback k npm import).
+// Lazy loader pre SheetJS (xlsx) — načíta UMD bundle z CDN pri prvom použitie.
+// Funguje v artifact prostredie i na Vercelu (ako fallback k npm import).
 let _xlsxPromise = null;
 function loadXLSX() {
   if (typeof window !== 'undefined' && window.XLSX) return Promise.resolve(window.XLSX);
@@ -11006,7 +11182,7 @@ function loadXLSX() {
     const existing = document.querySelector('script[data-xlsx-loader]');
     if (existing) {
       existing.addEventListener('load', () => resolve(window.XLSX));
-      existing.addEventListener('error', () => reject(new Error('Nepodařilo se načíst SheetJS knihovnu z CDN.')));
+      existing.addEventListener('error', () => reject(new Error('Nepodarilo sa načítať SheetJS knihovnu z CDN.')));
       return;
     }
     const script = document.createElement('script');
@@ -11015,34 +11191,34 @@ function loadXLSX() {
     script.dataset.xlsxLoader = '1';
     script.onload = () => {
       if (window.XLSX) resolve(window.XLSX);
-      else reject(new Error('SheetJS načteno, ale window.XLSX není dostupné.'));
+      else reject(new Error('SheetJS načítané, ale window.XLSX nie je dostupné.'));
     };
-    script.onerror = () => reject(new Error('Nepodařilo se načíst SheetJS knihovnu z CDN.'));
+    script.onerror = () => reject(new Error('Nepodarilo sa načítať SheetJS knihovnu z CDN.'));
     document.head.appendChild(script);
   });
   return _xlsxPromise;
 }
 
 // ==========================================================================
-// Fuzzy match — algoritmus pro párování položek z importu s nákupním seznamem
+// Fuzzy match — algoritmus pre párovanie položek z importu s nákupnom zoznamom
 // ==========================================================================
 
 function fuzzyMatchScore(importRow, planItem, sameSupplier) {
   let score = 0;
   const reasons = [];
 
-  // 1) Shoda názvu (40%)
+  // 1) Zhoda názvu (40%)
   const importName = normalizeForSearch(importRow.name || '');
   const planName = normalizeForSearch(planItem.name || '');
   if (importName && planName) {
     if (importName === planName) {
       score += 40;
-      reasons.push('název přesně');
+      reasons.push('názov presne');
     } else if (importName.includes(planName) || planName.includes(importName)) {
       score += 30;
-      reasons.push('název obsahuje');
+      reasons.push('názov obsahuje');
     } else {
-      // Tokenized match - alespoň jedno významné slovo (>3 znaky)
+      // Tokenized match - aspoň jedno významné slovo (>3 znaky)
       const importTokens = importName.split(/\s+/).filter(t => t.length > 3);
       const planTokens = planName.split(/\s+/).filter(t => t.length > 3);
       const common = importTokens.filter(t => planTokens.some(p => p.includes(t) || t.includes(p)));
@@ -11050,55 +11226,55 @@ function fuzzyMatchScore(importRow, planItem, sameSupplier) {
         const ratio = common.length / Math.max(importTokens.length, planTokens.length);
         const gained = Math.round(20 * ratio);
         score += gained;
-        if (gained >= 10) reasons.push('podobný název');
+        if (gained >= 10) reasons.push('podobný názov');
       }
     }
   }
 
-  // 2) Shoda množství (20%)
+  // 2) Zhoda množstvo (20%)
   const importQty = parseFloat(importRow.quantity) || 0;
   const planQty = parseFloat(planItem.quantity) || 0;
   if (importQty > 0 && planQty > 0) {
     if (importQty === planQty) {
       score += 20;
-      reasons.push('stejné množství');
+      reasons.push('rovnaké množstvo');
     } else {
       const ratio = Math.min(importQty, planQty) / Math.max(importQty, planQty);
-      if (ratio >= 0.95) { score += 18; reasons.push('téměř stejné množství'); }
-      else if (ratio >= 0.8) { score += 10; reasons.push('podobné množství'); }
+      if (ratio >= 0.95) { score += 18; reasons.push('takmer rovnaké množstvo'); }
+      else if (ratio >= 0.8) { score += 10; reasons.push('podobné množstvo'); }
       else if (ratio >= 0.5) { score += 4; }
     }
   }
 
-  // 3) Shoda ceny (15%)
+  // 3) Zhoda ceny (15%)
   const importPrice = parseFloat(importRow.unitPrice) || 0;
   const planPrice = parseFloat(planItem.unitPrice) || 0;
   if (importPrice > 0 && planPrice > 0) {
     const ratio = Math.min(importPrice, planPrice) / Math.max(importPrice, planPrice);
-    if (ratio >= 0.95) { score += 15; reasons.push('téměř stejná cena'); }
+    if (ratio >= 0.95) { score += 15; reasons.push('takmer rovnaká cena'); }
     else if (ratio >= 0.85) { score += 10; reasons.push('podobná cena'); }
     else if (ratio >= 0.7) { score += 5; }
   }
 
-  // 4) Shoda kategorie (15%)
+  // 4) Zhoda kategórie (15%)
   if (importRow.category && planItem.category && importRow.category === planItem.category) {
     score += 15;
-    reasons.push('stejná kategorie');
+    reasons.push('rovnaká kategórie');
   }
 
-  // 5) Stejný dodavatel (10%)
+  // 5) Rovnaký dodávateľ (10%)
   if (sameSupplier) {
     score += 10;
-    reasons.push('stejný dodavatel');
+    reasons.push('rovnaký dodávateľ');
   }
 
   return { score: Math.min(100, score), reasons };
 }
 
 function suggestMatches(importRow, planItems, supplierId) {
-  // Vrací top 3 nejlepších návrhů pro tento řádek z importu
+  // Vrací top 3 nejlepších návrhov pre tento riadok z importu
   const scored = planItems
-    .filter(p => (p.status || 'planned') === 'planned')  // jen plánované, nikoli již objednané
+    .filter(p => (p.status || 'planned') === 'planned')  // len plánované, nikoli již objednané
     .map(p => {
       const sameSupplier = supplierId && p.supplierId === supplierId;
       const { score, reasons } = fuzzyMatchScore(importRow, p, sameSupplier);
@@ -11111,8 +11287,8 @@ function suggestMatches(importRow, planItems, supplierId) {
 }
 
 // ==========================================================================
-// Automatická detekce kategorie podle názvu položky
-// (používá se při importu z Excelu/CSV do projektu)
+// Automatická detekce kategórie podľa názvu položky
+// (používa sa pri importu z Excelu/CSV do projektu)
 // ==========================================================================
 
 function guessCategoryByName(itemName, categories) {
@@ -11120,51 +11296,51 @@ function guessCategoryByName(itemName, categories) {
   const n = normalizeForSearch(itemName);
   if (!n) return categories[0]?.id || '';
 
-  // POŘADÍ JE DŮLEŽITÉ — specifičtější patterny napřed.
-  // "FVE" a "Solax" jsou výrobci/zkratky, neimplikují kategorii samy o sobě,
-  // proto je řešíme až mezi posledními.
+  // PORADIE JE DÔLEŽITÉ — špecifickejší patterny napred.
+  // "FVE" a "Solax" sú výrobci/zkratky, neimplikují kategóriu samy o sebe,
+  // preto je riešime až medzi posledními.
   const patterns = [
-    // Práce — speciální klíčová slova
+    // Práca — speciální klíčová slova
     { regex: /montazn[ií]\s*pr[áa]c|kompletn[ií]\s*montaz|instalacn[ií]\s*pr[áa]c|^pr[áa]ce\b/i, cat: 'labor' },
 
-    // Subdodavatelé a služby
+    // Subdodávatelia a služby
     { regex: /projekt\w*\s*dokumentac|revizn|žadost|zadost|distribuc|sop\s|ppp|stavebn[ií]\s*povolen[ií]/i, cat: 'subcontractor' },
 
-    // Doprava → ostatní materiál
+    // Doprava → ostatný materiál
     { regex: /^doprava\b|preprav|manipulac/i, cat: 'other_material' },
 
-    // Wallbox a nabíječky → ostatní
+    // Wallbox a nabíječky → ostatné
     { regex: /wallbox|nabij[ée]/i, cat: 'other_material' },
 
-    // Monitoring a chytré řízení
+    // Monitoring a chytré riadenie
     { regex: /monitor|chytr[éy]\s*r[ií]zen|chytr[éy]\s*regulac|nord|gsm|wifi|emanager|optimaliz/i, cat: 'monitoring' },
 
-    // Konstrukce — dříve než "panel"
+    // Konštrukcia — skôr než "panel"
     { regex: /konstrukc|nosn[áa]\s*soust|rail|montaz(ni)?\s*system/i, cat: 'mounting' },
 
-    // Baterie / úložiště — důležité dát před invertery (může být "Baterie Solax")
-    { regex: /baterie|uloz|battery|accum|akumul/i, cat: 'batteries' },
+    // Batérie / úložisko — dôležité dát pred invertery (môže byť "Batérie Solax")
+    { regex: /batérie|uloz|battery|accum|akumul/i, cat: 'batteries' },
 
-    // Elektroinstalace — rozvaděče, jističe, SPD, odpojovače
+    // Elektroinštalácia — rozvádzače, jističe, SPD, odpojovače
     { regex: /rozvad|jistic|svodic|prepet|spd\b|rss\b|stop\s*tlac|odpoj/i, cat: 'electrical' },
 
-    // Kabely
-    { regex: /kabel|kabelaz|trasy|elektro\s*trasy/i, cat: 'cables' },
+    // Káble
+    { regex: /kábel|kabelaz|trasy|elektro\s*trasy/i, cat: 'cables' },
 
-    // Měniče — "střídač", "měnič", "invertor"
+    // Meniče — "striedač", "menič", "invertor"
     { regex: /stridac|stř[ií]dac|menic|m[ěe]nic|invert|hybridn[ií]\s*menic|x3-hyb|x1-hyb/i, cat: 'inverters' },
 
-    // Panely — obecnější, dáváme až sem
+    // Panely — všeobecnejší, dáváme až sem
     { regex: /^panely?\b|fv\s*panely|fotov(oltaick|oltai)/i, cat: 'panels' },
 
-    // Provize
-    { regex: /provize|prodejn[ií]\s*provize/i, cat: 'commission' },
+    // Provízia
+    { regex: /provízia|prodejn[ií]\s*provízia/i, cat: 'commission' },
   ];
 
   for (const p of patterns) {
     if (p.regex.test(n) && categories.find(c => c.id === p.cat)) return p.cat;
   }
-  // Fallback: první materiálová kategorie (ne první v seznamu - ta může být cokoliv)
+  // Fallback: prvý materiálová kategórie (ne prvý v zozname - ta môže byť cokoliv)
   return categories.find(c => c.kind === 'material')?.id || categories[0]?.id || '';
 }
 
@@ -11173,8 +11349,8 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
   const [error, setError] = useState('');
   const [preview, setPreview] = useState(null); // [{ category, name, supplier, quantity, unit, unitPrice, currency, plannedOrderDate, plannedDeliveryDate, notes, _rowKey }]
   const [sourceType, setSourceType] = useState(null); // 'csv' | 'xlsx'
-  const [bulkSupplier, setBulkSupplier] = useState(''); // společný dodavatel pro vše
-  // Výchozí datum objednávky: dnes + 21 dní
+  const [bulkSupplier, setBulkSupplier] = useState(''); // spoločný dodávateľ pre všetko
+  // Predvolený dátum objednávky: dnes + 21 dní
   const [bulkOrderDate, setBulkOrderDate] = useState(() => {
     const d = new Date();
     d.setDate(d.getDate() + 21);
@@ -11189,10 +11365,10 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
     setError(''); setPreview(null); setSourceType('csv');
     try {
       const lines = text.trim().split(/\r?\n/);
-      if (lines.length < 2) throw new Error('Vyžaduje hlavičku + datový řádek.');
+      if (lines.length < 2) throw new Error('Vyžaduje hlavičku + datový riadok.');
       const header = parseCSVLine(lines[0]).map(h => h.trim().toLowerCase());
       const required = ['category', 'name', 'quantity', 'unitprice'];
-      for (const r of required) if (!header.includes(r)) throw new Error(`Chybí sloupec: ${r}`);
+      for (const r of required) if (!header.includes(r)) throw new Error(`Chýba stĺpec: ${r}`);
       const idx = (col) => header.indexOf(col);
       const items = [];
       for (let i = 1; i < lines.length; i++) {
@@ -11201,11 +11377,11 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
         const catName = (row[idx('category')] || '').trim();
         const cat = categories.find(c => c.name.toLowerCase() === catName.toLowerCase() || c.id === catName);
         const itemName = (row[idx('name')] || '').trim();
-        // Pokud sloupec category v CSV chybí nebo má neznámou hodnotu, zkusíme uhodnout z názvu
+        // Ak stĺpec category v CSV chýba alebo má neznámu hodnotu, zkusíme uhádnuť z názvu
         const resolvedCategoryId = cat?.id || guessCategoryByName(itemName, categories);
         const supName = idx('supplier') >= 0 ? (row[idx('supplier')] || '').trim() : '';
         const matchedSup = supName ? suppliers.find(s => s.name.toLowerCase() === supName.toLowerCase()) : null;
-        const currency = (row[idx('currency')] || 'CZK').trim().toUpperCase();
+        const currency = (row[idx('currency')] || 'EUR').trim().toUpperCase();
         const plannedOrder = idx('plannedorderdate') >= 0 ? (row[idx('plannedorderdate')] || '').trim() :
                              idx('purchasedate') >= 0 ? (row[idx('purchasedate')] || '').trim() : '';
         const plannedDelivery = idx('planneddeliverydate') >= 0 ? (row[idx('planneddeliverydate')] || '').trim() : '';
@@ -11217,7 +11393,7 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
           quantity: parseFloat(row[idx('quantity')]) || 0,
           unit: idx('unit') >= 0 ? (row[idx('unit')] || 'pcs').trim() : 'pcs',
           unitPrice: parseFloat(row[idx('unitprice')]) || 0,
-          currency: ['CZK', 'EUR'].includes(currency) ? currency : 'CZK',
+          currency: ['CZK', 'EUR'].includes(currency) ? currency : 'EUR',
           plannedOrderDate: plannedOrder,
           plannedDeliveryDate: plannedDelivery,
           purchaseDate: '', paymentDueDate: '', deliveredDate: '', invoicedDate: '',
@@ -11225,7 +11401,7 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
           notes: idx('notes') >= 0 ? (row[idx('notes')] || '').trim() : '',
         });
       }
-      // Auto-vyplnit výchozí datum objednávky (dnes + 21 dní), pokud položka nemá vlastní
+      // Auto-vyplniť predvolený dátum objednávky (dnes + 21 dní), ak položka nemá vlastný
       const withDefaults = items.map(it => ({
         ...it,
         plannedOrderDate: it.plannedOrderDate || bulkOrderDate,
@@ -11241,27 +11417,27 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
       const XLSX = await loadXLSX();
       const arrayBuffer = await file.arrayBuffer();
       const wb = XLSX.read(arrayBuffer, { type: 'array' });
-      // Najít sheet — typicky "Obchodní případ"
+      // Nájsť sheet — typicky "Obchodní prípad"
       const sheetName = wb.SheetNames.find(n => /obchod/i.test(n)) || wb.SheetNames[0];
       const ws = wb.Sheets[sheetName];
       const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '', raw: false });
 
-      // Najít začátek tabulky produktů — řádek "PRODUKTY"
+      // Nájsť začiatok tabuľky produktov — riadok "PRODUKTY"
       let headerRowIdx = -1;
       for (let i = 0; i < rows.length; i++) {
         const cells = rows[i].map(c => String(c || '').trim().toLowerCase());
         if (cells.includes('produkty')) { headerRowIdx = i + 1; break; }
-        // Alternativně: hledat řádek s "Kód" + "Název" + "Cena"
-        if (cells.includes('kód') && cells.some(c => c.includes('název')) && cells.some(c => c.includes('cena'))) {
+        // Alternatívne: hledat riadok s "Kód" + "Názov" + "Cena"
+        if (cells.includes('kód') && cells.some(c => c.includes('název') || c.includes('názov')) && cells.some(c => c.includes('cena'))) {
           headerRowIdx = i;
           break;
         }
       }
       if (headerRowIdx === -1) {
-        throw new Error('Nenalezena tabulka produktů. Excel musí obsahovat sekci "PRODUKTY" nebo hlavičku "Kód / Název / Cena".');
+        throw new Error('Nenalezena tabuľka produktov. Excel musí obsahovať sekci "PRODUKTY" alebo hlavičku "Kód / Názov / Cena".');
       }
 
-      // Header řádek (po "PRODUKTY" je další řádek hlavička)
+      // Header riadok (po "PRODUKTY" je ďalší riadok hlavička)
       const headerRow = rows[headerRowIdx].map(c => String(c || '').trim().toLowerCase());
       const findCol = (...keywords) => {
         for (const kw of keywords) {
@@ -11271,23 +11447,23 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
         return -1;
       };
       const colKod = findCol('kód');
-      const colNazev = findCol('název', 'nazev');
-      // Cena (Kč) v Electree CRM = JEDNOTKOVÁ PRODEJNÍ cena — pro naše účely ji nepoužíváme
-      const colCenaProdejni = findCol('cena (kč)', 'cena (czk)');
-      // Sloupec F má hlavičku "Množství" — bereme přímo hodnotu z tohoto sloupce.
-      const colMnozstvi = findCol('množství', 'mnozstvi');
-      // Sloupec K = Náklady (Kč) — CELKOVÁ nákladová cena pro daný řádek
-      // Jednotková nákladová cena = Náklady / Množství
+      const colNazev = findCol('název', 'nazev', 'názov', 'nazov');
+      // Cena (Kč) v Electree CRM = JEDNOTKOVÁ PREDAJNÝ cena — pre naše účely ji nepoužíváme
+      const colCenaProdejni = findCol('cena (kč)', 'cena (czk)', 'cena (€)', 'cena (eur)');
+      // Stĺpec F má hlavičku "Množstvo" — bereme priamo hodnotu z tohoto stĺpce.
+      const colMnozstvi = findCol('množství', 'mnozstvi', 'množstvo', 'mnozstvo');
+      // Stĺpec K = Náklady (Kč) — CELKOVÁ nákladová cena pre daný riadok
+      // Jednotková nákladová cena = Náklady / Množstvo
       const colNakladyCelkem = findCol('náklady', 'naklady');
 
       if (colNazev === -1) {
-        throw new Error(`Nenalezen sloupec "Název". Hlavička: ${headerRow.join(' | ')}`);
+        throw new Error(`Nenájdený stĺpec "Názov". Hlavička: ${headerRow.join(' | ')}`);
       }
       if (colMnozstvi === -1) {
-        throw new Error(`Nenalezen sloupec "Množství". Hlavička: ${headerRow.join(' | ')}`);
+        throw new Error(`Nenájdený stĺpec "Množstvo". Hlavička: ${headerRow.join(' | ')}`);
       }
       if (colNakladyCelkem === -1) {
-        throw new Error(`Nenalezen sloupec "Náklady (Kč)". Hlavička: ${headerRow.join(' | ')}`);
+        throw new Error(`Nenájdený stĺpec "Náklady". Hlavička: ${headerRow.join(' | ')}`);
       }
 
       const items = [];
@@ -11296,19 +11472,19 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
         const nazev = String(row[colNazev] || '').trim();
         if (!nazev) continue;
         // Skip footer rows
-        if (/cena celkem|celková sleva|konečná cena|předpokládan|nabíd|objednávk/i.test(nazev)) break;
+        if (/cena spolu|celková sleva|konečná cena|předpokládan|nabíd|objednávk/i.test(nazev)) break;
 
         const parseNum = (v) => parseFloat(String(v || '').replace(/[^\d.,-]/g, '').replace(',', '.')) || 0;
         const mnozstvi = parseNum(row[colMnozstvi]) || 1;
         const nakladyCelkem = parseNum(row[colNakladyCelkem]);
-        // Jednotková nákladová cena = celkové náklady / množství
+        // Jednotková nákladová cena = celkové náklady / množstvo
         const jednotkovaNakladovaCena = mnozstvi > 0 ? nakladyCelkem / mnozstvi : 0;
         const kod = colKod >= 0 ? String(row[colKod] || '').trim() : '';
-        // Pomocná info pro poznámku
+        // Pomocná info pre poznámku
         const cenaProdejni = colCenaProdejni >= 0 ? parseNum(row[colCenaProdejni]) : 0;
         const noteParts = [];
         if (kod) noteParts.push(`Kód: ${kod}`);
-        if (cenaProdejni > 0) noteParts.push(`Prodejní cena: ${Math.round(cenaProdejni).toLocaleString('cs-CZ')} Kč/ks`);
+        if (cenaProdejni > 0) noteParts.push(`Predajný cena: ${Math.round(cenaProdejni).toLocaleString('sk-SK')} Kč/ks`);
 
         items.push({
           _rowKey: `xr${i}`,
@@ -11318,26 +11494,26 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
           quantity: mnozstvi,
           unit: 'pcs',
           unitPrice: jednotkovaNakladovaCena,
-          currency: 'CZK',
+          currency: 'EUR',
           plannedOrderDate: '', plannedDeliveryDate: '',
           purchaseDate: '', paymentDueDate: '', deliveredDate: '', invoicedDate: '',
           status: 'planned', catalogId: '', orderNumber: '',
           notes: noteParts.join(' · '),
         });
       }
-      if (items.length === 0) throw new Error('Tabulka produktů je prázdná.');
-      // Auto-vyplnit výchozí datum objednávky (dnes + 21 dní), pokud položka nemá vlastní
+      if (items.length === 0) throw new Error('Tabuľka produktov je prázdná.');
+      // Auto-vyplniť predvolený dátum objednávky (dnes + 21 dní), ak položka nemá vlastný
       const withDefaults = items.map(it => ({
         ...it,
         plannedOrderDate: it.plannedOrderDate || bulkOrderDate,
       }));
       setPreview(withDefaults);
-      // Zobrazit info text v textarea pro orientaci
+      // Zobraziť info text v textarea pre orientaci
       const itemsBezNakladu = items.filter(it => it.unitPrice === 0).length;
-      const warnNoNaklady = itemsBezNakladu > 0 ? ` ⚠ ${itemsBezNakladu} položek bez nákupní ceny — doplňte ručně.` : '';
-      setText(`Načteno z Excelu (${sheetName}): ${items.length} položek.${warnNoNaklady}`);
+      const warnNoNaklady = itemsBezNakladu > 0 ? ` ⚠ ${itemsBezNakladu} položek bez nákupný ceny — doplňte ručne.` : '';
+      setText(`Načítané z Excelu (${sheetName}): ${items.length} položek.${warnNoNaklady}`);
     } catch (e) {
-      setError('Chyba při načítání Excelu: ' + e.message);
+      setError('Chyba pri načítání Excelu: ' + e.message);
     }
   };
 
@@ -11348,14 +11524,14 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
     if (ext === 'xlsx' || ext === 'xls' || ext === 'xlsm') {
       parseXLSX(f);
     } else {
-      // CSV nebo jiný textový soubor
+      // CSV alebo iný textový súbor
       const r = new FileReader();
       r.onload = () => { setText(String(r.result || '')); setSourceType('csv'); };
       r.readAsText(f);
     }
   };
 
-  // ===== Bulk apply pro XLSX preview =====
+  // ===== Bulk apply pre XLSX preview =====
   const applyBulkSupplier = () => {
     if (!preview) return;
     const sup = suppliers.find(s => s.id === bulkSupplier);
@@ -11376,7 +11552,7 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
     setPreview(preview.filter(p => p._rowKey !== rowKey));
   };
 
-  // ===== Submit — odstranit _rowKey =====
+  // ===== Submit — odstrániť _rowKey =====
   const doImport = () => {
     if (!preview) return;
     const cleaned = preview.map(({ _rowKey, ...rest }) => rest);
@@ -11387,20 +11563,20 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
     <Modal title="Import položek" onClose={onClose} maxWidth={1100}>
       <div style={{ display: 'flex', gap: 8, marginBottom: 10, flexWrap: 'wrap', alignItems: 'center' }}>
         <label style={{ ...styles.secondaryBtn, cursor: 'pointer' }}>
-          <Upload size={14} /> Vybrat soubor (CSV / XLSX)
+          <Upload size={14} /> Vybrať súbor (CSV / XLSX)
           <input type="file" accept=".csv,.xlsx,.xls,.xlsm" onChange={handleFile} style={{ display: 'none' }} />
         </label>
-        <button style={styles.sortBtn} onClick={() => { setText(template); setSourceType('csv'); }}>Načíst CSV šablonu</button>
-        <span style={{ fontSize: 12, color: '#64748b' }}>Podporováno: CSV (viz šablona) a XLSX z Electree CRM</span>
+        <button style={styles.sortBtn} onClick={() => { setText(template); setSourceType('csv'); }}>Načítať CSV šablónu</button>
+        <span style={{ fontSize: 12, color: '#64748b' }}>Podporováno: CSV (viz šablóna) a XLSX z Electree CRM</span>
       </div>
 
-      {/* CSV editor — jen pokud sourceType === 'csv' */}
+      {/* CSV editor — len ak sourceType === 'csv' */}
       {sourceType === 'csv' && (
         <>
           <textarea style={{ ...styles.input, fontFamily: 'monospace', fontSize: 12, minHeight: 140, resize: 'vertical' }}
-            value={text} onChange={e => setText(e.target.value)} placeholder="Vložte CSV obsah nebo načtěte šablonu..." />
+            value={text} onChange={e => setText(e.target.value)} placeholder="Vložte CSV obsah alebo načítajte šablónu..." />
           <div style={{ display: 'flex', gap: 8, marginTop: 10 }}>
-            <button style={styles.secondaryBtn} onClick={parseCSV}>Zpracovat a zobrazit náhled</button>
+            <button style={styles.secondaryBtn} onClick={parseCSV}>Spracovať a zobraziť náhľad</button>
           </div>
         </>
       )}
@@ -11420,37 +11596,37 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
 
       {preview && preview.length > 0 && (
         <>
-          {/* Bulk apply panel — primárně pro XLSX, ale funguje i pro CSV */}
+          {/* Bulk apply panel — primárne pre XLSX, ale funguje i pre CSV */}
           <div style={{
             marginTop: 14, padding: 12, background: '#f8fafc',
             border: '1px solid #e2e8f0', borderRadius: 8,
           }}>
             <div style={{ fontSize: 12, fontWeight: 700, color: '#475569', marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-              Hromadné nastavení (volitelně)
+              Hromadné nastavenia (voliteľne)
             </div>
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'flex-end' }}>
               <div style={{ minWidth: 180 }}>
-                <label style={{ ...styles.label, fontSize: 11 }}>Dodavatel pro všechny</label>
+                <label style={{ ...styles.label, fontSize: 11 }}>Dodávateľ pre všetky</label>
                 <div style={{ display: 'flex', gap: 4 }}>
                   <select style={{ ...styles.input, flex: 1 }} value={bulkSupplier} onChange={e => setBulkSupplier(e.target.value)}>
                     <option value="">— vyberte —</option>
                     {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                   </select>
-                  <button style={styles.sortBtn} onClick={applyBulkSupplier} disabled={!bulkSupplier}>Použít</button>
+                  <button style={styles.sortBtn} onClick={applyBulkSupplier} disabled={!bulkSupplier}>Použiť</button>
                 </div>
               </div>
               <div style={{ minWidth: 180 }}>
-                <label style={{ ...styles.label, fontSize: 11 }}>Datum plánované objednávky</label>
+                <label style={{ ...styles.label, fontSize: 11 }}>Dátum plánované objednávky</label>
                 <div style={{ display: 'flex', gap: 4 }}>
                   <input type="date" style={{ ...styles.input, flex: 1 }} value={bulkOrderDate} onChange={e => setBulkOrderDate(e.target.value)} />
-                  <button style={styles.sortBtn} onClick={applyBulkOrderDate} disabled={!bulkOrderDate}>Použít</button>
+                  <button style={styles.sortBtn} onClick={applyBulkOrderDate} disabled={!bulkOrderDate}>Použiť</button>
                 </div>
               </div>
               <div style={{ minWidth: 180 }}>
-                <label style={{ ...styles.label, fontSize: 11 }}>Datum plánované dodávky</label>
+                <label style={{ ...styles.label, fontSize: 11 }}>Dátum plánované dodávky</label>
                 <div style={{ display: 'flex', gap: 4 }}>
                   <input type="date" style={{ ...styles.input, flex: 1 }} value={bulkDeliveryDate} onChange={e => setBulkDeliveryDate(e.target.value)} />
-                  <button style={styles.sortBtn} onClick={applyBulkDeliveryDate} disabled={!bulkDeliveryDate}>Použít</button>
+                  <button style={styles.sortBtn} onClick={applyBulkDeliveryDate} disabled={!bulkDeliveryDate}>Použiť</button>
                 </div>
               </div>
             </div>
@@ -11458,19 +11634,19 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
 
           {/* Preview table — editovatelná */}
           <div style={{ marginTop: 12, fontSize: 13, color: '#475569', fontWeight: 600 }}>
-            Náhled položek ({preview.length}) — můžete upravit kategorii, dodavatele a datumy:
+            Náhľad položek ({preview.length}) — môžete upraviť kategóriu, dodávateľa a dátumy:
           </div>
           <div style={{ marginTop: 8, maxHeight: 400, overflow: 'auto', border: '1px solid #e2e8f0', borderRadius: 8 }}>
             <table style={{ ...styles.table, fontSize: 12 }}>
               <thead style={{ position: 'sticky', top: 0, background: '#f8fafc', zIndex: 1 }}>
                 <tr>
-                  <th style={{ ...styles.th, padding: '8px 6px', minWidth: 120 }}>Kategorie</th>
-                  <th style={{ ...styles.th, padding: '8px 6px', minWidth: 200 }}>Název</th>
-                  <th style={{ ...styles.th, padding: '8px 6px', minWidth: 140 }}>Dodavatel</th>
+                  <th style={{ ...styles.th, padding: '8px 6px', minWidth: 120 }}>Kategórie</th>
+                  <th style={{ ...styles.th, padding: '8px 6px', minWidth: 200 }}>Názov</th>
+                  <th style={{ ...styles.th, padding: '8px 6px', minWidth: 140 }}>Dodávateľ</th>
                   <th style={{ ...styles.th, padding: '8px 6px', textAlign: 'right', width: 80 }}>Množ.</th>
                   <th style={{ ...styles.th, padding: '8px 6px', width: 70 }}>Jedn.</th>
                   <th style={{ ...styles.th, padding: '8px 6px', textAlign: 'right', width: 100 }}>Cena/ks</th>
-                  <th style={{ ...styles.th, padding: '8px 6px', width: 70 }}>Měna</th>
+                  <th style={{ ...styles.th, padding: '8px 6px', width: 70 }}>Mena</th>
                   <th style={{ ...styles.th, padding: '8px 6px', width: 36 }}></th>
                 </tr>
               </thead>
@@ -11490,7 +11666,7 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
                         const sup = suppliers.find(s => s.id === e.target.value);
                         updateRow(p._rowKey, { supplierId: e.target.value, supplier: sup ? '' : p.supplier });
                       }}>
-                        <option value="">— bez dodavatele —</option>
+                        <option value="">— bez dodávateľa —</option>
                         {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                       </select>
                     </td>
@@ -11509,11 +11685,11 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
                     </td>
                     <td style={{ ...styles.td, padding: 4 }}>
                       <select style={{ ...styles.input, fontSize: 11, padding: '4px 6px' }} value={p.currency} onChange={e => updateRow(p._rowKey, { currency: e.target.value })}>
-                        <option value="CZK">CZK</option><option value="EUR">EUR</option>
+                        <option value="EUR">EUR</option><option value="CZK">CZK</option>
                       </select>
                     </td>
                     <td style={{ ...styles.td, padding: 4, textAlign: 'center' }}>
-                      <button style={styles.iconBtn} onClick={() => removeRow(p._rowKey)} title="Odebrat řádek"><Trash2 size={12} /></button>
+                      <button style={styles.iconBtn} onClick={() => removeRow(p._rowKey)} title="Odobrať riadok"><Trash2 size={12} /></button>
                     </td>
                   </tr>
                 ))}
@@ -11521,13 +11697,13 @@ function ImportModal({ categories, suppliers, onImport, onClose }) {
             </table>
           </div>
           <div style={{ marginTop: 8, fontSize: 12, color: '#64748b' }}>
-            Tip: Datumy můžete vyplnit hromadně panel výše, nebo až po importu v Nákupním seznamu.
+            Tip: Dátumy môžete vyplniť hromadne panel vyššie, alebo až po importu v Nákupnom zozname.
           </div>
         </>
       )}
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         <button style={{ ...styles.primaryBtn, opacity: preview && preview.length > 0 ? 1 : 0.5, pointerEvents: preview && preview.length > 0 ? 'auto' : 'none' }}
           onClick={doImport}>Import {preview ? `(${preview.length})` : ''}</button>
       </div>
@@ -11548,13 +11724,13 @@ function downloadFile(filename, content) {
 }
 
 // ==========================================================================
-// PDFImportModal — import faktury / objednávky z PDF pomocí AI (Anthropic)
+// PDFImportModal — import faktúry / objednávky z PDF pomocou AI (Anthropic)
 // ==========================================================================
 
-// Auto-spárování AI položek z faktury s existujícími položkami objednávky
-// Vrací pole { aiItem, orderItemId, action, similarityScore } (pro každou AI položku 1 záznam)
+// Auto-spárování AI položek z faktúry s existujícími položkami objednávky
+// Vrací pole { aiItem, orderItemId, action, similarityScore } (pre každú AI položku 1 záznam)
 function autoMatchAIItemsToOrder(aiItems, orderItems) {
-  // Jednoduchá metrika: procento společných slov mezi normalizovanými názvy
+  // Jednoduchá metrika: percento spoločných slov medzi normalizovanými názvy
   const normalize = (s) => (s || '').toLowerCase()
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // diakritika
     .replace(/[^a-z0-9\s]/g, ' ')
@@ -11601,7 +11777,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
   const [pdfBase64, setPdfBase64] = useState('');
   const [aiResult, setAiResult] = useState(null); // Extrahovaná data z AI
 
-  // Metadata pro import (v attach módu částečně předvyplněné z targetOrder)
+  // Metadata pre import (v attach módu čiastočne predvyplnené z targetOrder)
   const [projectId, setProjectId] = useState(
     isAttachMode ? targetOrder.rows[0]?.projectId : (projects[0]?.id || '')
   );
@@ -11610,10 +11786,10 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
   const [orderNumber, setOrderNumber] = useState(isAttachMode ? (targetOrder.orderNumber || '') : '');
   const [issueDate, setIssueDate] = useState('');
   const [dueDate, setDueDate] = useState('');
-  const [currency, setCurrency] = useState('CZK');
-  // Editovatelné položky (kopie z aiResult.items) - v create módu
+  const [currency, setCurrency] = useState('EUR');
+  // Editovatelné položky (kópia z aiResult.items) - v create módu
   const [items, setItems] = useState([]);
-  // Matching pro attach mode: [{ aiItem, orderItemId | null, action: 'overwrite'|'add'|'skip' }]
+  // Matching pre attach mode: [{ aiItem, orderItemId | null, action: 'overwrite'|'add'|'skip' }]
   const [attachMatches, setAttachMatches] = useState([]);
 
   const hasApiKey = !!settings?.anthropicApiKey;
@@ -11622,29 +11798,29 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
   const handleFile = async (file) => {
     if (!file) return;
     if (!file.name.toLowerCase().endsWith('.pdf')) {
-      setError('Prosím nahrajte PDF soubor.');
+      setError('Prosím nahrajte PDF súbor.');
       return;
     }
     if (file.size > 15 * 1024 * 1024) {
-      setError('PDF je příliš velké (max 15 MB).');
+      setError('PDF je príliš veľké (max 15 MB).');
       return;
     }
     setError('');
     setPdfFile(file);
     setPhase('processing');
-    setLoadingMsg('Načítám PDF...');
+    setLoadingMsg('Načítavam PDF...');
     try {
       const base64 = await fileToBase64(file);
       setPdfBase64(base64);
-      setLoadingMsg(`Analyzuji PDF pomocí AI (${model})... To může trvat 10–30 s.`);
+      setLoadingMsg(`Analyzuji PDF pomocou AI (${model})... To môže trvat 10–30 s.`);
       const result = await extractPdfWithClaude(base64, settings.anthropicApiKey, model, categories);
       setAiResult(result);
-      // Předvyplnit metadata
+      // Predvyplniť metadata
       setOrderNumber(result.orderNumber || '');
       setIssueDate(result.issueDate || '');
       setDueDate(result.dueDate || '');
-      setCurrency(result.currency || 'CZK');
-      // Najít dodavatele podle jména
+      setCurrency(result.currency || 'EUR');
+      // Nájsť dodávateľa podľa mená
       if (result.supplier) {
         const supMatch = suppliers.find(s => (s.name || '').toLowerCase() === result.supplier.toLowerCase());
         if (supMatch) {
@@ -11666,7 +11842,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
       }));
       setItems(aiItems);
 
-      // V attach módu automaticky spárovat s existující objednávkou
+      // V attach módu automaticky spárovať s existující objednávkou
       if (isAttachMode && targetOrder) {
         const orderItems = targetOrder.rows.map(r => r.item);
         const matches = autoMatchAIItemsToOrder(aiItems, orderItems);
@@ -11676,7 +11852,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
       setPhase('preview');
     } catch (e) {
       console.error(e);
-      setError(e.message || 'Neznámá chyba při zpracování PDF.');
+      setError(e.message || 'Neznáma chyba pri spracovanie PDF.');
       setPhase('upload');
     }
   };
@@ -11693,18 +11869,18 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
 
   const submit = async () => {
     if (!isAttachMode) {
-      if (!projectId) { alert('Vyberte projekt, do kterého se položky přidají.'); return; }
-      if (items.length === 0) { alert('Přidejte alespoň jednu položku.'); return; }
-      if (items.some(i => !i.name.trim())) { alert('Všechny položky musí mít název.'); return; }
+      if (!projectId) { alert('Vyberte projekt, do kterého sa položky pridajú.'); return; }
+      if (items.length === 0) { alert('Pridajte aspoň jednu položku.'); return; }
+      if (items.some(i => !i.name.trim())) { alert('Všetky položky musí mít názov.'); return; }
     } else {
-      if (attachMatches.length === 0) { alert('Nemáte žádné položky k přiřazení.'); return; }
+      if (attachMatches.length === 0) { alert('Nemáte žiadne položky k priradenie.'); return; }
     }
-    // Uložit PDF do IndexedDB
+    // Uložiť PDF do IndexedDB
     const attachmentId = uid('pdf');
     try {
       await savePdfToDb(attachmentId, pdfFile.name, pdfBase64);
     } catch (e) {
-      if (!window.confirm('Nepodařilo se uložit PDF do lokální databáze. Chcete přesto pokračovat (bez archivace PDF)?')) return;
+      if (!window.confirm('Nepodarilo sa uložiť PDF do lokální databáza. Chcete napriek tomu pokračovať (bez archivace PDF)?')) return;
     }
     onImport({
       mode: isAttachMode ? 'attach' : 'create',
@@ -11729,14 +11905,14 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
 
   if (!hasApiKey) {
     return (
-      <Modal title="Import PDF – chybí API klíč" onClose={onClose} maxWidth={520}>
+      <Modal title="Import PDF – chýba API klíč" onClose={onClose} maxWidth={520}>
         <div style={{ padding: 16, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 8, marginBottom: 12 }}>
           <div style={{ fontWeight: 700, color: '#92400e', marginBottom: 6 }}>
-            🔑 Není nastaven Anthropic API klíč
+            🔑 Nie je nastavený Anthropic API klíč
           </div>
           <div style={{ fontSize: 13, color: '#78350f' }}>
-            Pro import PDF pomocí AI potřebujete API klíč od Anthropic. Získáte ho na <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer" style={{ color: '#78350f', fontWeight: 600 }}>console.anthropic.com</a>.
-            Poté klíč vložte v <strong>Nastavení → Ostatní</strong> a zkuste to znovu.
+            Pre import PDF pomocou AI potrebujete API klíč od Anthropic. Získáte ho na <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener noreferrer" style={{ color: '#78350f', fontWeight: 600 }}>console.anthropic.com</a>.
+            Poté klíč vložte v <strong>Nastavenia → Ostatné</strong> a zkuste to znova.
           </div>
         </div>
         <div style={styles.modalActions}>
@@ -11747,7 +11923,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
   }
 
   return (
-    <Modal title={isAttachMode ? `Přehrát objednávku #${targetOrder.orderNumber || '(bez čísla)'} daty z faktury` : 'Import faktury / objednávky z PDF'} onClose={onClose} maxWidth={880}>
+    <Modal title={isAttachMode ? `Prehrať objednávku #${targetOrder.orderNumber || '(bez čísla)'} daty z faktury` : 'Import faktúry / objednávky z PDF'} onClose={onClose} maxWidth={880}>
       {error && (
         <div style={{ padding: 10, background: '#fef2f2', border: '1px solid #fecaca', color: '#991b1b', borderRadius: 6, marginBottom: 12, fontSize: 13 }}>
           <strong>Chyba:</strong> {error}
@@ -11757,9 +11933,9 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
       {phase === 'upload' && (
         <div style={{ padding: 40, border: '2px dashed #cbd5e1', borderRadius: 8, textAlign: 'center' }}>
           <FileText size={40} style={{ color: '#94a3b8', marginBottom: 12 }} />
-          <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 8 }}>Nahrajte PDF fakturu nebo objednávku</div>
+          <div style={{ fontSize: 15, fontWeight: 600, marginBottom: 8 }}>Nahrajte PDF faktúru alebo objednávku</div>
           <p style={{ fontSize: 12, color: '#64748b', margin: '0 0 16px' }}>
-            Aplikace pošle PDF do Claude API ({model}) a vytáhne z něj strukturované položky.
+            Aplikácia pošle PDF do Claude API ({model}) a vytiahne z neho strukturované položky.
             Cca 10–30 s. Náklady ~0.01–0.03 $ za dokument.
           </p>
           <input
@@ -11770,7 +11946,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
             id="pdf-import-input"
           />
           <label htmlFor="pdf-import-input" style={{ ...styles.primaryBtn, display: 'inline-flex', cursor: 'pointer' }}>
-            <Upload size={14} /> Vybrat PDF...
+            <Upload size={14} /> Vybrať PDF...
           </label>
         </div>
       )}
@@ -11791,16 +11967,16 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
           {isAttachMode ? (
             <>
               <div style={{ padding: 10, background: '#ede9fe', border: '1px solid #c4b5fd', borderRadius: 6, marginBottom: 12, fontSize: 12, color: '#5b21b6' }}>
-                🎯 <strong>Režim „Přehrát daty z faktury"</strong> — přiřazujete fakturu k objednávce <strong>#{targetOrder.orderNumber || '(bez čísla)'}</strong> od dodavatele <strong>{targetOrder.supplierName}</strong>.<br/>
-                Aplikace {attachMatches.filter(m => m.action === 'overwrite').length}× spárovala s existující položkou, {attachMatches.filter(m => m.action === 'add').length}× navrhla přidat novou.
+                🎯 <strong>Režim „Prehrať daty z faktúry"</strong> — priraďujete faktúru k objednávke <strong>#{targetOrder.orderNumber || '(bez čísla)'}</strong> od dodávateľa <strong>{targetOrder.supplierName}</strong>.<br/>
+                Aplikácia {attachMatches.filter(m => m.action === 'overwrite').length}× spárovala s existující položkou, {attachMatches.filter(m => m.action === 'add').length}× navrhla pridať novou.
               </div>
 
-              {/* Údaje z faktury */}
+              {/* Údaje z faktúry */}
               <div style={{ padding: 12, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8, marginBottom: 12 }}>
-                <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8 }}>Údaje z faktury</div>
+                <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8 }}>Údaje z faktúry</div>
                 <div style={styles.formRowGroup}>
                   <div style={{ flex: 1 }}>
-                    <label style={styles.label}>Datum vystavení</label>
+                    <label style={styles.label}>Dátum vystavení</label>
                     <input type="date" style={styles.input} value={issueDate} onChange={e => setIssueDate(e.target.value)} />
                   </div>
                   <div style={{ flex: 1 }}>
@@ -11808,10 +11984,10 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                     <input type="date" style={styles.input} value={dueDate} onChange={e => setDueDate(e.target.value)} />
                   </div>
                   <div style={{ flex: 1 }}>
-                    <label style={styles.label}>Měna</label>
+                    <label style={styles.label}>Mena</label>
                     <select style={styles.input} value={currency} onChange={e => setCurrency(e.target.value)}>
-                      <option value="CZK">CZK</option>
                       <option value="EUR">EUR</option>
+                      <option value="CZK">CZK</option>
                     </select>
                   </div>
                 </div>
@@ -11820,16 +11996,16 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
               {/* Matching preview */}
               <div style={{ marginBottom: 12 }}>
                 <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 6 }}>
-                  Porovnání položek ({attachMatches.length} z faktury)
+                  Porovnání položek ({attachMatches.length} z faktúry)
                 </div>
                 <div style={{ border: '1px solid #e2e8f0', borderRadius: 6, overflow: 'auto', maxHeight: 400 }}>
                   <table style={{ ...styles.table, fontSize: 11 }}>
                     <thead>
                       <tr>
-                        <th style={styles.th}>Z faktury (AI)</th>
+                        <th style={styles.th}>Z faktúry (AI)</th>
                         <th style={styles.th}>Akce</th>
-                        <th style={styles.th}>Původní v objednávce</th>
-                        <th style={styles.th}>Rozdíl</th>
+                        <th style={styles.th}>Pôvodný v objednávke</th>
+                        <th style={styles.th}>Rozdiel</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -11856,9 +12032,9 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                                 onChange={e => setAttachMatches(attachMatches.map((am, i) => i === idx ? { ...am, action: e.target.value } : am))}
                                 style={{ ...styles.input, padding: '3px 5px', fontSize: 11, width: 120 }}
                               >
-                                <option value="overwrite">✓ Přehrát</option>
-                                <option value="add">+ Přidat nové</option>
-                                <option value="skip">⏭ Přeskočit</option>
+                                <option value="overwrite">✓ Prehrať</option>
+                                <option value="add">+ Pridať nové</option>
+                                <option value="skip">⏭ Preskočiť</option>
                               </select>
                               {m.action === 'overwrite' && (
                                 <select
@@ -11874,7 +12050,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                               )}
                               {m.action === 'overwrite' && m.similarityScore > 0 && (
                                 <div style={{ fontSize: 9, color: '#64748b', marginTop: 2 }}>
-                                  Shoda: {Math.round(m.similarityScore * 100)}%
+                                  Zhoda: {Math.round(m.similarityScore * 100)}%
                                 </div>
                               )}
                             </td>
@@ -11909,27 +12085,27 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                   </table>
                 </div>
                 <div style={{ marginTop: 6, fontSize: 11, color: '#64748b' }}>
-                  <strong>Přehrát</strong> = přepsat množství, cenu a měnu · nastavit vyfakturováno · přiložit PDF.
-                  Název, jednotka, kategorie a projekt zůstávají.
+                  <strong>Prehrať</strong> = prepísať množstvo, cenu a menu · nastaviť vyfakturované · priložiť PDF.
+                  Názov, jednotka, kategórie a projekt zostávajú.
                 </div>
               </div>
             </>
           ) : (
             <>
               <div style={{ padding: 10, background: '#f0fdf4', border: '1px solid #86efac', borderRadius: 6, marginBottom: 12, fontSize: 12, color: '#166534' }}>
-                ✓ AI vytáhla <strong>{items.length}</strong> položek. Zkontrolujte hodnoty a případně upravte, než potvrdíte import.
+                ✓ AI vytiahla <strong>{items.length}</strong> položek. Skontrolujte hodnoty a prípadne upravte, než potvrdíte import.
               </div>
 
           {/* Metadata */}
           <div style={{ padding: 12, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 8, marginBottom: 12 }}>
-            <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8 }}>Údaje z faktury</div>
+            <div style={{ fontWeight: 700, fontSize: 13, marginBottom: 8 }}>Údaje z faktúry</div>
             <div style={styles.formRowGroup}>
               <div style={{ flex: 2 }}>
                 <label style={styles.label}>Projekt *</label>
                 <select style={styles.input} value={projectId} onChange={e => setProjectId(e.target.value)}>
                   <option value="">— Vyberte projekt —</option>
                   {[...projects].sort((a, b) => {
-                    // Sklad vždy první
+                    // Sklad vždy prvý
                     if (a.isStockProject && !b.isStockProject) return -1;
                     if (!a.isStockProject && b.isStockProject) return 1;
                     return (a.name || '').localeCompare(b.name || '');
@@ -11941,23 +12117,23 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                 </select>
               </div>
               <div style={{ flex: 2 }}>
-                <label style={styles.label}>Dodavatel</label>
+                <label style={styles.label}>Dodávateľ</label>
                 <select style={styles.input} value={supplierId} onChange={e => { setSupplierId(e.target.value); if (e.target.value) setSupplierFreeText(''); }}>
-                  <option value="">— Nový (níže) —</option>
+                  <option value="">— Nový (nižšie) —</option>
                   {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                 </select>
                 {!supplierId && (
-                  <input style={{ ...styles.input, marginTop: 4, fontSize: 12 }} value={supplierFreeText} onChange={e => setSupplierFreeText(e.target.value)} placeholder="Název dodavatele" />
+                  <input style={{ ...styles.input, marginTop: 4, fontSize: 12 }} value={supplierFreeText} onChange={e => setSupplierFreeText(e.target.value)} placeholder="Názov dodávateľa" />
                 )}
               </div>
             </div>
             <div style={styles.formRowGroup}>
               <div style={{ flex: 1 }}>
-                <label style={styles.label}>Č. objednávky / faktury</label>
+                <label style={styles.label}>Č. objednávky / faktúry</label>
                 <input style={styles.input} value={orderNumber} onChange={e => setOrderNumber(e.target.value)} />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={styles.label}>Datum vystavení</label>
+                <label style={styles.label}>Dátum vystavení</label>
                 <input type="date" style={styles.input} value={issueDate} onChange={e => setIssueDate(e.target.value)} />
               </div>
               <div style={{ flex: 1 }}>
@@ -11965,10 +12141,10 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                 <input type="date" style={styles.input} value={dueDate} onChange={e => setDueDate(e.target.value)} />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={styles.label}>Měna</label>
+                <label style={styles.label}>Mena</label>
                 <select style={styles.input} value={currency} onChange={e => setCurrency(e.target.value)}>
-                  <option value="CZK">CZK</option>
                   <option value="EUR">EUR</option>
+                  <option value="CZK">CZK</option>
                 </select>
               </div>
             </div>
@@ -11978,19 +12154,19 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
           <div style={{ marginBottom: 12 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
               <div style={{ fontWeight: 700, fontSize: 13 }}>Položky ({items.length})</div>
-              <button style={styles.sortBtn} onClick={addItem}><Plus size={12} /> Přidat řádek</button>
+              <button style={styles.sortBtn} onClick={addItem}><Plus size={12} /> Pridať riadok</button>
             </div>
             <div style={{ border: '1px solid #e2e8f0', borderRadius: 6, overflow: 'auto', maxHeight: 350 }}>
               <table style={{ ...styles.table, fontSize: 11 }}>
                 <thead>
                   <tr>
                     <th style={styles.th}>#</th>
-                    <th style={styles.th}>Název</th>
-                    <th style={styles.th}>Kategorie</th>
+                    <th style={styles.th}>Názov</th>
+                    <th style={styles.th}>Kategórie</th>
                     <th style={{ ...styles.th, textAlign: 'right' }}>Množ.</th>
                     <th style={styles.th}>Jedn.</th>
                     <th style={{ ...styles.th, textAlign: 'right' }}>Cena/ks</th>
-                    <th style={{ ...styles.th, textAlign: 'right' }}>Celkem</th>
+                    <th style={{ ...styles.th, textAlign: 'right' }}>Spolu</th>
                     <th style={styles.th}></th>
                   </tr>
                 </thead>
@@ -12021,7 +12197,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                         {fmt((parseFloat(it.quantity) || 0) * (parseFloat(it.unitPrice) || 0))} {currency}
                       </td>
                       <td style={styles.td}>
-                        <button onClick={() => removeItem(idx)} style={{ ...styles.iconBtn, color: '#dc2626' }} title="Odebrat">
+                        <button onClick={() => removeItem(idx)} style={{ ...styles.iconBtn, color: '#dc2626' }} title="Odobrať">
                           <Trash2 size={12} />
                         </button>
                       </td>
@@ -12030,14 +12206,14 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
                 </tbody>
                 <tfoot>
                   <tr style={{ background: '#f8fafc', fontWeight: 700 }}>
-                    <td colSpan={6} style={{ ...styles.td, textAlign: 'right' }}>Součet (bez DPH):</td>
+                    <td colSpan={6} style={{ ...styles.td, textAlign: 'right' }}>Súčet (bez DPH):</td>
                     <td style={{ ...styles.td, textAlign: 'right', color: '#0d3825' }}>{fmt(totalWithoutVat)} {currency}</td>
                     <td style={styles.td}></td>
                   </tr>
                   {aiResult.totalWithoutVat && Math.abs(aiResult.totalWithoutVat - totalWithoutVat) > 1 && (
                     <tr style={{ background: '#fef3c7', fontSize: 10 }}>
                       <td colSpan={8} style={{ ...styles.td, color: '#92400e' }}>
-                        ⚠ AI zjistila celkem <strong>{fmt(aiResult.totalWithoutVat)} {currency}</strong> — rozdíl {fmt(Math.abs(aiResult.totalWithoutVat - totalWithoutVat))}. Zkontrolujte hodnoty.
+                        ⚠ AI zistila spolu <strong>{fmt(aiResult.totalWithoutVat)} {currency}</strong> — rozdiel {fmt(Math.abs(aiResult.totalWithoutVat - totalWithoutVat))}. Skontrolujte hodnoty.
                       </td>
                     </tr>
                   )}
@@ -12049,15 +12225,15 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
           )}
 
           <div style={styles.modalActions}>
-            <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+            <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
             <button style={styles.primaryBtn} onClick={submit}>
               {isAttachMode ? (
                 <>
-                  <FileText size={14} /> Přehrát objednávku ({attachMatches.filter(m => m.action !== 'skip').length}× akce) + přiložit PDF
+                  <FileText size={14} /> Prehrať objednávku ({attachMatches.filter(m => m.action !== 'skip').length}× akce) + priložiť PDF
                 </>
               ) : (
                 <>
-                  <CheckCircle2 size={14} /> Importovat {items.length} položek + archivovat PDF
+                  <CheckCircle2 size={14} /> Importovať {items.length} položek + archivovať PDF
                 </>
               )}
             </button>
@@ -12067,7 +12243,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
 
       {phase === 'upload' && (
         <div style={styles.modalActions}>
-          <button style={styles.secondaryBtn} onClick={onClose}>Zrušit</button>
+          <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
         </div>
       )}
     </Modal>
@@ -12075,7 +12251,7 @@ function PDFImportModal({ projects, categories, suppliers, settings, targetOrder
 }
 
 // ==========================================================================
-// ImportOrderModal — import objednávky z Excelu s párováním na nákupní seznam
+// ImportOrderModal — import objednávky z Excelu s párovaním na nákupný zoznam
 // ==========================================================================
 
 function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, onClose }) {
@@ -12085,11 +12261,11 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
   const [loading, setLoading] = useState(false);
 
   // Surová data z Excelu
-  const [rawRows, setRawRows] = useState(null); // array of arrays (první je hlavička)
+  const [rawRows, setRawRows] = useState(null); // array of arrays (prvý je hlavička)
   const [headers, setHeaders] = useState([]);
   const [previewRows, setPreviewRows] = useState([]);
 
-  // Mapování sloupců
+  // Mapovanie stĺpcov
   const [colMap, setColMap] = useState({
     name: '', quantity: '', unit: '', unitPrice: '', currency: '', orderNumber: '', notes: '',
   });
@@ -12099,11 +12275,11 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
     orderNumber: '',
     supplierId: '',
     purchaseDate: todayISO(),
-    defaultCurrency: 'CZK',
+    defaultCurrency: 'EUR',
     defaultCategory: '',
   });
 
-  // Spárované řádky: array of { importRow, planItemId, action: 'match'|'create'|'skip', targetProjectId, category }
+  // Spárované riadky: array of { importRow, planItemId, action: 'match'|'create'|'skip', targetProjectId, category }
   const [matches, setMatches] = useState([]);
 
   // ===== Step 1: Upload =====
@@ -12125,9 +12301,9 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
         rows = XLSX.utils.sheet_to_json(firstSheet, { header: 1, defval: '' });
       }
       if (!rows || rows.length < 2) {
-        throw new Error('Soubor je prázdný nebo nemá žádné datové řádky.');
+        throw new Error('Súbor je prázdny alebo nemá žiadne datové riadky.');
       }
-      // Najít první řádek s "rozumnými" hlavičkami (text, ne jen čísla)
+      // Nájsť prvý riadok s "rozumnými" hlavičkami (text, ne len čísla)
       let headerIdx = 0;
       for (let i = 0; i < Math.min(5, rows.length); i++) {
         const r = rows[i];
@@ -12144,19 +12320,19 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
       setRawRows(data);
       setPreviewRows(data.slice(0, 5));
 
-      // Heuristika pro automatické mapování
+      // Heuristika pre automatické mapovanie
       const guess = guessColumnMapping(hdrs);
       setColMap(prev => ({ ...prev, ...guess }));
 
       setPhase('mapping');
     } catch (e) {
-      setError('Chyba při čtení souboru: ' + (e?.message || 'neznámá chyba'));
+      setError('Chyba pri čítanie súbore: ' + (e?.message || 'neznáma chyba'));
     } finally {
       setLoading(false);
     }
   };
 
-  // ===== Step 2: Parsování dat podle mapování =====
+  // ===== Step 2: Parsování dat podľa mapovanie =====
   const parsedRows = useMemo(() => {
     if (!rawRows || !colMap.name) return [];
     const idx = (col) => col ? headers.indexOf(col) : -1;
@@ -12189,10 +12365,10 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
   // ===== Step 3: Auto-match po vstupu do matching fáze =====
   const enterMatchingPhase = () => {
     if (parsedRows.length === 0) {
-      setError('Žádná použitelná data — zkontrolujte mapování sloupců.');
+      setError('Žiadna použitelná data — skontrolujte mapovanie stĺpcov.');
       return;
     }
-    // Sesbírat všechny plánované položky napříč projekty
+    // Sesbírat všetky plánované položky naprieč projekty
     const allPlanItems = [];
     projects.forEach(p => {
       (p.items || []).forEach(item => {
@@ -12202,7 +12378,7 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
       });
     });
 
-    // Pro každý řádek z importu najít nejlepší shody
+    // Pre každý riadok z importu nájsť nejlepší zhody
     const initialMatches = parsedRows.map(row => {
       const enrichedRow = { ...row, category: orderMeta.defaultCategory };
       const suggestions = suggestMatches(enrichedRow, allPlanItems, orderMeta.supplierId);
@@ -12260,14 +12436,14 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
   const performImport = () => {
     const result = {
       orderMeta,
-      patches: [],   // existující položky k aktualizaci
-      newItems: [],  // nové položky k vytvoření
-      skipped: [],   // přeskočené řádky
+      patches: [],   // existující položky k aktualizáciu
+      newItems: [],  // nové položky k vytvorenie
+      skipped: [],   // preskočené riadky
     };
 
     matches.forEach(m => {
       const ir = m.importRow;
-      const totalPriceCZK = m.importRow.currency === 'EUR' ? m.importRow.unitPrice * fxRate : m.importRow.unitPrice;
+      const totalPriceEUR = m.importRow.currency === 'CZK' ? (fxRate > 0 ? m.importRow.unitPrice / fxRate : m.importRow.unitPrice) : m.importRow.unitPrice;
 
       if (m.action === 'skip') {
         result.skipped.push(ir);
@@ -12318,7 +12494,7 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
     onImport(result);
   };
 
-  // ===== Statistiky pro UI =====
+  // ===== Statistiky pre UI =====
   const stats = useMemo(() => {
     const m = matches.filter(x => x.action === 'match').length;
     const r = matches.filter(x => x.action === 'review').length;
@@ -12334,9 +12510,9 @@ function ImportOrderModal({ projects, categories, suppliers, fxRate, onImport, o
       <div style={{ display: 'flex', gap: 4, marginBottom: 16, borderBottom: '1px solid #e2e8f0', paddingBottom: 8 }}>
         {[
           { id: 'upload', label: '1. Nahrání', done: phase !== 'upload' },
-          { id: 'mapping', label: '2. Sloupce', done: ['matching', 'summary'].includes(phase) },
-          { id: 'matching', label: '3. Párování', done: phase === 'summary' },
-          { id: 'summary', label: '4. Souhrn', done: false },
+          { id: 'mapping', label: '2. Stĺpce', done: ['matching', 'summary'].includes(phase) },
+          { id: 'matching', label: '3. Párovanie', done: phase === 'summary' },
+          { id: 'summary', label: '4. Súhrn', done: false },
         ].map((step, i, arr) => (
           <div key={step.id} style={{
             flex: 1, padding: '6px 10px', borderRadius: 6, fontSize: 12, fontWeight: 600,
@@ -12425,7 +12601,7 @@ function parseCSVLine(line, sep = ',') {
   return out.map(s => s.trim());
 }
 
-// ===== Helper: heuristika pro guessování sloupců =====
+// ===== Helper: heuristika pre guessování stĺpcov =====
 function guessColumnMapping(headers) {
   const map = { name: '', quantity: '', unit: '', unitPrice: '', currency: '', orderNumber: '', notes: '' };
   const patterns = {
@@ -12460,8 +12636,8 @@ function ImportOrderUpload({ onFile, loading }) {
   return (
     <div>
       <p style={{ color: '#64748b', fontSize: 14, margin: '0 0 14px' }}>
-        Vyberte Excel (.xlsx, .xls) nebo CSV soubor s objednávkou od dodavatele. Aplikace vám pomůže
-        spárovat řádky s plánovanými položkami v nákupním seznamu.
+        Vyberte Excel (.xlsx, .xls) alebo CSV súbor s objednávkou od dodávateľa. Aplikácia vám pomôže
+        spárovať riadky s plánovanými položkami v nákupnom zozname.
       </p>
 
       <div
@@ -12478,7 +12654,7 @@ function ImportOrderUpload({ onFile, loading }) {
       >
         <Upload size={36} style={{ color: dragOver ? '#0d3825' : '#94a3b8', marginBottom: 12 }} />
         <div style={{ fontSize: 15, fontWeight: 600, color: '#0d3825', marginBottom: 4 }}>
-          {loading ? 'Načítám soubor...' : 'Klikněte nebo přetáhněte soubor'}
+          {loading ? 'Načítavam súbor...' : 'Kliknite alebo pretiahnite súbor'}
         </div>
         <div style={{ fontSize: 12, color: '#64748b' }}>Podporované formáty: .xlsx, .xls, .csv, .tsv</div>
         <input
@@ -12491,8 +12667,8 @@ function ImportOrderUpload({ onFile, loading }) {
       </div>
 
       <div style={{ marginTop: 14, padding: 12, background: '#dbeafe', color: '#1e40af', borderRadius: 6, fontSize: 12 }}>
-        💡 <strong>Tip:</strong> Aplikace zkusí automaticky rozpoznat sloupce (název, množství, cena...).
-        V dalším kroku můžete mapování upravit ručně.
+        💡 <strong>Tip:</strong> Aplikácia zkusí automaticky rozpoznat stĺpce (názov, množstvo, cena...).
+        V dalším kroku môžete mapovanie upraviť ručne.
       </div>
     </div>
   );
@@ -12504,7 +12680,7 @@ function ImportOrderMapping({ headers, previewRows, colMap, setColMap, orderMeta
     <div>
       <label style={styles.label}>{label} {required && '*'}</label>
       <select style={styles.input} value={colMap[key] || ''} onChange={e => setColMap({ ...colMap, [key]: e.target.value })}>
-        <option value="">— Ignorovat —</option>
+        <option value="">— Ignorovať —</option>
         {headers.map(h => <option key={h} value={h}>{h}</option>)}
       </select>
     </div>
@@ -12512,25 +12688,25 @@ function ImportOrderMapping({ headers, previewRows, colMap, setColMap, orderMeta
 
   return (
     <div>
-      <h3 style={{ margin: '0 0 8px', fontSize: 15 }}>Mapování sloupců</h3>
+      <h3 style={{ margin: '0 0 8px', fontSize: 15 }}>Mapovanie stĺpcov</h3>
       <p style={{ color: '#64748b', fontSize: 13, margin: '0 0 14px' }}>
-        Vyberte, který sloupec v Excelu odpovídá kterému poli v aplikaci. Tučně označená pole jsou povinná.
+        Vyberte, ktorý stĺpec v Excelu odpovídá ktorému poli v aplikácii. Tučne označená pole sú povinná.
       </p>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 10, marginBottom: 16 }}>
-        {colChoice('name', 'Název položky', true)}
-        {colChoice('quantity', 'Množství', true)}
+        {colChoice('name', 'Názov položky', true)}
+        {colChoice('quantity', 'Množstvo', true)}
         {colChoice('unit', 'Jednotka', false)}
         {colChoice('unitPrice', 'Cena za kus', true)}
-        {colChoice('currency', 'Měna (jinak default)', false)}
-        {colChoice('orderNumber', 'Č. objednávky v řádku', false)}
+        {colChoice('currency', 'Mena (inak default)', false)}
+        {colChoice('orderNumber', 'Č. objednávky v riadku', false)}
         {colChoice('notes', 'Poznámka', false)}
       </div>
 
-      {/* Náhled prvních řádků */}
+      {/* Náhľad prvých riadkov */}
       <div style={{ marginBottom: 16 }}>
         <div style={{ fontSize: 12, fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 6 }}>
-          Náhled (prvních 5 řádků):
+          Náhľad (prvých 5 riadkov):
         </div>
         <div style={{ border: '1px solid #e2e8f0', borderRadius: 6, overflow: 'auto', background: '#fff' }}>
           <table style={{ ...styles.table, fontSize: 11 }}>
@@ -12571,26 +12747,26 @@ function ImportOrderMapping({ headers, previewRows, colMap, setColMap, orderMeta
           <input style={styles.input} value={orderMeta.orderNumber} onChange={e => setOrderMeta({ ...orderMeta, orderNumber: e.target.value })} placeholder="OBJ-2026-001" />
         </div>
         <div>
-          <label style={styles.label}>Dodavatel *</label>
+          <label style={styles.label}>Dodávateľ *</label>
           <select style={styles.input} value={orderMeta.supplierId} onChange={e => setOrderMeta({ ...orderMeta, supplierId: e.target.value })}>
             <option value="">— Vyberte —</option>
             {suppliers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
           </select>
         </div>
         <div>
-          <label style={styles.label}>Datum nákupu *</label>
+          <label style={styles.label}>Dátum nákupu *</label>
           <input type="date" style={styles.input} value={orderMeta.purchaseDate} onChange={e => setOrderMeta({ ...orderMeta, purchaseDate: e.target.value })} />
         </div>
         <div>
-          <label style={styles.label}>Měna (default)</label>
+          <label style={styles.label}>Mena (default)</label>
           <select style={styles.input} value={orderMeta.defaultCurrency} onChange={e => setOrderMeta({ ...orderMeta, defaultCurrency: e.target.value })}>
-            <option value="CZK">CZK</option>
             <option value="EUR">EUR</option>
+            <option value="CZK">CZK</option>
             <option value="USD">USD</option>
           </select>
         </div>
         <div>
-          <label style={styles.label}>Kategorie (default)</label>
+          <label style={styles.label}>Kategórie (default)</label>
           <select style={styles.input} value={orderMeta.defaultCategory} onChange={e => setOrderMeta({ ...orderMeta, defaultCategory: e.target.value })}>
             <option value="">— Vyberte —</option>
             {categories.filter(c => c.kind === 'material').map(c => (
@@ -12601,17 +12777,17 @@ function ImportOrderMapping({ headers, previewRows, colMap, setColMap, orderMeta
       </div>
 
       <div style={{ marginTop: 14, padding: 10, background: '#f0fdf4', color: '#166534', borderRadius: 6, fontSize: 13 }}>
-        Po nastavení mapování bude rozpoznáno <strong>{parsedRowsCount}</strong> řádků.
+        Po nastavenia mapovanie bude rozpoznáno <strong>{parsedRowsCount}</strong> riadkov.
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onBack}>← Zpět</button>
+        <button style={styles.secondaryBtn} onClick={onBack}>← Späť</button>
         <button
           style={{ ...styles.primaryBtn, opacity: (colMap.name && colMap.quantity && colMap.unitPrice && orderMeta.supplierId) ? 1 : 0.5 }}
           disabled={!colMap.name || !colMap.quantity || !colMap.unitPrice || !orderMeta.supplierId}
           onClick={onNext}
         >
-          Pokračovat na párování →
+          Pokračovať na párovanie →
         </button>
       </div>
     </div>
@@ -12620,7 +12796,7 @@ function ImportOrderMapping({ headers, previewRows, colMap, setColMap, orderMeta
 
 // ===== Sub-component: Matching =====
 function ImportOrderMatching({ matches, updateMatch, projects, categories, orderMeta, fxRate, stats, onBack, onNext }) {
-  // Všechny plánované položky napříč projekty - pro plný výběr v dropdownu
+  // Všetky plánované položky naprieč projekty - pre plný výber v dropdownu
   const allPlanItems = useMemo(() => {
     const out = [];
     projects.forEach(p => {
@@ -12636,18 +12812,18 @@ function ImportOrderMatching({ matches, updateMatch, projects, categories, order
   return (
     <div>
       <div style={{ display: 'flex', gap: 12, marginBottom: 14, flexWrap: 'wrap' }}>
-        <StatBadge color="#10b981" label="Automaticky spárováno" count={stats.matched} />
+        <StatBadge color="#10b981" label="Automaticky spárované" count={stats.matched} />
         <StatBadge color="#f59e0b" label="Vyžaduje kontrolu" count={stats.review} />
         <StatBadge color="#3b82f6" label="Nová položka" count={stats.create} />
-        <StatBadge color="#94a3b8" label="Přeskočeno" count={stats.skip} />
+        <StatBadge color="#94a3b8" label="Preskočené" count={stats.skip} />
       </div>
 
       <p style={{ color: '#64748b', fontSize: 13, margin: '0 0 14px' }}>
-        Aplikace navrhla párování. Zelená = jistá shoda. Žlutá = vyžaduje kontrolu.
-        Modrá = nová položka. Vlevo: <strong>položka z Excelu</strong>. Vpravo: <strong>navržená položka v nákupním seznamu</strong>.
+        Aplikácia navrhla párovanie. Zelená = jistá zhoda. Žltá = vyžaduje kontrolu.
+        Modrá = nová položka. Vľavo: <strong>položka z Excelu</strong>. Vpravo: <strong>navržená položka v nákupnom zozname</strong>.
         {allPlanItems.length === 0 && (
           <span style={{ display: 'block', marginTop: 6, color: '#f59e0b', fontWeight: 600 }}>
-            ⚠ V nákupním seznamu nejsou žádné plánované položky — všechny řádky budou vytvořeny jako nové.
+            ⚠ V nákupnom zozname nie sú žiadne plánované položky — všetky riadky budú vytvorené ako nové.
           </span>
         )}
       </p>
@@ -12668,9 +12844,9 @@ function ImportOrderMatching({ matches, updateMatch, projects, categories, order
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onBack}>← Zpět</button>
+        <button style={styles.secondaryBtn} onClick={onBack}>← Späť</button>
         <button style={styles.primaryBtn} onClick={onNext}>
-          Pokračovat na souhrn →
+          Pokračovať na súhrn →
         </button>
       </div>
     </div>
@@ -12680,10 +12856,10 @@ function ImportOrderMatching({ matches, updateMatch, projects, categories, order
 function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fxRate, allPlanItems }) {
   const ir = match.importRow;
   const lineTotal = ir.quantity * ir.unitPrice;
-  const lineTotalCZK = ir.currency === 'EUR' ? lineTotal * fxRate : lineTotal;
+  const lineTotalEUR = ir.currency === 'CZK' ? (fxRate > 0 ? lineTotal / fxRate : lineTotal) : lineTotal;
 
-  // Pro dropdown: seřazené plánované položky podle skóre shody s tímto řádkem
-  // Vždy ukáže VŠECHNY plánované položky (i s nulovým skóre), seřazené nejlepší shoda nahoře
+  // Pre dropdown: zoradené plánované položky podľa skóre zhody s tímto riadkom
+  // Vždy ukáže VŠETKY plánované položky (i s nulovým skóre), zoradené nejlepší zhoda hore
   const sortedPlanItems = useMemo(() => {
     if (!allPlanItems || allPlanItems.length === 0) return [];
     return [...allPlanItems]
@@ -12695,10 +12871,10 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
   }, [allPlanItems, ir]);
 
   const colors = {
-    match: { bg: '#f0fdf4', border: '#86efac', label: 'AUTO SPÁROVÁNO', labelColor: '#15803d' },
-    review: { bg: '#fefce8', border: '#fde047', label: 'PROVĚŘIT', labelColor: '#a16207' },
+    match: { bg: '#f0fdf4', border: '#86efac', label: 'AUTO SPÁROVANÉ', labelColor: '#15803d' },
+    review: { bg: '#fefce8', border: '#fde047', label: 'PREVERIŤ', labelColor: '#a16207' },
     create: { bg: '#eff6ff', border: '#93c5fd', label: 'NOVÁ POLOŽKA', labelColor: '#1e40af' },
-    skip: { bg: '#f1f5f9', border: '#cbd5e1', label: 'PŘESKOČIT', labelColor: '#64748b' },
+    skip: { bg: '#f1f5f9', border: '#cbd5e1', label: 'PRESKOČIŤ', labelColor: '#64748b' },
   };
   const c = colors[match.action];
 
@@ -12714,12 +12890,12 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
         </div>
         <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>{ir.name}</div>
         <div style={{ fontSize: 11, color: '#475569' }}>
-          {ir.quantity} {ir.unit} × {fmt2(ir.unitPrice, ir.currency)} = <strong>{fmt(lineTotalCZK)}</strong>
+          {ir.quantity} {ir.unit} × {fmt2(ir.unitPrice, ir.currency)} = <strong>{fmt(lineTotalEUR)}</strong>
         </div>
         {ir.notes && <div style={{ fontSize: 11, color: '#94a3b8', fontStyle: 'italic', marginTop: 2 }}>{ir.notes}</div>}
       </div>
 
-      {/* Střed: šipka */}
+      {/* Stred: šípka */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: c.labelColor }}>
         <ArrowRight size={20} />
       </div>
@@ -12736,7 +12912,7 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
             } else if (action === 'skip') {
               updateMatch(idx, { action: 'skip' });
             } else {
-              // Přepnutí na "match" - vybrat aktuálně nejlepší shodu z VŠECH plánovaných položek
+              // Prepnutie na "match" - vybrať aktuálne nejlepší zhodu z VŠETKÝCH plánovaných položek
               const best = sortedPlanItems[0];
               updateMatch(idx, {
                 action: 'match',
@@ -12749,10 +12925,10 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
           }}
         >
           <option value="match" disabled={sortedPlanItems.length === 0}>
-            → Spárovat s plánem{sortedPlanItems.length === 0 ? ' (žádné plánované položky)' : ''}
+            → Spárovať s plánem{sortedPlanItems.length === 0 ? ' (žiadne plánované položky)' : ''}
           </option>
-          <option value="create">+ Vytvořit novou položku</option>
-          <option value="skip">⊘ Přeskočit</option>
+          <option value="create">+ Vytvoriť novou položku</option>
+          <option value="skip">⊘ Preskočiť</option>
         </select>
 
         {(match.action === 'match' || match.action === 'review') && (
@@ -12782,19 +12958,19 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
                       : '';
                     return (
                       <option key={s.planItem.id} value={s.planItem.id}>
-                        {scoreText} {s.planItem.name} · {s.planItem.projectName} · {s.planItem.quantity} {s.planItem.unit} × {fmt2(s.planItem.unitPrice || 0, s.planItem.currency || 'CZK')}
+                        {scoreText} {s.planItem.name} · {s.planItem.projectName} · {s.planItem.quantity} {s.planItem.unit} × {fmt2(s.planItem.unitPrice || 0, s.planItem.currency || 'EUR')}
                       </option>
                     );
                   })}
                 </select>
                 <div style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>
-                  ↑ {sortedPlanItems.length} {sortedPlanItems.length === 1 ? 'plánovaná položka' : sortedPlanItems.length < 5 ? 'plánované položky' : 'plánovaných položek'} v nákupním seznamu, seřazeno podle shody
+                  ↑ {sortedPlanItems.length} {sortedPlanItems.length === 1 ? 'plánovaná položka' : sortedPlanItems.length < 5 ? 'plánované položky' : 'plánovaných položek'} v nákupnom zozname, zoradené podľa zhody
                 </div>
               </>
             ) : (
               <div style={{ fontSize: 11, color: '#dc2626', fontStyle: 'italic', padding: 6, background: '#fee2e2', borderRadius: 4 }}>
-                ⚠ V nákupním seznamu nejsou žádné plánované položky.
-                Změňte akci na „Vytvořit novou položku".
+                ⚠ V nákupnom zozname nie sú žiadne plánované položky.
+                Zmeňte akci na „Vytvoriť novou položku".
               </div>
             )}
             {match.matchReasons.length > 0 && (
@@ -12804,10 +12980,10 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
             )}
             {match.planItem && (
               <div style={{ fontSize: 11, color: '#475569', marginTop: 4 }}>
-                <strong>Aktuální plán:</strong> {match.planItem.quantity} {match.planItem.unit} × {fmt2(match.planItem.unitPrice || 0, match.planItem.currency || 'CZK')}
+                <strong>Aktuálny plán:</strong> {match.planItem.quantity} {match.planItem.unit} × {fmt2(match.planItem.unitPrice || 0, match.planItem.currency || 'EUR')}
                 {(match.planItem.quantity !== ir.quantity || (match.planItem.unitPrice || 0).toFixed(2) !== ir.unitPrice.toFixed(2)) && (
                   <div style={{ fontSize: 10, color: '#f59e0b', marginTop: 2 }}>
-                    ⚠ Po importu se přepíše skutečným údajem z faktury
+                    ⚠ Po importu sa prepíše skutočným údajem z faktúry
                   </div>
                 )}
               </div>
@@ -12832,7 +13008,7 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
               value={match.category || ''}
               onChange={e => updateMatch(idx, { category: e.target.value })}
             >
-              <option value="">— Kategorie —</option>
+              <option value="">— Kategórie —</option>
               {categories.filter(c => c.kind === 'material').map(c => (
                 <option key={c.id} value={c.id}>{c.name}</option>
               ))}
@@ -12860,58 +13036,58 @@ function StatBadge({ color, label, count }) {
 // ===== Sub-component: Summary =====
 function ImportOrderSummary({ matches, orderMeta, suppliers, stats, fxRate, onBack, onConfirm, onCancel }) {
   const supplier = suppliers.find(s => s.id === orderMeta.supplierId);
-  const totalCZK = matches
+  const totalEUR = matches
     .filter(m => m.action !== 'skip')
     .reduce((sum, m) => {
       const ir = m.importRow;
       const t = ir.quantity * ir.unitPrice;
-      return sum + (ir.currency === 'EUR' ? t * fxRate : t);
+      return sum + (ir.currency === 'CZK' ? (fxRate > 0 ? t / fxRate : t) : t);
     }, 0);
 
   return (
     <div>
-      <h3 style={{ margin: '0 0 12px', fontSize: 16 }}>Souhrn před importem</h3>
+      <h3 style={{ margin: '0 0 12px', fontSize: 16 }}>Súhrn pred importem</h3>
 
       <div style={{ padding: 14, background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 8, marginBottom: 14 }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '6px 14px', fontSize: 13 }}>
           <div style={{ color: '#64748b' }}>Číslo objednávky:</div>
           <div style={{ fontWeight: 600 }}>{orderMeta.orderNumber || '(bez čísla)'}</div>
-          <div style={{ color: '#64748b' }}>Dodavatel:</div>
+          <div style={{ color: '#64748b' }}>Dodávateľ:</div>
           <div style={{ fontWeight: 600 }}>{supplier?.name || '(nenastaveno)'}</div>
-          <div style={{ color: '#64748b' }}>Datum nákupu:</div>
+          <div style={{ color: '#64748b' }}>Dátum nákupu:</div>
           <div style={{ fontWeight: 600 }}>{orderMeta.purchaseDate}</div>
           <div style={{ color: '#64748b' }}>Celková hodnota:</div>
-          <div style={{ fontWeight: 700, color: '#0d3825', fontSize: 16 }}>{fmt(totalCZK)}</div>
+          <div style={{ fontWeight: 700, color: '#0d3825', fontSize: 16 }}>{fmt(totalEUR)}</div>
         </div>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 10, marginBottom: 14 }}>
-        <SummaryCard label="Spárováno s plánem" value={String(stats.matched + stats.review)} accent="#10b981" />
+        <SummaryCard label="Spárované s plánem" value={String(stats.matched + stats.review)} accent="#10b981" />
         <SummaryCard label="Nových položek" value={String(stats.create)} accent="#3b82f6" />
-        <SummaryCard label="Přeskočeno" value={String(stats.skip)} accent="#94a3b8" />
+        <SummaryCard label="Preskočené" value={String(stats.skip)} accent="#94a3b8" />
       </div>
 
       <div style={{ fontSize: 13, color: '#475569', lineHeight: 1.6, padding: 12, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 6 }}>
-        <strong style={{ color: '#92400e' }}>Co se stane po potvrzení:</strong>
+        <strong style={{ color: '#92400e' }}>Co sa stane po potvrdenie:</strong>
         <ul style={{ margin: '6px 0 0', paddingLeft: 20 }}>
           {stats.matched + stats.review > 0 && (
-            <li><strong>{stats.matched + stats.review}</strong> položek v nákupním seznamu bude označeno jako objednané a jejich cena/množství budou aktualizovány skutečnými údaji</li>
+            <li><strong>{stats.matched + stats.review}</strong> položek v nákupnom zozname bude označené ako objednané a ich cena/množstvo budú aktualizované skutočnými údaji</li>
           )}
           {stats.create > 0 && (
-            <li><strong>{stats.create}</strong> nových položek bude vytvořeno v projektech (ihned se statusem „objednáno")</li>
+            <li><strong>{stats.create}</strong> nových položek bude vytvorené v projektoch (ihned sa statusem „objednané")</li>
           )}
           {stats.skip > 0 && (
-            <li><strong>{stats.skip}</strong> řádků bude ignorováno</li>
+            <li><strong>{stats.skip}</strong> riadkov bude ignorováno</li>
           )}
-          <li>Nebude smazána žádná existující data</li>
+          <li>Nebude vymazaná žiadna existující data</li>
         </ul>
       </div>
 
       <div style={styles.modalActions}>
-        <button style={styles.secondaryBtn} onClick={onBack}>← Zpět</button>
-        <button style={styles.sortBtn} onClick={onCancel}>Zrušit</button>
+        <button style={styles.secondaryBtn} onClick={onBack}>← Späť</button>
+        <button style={styles.sortBtn} onClick={onCancel}>Zrušiť</button>
         <button style={styles.primaryBtn} onClick={onConfirm}>
-          <CheckCircle2 size={14} /> Potvrdit import
+          <CheckCircle2 size={14} /> Potvrdiť import
         </button>
       </div>
     </div>
