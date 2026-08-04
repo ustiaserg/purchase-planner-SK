@@ -17,7 +17,7 @@ const STORAGE_KEY = 'enedom-sk-material-v1';
 // APP_VERSION = dátum buildu, slúži k rýchle kontrole aktuálnosti aplikácia
 // na rôznych zariadeniach (mobil vs desktop) — uvidíte ho v hlavičce.
 // Aktualizujte pri každém deploymentu, abyste poznal čerstvou verzi.
-const APP_VERSION = '2026-07-23-sk-isolated-storage';
+const APP_VERSION = '2026-08-03-sk-reserved-status-display';
 
 const LOGO_DATA_URL = 'data:image/png;base64,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';
 
@@ -30,6 +30,7 @@ const DEFAULT_CATEGORIES = [
   { id: 'electrical', name: 'Elektroinštalácia a istenie', color: '#ec4899', kind: 'material' },
   { id: 'monitoring', name: 'Monitoring a komunikácia', color: '#14b8a6', kind: 'material' },
   { id: 'other_material', name: 'Ostatný materiál', color: '#64748b', kind: 'material' },
+  { id: 'shipping', name: 'Doprava', color: '#94a3b8', kind: 'shipping' },
   { id: 'labor', name: 'Práca', color: '#0ea5e9', kind: 'labor' },
   { id: 'subcontractor', name: 'Subdodávatelia', color: '#6366f1', kind: 'labor' },
   { id: 'commission', name: 'Predajná provízia', color: '#d946ef', kind: 'commission' },
@@ -84,12 +85,61 @@ const MOVEMENT_TYPES = {
   receive:  { label: 'Naskladnenie', icon: '📥', color: '#10b981' },
   transfer: { label: 'Presun',       icon: '🔄', color: '#3b82f6' },
   consume:  { label: 'Spotreba',     icon: '✂️', color: '#f59e0b' },
+  reserve:  { label: 'Rezervácia',   icon: '🔒', color: '#8b5cf6' },
+  release:  { label: 'Uvoľnenie',    icon: '🔓', color: '#64748b' },
   adjust:   { label: 'Inventura',    icon: '📋', color: '#8b5cf6' },
   return:   { label: 'Vrátenie',      icon: '↩️', color: '#64748b' },
 };
 
 // Kategorie, u kterých se vyžadují sériová čísla (panely, meniče, baterie)
 const SERIAL_REQUIRED_CATEGORIES = ['panels', 'inverters', 'batteries'];
+
+// Rozpoznanie dopravy/prepravy kdekoľvek v názve (vrátane angl. "shipment"/"shipping").
+const SHIPPING_RE = /\b(doprav|preprav|přeprav|shipment|shipping|freight|poštovn|postovn|carriage|dovozné|dopravné|manipulac)/i;
+function isShippingItem(item) {
+  if (!item) return false;
+  if (item.category === 'shipping') return true;
+  return SHIPPING_RE.test(String(item.name || ''));
+}
+// Náklad, ktorý sa NEnaskladňuje, ale rozpočíta medzi materiál v objednávke:
+// doprava/preprava (auto podľa názvu/kategórie) ALEBO ručne označené (allocateToMaterial),
+// napr. clo, balné, poistenie a iné náklady súvisiace s obstaraním.
+function isDistributedCost(item) {
+  if (!item) return false;
+  if (item.allocateToMaterial) return true;
+  if (item.allocateToMaterial === false) return false; // ručné vypnutie prebije auto-detekciu
+  return isShippingItem(item);
+}
+
+// Výpočet plánu dávkového naskladnenia (čistá funkcia — bez mutácií).
+// Vracia materiálové položky na naskladnenie + dopravu na rozpočítanie.
+function computeBatchReceivePlan(rows, stockItems, categories, fxRate) {
+  const stockedQtyOf = (itemId) =>
+    stockItems.filter(s => s.sourceOrderItemId === itemId)
+      .reduce((sum, s) => sum + (parseInt(s.batchQuantity, 10) || 1), 0);
+
+  const shippingRows = rows.filter(r => isDistributedCost(r.item) && !r.item.shippingDistributed);
+
+  const prepared = rows
+    .filter(r => {
+      const cat = r.category || categories.find(c => c.id === r.item.category);
+      if (isDistributedCost(r.item)) return false;
+      if (cat?.kind !== 'material') return false;
+      if (!['ordered', 'delivered'].includes(r.item.status || 'planned')) return false;
+      return (parseFloat(r.item.quantity) || 0) - stockedQtyOf(r.item.id) > 0;
+    })
+    .map(r => {
+      const qty = parseFloat(r.item.quantity) || 0;
+      const remaining = qty - stockedQtyOf(r.item.id);
+      const unitEUR = qty > 0 ? (r.czk || 0) / qty : 0;
+      return { r, remaining, baseValue: unitEUR * remaining };
+    });
+
+  const shippingTotal = shippingRows.reduce((s, r) => s + (r.czk || 0), 0);
+  const baseSum = prepared.reduce((s, p) => s + p.baseValue, 0);
+  const totalPieces = prepared.reduce((s, p) => s + p.remaining, 0);
+  return { prepared, shippingRows, shippingTotal, baseSum, totalPieces };
+}
 
 const fmt = (n, currency = 'EUR') => {
   const val = Number(n) || 0;
@@ -387,11 +437,40 @@ export default function CashFlowPlanner() {
             console.log(`[Cash Flow Planner] Migrated v7 → v9. Global FX rate set to ${migratedSettings.fxRate}. Projekty: ${migratedProjects.length}.`);
           }
 
+          // Zlúčenie položiek spotrebovaných zo skladu do jedného riadku s množstvom.
+          // Rovnaký materiál (názov + kategória + objednávka + dodávateľ) v rámci projektu
+          // sa spojí; jednotková cena = vážený priemer. Netýka sa bežných objednaných položiek.
+          const consolidateConsumed = (items) => {
+            const out = [];
+            const idxByKey = new Map();
+            items.forEach(item => {
+              if (!(item.fromStock || item.fromStockItemId)) { out.push(item); return; }
+              const key = [item.name, item.category || '', item.orderNumber || '', item.supplierId || '', item.supplier || ''].join('||');
+              if (!idxByKey.has(key)) {
+                idxByKey.set(key, out.length);
+                out.push({ ...item, quantity: parseFloat(item.quantity) || 0, fromStock: true });
+              } else {
+                const ex = out[idxByKey.get(key)];
+                const exQty = parseFloat(ex.quantity) || 0;
+                const addQty = parseFloat(item.quantity) || 0;
+                const newQty = exQty + addQty;
+                const totVal = (parseFloat(ex.unitPrice) || 0) * exQty + (parseFloat(item.unitPrice) || 0) * addQty;
+                out[idxByKey.get(key)] = {
+                  ...ex,
+                  quantity: newQty,
+                  unitPrice: newQty > 0 ? totVal / newQty : (parseFloat(ex.unitPrice) || 0),
+                  fromStockItemId: undefined, // agregát už neodkazuje na jeden kus
+                };
+              }
+            });
+            return out;
+          };
+
           // Defensive shape normalization — make sure every project has the fields the UI expects
           migratedProjects = migratedProjects.map(p => ({
             ...p,
             status: p.status === 'completed' ? 'completed' : 'active',
-            items: (Array.isArray(p.items) ? p.items : []).map(item => {
+            items: consolidateConsumed((Array.isArray(p.items) ? p.items : []).map(item => {
               // Migrace položek: status='invoiced' se rozpadne na status='delivered' + isInvoiced=true.
               // Staré položky bez isInvoiced pole sa nastaví na false.
               const oldStatus = item.status || 'planned';
@@ -404,7 +483,7 @@ export default function CashFlowPlanner() {
                 isInvoiced = false;
               }
               return { ...item, status: newStatus, isInvoiced };
-            }),
+            })),
             budgets: p.budgets && typeof p.budgets === 'object' ? p.budgets : {},
           }));
 
@@ -707,6 +786,82 @@ export default function CashFlowPlanner() {
     }));
   };
 
+  // Dávkové naskladnenie celej objednávky naraz (potvrdenie rieši in-app modal,
+  // NIE window.confirm — ten je v sandboxe/iframe blokovaný a akcia by tíško zlyhala).
+  const batchStockReceiveOrder = (rows, modes = {}) => {
+    const { prepared, shippingRows, shippingTotal, baseSum } =
+      computeBatchReceivePlan(rows, data.stockItems, data.categories, fxRate);
+    if (prepared.length === 0) return;
+
+    const today = todayISO();
+    const newStock = [];
+    const newMovements = [];
+    prepared.forEach(p => {
+      const share = (shippingTotal > 0 && baseSum > 0) ? shippingTotal * (p.baseValue / baseSum) : 0;
+      const totalValue = p.baseValue + share;
+      const sup = data.suppliers.find(s => s.id === p.r.item.supplierId)
+        || data.suppliers.find(s => s.name === p.r.supplierName);
+      const receivedDate = p.r.item.deliveredDate || today;
+      const baseFields = {
+        name: p.r.item.name,
+        category: p.r.item.category,
+        unit: p.r.item.unit || 'ks',
+        supplierName: (p.r.supplierName && !p.r.supplierName.startsWith('(')) ? p.r.supplierName : '',
+        supplierId: p.r.item.supplierId || sup?.id || '',
+        orderNumber: p.r.item.orderNumber || '',
+        locationId: 'loc_warehouse',
+        receivedDate,
+        warrantyUntil: '',
+        sourceOrderItemId: p.r.item.id,
+        sourceProjectId: p.r.projectId || null,
+        status: 'available',
+      };
+      const noteBase = share > 0 ? `Dávkové naskladnenie · vrátane rozpočítanej dopravy ${fmt(share)}` : 'Dávkové naskladnenie';
+      const mvNote = `Dávkové naskladnenie z objednávky ${p.r.item.orderNumber || ''}`.trim();
+
+      if (modes[p.r.item.id] === 'individual') {
+        // Po kusoch: N samostatných záznamov (každý 1 ks), cena rozpočítaná na kus
+        const unitValue = p.remaining > 0 ? totalValue / p.remaining : totalValue;
+        for (let i = 0; i < p.remaining; i++) {
+          const id = uid('stk');
+          newStock.push({ ...baseFields, id, serialNumber: '', batchQuantity: 1, purchasePriceEUR: unitValue, notes: noteBase });
+          newMovements.push({
+            id: uid('mov'), date: receivedDate, type: 'receive', stockItemId: id,
+            itemName: p.r.item.name, serialNumber: '', quantity: 1,
+            fromLocationId: null, toLocationId: 'loc_warehouse', projectId: null,
+            notes: mvNote, createdAt: new Date().toISOString(),
+          });
+        }
+      } else {
+        // Batch: 1 záznam s celkovou hodnotou
+        const id = uid('stk');
+        newStock.push({ ...baseFields, id, serialNumber: '', batchQuantity: p.remaining, purchasePriceEUR: totalValue, notes: noteBase });
+        newMovements.push({
+          id: uid('mov'), date: receivedDate, type: 'receive', stockItemId: id,
+          itemName: p.r.item.name, serialNumber: '', quantity: p.remaining,
+          fromLocationId: null, toLocationId: 'loc_warehouse', projectId: null,
+          notes: mvNote, createdAt: new Date().toISOString(),
+        });
+      }
+    });
+
+    setData(d => {
+      const shipIds = new Set(shippingRows.map(r => r.item.id));
+      const projects = shipIds.size ? d.projects.map(pr => ({
+        ...pr,
+        items: pr.items.map(it => shipIds.has(it.id)
+          ? { ...it, shippingDistributed: true, status: it.status === 'ordered' ? 'delivered' : it.status }
+          : it),
+      })) : d.projects;
+      return {
+        ...d,
+        projects,
+        stockItems: [...d.stockItems, ...newStock],
+        stockMovements: [...d.stockMovements, ...newMovements],
+      };
+    });
+  };
+
   // Aktualizovať skladový kus (napr. zmena záruky, ceny, poznámky)
   const updateStockItem = (id, patch) => {
     setData(d => ({
@@ -891,34 +1046,52 @@ export default function CashFlowPlanner() {
       const targetProject = d.projects.find(p => p.id === projectId);
       const existingItemIds = new Set((targetProject?.items || []).map(i => i.id));
 
-      // Propagovať iba kusy, ktoré prinesú novou položku (bez duplikace)
-      const propagatedItems = consumable
+      // Propagovať iba kusy, ktoré prinesú novú položku (bez duplikace),
+      // a AGREGOVAŤ rovnaký materiál do jedného riadku s množstvom.
+      const toPropagate = consumable
         .filter(it => !(it.sourceOrderItemId && existingItemIds.has(it.sourceOrderItemId)))
-        .map(it => {
-          const qty = parseInt(it.batchQuantity, 10) || 1;
-          const priceEUR = parseFloat(it.purchasePriceEUR) || 0;
-          const unitPrice = qty > 0 ? priceEUR / qty : priceEUR;
-          return {
-            id: uid('item'),
-            name: it.name,
-            category: it.category || '',
-            quantity: qty,
-            unit: 'ks',
-            unitPrice,
-            currency: 'EUR',
-            supplierId: it.supplierId || '',
-            supplier: it.supplierId ? '' : (it.supplierName || ''),
-            orderNumber: it.orderNumber || '',
-            purchaseDate: it.receivedDate || today,
-            deliveredDate: it.receivedDate || today,
-            paymentDueDate: '',
-            notes: `Zo sklade · ${it.serialNumber ? `S/N ${it.serialNumber}` : `naskladnené ${it.receivedDate || ''}`}${notes ? ` · ${notes}` : ''}`,
-            status: 'delivered',
-            isInvoiced: true,
-            invoicedDate: it.receivedDate || today,
-            fromStockItemId: it.id,
-          };
-        });
+        // Ak sa spotrebúva kus rezervovaný pre položku v tomto projekte, tá položka
+        // už potrebu reprezentuje (reservedFromStockQty) — nevytvárame duplicitný riadok.
+        .filter(it => !(it.reservedForItemId && existingItemIds.has(it.reservedForItemId)));
+
+      const groups = new Map();
+      toPropagate.forEach(it => {
+        const key = [it.name, it.category || '', it.sourceOrderItemId || '', it.supplierId || '', it.supplierName || '', it.orderNumber || ''].join('||');
+        if (!groups.has(key)) groups.set(key, { sample: it, qty: 0, value: 0, serials: [] });
+        const g = groups.get(key);
+        g.qty += parseInt(it.batchQuantity, 10) || 1;
+        g.value += parseFloat(it.purchasePriceEUR) || 0;
+        if (it.serialNumber) g.serials.push(it.serialNumber);
+      });
+
+      const propagatedItems = [...groups.values()].map(g => {
+        const it = g.sample;
+        const unitPrice = g.qty > 0 ? g.value / g.qty : g.value;
+        const snNote = g.serials.length
+          ? (g.serials.length <= 5 ? `S/N ${g.serials.join(', ')}` : `${g.serials.length} ks so S/N`)
+          : `naskladnené ${it.receivedDate || ''}`;
+        return {
+          id: uid('item'),
+          name: it.name,
+          category: it.category || '',
+          quantity: g.qty,
+          unit: 'ks',
+          unitPrice,
+          currency: 'EUR',
+          supplierId: it.supplierId || '',
+          supplier: it.supplierId ? '' : (it.supplierName || ''),
+          orderNumber: it.orderNumber || '',
+          purchaseDate: it.receivedDate || today,
+          deliveredDate: it.receivedDate || today,
+          paymentDueDate: '',
+          notes: `Zo sklade · ${snNote}${notes ? ` · ${notes}` : ''}`,
+          status: 'delivered',
+          isInvoiced: true,
+          invoicedDate: it.receivedDate || today,
+          fromStock: true,
+          fromStockItemId: g.qty === 1 ? it.id : undefined,
+        };
+      });
 
       const updatedProjects = d.projects.map(p =>
         p.id === projectId ? { ...p, items: [...(p.items || []), ...propagatedItems] } : p
@@ -934,6 +1107,149 @@ export default function CashFlowPlanner() {
           status: 'consumed',
         } : s),
         stockMovements: [...d.stockMovements, ...movements],
+      };
+    });
+  };
+
+  // Rezervovať kusy zo skladu pre projektovú položku.
+  // Ak je rezervované menej než batchQuantity, batch sa rozdelí:
+  // pôvodný záznam sa zmenší a vznikne nový 'reserved' záznam.
+  const reserveStock = (stockItemId, projectId, projectItemId, quantity, notes = '') => {
+    setData(d => {
+      const s = d.stockItems.find(x => x.id === stockItemId);
+      if (!s || s.status !== 'available') return d;
+      const have = parseInt(s.batchQuantity, 10) || 1;
+      const qty = Math.max(1, Math.min(parseInt(quantity, 10) || 1, have));
+      const unit = have > 0 ? (parseFloat(s.purchasePriceEUR) || 0) / have : (parseFloat(s.purchasePriceEUR) || 0);
+      const today = todayISO();
+      const reservedFields = {
+        status: 'reserved',
+        reservedForProjectId: projectId,
+        reservedForItemId: projectItemId || null,
+        reservedDate: today,
+        reservedNotes: notes || '',
+      };
+
+      let newStockItems;
+      let reservedId;
+      if (qty >= have) {
+        // Rezervovať celý záznam
+        reservedId = s.id;
+        newStockItems = d.stockItems.map(x => x.id === s.id ? { ...x, ...reservedFields, batchQuantity: have } : x);
+      } else {
+        // Rozdeliť: zmenšiť pôvodný a vytvoriť nový rezervovaný
+        reservedId = uid('stk');
+        const remaining = have - qty;
+        newStockItems = d.stockItems.flatMap(x => {
+          if (x.id !== s.id) return [x];
+          const kept = { ...x, batchQuantity: remaining, purchasePriceEUR: unit * remaining };
+          const reserved = { ...x, ...reservedFields, id: reservedId, batchQuantity: qty, purchasePriceEUR: unit * qty };
+          return [kept, reserved];
+        });
+      }
+
+      const movement = {
+        id: uid('mov'), date: today, type: 'reserve', stockItemId: reservedId,
+        itemName: s.name, serialNumber: s.serialNumber || '', quantity: qty,
+        amountEUR: unit * qty, fromLocationId: s.locationId, toLocationId: s.locationId,
+        projectId, notes: notes || '', createdAt: new Date().toISOString(),
+      };
+      return { ...d, stockItems: newStockItems, stockMovements: [...d.stockMovements, movement] };
+    });
+  };
+
+  // Rezervovať N kusov naprieč skupinou rovnakého materiálu (FIFO cez zadané kusy).
+  // stockItemIds = zoznam kandidátov (dostupné kusy skupiny), quantity = koľko ks rezervovať.
+  const reserveStockGroup = (stockItemIds, projectId, projectItemId, quantity, notes = '') => {
+    setData(d => {
+      let need = Math.max(1, parseInt(quantity, 10) || 1);
+      let reservedTotal = 0;
+      const today = todayISO();
+      const items = [...d.stockItems];
+      const movements = [];
+      const reservedBase = {
+        status: 'reserved',
+        reservedForProjectId: projectId,
+        reservedForItemId: projectItemId || null,
+        reservedDate: today,
+        reservedNotes: notes || '',
+      };
+      for (const id of stockItemIds) {
+        if (need <= 0) break;
+        const idx = items.findIndex(x => x.id === id && x.status === 'available');
+        if (idx < 0) continue;
+        const s = items[idx];
+        const have = parseInt(s.batchQuantity, 10) || 1;
+        const unit = have > 0 ? (parseFloat(s.purchasePriceEUR) || 0) / have : (parseFloat(s.purchasePriceEUR) || 0);
+        const take = Math.min(have, need);
+        let reservedId = s.id;
+        if (take >= have) {
+          items[idx] = { ...s, ...reservedBase, batchQuantity: have };
+        } else {
+          reservedId = uid('stk');
+          const remaining = have - take;
+          items[idx] = { ...s, batchQuantity: remaining, purchasePriceEUR: unit * remaining };
+          items.splice(idx + 1, 0, { ...s, ...reservedBase, id: reservedId, batchQuantity: take, purchasePriceEUR: unit * take });
+        }
+        movements.push({
+          id: uid('mov'), date: today, type: 'reserve', stockItemId: reservedId,
+          itemName: s.name, serialNumber: s.serialNumber || '', quantity: take,
+          amountEUR: unit * take, fromLocationId: s.locationId, toLocationId: s.locationId,
+          projectId, notes: notes || '', createdAt: new Date().toISOString(),
+        });
+        need -= take;
+        reservedTotal += take;
+      }
+      if (movements.length === 0) return d;
+
+      // Projektová položka: časť potreby je pokrytá zo skladu → nekupuje sa.
+      // Zvýšime reservedFromStockQty (kryté rezerváciou), max do quantity položky.
+      const projects = projectItemId ? d.projects.map(p => {
+        if (p.id !== projectId) return p;
+        return {
+          ...p,
+          items: p.items.map(it => {
+            if (it.id !== projectItemId) return it;
+            const totalQty = parseFloat(it.quantity) || 0;
+            const already = parseFloat(it.reservedFromStockQty) || 0;
+            return { ...it, reservedFromStockQty: Math.min(totalQty, already + reservedTotal) };
+          }),
+        };
+      }) : d.projects;
+
+      return { ...d, projects, stockItems: items, stockMovements: [...d.stockMovements, ...movements] };
+    });
+  };
+
+  // Uvoľniť rezerváciu — kus sa vráti späť medzi dostupné (Skladem)
+  const releaseReservation = (stockItemId) => {
+    setData(d => {
+      const s = d.stockItems.find(x => x.id === stockItemId);
+      if (!s || s.status !== 'reserved') return d;
+      const releasedQty = parseInt(s.batchQuantity, 10) || 1;
+      const movement = {
+        id: uid('mov'), date: todayISO(), type: 'release', stockItemId: s.id,
+        itemName: s.name, serialNumber: s.serialNumber || '', quantity: releasedQty,
+        amountEUR: parseFloat(s.purchasePriceEUR) || 0, fromLocationId: s.locationId, toLocationId: s.locationId,
+        projectId: s.reservedForProjectId || null, notes: '', createdAt: new Date().toISOString(),
+      };
+      // Vrátiť potrebu nákupu na projektovej položke (zníženie krytia zo skladu)
+      const projects = (s.reservedForItemId) ? d.projects.map(p => {
+        if (p.id !== s.reservedForProjectId) return p;
+        return {
+          ...p,
+          items: p.items.map(it => it.id === s.reservedForItemId
+            ? { ...it, reservedFromStockQty: Math.max(0, (parseFloat(it.reservedFromStockQty) || 0) - releasedQty) }
+            : it),
+        };
+      }) : d.projects;
+      return {
+        ...d,
+        projects,
+        stockItems: d.stockItems.map(x => x.id === s.id
+          ? { ...x, status: 'available', reservedForProjectId: undefined, reservedForItemId: undefined, reservedDate: undefined, reservedNotes: undefined }
+          : x),
+        stockMovements: [...d.stockMovements, movement],
       };
     });
   };
@@ -1211,6 +1527,7 @@ export default function CashFlowPlanner() {
           onUpdateItem={updateItemGlobal} onBatchUpdate={updateItemsBatch}
           readOnly={readOnly}
           onStockReceive={(orderItem) => setModal({ type: 'stockReceive', payload: orderItem })}
+          onBatchStockReceive={batchStockReceiveOrder}
           onImportOrder={() => setModal({ type: 'importOrder' })}
           onImportPDF={() => setModal({ type: 'importPDF' })}
           onAttachInvoicePDF={(order) => setModal({ type: 'importPDF', targetOrder: order })}
@@ -1235,6 +1552,7 @@ export default function CashFlowPlanner() {
           onEditStock={(stk) => setModal({ type: 'stockEdit', payload: stk })}
           onTransferStock={(stk) => setModal({ type: 'stockTransfer', payload: stk })}
           onConsumeStock={(stk) => setModal({ type: 'stockConsume', payload: stk })}
+          onReleaseReservation={releaseReservation}
           onDeleteStock={deleteStockItem}
           onManageLocations={() => setModal({ type: 'settings', initialTab: 'locations' })}
           onBulkTransfer={bulkTransferStock}
@@ -1265,6 +1583,8 @@ export default function CashFlowPlanner() {
               settings={data.settings}
               readOnly={readOnly}
               pdfAttachments={data.pdfAttachments || []}
+              stockItems={data.stockItems}
+              onReserveStock={(item) => setModal({ type: 'reserveStock', payload: item })}
               onAddItem={() => setModal({ type: 'item' })}
               onEditItem={(item) => setModal({ type: 'item', payload: item })}
               onDeleteItem={deleteItem}
@@ -1398,6 +1718,21 @@ export default function CashFlowPlanner() {
           stockItem={modal.payload}
           projects={data.projects}
           onConfirm={(projectId, notes) => { consumeStockItem(modal.payload.id, projectId, notes); setModal(null); }}
+          onClose={() => setModal(null)}
+        />
+      )}
+      {modal?.type === 'reserveStock' && activeProject && (
+        <ReserveStockModal
+          projectItem={modal.payload}
+          project={activeProject}
+          stockItems={data.stockItems}
+          categories={data.categories}
+          locations={data.locations}
+          fxRate={fxRate}
+          onConfirm={(stockItemIds, quantity, notes) => {
+            reserveStockGroup(stockItemIds, activeProject.id, modal.payload?.id || null, quantity, notes);
+            setModal(null);
+          }}
           onClose={() => setModal(null)}
         />
       )}
@@ -2167,7 +2502,7 @@ function validateCompletion(project, fxRate, settings) {
   return { ok: blockers.length === 0, blockers };
 }
 
-function ProjectView({ project, categories, suppliers, fxRate, settings, readOnly, pdfAttachments, onAddItem, onEditItem, onDeleteItem, onEditBudgets, onEditMeta, onImport, onManageSuppliers, onSetProjectStatus, onAddClientPayment, onUpdateClientPayment, onDeleteClientPayment, onApplyPaymentTemplate, paymentPlanTemplates, onDeletePdfAttachment, onAddPdfToProject, onGoToPurchaseList, onGoToOrders }) {
+function ProjectView({ project, categories, suppliers, fxRate, settings, readOnly, pdfAttachments, stockItems = [], onReserveStock, onAddItem, onEditItem, onDeleteItem, onEditBudgets, onEditMeta, onImport, onManageSuppliers, onSetProjectStatus, onAddClientPayment, onUpdateClientPayment, onDeleteClientPayment, onApplyPaymentTemplate, paymentPlanTemplates, onDeletePdfAttachment, onAddPdfToProject, onGoToPurchaseList, onGoToOrders }) {
   const [closeModal, setCloseModal] = useState(null); // { ok, blockers } — null = closed
   const [tab, setTab] = useState('dashboard'); // dashboard | payments | items | pdfs
 
@@ -2395,7 +2730,7 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
               )}
             </div>
           ) : (
-            <ItemsTable items={project.items} categories={categories} suppliers={suppliers} exchangeRate={fxRate} onEdit={onEditItem} onDelete={onDeleteItem} readOnly={readOnly} />
+            <ItemsTable items={project.items} categories={categories} suppliers={suppliers} exchangeRate={fxRate} onEdit={onEditItem} onDelete={onDeleteItem} readOnly={readOnly} stockItems={stockItems} onReserve={project.isStockProject ? null : onReserveStock} />
           )}
         </section>
       )}
@@ -3492,7 +3827,7 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
   );
 }
 
-function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEdit, onDelete }) {
+function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEdit, onDelete, onReserve, stockItems = [] }) {
   const [sortBy, setSortBy] = useState('category');
   const sorted = useMemo(() => {
     const copy = [...items];
@@ -3535,12 +3870,19 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
               const sup = suppliers.find(s => s.id === item.supplierId);
               const supName = sup?.name || item.supplier || '';
               const czk = toEUR(item, exchangeRate);
+              // Plne rezervované zo skladu → v projekte zobraziť ako reálny stav:
+              // Dodané + Vyfakturované (materiál je fyzicky k dispozícii a už zaplatený).
+              // Status v dátach ostáva „planned", aby po uvoľnení šla položka znova objednať.
+              const totalQ = parseFloat(item.quantity) || 0;
+              const fullyReservedFromStock = totalQ > 0 && (parseFloat(item.reservedFromStockQty) || 0) >= totalQ;
+              const displayStatus = fullyReservedFromStock ? 'delivered' : (item.status || 'planned');
+              const displayInvoiced = fullyReservedFromStock ? true : item.isInvoiced;
               return (
                 <tr key={item.id} style={styles.tr}>
                   <td style={styles.td}>
                     <StatusPill
-                      status={item.status || 'planned'}
-                      isInvoiced={item.isInvoiced}
+                      status={displayStatus}
+                      isInvoiced={displayInvoiced}
                       readOnly={true}
                       onChangeInvoiced={() => {}}
                     />
@@ -3555,7 +3897,12 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
                     <div style={{ fontWeight: 500 }}>
                       {item.name}
                       {item.catalogId && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#dbeafe', color: '#1d4ed8', fontWeight: 700 }}>cat.</span>}
-                      {item.fromStockItemId && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontWeight: 700 }} title="Položka pochází ze skladu (byla spotrebovaná ze zásoby)">📦 zo sklade</span>}
+                      {(item.fromStockItemId || item.fromStock) && <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#fef3c7', color: '#92400e', fontWeight: 700 }} title="Položka pochází ze skladu (byla spotrebovaná ze zásoby)">📦 zo sklade</span>}
+                      {(parseFloat(item.reservedFromStockQty) || 0) > 0 && (() => {
+                        const rq = parseFloat(item.reservedFromStockQty) || 0;
+                        const full = rq >= (parseFloat(item.quantity) || 0);
+                        return <span style={{ marginLeft: 6, fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#f5f3ff', color: '#6d28d9', fontWeight: 700 }} title={`${rq} ks je pokrytých rezerváciou zo skladu — táto časť sa nekupuje (mimo nákupný zoznam aj cash flow)`}>🔒 rezervované zo skladu: {rq}{full ? ' (celé)' : ''}</span>;
+                      })()}
                     </div>
                     <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
                       {item.quantity} {item.unit} × {fmt2(item.unitPrice, item.currency || 'EUR')}
@@ -3589,6 +3936,11 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
                   <td style={styles.td}>
                     {!readOnly && (
                       <div style={{ display: 'flex', gap: 4, justifyContent: 'flex-end' }}>
+                        {onReserve && (
+                          <button style={{ ...styles.iconBtn, color: '#8b5cf6' }} onClick={() => onReserve(item)} title="Rezervovať kusy zo skladu pre túto položku">
+                            <Package size={14} />
+                          </button>
+                        )}
                         <button style={styles.iconBtn} onClick={() => onEdit(item)}><Edit3 size={14} /></button>
                         <button style={styles.iconBtn} onClick={() => onDelete(item.id)}><Trash2 size={14} /></button>
                       </div>
@@ -3639,14 +3991,19 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
     projects.forEach(p => {
       p.items.forEach(i => {
         if ((i.status || 'planned') !== 'planned') return; // ONLY planned
+        // Odčítať časť krytú rezerváciou zo skladu — tú už nekupujeme
+        const reservedQ = parseFloat(i.reservedFromStockQty) || 0;
+        const buyQty = (parseFloat(i.quantity) || 0) - reservedQ;
+        if (buyQty <= 0) return; // celá potreba je pokrytá zo skladu → nie je čo kupovať
+        const effItem = reservedQ > 0 ? { ...i, quantity: buyQty } : i;
         const cat = categories.find(c => c.id === i.category);
         const sup = suppliers.find(s => s.id === i.supplierId);
         out.push({
           key: `${p.id}:${i.id}`, projectId: p.id, projectName: p.name, projectClient: p.client || '',
-          item: i, category: cat, supplier: sup,
+          item: effItem, category: cat, supplier: sup,
           supplierName: sup?.name || i.supplier || '',
           hasSupplier: !!(sup || (i.supplier && i.supplier.trim())),
-          czk: toEUR(i, fxRate),
+          czk: toEUR(effItem, fxRate),
         });
       });
     });
@@ -4586,7 +4943,7 @@ function OrderBatchModal({ rows, suppliers, onConfirm, onClose }) {
 // Orders View — items that have been ordered
 // ==========================================================================
 
-function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnly, onUpdateItem, onBatchUpdate, onStockReceive, onImportOrder, onImportPDF, onAttachInvoicePDF, stockItems = [], onGoToStock }) {
+function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnly, onUpdateItem, onBatchUpdate, onStockReceive, onBatchStockReceive, onImportOrder, onImportPDF, onAttachInvoicePDF, stockItems = [], onGoToStock }) {
   const [selected, setSelected] = useState(() => new Set());
   const [batchModal, setBatchModal] = useState(null);
   const [query, setQuery] = useState('');
@@ -4596,6 +4953,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
   const [showCompleted, setShowCompleted] = useState(false); // v predvolenom stavu skryť dokončené objednávky
   const [filterProject, setFilterProject] = useState('all');
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [batchRows, setBatchRows] = useState(null); // riadky objednávky pre modal dávkového naskladnenia
 
   // Orders = items that are ordered/delivered/invoiced
   const orderItems = useMemo(() => {
@@ -4982,7 +5340,14 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                 ...(o.isCompleted ? { opacity: 0.7, borderColor: '#86efac' } : {}),
               }}>
                 <div style={styles.orderCardHeader}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', flex: 1, minWidth: 0 }}>
+                  <div
+                    style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer', flex: 1, minWidth: 0 }}
+                    onClick={(e) => {
+                      // Prepnúť výber skupiny iba pri kliknutí mimo tlačidiel/checkboxu
+                      if (e.target.closest('button, a, input')) return;
+                      toggleGroup(o.rows);
+                    }}
+                  >
                     <input type="checkbox" checked={allSel} ref={el => { if (el) el.indeterminate = someSel; }} onChange={() => toggleGroup(o.rows)} />
                     <div style={{ minWidth: 0, flex: 1 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
@@ -5014,6 +5379,24 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                             title="Prehrať objednávku daty z faktury (PDF/AI)"
                           >
                             <FileText size={11} /> Prehrať z faktúry
+                          </button>
+                        )}
+                        {!readOnly && !o.isCompleted && (
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              setBatchRows(o.rows);
+                            }}
+                            style={{
+                              padding: '4px 10px', fontSize: 11, fontWeight: 600,
+                              background: '#10b981', color: '#fff', border: 'none',
+                              borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit',
+                              display: 'inline-flex', alignItems: 'center', gap: 4,
+                            }}
+                            title="Naskladniť všetky materiálové položky objednávky naraz (doprava sa rozpočíta medzi materiál)"
+                          >
+                            <Warehouse size={11} /> Naskladniť všetko
                           </button>
                         )}
                         {pdfAttachmentId && (
@@ -5060,7 +5443,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                         <span style={{ fontWeight: 600, color: '#0f172a' }}>{fmt(o.total)}</span>
                       </div>
                     </div>
-                  </label>
+                  </div>
                 </div>
                 <div style={styles.tableWrap}>
                   <table style={styles.table}>
@@ -5155,27 +5538,54 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                   const stockedCount = stockedItems.reduce((sum, s) => sum + (parseInt(s.batchQuantity, 10) || 1), 0);
                                   const orderedQty = parseFloat(r.item.quantity) || 0;
                                   const isMaterial = r.category?.kind === 'material';
-                                  const canReceive = ['ordered', 'delivered'].includes(r.item.status) && isMaterial;
+                                  const isDistrib = isDistributedCost(r.item);
+                                  const canReceive = ['ordered', 'delivered'].includes(r.item.status) && isMaterial && !isDistrib;
+                                  // Ručné označenie "rozpočítať medzi materiál" ponúkame pri položkách
+                                  // typu Ostatný materiál / Doprava (typické súvisiace náklady).
+                                  const canAllocate = ['other_material', 'shipping'].includes(r.item.category);
+                                  const allocLink = (label, val, title) => (
+                                    <button
+                                      onClick={() => wrappedUpdateItem(r.projectId, r.item.id, { allocateToMaterial: val })}
+                                      style={{ background: 'transparent', border: 'none', color: '#94a3b8', fontSize: 10, cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'underline', padding: 0 }}
+                                      title={title}
+                                    >{label}</button>
+                                  );
 
+                                  if (isDistrib) {
+                                    return (
+                                      <div style={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
+                                        <span style={{ fontSize: 11, color: '#94a3b8', display: 'inline-flex', alignItems: 'center', gap: 4 }} title="Nenaskladňuje sa — cena sa rozpočíta medzi materiál pri dávkovom naskladnení (Naskladniť všetko)">🚚 rozpočíta sa</span>
+                                        {allocLink('vrátiť k naskladneniu', false, 'Zrušiť rozpočítanie a naskladňovať položku normálne')}
+                                      </div>
+                                    );
+                                  }
                                   if (!canReceive) {
-                                    return <span style={{ fontSize: 11, color: '#cbd5e1' }}>—</span>;
+                                    return (
+                                      <div style={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
+                                        <span style={{ fontSize: 11, color: '#cbd5e1' }}>—</span>
+                                        {canAllocate && allocLink('rozpočítať medzi materiál', true, 'Označiť ako súvisiaci náklad (doprava, clo, balné…) — rozpočíta sa medzi materiál pri dávkovom naskladnení')}
+                                      </div>
+                                    );
                                   }
 
                                   if (stockedCount === 0) {
                                     return (
-                                      <button
-                                        onClick={() => onStockReceive(r)}
-                                        style={{
-                                          display: 'inline-flex', alignItems: 'center', gap: 4,
-                                          padding: '4px 10px', borderRadius: 6,
-                                          background: '#10b981', color: '#fff',
-                                          fontSize: 11, fontWeight: 600,
-                                          border: 'none', cursor: 'pointer', fontFamily: 'inherit',
-                                        }}
-                                        title="Naskladnit položku"
-                                      >
-                                        <Warehouse size={11} /> Naskladniť
-                                      </button>
+                                      <div style={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
+                                        <button
+                                          onClick={() => onStockReceive(r)}
+                                          style={{
+                                            display: 'inline-flex', alignItems: 'center', gap: 4,
+                                            padding: '4px 10px', borderRadius: 6,
+                                            background: '#10b981', color: '#fff',
+                                            fontSize: 11, fontWeight: 600,
+                                            border: 'none', cursor: 'pointer', fontFamily: 'inherit',
+                                          }}
+                                          title="Naskladnit položku"
+                                        >
+                                          <Warehouse size={11} /> Naskladniť
+                                        </button>
+                                        {canAllocate && allocLink('rozpočítať medzi materiál', true, 'Označiť ako súvisiaci náklad (doprava, clo, balné…) — rozpočíta sa medzi materiál')}
+                                      </div>
                                     );
                                   }
 
@@ -5254,7 +5664,117 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
             setSelected(new Set()); setBatchModal(null);
           }} onClose={() => setBatchModal(null)} />
       )}
+      {batchRows && (
+        <BatchReceiveModal
+          rows={batchRows}
+          stockItems={stockItems}
+          categories={categories}
+          fxRate={fxRate}
+          onConfirm={(modes) => { onBatchStockReceive(batchRows, modes); setBatchRows(null); }}
+          onClose={() => setBatchRows(null)}
+        />
+      )}
     </main>
+  );
+}
+
+function BatchReceiveModal({ rows, stockItems, categories, fxRate, onConfirm, onClose }) {
+  const plan = useMemo(() => computeBatchReceivePlan(rows, stockItems, categories, fxRate), [rows, stockItems, categories, fxRate]);
+  const { prepared, shippingTotal, baseSum, totalPieces } = plan;
+  const hasSN = prepared.some(p => SERIAL_REQUIRED_CATEGORIES.includes(p.r.item.category));
+
+  // Režim naskladnenia pre každú položku: 'batch' (1 záznam) / 'individual' (N kusov).
+  // Predvolene batch — rýchle; per-kus si používateľ zapne tam, kde chce jednotlivé kusy.
+  const [modes, setModes] = useState(() => {
+    const m = {};
+    prepared.forEach(p => { m[p.r.item.id] = 'batch'; });
+    return m;
+  });
+  const setMode = (id, val) => setModes(prev => ({ ...prev, [id]: val }));
+
+  // Koľko skladových záznamov vznikne (kvôli upozorneniu pri veľkom počte)
+  const recordCount = prepared.reduce((s, p) => s + (modes[p.r.item.id] === 'individual' ? p.remaining : 1), 0);
+
+  const modeBtn = (active) => ({
+    padding: '3px 8px', fontSize: 10, fontWeight: 700, cursor: 'pointer', fontFamily: 'inherit',
+    background: active ? '#0d3825' : '#fff', color: active ? '#fff' : '#64748b',
+    border: `1px solid ${active ? '#0d3825' : '#cbd5e1'}`,
+  });
+
+  return (
+    <Modal title="Naskladniť celú objednávku" onClose={onClose} maxWidth={720}>
+      {prepared.length === 0 ? (
+        <div style={{ padding: 12, background: '#f1f5f9', border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 13, color: '#475569' }}>
+          V tejto objednávke nie je žiadna materiálová položka na naskladnenie — buď sú nemateriálové (napr. doprava, práca), alebo už sú naskladnené.
+        </div>
+      ) : (
+        <>
+          <div style={{ marginBottom: 12, fontSize: 13, color: '#0d3825' }}>
+            Naskladní sa <strong>{prepared.length}</strong> materiálových položiek (<strong>{totalPieces} ks</strong>) na hlavný sklad.
+            Pri každej si zvoľ, či ju naskladniť ako <strong>batch</strong> (1 záznam) alebo <strong>po kusoch</strong> (samostatné kusy).
+          </div>
+          <div style={{ maxHeight: 300, overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 12 }}>
+            <table style={{ ...styles.table, fontSize: 12 }}>
+              <thead>
+                <tr>
+                  <th style={styles.th}>Položka</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Ks</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Hodnota</th>
+                  {shippingTotal > 0 && <th style={{ ...styles.th, textAlign: 'right' }}>+ náklady</th>}
+                  <th style={{ ...styles.th, textAlign: 'center' }}>Režim</th>
+                </tr>
+              </thead>
+              <tbody>
+                {prepared.map(p => {
+                  const share = (shippingTotal > 0 && baseSum > 0) ? shippingTotal * (p.baseValue / baseSum) : 0;
+                  const mode = modes[p.r.item.id] || 'batch';
+                  return (
+                    <tr key={p.r.item.id} style={styles.tr}>
+                      <td style={styles.td}>
+                        {p.r.item.name}
+                        {SERIAL_REQUIRED_CATEGORIES.includes(p.r.item.category) && (
+                          <span style={{ marginLeft: 6, fontSize: 10, color: '#92400e' }} title="Táto kategória obvykle vyžaduje sériové čísla">S/N</span>
+                        )}
+                      </td>
+                      <td style={{ ...styles.td, textAlign: 'right' }}>{p.remaining}</td>
+                      <td style={{ ...styles.td, textAlign: 'right' }}>{fmt(p.baseValue)}</td>
+                      {shippingTotal > 0 && <td style={{ ...styles.td, textAlign: 'right', color: '#92400e' }}>{share > 0 ? fmt(share) : '—'}</td>}
+                      <td style={{ ...styles.td, textAlign: 'center' }}>
+                        <div style={{ display: 'inline-flex', borderRadius: 4, overflow: 'hidden' }}>
+                          <button style={{ ...modeBtn(mode === 'batch'), borderRadius: '4px 0 0 4px' }} onClick={() => setMode(p.r.item.id, 'batch')}>Batch</button>
+                          <button style={{ ...modeBtn(mode === 'individual'), borderRadius: '0 4px 4px 0', borderLeft: 'none' }} onClick={() => setMode(p.r.item.id, 'individual')}>Po kusoch</button>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          {shippingTotal > 0 && (
+            <div style={{ marginBottom: 10, padding: 10, background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: 6, fontSize: 12, color: '#92400e' }}>
+              🚚 Súvisiace náklady (doprava, clo, balné…) <strong>{fmt(shippingTotal)}</strong> sa rozpočítajú medzi materiál podľa hodnoty a pripočítajú k nákupnej cene naskladnených kusov.
+            </div>
+          )}
+          {recordCount > 200 && (
+            <div style={{ marginBottom: 10, padding: 10, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 6, fontSize: 12, color: '#991b1b' }}>
+              ⚠ Režim „po kusoch" vytvorí <strong>{recordCount}</strong> samostatných skladových záznamov — pri veľkých počtoch zvážte batch (šetrí pamäť aj prehľadnosť).
+            </div>
+          )}
+          {hasSN && (
+            <div style={{ marginBottom: 10, fontSize: 11, color: '#64748b' }}>
+              Pozn.: sériové čísla sa v dávke nezachytávajú (ani v režime „po kusoch") — doplníte ich prípadne ručne pri kuse.
+            </div>
+          )}
+        </>
+      )}
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={() => onConfirm(modes)} disabled={prepared.length === 0}>
+          <Warehouse size={13} /> Naskladniť {totalPieces} ks
+        </button>
+      </div>
+    </Modal>
   );
 }
 
@@ -5317,7 +5837,7 @@ function OverdueChip() {
 // StockView — skladové hospodárstvo
 // ==========================================================================
 
-function StockView({ stockItems, stockMovements, locations, categories, projects, suppliers, fxRate, readOnly, focusKey, onAddStock, onEditStock, onTransferStock, onConsumeStock, onDeleteStock, onManageLocations, onBulkTransfer, onBulkConsume, onGoToOrders }) {
+function StockView({ stockItems, stockMovements, locations, categories, projects, suppliers, fxRate, readOnly, focusKey, onAddStock, onEditStock, onTransferStock, onConsumeStock, onReleaseReservation, onDeleteStock, onManageLocations, onBulkTransfer, onBulkConsume, onGoToOrders }) {
   const [tab, setTab] = useState('overview'); // overview | movements | warranty | byOrder
   const [filterLocation, setFilterLocation] = useState('all');
   const [filterCategory, setFilterCategory] = useState('all');
@@ -5366,8 +5886,9 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
     // Keď filtr = "na ceste", skryjeme skutočné stock items — zobrazíme len virtuální transit
     if (filterStatus === 'transit') return [];
     return stockItems.filter(s => {
-      if (filterStatus === 'available' && s.status === 'consumed') return false;
+      if (filterStatus === 'available' && (s.status === 'consumed' || s.status === 'reserved')) return false;
       if (filterStatus === 'consumed' && s.status !== 'consumed') return false;
+      if (filterStatus === 'reserved' && s.status !== 'reserved') return false;
       if (filterLocation !== 'all' && s.locationId !== filterLocation) return false;
       if (filterCategory !== 'all' && s.category !== filterCategory) return false;
       if (query.trim()) {
@@ -5454,7 +5975,8 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
     const combined = [...filteredItems, ...transitItems];
     combined.forEach(s => {
       const nameLower = (s.name || '').trim().toLowerCase();
-      const key = `${nameLower}__${s.category || ''}__${s.locationId || ''}__${s.status || 'available'}`;
+      const reservedKey = s.status === 'reserved' ? `__${s.reservedForProjectId || ''}` : '';
+      const key = `${nameLower}__${s.category || ''}__${s.locationId || ''}__${s.status || 'available'}${reservedKey}`;
       if (!map.has(key)) {
         map.set(key, {
           key,
@@ -5462,6 +5984,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
           categoryId: s.category,
           locationId: s.locationId,
           status: s.status || 'available',
+          reservedForProjectId: s.reservedForProjectId,
           isTransit: !!s.isTransit,
           items: [],
           totalCount: 0,
@@ -5697,6 +6220,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
             </select>
             <select style={{ ...styles.input, width: 'auto', minWidth: 140 }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
               <option value="available">Skladem</option>
+              <option value="reserved">Rezervované</option>
               <option value="transit">Na ceste</option>
               <option value="consumed">Spotrebované</option>
               <option value="all">Všetko</option>
@@ -5824,6 +6348,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                     const loc = locations.find(l => l.id === g.locationId);
                     const isExpanded = expandedGroups.has(g.key);
                     const isConsumed = g.status === 'consumed';
+                    const isReserved = g.status === 'reserved';
                     const avgPrice = g.totalCount > 0 ? g.totalValueEUR / g.totalCount : 0;
                     const priceRange = g.minPrice !== g.maxPrice
                       ? `${fmt(g.minPrice)} – ${fmt(g.maxPrice)}`
@@ -5860,6 +6385,14 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                           <td style={styles.td}>
                             {g.isTransit ? (
                               <span style={{ padding: '2px 7px', borderRadius: 4, background: '#dbeafe', color: '#1d4ed8', fontSize: 10, fontWeight: 700 }}>NA CESTE</span>
+                            ) : isReserved ? (
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                                <span style={{ padding: '2px 7px', borderRadius: 4, background: '#f5f3ff', color: '#6d28d9', fontSize: 10, fontWeight: 700, alignSelf: 'flex-start' }}>REZERVOVANÉ</span>
+                                {g.reservedForProjectId && (() => {
+                                  const pr = projects.find(p => p.id === g.reservedForProjectId);
+                                  return pr ? <span style={{ fontSize: 10, color: '#7c3aed', display: 'inline-flex', alignItems: 'center', gap: 3 }}>🔒 {pr.name}</span> : null;
+                                })()}
+                              </div>
                             ) : isConsumed ? (
                               <span style={{ padding: '2px 7px', borderRadius: 4, background: '#fee2e2', color: '#991b1b', fontSize: 10, fontWeight: 700 }}>SPOTREBOVANÉ</span>
                             ) : (
@@ -5886,6 +6419,23 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                 <span style={{ fontSize: 10, color: '#64748b', fontStyle: 'italic' }}>
                                   Prejsť do Objednávok pre naskladnenie
                                 </span>
+                              ) : isReserved ? (
+                                <div style={{ display: 'inline-flex', gap: 4 }}>
+                                  <button
+                                    onClick={() => { setBulkModal({ type: 'consume', items: g.items }); }}
+                                    style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px', background: '#f59e0b', color: '#fff', borderColor: '#f59e0b' }}
+                                    title="Spotrebovať rezervované kusy na projekt"
+                                  >
+                                    <Package size={10} /> Spotrebovať
+                                  </button>
+                                  <button
+                                    onClick={() => { g.items.forEach(s => onReleaseReservation(s.id)); }}
+                                    style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px', color: '#8b5cf6', borderColor: '#c4b5fd' }}
+                                    title="Uvoľniť celú rezerváciu späť do skladu (Skladem)"
+                                  >
+                                    🔓 Uvoľniť
+                                  </button>
+                                </div>
                               ) : !isConsumed && (
                                 <div style={{ display: 'inline-flex', gap: 4 }}>
                                   <button
@@ -6157,10 +6707,13 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                             // 1) Ak je spotrebované → zobraziť cílový projekt (kam bylo spotrebované)
                             // 2) Inak zobraziť zdrojový projekt (pre ktorý bylo naskladnené)
                             //    ALE iba ak to nie je systémový Sklad — ten je pre používateľa „bez projektu"
-                            let projId, isConsumedProject;
+                            let projId, isConsumedProject, isReservedProject;
                             if (s.consumedToProjectId) {
                               projId = s.consumedToProjectId;
                               isConsumedProject = true;
+                            } else if (s.status === 'reserved' && s.reservedForProjectId) {
+                              projId = s.reservedForProjectId;
+                              isReservedProject = true;
                             } else if (s.sourceProjectId) {
                               const src = projects.find(p => p.id === s.sourceProjectId);
                               if (src && !src.isStockProject) {
@@ -6175,16 +6728,16 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                 onClick={() => onGoToOrders && onGoToOrders(null, null, proj.id)}
                                 style={{
                                   padding: '2px 8px', fontSize: 11, fontWeight: 600,
-                                  background: isConsumedProject ? '#fee2e2' : '#dcfce7',
-                                  color: isConsumedProject ? '#991b1b' : '#15803d',
-                                  border: `1px solid ${isConsumedProject ? '#fca5a5' : '#86efac'}`,
+                                  background: isReservedProject ? '#f5f3ff' : (isConsumedProject ? '#fee2e2' : '#dcfce7'),
+                                  color: isReservedProject ? '#6d28d9' : (isConsumedProject ? '#991b1b' : '#15803d'),
+                                  border: `1px solid ${isReservedProject ? '#ddd6fe' : (isConsumedProject ? '#fca5a5' : '#86efac')}`,
                                   borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit',
                                   textAlign: 'left', maxWidth: 180,
                                 }}
-                                title={isConsumedProject ? `Spotrebované na projekt: ${proj.name}` : `Naskladnené pre projekt: ${proj.name}`}
+                                title={isReservedProject ? `Rezervované pre projekt: ${proj.name}` : (isConsumedProject ? `Spotrebované na projekt: ${proj.name}` : `Naskladnené pre projekt: ${proj.name}`)}
                               >
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                                  <Briefcase size={11} />
+                                  {isReservedProject ? <span>🔒</span> : <Briefcase size={11} />}
                                   <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{proj.name}</span>
                                 </div>
                                 {proj.client && (
@@ -6264,6 +6817,12 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                       ✂️
                                     </button>
                                   </>
+                                )}
+                                {s.status === 'reserved' && (
+                                  <button onClick={() => onReleaseReservation(s.id)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11, color: '#8b5cf6' }}
+                                    title={`Uvoľniť rezerváciu${s.reservedForProjectId ? ' — ' + (projects.find(p => p.id === s.reservedForProjectId)?.name || '') : ''}`}>
+                                    🔓
+                                  </button>
                                 )}
                                 <button onClick={() => setConfirmDeleteId(s.id)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11 }} title="Smazat">
                                   <Trash2 size={12} />
@@ -6750,7 +7309,16 @@ function BulkTransferModal({ items, locations, onSave, onClose }) {
 function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
   const [projectId, setProjectId] = useState(() => projects.find(p => p.status === 'active' && !p.isStockProject)?.id || '');
   const [notes, setNotes] = useState('');
+  const [mode, setMode] = useState('quantity'); // 'quantity' | 'specific'
+  const [qty, setQty] = useState(items.length);
   const [selectedIds, setSelectedIds] = useState(() => new Set(items.map(i => i.id)));
+
+  // FIFO poradie — najstaršie naskladnené kusy sa spotrebujú prvé
+  const fifo = useMemo(() =>
+    [...items].sort((a, b) =>
+      (a.receivedDate || '').localeCompare(b.receivedDate || '') ||
+      (a.createdAt || '').localeCompare(b.createdAt || '')
+    ), [items]);
 
   const toggleOne = (id) => {
     const s = new Set(selectedIds);
@@ -6762,19 +7330,28 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
     else setSelectedIds(new Set(items.map(i => i.id)));
   };
 
-  const chosen = items.filter(it => selectedIds.has(it.id));
+  const clampedQty = Math.max(0, Math.min(parseInt(qty, 10) || 0, items.length));
+  const chosen = mode === 'quantity'
+    ? fifo.slice(0, clampedQty)
+    : items.filter(it => selectedIds.has(it.id));
   const totalValue = chosen.reduce((s, it) => s + (parseFloat(it.purchasePriceEUR) || 0), 0);
 
   const submit = () => {
     if (!projectId) { alert('Vyberte projekt.'); return; }
-    if (chosen.length === 0) { alert('Vyberte alespoň jeden kus.'); return; }
+    if (chosen.length === 0) { alert(mode === 'quantity' ? 'Zadajte počet kusov väčší ako 0.' : 'Vyberte aspoň jeden kus.'); return; }
     onSave(chosen, projectId, notes.trim());
   };
+
+  const tabStyle = (active) => ({
+    flex: 1, padding: '8px 12px', fontSize: 12, fontWeight: 600, cursor: 'pointer',
+    background: active ? '#0d3825' : '#fff', color: active ? '#fff' : '#475569',
+    border: `2px solid ${active ? '#0d3825' : '#e2e8f0'}`, borderRadius: 6, fontFamily: 'inherit',
+  });
 
   return (
     <Modal title={`Spotreba kusov na projekt`} onClose={onClose} maxWidth={640}>
       <div style={{ marginBottom: 14, padding: 10, background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 6, fontSize: 12, color: '#92400e' }}>
-        <strong>⚠ Pozor:</strong> spotrebovaných kusov již nemožno vzít späť. Vyberte konkrétny kusy (napr. podľa sériového čísla), ktoré jste použili.
+        <strong>⚠ Pozor:</strong> spotrebované kusy už nemožno vziať späť.
       </div>
 
       <div style={styles.formRow}>
@@ -6792,51 +7369,68 @@ function BulkConsumeModal({ items, projects, locations, onSave, onClose }) {
       </div>
 
       <div style={styles.formRow}>
-        <label style={styles.label}>Poznámka ke spotrebe</label>
+        <label style={styles.label}>Poznámka ku spotrebe</label>
         <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="Dôvod spotreby, technik..." />
       </div>
 
-      <div style={{ marginBottom: 8, fontSize: 12, color: '#0d3825', fontWeight: 600 }}>
-        Vybrat kusy ({chosen.length} z {items.length}):
+      <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+        <button style={tabStyle(mode === 'quantity')} onClick={() => setMode('quantity')}>Podľa počtu kusov</button>
+        <button style={tabStyle(mode === 'specific')} onClick={() => setMode('specific')}>Vybrať konkrétne kusy</button>
       </div>
 
-      <div style={{ maxHeight: 240, overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 12 }}>
-        <table style={{ ...styles.table, fontSize: 11 }}>
-          <thead>
-            <tr>
-              <th style={{ ...styles.th, width: 30, textAlign: 'center' }}>
-                <input type="checkbox" checked={selectedIds.size === items.length && items.length > 0}
-                  onChange={toggleAll} title="Vybrať všetko"/>
-              </th>
-              <th style={styles.th}>Sériové číslo</th>
-              <th style={styles.th}>Lokalita</th>
-              <th style={styles.th}>Naskladnené</th>
-              <th style={{ ...styles.th, textAlign: 'right' }}>Cena (€)</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map(it => {
-              const loc = locations?.find(l => l.id === it.locationId);
-              const isSel = selectedIds.has(it.id);
-              return (
-                <tr key={it.id} style={{ ...styles.tr, background: isSel ? '#fef3c7' : undefined, cursor: 'pointer' }}
-                  onClick={() => toggleOne(it.id)}>
-                  <td style={styles.td}>
-                    <input type="checkbox" checked={isSel} onChange={() => toggleOne(it.id)}
-                      onClick={e => e.stopPropagation()} />
-                  </td>
-                  <td style={{ ...styles.td, fontFamily: 'monospace' }}>
-                    {it.serialNumber || <span style={{ color: '#cbd5e1' }}>(bez S/N)</span>}
-                  </td>
-                  <td style={{ ...styles.td, fontSize: 11 }}>{loc?.name || '—'}</td>
-                  <td style={{ ...styles.td, fontSize: 11 }}>{it.receivedDate || '—'}</td>
-                  <td style={{ ...styles.td, textAlign: 'right' }}>{fmt(parseFloat(it.purchasePriceEUR) || 0)}</td>
+      {mode === 'quantity' ? (
+        <div style={{ marginBottom: 12 }}>
+          <label style={styles.label}>Počet kusov na spotrebu (z {items.length} dostupných)</label>
+          <input type="number" min={1} max={items.length} style={{ ...styles.input, maxWidth: 160 }}
+            value={qty} onChange={e => setQty(e.target.value)} />
+          <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>
+            Spotrebuje sa {clampedQty} {clampedQty === 1 ? 'kus' : 'kusov'} — automaticky najstaršie naskladnené (FIFO). Konkrétne kusy nie je potreba vyberať.
+          </div>
+        </div>
+      ) : (
+        <>
+          <div style={{ marginBottom: 8, fontSize: 12, color: '#0d3825', fontWeight: 600 }}>
+            Vybrať kusy ({chosen.length} z {items.length}):
+          </div>
+          <div style={{ maxHeight: 240, overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 12 }}>
+            <table style={{ ...styles.table, fontSize: 11 }}>
+              <thead>
+                <tr>
+                  <th style={{ ...styles.th, width: 30, textAlign: 'center' }}>
+                    <input type="checkbox" checked={selectedIds.size === items.length && items.length > 0}
+                      onChange={toggleAll} title="Vybrať všetko"/>
+                  </th>
+                  <th style={styles.th}>Sériové číslo</th>
+                  <th style={styles.th}>Lokalita</th>
+                  <th style={styles.th}>Naskladnené</th>
+                  <th style={{ ...styles.th, textAlign: 'right' }}>Cena (€)</th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+              </thead>
+              <tbody>
+                {items.map(it => {
+                  const loc = locations?.find(l => l.id === it.locationId);
+                  const isSel = selectedIds.has(it.id);
+                  return (
+                    <tr key={it.id} style={{ ...styles.tr, background: isSel ? '#fef3c7' : undefined, cursor: 'pointer' }}
+                      onClick={() => toggleOne(it.id)}>
+                      <td style={styles.td}>
+                        <input type="checkbox" checked={isSel} onChange={() => toggleOne(it.id)}
+                          onClick={e => e.stopPropagation()} />
+                      </td>
+                      <td style={{ ...styles.td, fontFamily: 'monospace' }}>
+                        {it.serialNumber || <span style={{ color: '#cbd5e1' }}>(bez S/N)</span>}
+                      </td>
+                      <td style={{ ...styles.td, fontSize: 11 }}>{loc?.name || '—'}</td>
+                      <td style={{ ...styles.td, fontSize: 11 }}>{it.receivedDate || '—'}</td>
+                      <td style={{ ...styles.td, textAlign: 'right' }}>{fmt(parseFloat(it.purchasePriceEUR) || 0)}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
 
       <div style={{ marginBottom: 10, fontSize: 12, color: '#92400e', fontWeight: 600 }}>
         Celková hodnota spotrebovaného materiálu: <strong>{fmt(totalValue)}</strong>
@@ -7802,6 +8396,116 @@ function StockConsumeModal({ stockItem, projects, onConfirm, onClose }) {
   );
 }
 
+// Rezervácia kusov zo skladu pre projektovú položku
+function ReserveStockModal({ projectItem, project, stockItems, categories, locations, fxRate, onConfirm, onClose }) {
+  const available = useMemo(() =>
+    (stockItems || []).filter(s => s.status === 'available' && (parseInt(s.batchQuantity, 10) || 1) > 0),
+    [stockItems]);
+
+  // Agregovať dostupný sklad podľa materiálu (názov + kategória + lokalita) do jednej voľby.
+  const groups = useMemo(() => {
+    const map = new Map();
+    available.forEach(s => {
+      const key = [normalizeForSearch(s.name || ''), s.category || '', s.locationId || ''].join('||');
+      if (!map.has(key)) map.set(key, { key, name: s.name, category: s.category, locationId: s.locationId, qty: 0, value: 0, members: [] });
+      const g = map.get(key);
+      g.qty += parseInt(s.batchQuantity, 10) || 1;
+      g.value += parseFloat(s.purchasePriceEUR) || 0;
+      g.members.push(s);
+    });
+    const arr = [...map.values()];
+    // FIFO poradie kusov v skupine (najstaršie sa rezervujú prvé)
+    arr.forEach(g => g.members.sort((a, b) =>
+      (a.receivedDate || '').localeCompare(b.receivedDate || '') || (a.createdAt || '').localeCompare(b.createdAt || '')));
+    return arr;
+  }, [available]);
+
+  const wanted = normalizeForSearch(projectItem?.name || '');
+  const sortedGroups = useMemo(() => {
+    const score = (g) => {
+      const n = normalizeForSearch(g.name || '');
+      if (!wanted) return 0;
+      if (n === wanted) return 3;
+      if (n.includes(wanted) || wanted.includes(n)) return 2;
+      const w0 = wanted.split(' ')[0];
+      if (w0 && n.includes(w0)) return 1;
+      return 0;
+    };
+    return [...groups].sort((a, b) => score(b) - score(a) || (a.name || '').localeCompare(b.name || ''));
+  }, [groups, wanted]);
+
+  const [groupKey, setGroupKey] = useState(() => sortedGroups[0]?.key || '');
+  const group = groups.find(g => g.key === groupKey);
+  const maxQty = group ? group.qty : 0;
+  const [qty, setQty] = useState(1);
+  const [notes, setNotes] = useState('');
+
+  useEffect(() => {
+    const need = parseInt(projectItem?.quantity, 10) || 1;
+    setQty(Math.max(1, Math.min(need, maxQty || 1)));
+  }, [groupKey]); // eslint-disable-line
+
+  const catName = (id) => categories.find(c => c.id === id)?.name || '';
+  const locName = (id) => locations?.find(l => l.id === id)?.name || '';
+  const clampedQty = Math.max(1, Math.min(parseInt(qty, 10) || 1, maxQty || 1));
+  const unitAvg = group && group.qty > 0 ? group.value / group.qty : 0;
+
+  const submit = () => {
+    if (!group) { alert('Vyberte skladovú položku.'); return; }
+    // Zoznam kusov skupiny vo FIFO poradí — handler z nich odoberie potrebný počet
+    onConfirm(group.members.map(m => m.id), clampedQty, notes.trim());
+  };
+
+  return (
+    <Modal title="Rezervovať zo skladu" onClose={onClose} maxWidth={620}>
+      <div style={{ marginBottom: 12, padding: 10, background: '#f5f3ff', border: '1px solid #ddd6fe', borderRadius: 6, fontSize: 12, color: '#5b21b6' }}>
+        🔒 Rezervujete pre položku: <strong>{projectItem?.name || '—'}</strong>
+        {projectItem?.quantity ? <> · potreba {parseInt(projectItem.quantity, 10) || 0} ks</> : null}
+        <div style={{ marginTop: 4, color: '#7c3aed' }}>Rezervované kusy sa oddelia zo skladu (stav „Rezervované") a držia sa pre tento projekt, kým ich neuvoľníte alebo nespotrebujete.</div>
+      </div>
+
+      {groups.length === 0 ? (
+        <div style={{ padding: 12, background: '#f1f5f9', border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 13, color: '#475569' }}>
+          Na sklade nie sú žiadne dostupné kusy na rezerváciu.
+        </div>
+      ) : (
+        <>
+          <div style={styles.formRow}>
+            <label style={styles.label}>Skladová položka *</label>
+            <select style={styles.input} value={groupKey} onChange={e => setGroupKey(e.target.value)}>
+              {sortedGroups.map(g => (
+                <option key={g.key} value={g.key}>
+                  {g.name} · {g.qty} ks{catName(g.category) ? ` · ${catName(g.category)}` : ''}{locName(g.locationId) ? ` · ${locName(g.locationId)}` : ''}
+                </option>
+              ))}
+            </select>
+            {group && <div style={{ fontSize: 11, color: '#64748b', marginTop: 4 }}>Dostupné: <strong>{maxQty} ks</strong>{unitAvg > 0 ? ` · ~${fmt(unitAvg)}/ks` : ''}</div>}
+          </div>
+
+          <div style={styles.formRow}>
+            <label style={styles.label}>Počet kusov na rezerváciu * (max {maxQty})</label>
+            <input type="number" min={1} max={maxQty} style={{ ...styles.input, maxWidth: 160 }}
+              value={qty} onChange={e => setQty(e.target.value)} />
+            {unitAvg > 0 && <div style={{ fontSize: 11, color: '#64748b', marginTop: 6 }}>Hodnota rezervácie: ~{fmt(unitAvg * clampedQty)}</div>}
+          </div>
+
+          <div style={styles.formRow}>
+            <label style={styles.label}>Poznámka</label>
+            <input style={styles.input} value={notes} onChange={e => setNotes(e.target.value)} placeholder="napr. montáž budúci týždeň" />
+          </div>
+        </>
+      )}
+
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit} disabled={!group}>
+          🔒 Rezervovať {clampedQty} ks
+        </button>
+      </div>
+    </Modal>
+  );
+}
+
 // ==========================================================================
 // CashFlowView — zjednodušená verze: len výdavky za položky projektov (po mesiacoch)
 // ==========================================================================
@@ -7833,7 +8537,10 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         // ak používateľ nezapne "Zobraziť vyfakturované"
         if (!includeInvoiced && item.isInvoiced) return;
         const sup = suppliers.find(s => s.id === item.supplierId);
-        const qty = parseFloat(item.quantity) || 0;
+        // Časť krytá rezerváciou zo skladu sa nekupuje → z cash flow ju vynecháme
+        const reservedQ = parseFloat(item.reservedFromStockQty) || 0;
+        const qty = Math.max(0, (parseFloat(item.quantity) || 0) - reservedQ);
+        if (qty <= 0) return;
         const unitEUR = item.currency === 'CZK'
           ? (fxRate > 0 ? (parseFloat(item.unitPrice) || 0) / fxRate : (parseFloat(item.unitPrice) || 0))
           : (parseFloat(item.unitPrice) || 0);
@@ -11278,8 +11985,8 @@ function guessCategoryByName(itemName, categories) {
     // Subdodávatelia a služby
     { regex: /projekt\w*\s*dokumentac|revizn|žadost|zadost|distribuc|sop\s|ppp|stavebn[ií]\s*povolen[ií]/i, cat: 'subcontractor' },
 
-    // Doprava → ostatný materiál
-    { regex: /^doprava\b|preprav|manipulac/i, cat: 'other_material' },
+    // Doprava / preprava / shipment → kategória Doprava (nenaskladňuje sa)
+    { regex: /^doprava\b|dopravné|preprav|přeprav|shipment|shipping|freight|poštovné|postovne|carriage|manipulac/i, cat: 'shipping' },
 
     // Wallbox a nabíječky → ostatné
     { regex: /wallbox|nabij[ée]/i, cat: 'other_material' },
