@@ -17,7 +17,7 @@ const STORAGE_KEY = 'enedom-sk-material-v1';
 // APP_VERSION = dátum buildu, slúži k rýchle kontrole aktuálnosti aplikácia
 // na rôznych zariadeniach (mobil vs desktop) — uvidíte ho v hlavičce.
 // Aktualizujte pri každém deploymentu, abyste poznal čerstvou verzi.
-const APP_VERSION = '2026-08-03-sk-reserved-status-display';
+const APP_VERSION = '2026-10-06-wflow-order-grouping';
 
 const LOGO_DATA_URL = 'data:image/png;base64,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';
 
@@ -31,6 +31,7 @@ const DEFAULT_CATEGORIES = [
   { id: 'monitoring', name: 'Monitoring a komunikácia', color: '#14b8a6', kind: 'material' },
   { id: 'other_material', name: 'Ostatný materiál', color: '#64748b', kind: 'material' },
   { id: 'shipping', name: 'Doprava', color: '#94a3b8', kind: 'shipping' },
+  { id: 'advance', name: 'Záloha', color: '#a855f7', kind: 'advance' },
   { id: 'labor', name: 'Práca', color: '#0ea5e9', kind: 'labor' },
   { id: 'subcontractor', name: 'Subdodávatelia', color: '#6366f1', kind: 'labor' },
   { id: 'commission', name: 'Predajná provízia', color: '#d946ef', kind: 'commission' },
@@ -89,6 +90,7 @@ const MOVEMENT_TYPES = {
   release:  { label: 'Uvoľnenie',    icon: '🔓', color: '#64748b' },
   adjust:   { label: 'Inventura',    icon: '📋', color: '#8b5cf6' },
   return:   { label: 'Vrátenie',      icon: '↩️', color: '#64748b' },
+  delete:   { label: 'Zmazanie',     icon: '🗑️', color: '#dc2626' },
 };
 
 // Kategorie, u kterých se vyžadují sériová čísla (panely, meniče, baterie)
@@ -96,6 +98,21 @@ const SERIAL_REQUIRED_CATEGORIES = ['panels', 'inverters', 'batteries'];
 
 // Rozpoznanie dopravy/prepravy kdekoľvek v názve (vrátane angl. "shipment"/"shipping").
 const SHIPPING_RE = /\b(doprav|preprav|přeprav|shipment|shipping|freight|poštovn|postovn|carriage|dovozné|dopravné|manipulac)/i;
+// Varovanie pred duplicitou naskladnenia (Blok 6.2). Zhoda = rovnaký názov +
+// rovnaké množstvo + rovnaký projekt, z INEJ zdrojovej položky. Spotrebované ignoruje.
+function findDuplicateStockCandidates(name, projectId, quantity, stockItems, excludeOrderItemId) {
+  const n = (name || '').trim().toLowerCase();
+  const q = parseFloat(quantity) || 0;
+  return (stockItems || []).filter(s => {
+    if (s.status === 'consumed') return false;                                   // spotrebované ignoruje
+    if (excludeOrderItemId && s.sourceOrderItemId === excludeOrderItemId) return false; // doskladnenie zbytku tej istej položky → mlčí
+    if ((s.name || '').trim().toLowerCase() !== n) return false;
+    if ((parseInt(s.batchQuantity, 10) || 1) !== q) return false;                // iný počet → mlčí
+    if ((s.sourceProjectId || null) !== (projectId || null)) return false;       // iný projekt → mlčí
+    return true;
+  });
+}
+
 function isShippingItem(item) {
   if (!item) return false;
   if (item.category === 'shipping') return true;
@@ -162,6 +179,17 @@ const toEUR = (item, rate) => {
   return item.currency === 'CZK' ? (rate > 0 ? amount / rate : amount) : amount;
 };
 
+// Posun ISO dátumu o N mesiacov s ošetrením koncov mesiacov (31.1. + 1 mesiac = 28./29.2.)
+function addMonthsISO(iso, months) {
+  const d = parseLocalISO(iso);
+  if (!d) return iso;
+  const day = d.getDate();
+  const target = new Date(d.getFullYear(), d.getMonth() + (parseInt(months, 10) || 0), 1);
+  const lastDay = new Date(target.getFullYear(), target.getMonth() + 1, 0).getDate();
+  target.setDate(Math.min(day, lastDay));
+  return toLocalISO(target);
+}
+
 const ymKey = (dateStr) => !dateStr ? 'unscheduled' : dateStr.slice(0, 7);
 const ymLabel = (ym) => {
   if (ym === 'unscheduled') return 'Nezaradené';
@@ -199,6 +227,24 @@ const ywMonday = (yw) => {
   const monday = new Date(mondayOfWeek1);
   monday.setUTCDate(mondayOfWeek1.getUTCDate() + (week - 1) * 7);
   return monday.toISOString().slice(0, 10);
+};
+
+// Hranice obdobia (bucketu) pre filter období v cash flow
+const bucketStartISO = (b) => {
+  if (!b || b === 'unscheduled') return '';
+  if (b.includes('-W')) return ywMonday(b);
+  return `${b}-01`; // YYYY-MM
+};
+const bucketEndISO = (b) => {
+  if (!b || b === 'unscheduled') return '';
+  if (b.includes('-W')) {
+    const mon = ywMonday(b);
+    const d = new Date(mon + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + 6);
+    return d.toISOString().slice(0, 10);
+  }
+  const [y, m] = b.split('-').map(Number);
+  const last = new Date(Date.UTC(y, m, 0)).getUTCDate();
+  return `${b}-${String(last).padStart(2, '0')}`;
 };
 
 const ywLabel = (yw) => {
@@ -253,7 +299,88 @@ const daysBetween = (dateStr, refStr) => {
   return Math.round((a - b) / (1000 * 60 * 60 * 24));
 };
 
-const todayISO = () => new Date().toISOString().slice(0, 10);
+// ==========================================================================
+// Dátumové helpery — TIMEZONE SAFE (nikdy toISOString pre lokálny dátum!)
+// V UTC+1/+2 by toISOString posunul dátum o deň späť.
+// ==========================================================================
+function toLocalISO(d) {
+  if (!d || isNaN(d.getTime())) return '';
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+const parseLocalISO = (iso) => {
+  if (!iso || typeof iso !== 'string') return null;
+  const [y, m, d] = iso.split('-').map(Number);
+  if (!y || !m || !d) return null;
+  return new Date(y, m - 1, d);
+};
+const todayISO = () => toLocalISO(new Date());
+
+function isWeekendISO(iso) {
+  const d = parseLocalISO(iso);
+  if (!d) return false;
+  const dow = d.getDay();
+  return dow === 0 || dow === 6;
+}
+function shiftISODays(isoDate, days) {
+  const d = parseLocalISO(isoDate);
+  if (!d) return isoDate;
+  d.setDate(d.getDate() + (parseInt(days, 10) || 0));
+  return toLocalISO(d);
+}
+// Pole pracovných dní fázy (preskakuje So/Ne), dĺžka = days
+function expandWorkingDays(isoDate, days) {
+  const out = [];
+  const n = Math.max(0, parseInt(days, 10) || 0);
+  const d = parseLocalISO(isoDate);
+  if (!d || n === 0) return out;
+  let guard = 0;
+  while (out.length < n && guard < 2000) {
+    const dow = d.getDay();
+    if (dow !== 0 && dow !== 6) out.push(toLocalISO(d));
+    d.setDate(d.getDate() + 1);
+    guard++;
+  }
+  return out;
+}
+// Koniec fázy = posledný pracovný deň (preskakuje So/Ne)
+function addWorkingDays(isoDate, days) {
+  const arr = expandWorkingDays(isoDate, Math.max(1, parseInt(days, 10) || 1));
+  return arr.length ? arr[arr.length - 1] : isoDate;
+}
+// Pole kalendárnych dát pre stĺpce Ganttu (vrátane víkendov)
+function isoRange(fromISO, dayCount) {
+  const out = [];
+  const n = Math.max(0, parseInt(dayCount, 10) || 0);
+  for (let i = 0; i < n; i++) out.push(shiftISODays(fromISO, i));
+  return out;
+}
+
+// ==========================================================================
+// Plánovač montáží — číselníky
+// ==========================================================================
+const WORK_HOURS_PER_DAY = 8;
+
+// Prednastavené fázy montáže. defaultOffsetDays = D+X od založenia projektu.
+const DEFAULT_INSTALLATION_PHASES = [
+  { id: 'ph_order',    name: 'Objednanie materiálu FVE',      color: '#3b82f6', defaultDays: 1, defaultOffsetDays: 0 },
+  { id: 'ph_delivery', name: 'Závoz',                         color: '#f59e0b', defaultDays: 1, defaultOffsetDays: 21 },
+  { id: 'ph_planning', name: 'Plánovanie montáže',            color: '#8b5cf6', defaultDays: 1, defaultOffsetDays: 25 },
+  { id: 'ph_install',  name: 'Montáž',                        color: '#10b981', defaultDays: 3, defaultOffsetDays: 30 },
+  { id: 'ph_check',    name: 'Kontrola montáže',              color: '#14b8a6', defaultDays: 1, defaultOffsetDays: 35 },
+  { id: 'ph_revision', name: 'Revízia',                       color: '#6366f1', defaultDays: 1, defaultOffsetDays: 38 },
+  { id: 'ph_elmr',     name: 'Úprava ELMR/Fakturácia montáž', color: '#ec4899', defaultDays: 1, defaultOffsetDays: 42 },
+  { id: 'ph_utp',      name: 'Žiadosť UTP',                   color: '#0ea5e9', defaultDays: 1, defaultOffsetDays: 45 },
+];
+
+const INSTALLATION_STATUSES = {
+  planned:     { label: 'Plánované', color: '#94a3b8', bg: '#f1f5f9' },
+  in_progress: { label: 'Prebieha',  color: '#b45309', bg: '#fef3c7' },
+  done:        { label: 'Hotové',    color: '#15803d', bg: '#dcfce7' },
+  blocked:     { label: 'Blokované', color: '#991b1b', bg: '#fee2e2' },
+};
 // ==========================================================================
 // Role permissions
 // ==========================================================================
@@ -266,18 +393,18 @@ const todayISO = () => new Date().toISOString().slice(0, 10);
 // Views: dashboard | projects | project | purchaseList | orders | stock | cashflow
 
 const ROLE_VIEWS = {
-  admin:      ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock', 'cashflow'],
-  finance:    ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock', 'cashflow'],
-  management: ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock', 'cashflow'],
-  editor:     ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock'],
+  admin:      ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock', 'calendar', 'cashflow'],
+  finance:    ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock', 'calendar', 'cashflow'],
+  management: ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock', 'calendar', 'cashflow'],
+  editor:     ['dashboard', 'projects', 'project', 'purchaseList', 'orders', 'stock', 'calendar'],
 };
 
 // Settings tabs accessible per role (skutočné taby v SettingsModal)
 const ROLE_SETTINGS_TABS = {
-  admin:      ['fx', 'categories', 'locations', 'paymentPlans', 'pdfArchive', 'backup'],
-  finance:    ['fx', 'categories', 'locations', 'paymentPlans', 'pdfArchive', 'backup'],
-  management: ['fx', 'categories', 'locations', 'paymentPlans', 'pdfArchive'],
-  editor:     ['fx', 'categories', 'locations', 'paymentPlans', 'pdfArchive', 'backup'],
+  admin:      ['fx', 'categories', 'locations', 'installationPhases', 'crew', 'paymentPlans', 'pdfArchive', 'backup'],
+  finance:    ['fx', 'categories', 'locations', 'installationPhases', 'crew', 'paymentPlans', 'pdfArchive', 'backup'],
+  management: ['fx', 'categories', 'locations', 'installationPhases', 'crew', 'paymentPlans', 'pdfArchive'],
+  editor:     ['fx', 'categories', 'locations', 'installationPhases', 'crew', 'paymentPlans', 'pdfArchive', 'backup'],
 };
 
 // Helpers
@@ -383,7 +510,95 @@ function computePayments(item, supplier, totalEUR) {
 // Main App
 // ==========================================================================
 
+// Top-level error boundary — namiesto bielej obrazovky pri páde renderu
+// zobrazí čitateľnú chybu a ponúkne obnovu (stiahnuť zálohu / reset dát).
+class AppErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  componentDidCatch(error, info) {
+    console.error('[Cash Flow Planner] Render crash:', error, info?.componentStack);
+  }
+  downloadRawBackup() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) { alert('V úložisku nie sú žiadne dáta na zálohu.'); return; }
+      const wrapped = JSON.stringify({
+        _appName: 'CashFlow Planner',
+        _appVersion: (typeof APP_VERSION !== 'undefined' ? APP_VERSION : ''),
+        _exportedAt: new Date().toISOString(),
+        _note: 'Núdzová záloha z chybovej obrazovky',
+        _storageKey: STORAGE_KEY,
+        data: JSON.parse(raw),
+      }, null, 2);
+      const blob = new Blob([wrapped], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `CashFlow_Planner_nudzova_zaloha_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (e) {
+      alert('Zálohu sa nepodarilo vytvoriť: ' + (e?.message || e));
+    }
+  }
+  resetAndReload() {
+    if (!confirm('Naozaj vymazať všetky lokálne dáta a reštartovať aplikáciu? Tento krok je nevratný — najprv si stiahnite zálohu.')) return;
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) { /* ignore */ }
+    location.reload();
+  }
+  render() {
+    if (this.state.error) {
+      const msg = this.state.error?.message || String(this.state.error);
+      return (
+        <div style={{ minHeight: '100vh', background: '#0f172a', color: '#e2e8f0', padding: 24, fontFamily: 'system-ui, sans-serif', boxSizing: 'border-box' }}>
+          <div style={{ maxWidth: 680, margin: '40px auto', background: '#1e293b', borderRadius: 12, padding: 28, border: '1px solid #334155' }}>
+            <h1 style={{ fontSize: 20, margin: '0 0 8px', color: '#f87171' }}>Aplikácia narazila na chybu</h1>
+            <p style={{ fontSize: 14, lineHeight: 1.6, color: '#cbd5e1', margin: '0 0 16px' }}>
+              Došlo k neočakávanej chybe pri vykresľovaní. Vaše dáta sú stále uložené v prehliadači.
+              Odporúčame najprv si stiahnuť zálohu, potom skúsiť obnoviť stránku. Ak chyba pretrváva,
+              môžete dáta resetovať (zálohu si predtým uložte).
+            </p>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', marginBottom: 18 }}>
+              <button onClick={() => this.downloadRawBackup()} style={{ padding: '9px 16px', fontSize: 14, fontWeight: 600, background: '#c4ff3d', color: '#0f172a', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
+                Stiahnuť zálohu (JSON)
+              </button>
+              <button onClick={() => location.reload()} style={{ padding: '9px 16px', fontSize: 14, fontWeight: 600, background: '#334155', color: '#e2e8f0', border: 'none', borderRadius: 8, cursor: 'pointer' }}>
+                Obnoviť stránku
+              </button>
+              <button onClick={() => this.resetAndReload()} style={{ padding: '9px 16px', fontSize: 14, fontWeight: 600, background: 'transparent', color: '#f87171', border: '1px solid #f87171', borderRadius: 8, cursor: 'pointer' }}>
+                Resetovať dáta
+              </button>
+            </div>
+            <details style={{ fontSize: 12, color: '#94a3b8' }}>
+              <summary style={{ cursor: 'pointer', marginBottom: 6 }}>Technické detaily</summary>
+              <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', background: '#0f172a', padding: 12, borderRadius: 8, maxHeight: 240, overflow: 'auto' }}>
+                {msg}
+                {'\n\n'}
+                {this.state.error?.stack || ''}
+              </pre>
+            </details>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export default function CashFlowPlanner() {
+  return (
+    <AppErrorBoundary>
+      <CashFlowPlannerInner />
+    </AppErrorBoundary>
+  );
+}
+
+function CashFlowPlannerInner() {
   const [data, setData] = useState({
     projects: [makeStockProject()], activeProjectId: null,
     categories: DEFAULT_CATEGORIES, suppliers: [], catalog: [],
@@ -392,6 +607,8 @@ export default function CashFlowPlanner() {
     stockMovements: [],   // historie pohybov
     paymentPlanTemplates: [],  // šablony platebních plánov
     pdfAttachments: [],   // metadata k importovaným PDF (binární data v IndexedDB)
+    installationPhases: DEFAULT_INSTALLATION_PHASES, // číselník fáz montáže
+    crew: [],             // montážnici { id, name, role, phone, color }
     settings: {
       fxRate: 25,
       expenseVatRate: 23, // DPH na nákupy materiálu/služieb (pridáva sa do cash flow)
@@ -400,6 +617,7 @@ export default function CashFlowPlanner() {
     },
   });
   const [loading, setLoading] = useState(true);
+  const [storageWarning, setStorageWarning] = useState(false); // true = dáta sa nezmestili do localStorage (~5 MB limit)
   const [modal, setModal] = useState(null);
   const [view, setView] = useState('dashboard');
 
@@ -485,6 +703,7 @@ export default function CashFlowPlanner() {
               return { ...item, status: newStatus, isInvoiced };
             })),
             budgets: p.budgets && typeof p.budgets === 'object' ? p.budgets : {},
+            installation: Array.isArray(p.installation) ? p.installation : [], // plán montáže
           }));
 
           // Zajistit, že existuje virtuální projekt "Sklad" pre nákupy bez konkrétního projektu
@@ -495,7 +714,21 @@ export default function CashFlowPlanner() {
           setData({
             projects: migratedProjects,
             activeProjectId: parsed.activeProjectId || null,
-            categories: parsed.categories?.length ? parsed.categories : DEFAULT_CATEGORIES,
+            categories: (() => {
+              // Doplniť chýbajúce systémové kategórie (shipping, advance), inak položky
+              // s takouto kategóriou vypadnú z nákladov projektu ako „bez kategórie".
+              const loaded = parsed.categories?.length ? [...parsed.categories] : [...DEFAULT_CATEGORIES];
+              ['shipping', 'advance'].forEach(id => {
+                if (!loaded.some(c => c.id === id)) {
+                  const def = DEFAULT_CATEGORIES.find(c => c.id === id);
+                  if (def) loaded.push(def);
+                }
+              });
+              return loaded;
+            })(),
+            installationPhases: (Array.isArray(parsed.installationPhases) && parsed.installationPhases.length)
+              ? parsed.installationPhases : DEFAULT_INSTALLATION_PHASES,
+            crew: Array.isArray(parsed.crew) ? parsed.crew : [],
             suppliers: parsed.suppliers || [],
             catalog: parsed.catalog || [],
             locations: (() => {
@@ -548,12 +781,21 @@ export default function CashFlowPlanner() {
 
   useEffect(() => {
     if (loading) return;
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    } catch (e) {
-      // Najčastejšie QuotaExceededError (limit localStorage je cca 5 MB)
-      console.error('Nepodarilo sa uložiť dáta do localStorage:', e);
-    }
+    // Debounce: pri veľkých dátach (tisíce skladových kusov) je serializácia 5+ MB JSON
+    // pri každom renderi drahá a v slabších runtime (napr. náhľad v chate) vie appku zmraziť.
+    // Ukladáme až 600 ms po poslednej zmene.
+    const t = setTimeout(() => {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        setStorageWarning(false);
+      } catch (e) {
+        // Najčastejšie QuotaExceededError — limit localStorage je cca 5 MB.
+        // Data zostávajú v pamäti a appka funguje, ale po obnovení stránky sa stratia.
+        console.error('Nepodarilo sa uložiť dáta do localStorage (pravdepodobne prekročený limit ~5 MB):', e);
+        setStorageWarning(true);
+      }
+    }, 600);
+    return () => clearTimeout(t);
   }, [data, loading]);
 
   const activeProject = data.projects.find(p => p.id === data.activeProjectId);
@@ -726,6 +968,103 @@ export default function CashFlowPlanner() {
   };
 
   const saveBudgets = (budgets) => updateActive(p => ({ ...p, budgets }));
+
+  // Editácia položky objednávky (naprieč projektmi)
+  const saveOrderItem = (projectId, item) => {
+    setData(d => ({
+      ...d, projects: d.projects.map(p => p.id === projectId
+        ? { ...p, items: p.items.map(i => i.id === item.id ? { ...i, ...item } : i) } : p),
+    }));
+  };
+  const deleteItemGlobal = (projectId, itemId) => {
+    setData(d => ({
+      ...d, projects: d.projects.map(p => p.id === projectId
+        ? { ...p, items: p.items.filter(i => i.id !== itemId) } : p),
+    }));
+  };
+
+  // Blok 7.2 — vrátiť spotrebovaný materiál na sklad (zrušiť spotrebu)
+  const returnConsumedToStock = (projectId, item) => {
+    setData(d => {
+      const need = parseFloat(item.quantity) || 0;
+      const nm = (item.name || '').trim().toLowerCase();
+      const candidates = d.stockItems.filter(s => s.status === 'consumed' && s.consumedToProjectId === projectId && (s.name || '').trim().toLowerCase() === nm);
+      let remaining = need;
+      const restoreIds = new Set();
+      const movements = [];
+      const today = todayISO();
+      for (const s of candidates) {
+        if (remaining <= 0) break;
+        const q = parseInt(s.batchQuantity, 10) || 1;
+        restoreIds.add(s.id);
+        remaining -= q;
+        movements.push({ id: uid('mov'), date: today, type: 'return', stockItemId: s.id, itemName: s.name, serialNumber: s.serialNumber || '', quantity: q, fromLocationId: null, toLocationId: s.locationId, projectId: null, notes: 'Vrátenie na sklad (zrušená spotreba)', createdAt: new Date().toISOString() });
+      }
+      const stockItems = d.stockItems.map(s => restoreIds.has(s.id) ? { ...s, status: 'available', consumedToProjectId: undefined, consumedDate: undefined } : s);
+      const projects = d.projects.map(p => p.id === projectId ? { ...p, items: p.items.filter(i => i.id !== item.id) } : p);
+      return { ...d, stockItems, stockMovements: [...d.stockMovements, ...movements], projects };
+    });
+  };
+
+  // Blok 7.2 — presunúť položku do projektu Sklad (prealokácia, prenesie aj sourceProjectId)
+  const moveItemToStockProject = (projectId, item) => {
+    setData(d => {
+      const stockProj = d.projects.find(p => p.isStockProject);
+      if (!stockProj) return d;
+      let moved = null;
+      let projects = d.projects.map(p => {
+        if (p.id === projectId) { moved = p.items.find(i => i.id === item.id); return { ...p, items: p.items.filter(i => i.id !== item.id) }; }
+        return p;
+      });
+      if (!moved) return d;
+      projects = projects.map(p => p.id === stockProj.id ? { ...p, items: [...p.items, moved] } : p);
+      const stockItems = d.stockItems.map(s => s.sourceOrderItemId === item.id ? { ...s, sourceProjectId: stockProj.id } : s);
+      return { ...d, projects, stockItems };
+    });
+  };
+
+  // Presun položiek medzi projektmi (prenesie aj stockItems.sourceProjectId)
+  const moveItemsBetweenProjects = (moves) => {
+    // moves: [{ itemId, fromProjectId, toProjectId }]
+    setData(d => {
+      let projects = d.projects.map(p => ({ ...p, items: [...p.items] }));
+      const byId = new Map(projects.map(p => [p.id, p]));
+      const movedIds = new Set();
+      moves.forEach(mv => {
+        if (mv.fromProjectId === mv.toProjectId) return;
+        const from = byId.get(mv.fromProjectId), to = byId.get(mv.toProjectId);
+        if (!from || !to) return;
+        const idx = from.items.findIndex(i => i.id === mv.itemId);
+        if (idx < 0) return;
+        const [it] = from.items.splice(idx, 1);
+        to.items.push(it);
+        movedIds.add(mv.itemId);
+      });
+      const toByItem = new Map(moves.map(mv => [mv.itemId, mv.toProjectId]));
+      const stockItems = d.stockItems.map(s => (s.sourceOrderItemId && toByItem.has(s.sourceOrderItemId))
+        ? { ...s, sourceProjectId: toByItem.get(s.sourceOrderItemId) } : s);
+      return { ...d, projects, stockItems };
+    });
+  };
+
+  // Zmazať celú objednávku — položky naprieč projektmi + skladové kusy + pohyby + PDF
+  const deleteOrderItems = (rows) => {
+    const itemIds = new Set(rows.map(r => r.item.id));
+    setData(d => {
+      const projects = d.projects.map(p => ({ ...p, items: p.items.filter(i => !itemIds.has(i.id)) }));
+      const removedStockIds = new Set(d.stockItems.filter(s => itemIds.has(s.sourceOrderItemId)).map(s => s.id));
+      const stockItems = d.stockItems.filter(s => !itemIds.has(s.sourceOrderItemId));
+      const stockMovements = d.stockMovements.filter(m => !removedStockIds.has(m.stockItemId));
+      return { ...d, projects, stockItems, stockMovements };
+    });
+    // PDF binárku z IndexedDB zmažeme len ak na ňu neodkazuje iná príloha (best-effort)
+    const pdfIds = [...new Set(rows.map(r => r.item.pdfAttachmentId).filter(Boolean))];
+    pdfIds.forEach(pid => {
+      const stillUsed = data.projects.some(p => p.items.some(i => !itemIds.has(i.id) && i.pdfAttachmentId === pid));
+      if (!stillUsed) { try { deletePdfFromDb(pid); } catch (e) {} }
+    });
+  };
+
   const saveCategories = (categories) => {
     setData(d => ({
       ...d, categories,
@@ -764,31 +1103,76 @@ export default function CashFlowPlanner() {
 
   // Pridať skladový kus (naskladnenie z objednávky alebo manuálne)
   const addStockItem = (stockItem, movementNotes = '') => {
-    const newItem = { ...stockItem, id: stockItem.id || uid('stk') };
-    const movement = {
-      id: uid('mov'),
-      date: stockItem.receivedDate || todayISO(),
-      type: 'receive',
-      stockItemId: newItem.id,
-      itemName: newItem.name,
-      serialNumber: newItem.serialNumber || '',
-      quantity: 1,
-      fromLocationId: null,
-      toLocationId: newItem.locationId,
-      projectId: null,
-      notes: movementNotes,
-      createdAt: new Date().toISOString(),
-    };
-    setData(d => ({
-      ...d,
-      stockItems: [...d.stockItems, newItem],
-      stockMovements: [...d.stockMovements, movement],
-    }));
+    setData(d => {
+      let newItem = { ...stockItem, id: stockItem.id || uid('stk') };
+      let projects = d.projects;
+      const oi = newItem.orderNumber;
+      const stockedQty = parseInt(newItem.batchQuantity, 10) || 1;
+
+      // Landed cost — rozpočítať nezúčtované súvisiace náklady (doprava, clo, zľavy)
+      // objednávky do materiálu. Podiel sa počíta z CELEJ objednávky (nezávisle na poradí
+      // naskladňovania), preto sa pri prvom naskladnení položky uloží jej pôvodná hodnota
+      // (landedBaseEUR) a použije sa vo výpočtoch namiesto už upravenej ceny.
+      if (newItem.sourceOrderItemId && oi) {
+        const catKind = (id) => d.categories.find(c => c.id === id)?.kind;
+        const catExists = (id) => d.categories.some(c => c.id === id);
+        const baseValOf = (it) => (it.landedBaseEUR != null ? it.landedBaseEUR : toEUR(it, fxRate));
+        const orderItems = [];
+        d.projects.forEach(p => p.items.forEach(it => { if ((it.orderNumber || '') === oi) orderItems.push(it); }));
+        const materials = orderItems.filter(it => !isDistributedCost(it) && (catKind(it.category) === 'material' || !catExists(it.category)));
+        const fees = orderItems.filter(it => isDistributedCost(it) && !it.shippingDistributed);
+        const orderMaterialSum = materials.reduce((s, it) => s + baseValOf(it), 0);
+        const undistributedFees = fees.reduce((s, it) => s + toEUR(it, fxRate), 0);
+        const src = orderItems.find(it => it.id === newItem.sourceOrderItemId);
+
+        if (src && orderMaterialSum > 0 && undistributedFees !== 0 && !src.landedCost) {
+          const baseVal = baseValOf(src);
+          const itemShare = (baseVal / orderMaterialSum) * undistributedFees; // celý podiel položky
+          // celý podiel dáme na aktuálny skladový kus (pri prvom naskladnení položky)
+          newItem = { ...newItem, purchasePriceEUR: Math.max(0, (parseFloat(newItem.purchasePriceEUR) || 0) + itemShare) };
+          if (itemShare !== 0) {
+            const lbl = itemShare < 0 ? `zľava ${fmt(itemShare)}` : `doprava/náklady ${fmt(itemShare)}`;
+            newItem.notes = `${newItem.notes ? newItem.notes + ' · ' : ''}vr. rozpočítaných: ${lbl}`;
+          }
+
+          // Je po tomto naskladnení celý materiál objednávky naskladnený?
+          const stockedByItem = {};
+          [...d.stockItems, newItem].forEach(s => { if (s.sourceOrderItemId) stockedByItem[s.sourceOrderItemId] = (stockedByItem[s.sourceOrderItemId] || 0) + (parseInt(s.batchQuantity, 10) || 1); });
+          const allMaterialStocked = materials.every(it => (stockedByItem[it.id] || 0) >= (parseFloat(it.quantity) || 0));
+
+          projects = d.projects.map(p => ({
+            ...p,
+            items: p.items.map(it => {
+              if ((it.orderNumber || '') !== oi) return it;
+              if (it.id === src.id) {
+                // pripočítať podiel do ceny položky (raz), pre EUR položky
+                const q = parseFloat(it.quantity) || 1;
+                const patch = { landedCost: true, landedBaseEUR: baseVal };
+                if (it.currency !== 'CZK') patch.unitPrice = (parseFloat(it.unitPrice) || 0) + itemShare / q;
+                return { ...it, ...patch };
+              }
+              if (allMaterialStocked && isDistributedCost(it) && !it.shippingDistributed) {
+                return { ...it, shippingDistributed: true };
+              }
+              return it;
+            }),
+          }));
+        }
+      }
+
+      const movement = {
+        id: uid('mov'), date: newItem.receivedDate || todayISO(), type: 'receive',
+        stockItemId: newItem.id, itemName: newItem.name, serialNumber: newItem.serialNumber || '',
+        quantity: stockedQty, fromLocationId: null, toLocationId: newItem.locationId, projectId: null,
+        notes: movementNotes, createdAt: new Date().toISOString(),
+      };
+      return { ...d, projects, stockItems: [...d.stockItems, newItem], stockMovements: [...d.stockMovements, movement] };
+    });
   };
 
   // Dávkové naskladnenie celej objednávky naraz (potvrdenie rieši in-app modal,
   // NIE window.confirm — ten je v sandboxe/iframe blokovaný a akcia by tíško zlyhala).
-  const batchStockReceiveOrder = (rows, modes = {}) => {
+  const batchStockReceiveOrder = (rows, modes = {}, consumeProjectId = null) => {
     const { prepared, shippingRows, shippingTotal, baseSum } =
       computeBatchReceivePlan(rows, data.stockItems, data.categories, fxRate);
     if (prepared.length === 0) return;
@@ -797,8 +1181,8 @@ export default function CashFlowPlanner() {
     const newStock = [];
     const newMovements = [];
     prepared.forEach(p => {
-      const share = (shippingTotal > 0 && baseSum > 0) ? shippingTotal * (p.baseValue / baseSum) : 0;
-      const totalValue = p.baseValue + share;
+      const share = (shippingTotal !== 0 && baseSum > 0) ? shippingTotal * (p.baseValue / baseSum) : 0;
+      const totalValue = Math.max(0, p.baseValue + share); // zľava nesmie stlačiť cenu pod nulu
       const sup = data.suppliers.find(s => s.id === p.r.item.supplierId)
         || data.suppliers.find(s => s.name === p.r.supplierName);
       const receivedDate = p.r.item.deliveredDate || today;
@@ -809,6 +1193,7 @@ export default function CashFlowPlanner() {
         supplierName: (p.r.supplierName && !p.r.supplierName.startsWith('(')) ? p.r.supplierName : '',
         supplierId: p.r.item.supplierId || sup?.id || '',
         orderNumber: p.r.item.orderNumber || '',
+        wflowOrderNo: p.r.item.wflowOrderNo || '',
         locationId: 'loc_warehouse',
         receivedDate,
         warrantyUntil: '',
@@ -844,6 +1229,23 @@ export default function CashFlowPlanner() {
         });
       }
     });
+
+    // Blok 6.3 — „Naskladniť a spotrebovať": kusy sa hneď označia ako spotrebované
+    // a pridá sa pohyb consume (receive aj consume s rovnakým dátumom) → materiál
+    // je dohľadateľný, ale v sklade nezostane.
+    if (consumeProjectId) {
+      newStock.forEach(stk => {
+        stk.status = 'consumed';
+        stk.consumedToProjectId = consumeProjectId;
+        stk.consumedDate = stk.receivedDate;
+        newMovements.push({
+          id: uid('mov'), date: stk.receivedDate, type: 'consume', stockItemId: stk.id,
+          itemName: stk.name, serialNumber: stk.serialNumber || '', quantity: parseInt(stk.batchQuantity, 10) || 1,
+          fromLocationId: stk.locationId, toLocationId: null, projectId: consumeProjectId,
+          notes: 'Naskladnené a hneď spotrebované', createdAt: new Date().toISOString(),
+        });
+      });
+    }
 
     setData(d => {
       const shipIds = new Set(shippingRows.map(r => r.item.id));
@@ -988,6 +1390,27 @@ export default function CashFlowPlanner() {
         ...d,
         stockItems: d.stockItems.filter(s => s.id !== id),
         stockMovements: [...d.stockMovements, movement],
+      };
+    });
+  };
+
+  // Bulk delete — zmazať viac kusov naraz s dôvodom (audit trail typu 'delete')
+  const bulkDeleteStock = (ids, reason = '') => {
+    const idSet = new Set(ids);
+    setData(d => {
+      const today = todayISO();
+      const movements = d.stockItems.filter(s => idSet.has(s.id)).map(item => ({
+        id: uid('mov'), date: today, type: 'delete', stockItemId: item.id,
+        itemName: item.name, serialNumber: item.serialNumber || '',
+        quantity: parseInt(item.batchQuantity, 10) || 1,
+        fromLocationId: item.locationId, toLocationId: null,
+        notes: reason ? `Hromadné zmazanie · ${reason}` : 'Hromadné zmazanie',
+        createdAt: new Date().toISOString(),
+      }));
+      return {
+        ...d,
+        stockItems: d.stockItems.filter(s => !idSet.has(s.id)),
+        stockMovements: [...d.stockMovements, ...movements],
       };
     });
   };
@@ -1254,6 +1677,55 @@ export default function CashFlowPlanner() {
     });
   };
 
+  // Import WFLOW dokladov (Blok 9) — vytvorí položky/projekty, doplní linky pri existujúcich
+  const importWflowPlan = (planEntries, aiCatMap = null) => {
+    setData(d => {
+      const catOf = (name) => (aiCatMap && aiCatMap[(name || '').trim()]) || guessCategoryByName(name, d.categories);
+      const newItemsByContract = {};
+      const linkDocs = [];
+      planEntries.forEach(e => {
+        if (e.action === 'skip') return;
+        const doc = e.doc;
+        if (e.action === 'link') { linkDocs.push(doc); return; }
+        const sup = d.suppliers.find(s => (doc.partnerIC && s.ic === doc.partnerIC) || (doc.partnerName && (s.name || '').trim().toLowerCase() === doc.partnerName.trim().toLowerCase()));
+        const common = {
+          supplierId: sup?.id || '', supplier: sup ? '' : doc.partnerName,
+          // Zoskupenie objednávky: primárne podľa OrderNo (stĺpec AT); ak chýba, podľa
+          // čísla dokladu Number (stĺpec F) — aby sa riadky jedného dokladu zoskupili
+          // do jednej objednávky a nie každý riadok ako samostatná objednávka.
+          orderNumber: doc.orderNo || doc.number || '', wflowOrderNo: doc.orderNo || '', wflowDocNumber: doc.number,
+          invoiceNumber: doc.number, documentUrl: doc.documentUrl,
+          purchaseDate: doc.issueDate, invoicedDate: doc.issueDate, paymentDueDate: doc.dueDate,
+          status: 'delivered', isInvoiced: true, currency: 'EUR',
+        };
+        const items = e.advance
+          ? [{ id: uid('item'), name: `Záloha ${doc.number}`, category: 'advance', isAdvance: true, quantity: 1, unit: 'ks', unitPrice: e.sum || doc.taxExclusive || 0, ...common }]
+          : doc.lines.map(l => ({ id: uid('item'), name: l.lineDesc || '(položka)', category: catOf(l.lineDesc), quantity: l.lineQty || 1, unit: 'ks', unitPrice: l.lineUnit || 0, ...common }));
+        (newItemsByContract[doc.contract] = newItemsByContract[doc.contract] || []).push(...items);
+      });
+
+      let projects = d.projects.map(p => {
+        const contract = (p.name || '').trim();
+        let items = p.items;
+        if (linkDocs.length) {
+          items = items.map(it => {
+            const doc = linkDocs.find(dd => it.invoiceNumber === dd.number || it.wflowDocNumber === dd.number);
+            return doc ? { ...it, wflowDocNumber: it.wflowDocNumber || doc.number, wflowOrderNo: it.wflowOrderNo || doc.orderNo || '', documentUrl: it.documentUrl || doc.documentUrl, paymentDueDate: it.paymentDueDate || doc.dueDate } : it;
+          });
+        }
+        if (newItemsByContract[contract]) { items = [...items, ...newItemsByContract[contract]]; delete newItemsByContract[contract]; }
+        return items === p.items ? p : { ...p, items };
+      });
+      // Doklady, ktorých Contract nezodpovedá žiadnemu existujúcemu projektu, sa NEIMPORTUJÚ
+      // a NEVYTVÁRAJÚ sa nové projekty. (Zostatok v newItemsByContract zámerne zahadzujeme.)
+      const orphanContracts = Object.keys(newItemsByContract);
+      if (orphanContracts.length) {
+        console.warn('[WFLOW] Preskočené doklady bez existujúceho projektu pre Contract:', orphanContracts.join(', '));
+      }
+      return { ...d, projects };
+    });
+  };
+
   const importCSV = (items) => {
     updateActive(p => ({
       ...p, items: [...p.items, ...items.map(i => ({ ...i, id: uid('item'), status: i.status || 'planned' }))],
@@ -1286,6 +1758,45 @@ export default function CashFlowPlanner() {
   };
 
   // Import z PDF (AI) — nové položky sa pridajú do zvoleného projektu ako "objednané"
+  // Blok 8.1 — import viacerých PDF naraz (PDF binárky sú už v IndexedDB uložené modálom)
+  const importBulkPdfResults = (results) => {
+    setData(d => {
+      let projects = [...d.projects];
+      const newAttachments = [];
+      results.forEach(r => {
+        if (r.status !== 'done' || !r.projectId || !r.parsed) return;
+        const sup = d.suppliers.find(s => s.id === r.supplierId);
+        const items = (r.parsed.items || []).map(it => ({
+          id: uid('item'),
+          name: (it.name || '').trim(),
+          category: it.category || guessCategoryByName(it.name, d.categories),
+          quantity: parseFloat(it.quantity) || 0,
+          unit: it.unit || 'ks',
+          unitPrice: parseFloat(it.unitPrice) || 0,
+          currency: r.parsed.currency || 'EUR',
+          supplierId: r.supplierId || '',
+          supplier: r.supplierId ? '' : (r.supplierFreeText || r.parsed.supplier || ''),
+          orderNumber: r.parsed.orderNumber || '',
+          invoiceNumber: r.parsed.orderNumber || '',
+          purchaseDate: r.parsed.issueDate || todayISO(),
+          paymentDueDate: r.parsed.dueDate || '',
+          notes: it.notes || '',
+          status: 'delivered',
+          isInvoiced: r.markInvoiced !== false,
+          invoicedDate: r.markInvoiced !== false ? (r.parsed.issueDate || todayISO()) : '',
+          pdfAttachmentId: r.attachmentId,
+        }));
+        projects = projects.map(p => p.id === r.projectId ? { ...p, items: [...p.items, ...items] } : p);
+        newAttachments.push({
+          id: r.attachmentId, filename: r.filename, projectId: r.projectId,
+          supplierName: sup?.name || r.parsed.supplier || '', orderNumber: r.parsed.orderNumber || '',
+          itemCount: items.length, importedAt: new Date().toISOString(),
+        });
+      });
+      return { ...d, projects, pdfAttachments: [...(d.pdfAttachments || []), ...newAttachments] };
+    });
+  };
+
   const importPdfResult = (result) => {
     const { projectId, supplierId, supplierFreeText, orderNumber, issueDate, dueDate, currency, items, attachment, mode, matches } = result;
 
@@ -1423,6 +1934,27 @@ export default function CashFlowPlanner() {
     <div style={styles.app}>
       <style>{globalCSS}</style>
 
+      {storageWarning && (
+        <div style={{
+          background: '#fef3c7', color: '#92400e', borderBottom: '1px solid #f59e0b',
+          padding: '8px 16px', fontSize: 13, fontWeight: 500, display: 'flex',
+          alignItems: 'center', gap: 10, flexWrap: 'wrap',
+        }}>
+          <AlertTriangle size={16} style={{ flexShrink: 0 }} />
+          <span>
+            Dáta sú príliš veľké na uloženie do úložiska prehliadača (limit ~5 MB) — aplikácia funguje,
+            ale <strong>po obnovení stránky sa neuložené zmeny stratia</strong>. Pravidelne si sťahujte
+            zálohu (Nastavenia → Zálohovanie → Export).
+          </span>
+          <button
+            onClick={() => { setModal({ type: 'settings', initialTab: 'backup' }); }}
+            style={{ marginLeft: 'auto', padding: '4px 10px', fontSize: 12, fontWeight: 600, background: '#92400e', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}
+          >
+            Exportovať zálohu
+          </button>
+        </div>
+      )}
+
       <header style={styles.header}>
         <div style={styles.headerLeft}>
           <div style={styles.logo}>
@@ -1455,6 +1987,9 @@ export default function CashFlowPlanner() {
           )}
           {canAccessView(authUser.role, 'stock') && (
             <NavButton active={view === 'stock'} onClick={() => { setFocusKey(null); setView('stock'); }} icon={<Warehouse size={15} />}>Sklad ({data.stockItems.filter(s => s.status !== 'consumed').length})</NavButton>
+          )}
+          {canAccessView(authUser.role, 'calendar') && (
+            <NavButton active={view === 'calendar'} onClick={() => { setFocusKey(null); setView('calendar'); }} icon={<Calendar size={15} />}>Kalendár</NavButton>
           )}
           {canAccessView(authUser.role, 'cashflow') && (
             <NavButton active={view === 'cashflow'} onClick={() => { setFocusKey(null); setView('cashflow'); }} icon={<Calendar size={15} />}>Cash flow</NavButton>
@@ -1526,10 +2061,16 @@ export default function CashFlowPlanner() {
           focusKey={focusKey}
           onUpdateItem={updateItemGlobal} onBatchUpdate={updateItemsBatch}
           readOnly={readOnly}
+          onEditItemFull={(projectId, item) => setModal({ type: 'orderItemEdit', payload: { projectId, item } })}
+          onDeleteItem={deleteItemGlobal}
+          onMoveItems={moveItemsBetweenProjects}
+          onDeleteOrder={deleteOrderItems}
           onStockReceive={(orderItem) => setModal({ type: 'stockReceive', payload: orderItem })}
           onBatchStockReceive={batchStockReceiveOrder}
           onImportOrder={() => setModal({ type: 'importOrder' })}
           onImportPDF={() => setModal({ type: 'importPDF' })}
+          onImportBulkPdf={() => setModal({ type: 'bulkPdf' })}
+          onImportWflow={() => setModal({ type: 'importWflow' })}
           onAttachInvoicePDF={(order) => setModal({ type: 'importPDF', targetOrder: order })}
           stockItems={data.stockItems}
           onGoToStock={(stockItemId, orderItemId) => {
@@ -1557,6 +2098,7 @@ export default function CashFlowPlanner() {
           onManageLocations={() => setModal({ type: 'settings', initialTab: 'locations' })}
           onBulkTransfer={bulkTransferStock}
           onBulkConsume={bulkConsumeStock}
+          onBulkDelete={bulkDeleteStock}
           onGoToOrders={(orderNumber, itemId, projectId) => {
             if (projectId) {
               // Skok do projektu
@@ -1568,6 +2110,20 @@ export default function CashFlowPlanner() {
               setView('orders');
               setFocusKey({ orderNumber, itemId, ts: Date.now() });
             }
+          }}
+        />
+      ) : view === 'calendar' ? (
+        <CalendarView
+          projects={data.projects}
+          crew={data.crew || []}
+          installationPhases={data.installationPhases || []}
+          onSaveInstallation={(projectId, installation) => setData(d => ({
+            ...d, projects: d.projects.map(p => p.id === projectId ? { ...p, installation } : p),
+          }))}
+          onGoToProjectMontaz={(projectId) => {
+            setData(d => ({ ...d, activeProjectId: projectId }));
+            setView('projects');
+            setFocusKey({ projectId, tab: 'montaz', ts: Date.now() });
           }}
         />
       ) : view === 'cashflow' ? (
@@ -1582,12 +2138,21 @@ export default function CashFlowPlanner() {
               project={activeProject} categories={data.categories} suppliers={data.suppliers} fxRate={fxRate}
               settings={data.settings}
               readOnly={readOnly}
+              focusKey={focusKey}
               pdfAttachments={data.pdfAttachments || []}
               stockItems={data.stockItems}
               onReserveStock={(item) => setModal({ type: 'reserveStock', payload: item })}
+              installationPhases={data.installationPhases || []}
+              crew={data.crew || []}
+              allProjects={data.projects}
+              onSaveInstallation={(projectId, installation) => setData(d => ({
+                ...d,
+                projects: d.projects.map(p => p.id === projectId ? { ...p, installation } : p),
+              }))}
               onAddItem={() => setModal({ type: 'item' })}
               onEditItem={(item) => setModal({ type: 'item', payload: item })}
-              onDeleteItem={deleteItem}
+              onDeleteItem={(item) => setModal({ type: 'removeProjectItem', payload: { projectId: activeProject.id, item } })}
+              onUpdateItem={(itemId, patch) => updateItemGlobal(activeProject.id, itemId, patch)}
               onEditBudgets={() => setModal({ type: 'budgets' })}
               onEditMeta={() => setModal({ type: 'editProject', payload: activeProject })}
               onImport={() => setModal({ type: 'import' })}
@@ -1636,6 +2201,23 @@ export default function CashFlowPlanner() {
           onOpenSuppliers={() => setModal({ type: 'suppliers' })}
           onOpenCatalog={() => setModal({ type: 'catalog' })} />
       )}
+      {modal?.type === 'removeProjectItem' && (
+        <RemoveProjectItemModal
+          payload={modal.payload}
+          onReturnToStock={() => { returnConsumedToStock(modal.payload.projectId, modal.payload.item); setModal(null); }}
+          onMoveToStock={() => { moveItemToStockProject(modal.payload.projectId, modal.payload.item); setModal(null); }}
+          onDelete={() => { deleteItemGlobal(modal.payload.projectId, modal.payload.item.id); setModal(null); }}
+          onClose={() => setModal(null)}
+        />
+      )}
+      {modal?.type === 'orderItemEdit' && (
+        <ItemModal item={modal.payload.item} categories={data.categories} suppliers={data.suppliers} catalog={data.catalog}
+          exchangeRate={fxRate}
+          onSave={(item) => { saveOrderItem(modal.payload.projectId, { ...item, id: modal.payload.item.id }); setModal(null); }}
+          onClose={() => setModal(null)}
+          onOpenSuppliers={() => setModal({ type: 'suppliers' })}
+          onOpenCatalog={() => setModal({ type: 'catalog' })} />
+      )}
       {modal?.type === 'budgets' && activeProject && (
         <BudgetModal categories={data.categories} budgets={activeProject.budgets}
           onSave={(b) => { saveBudgets(b); setModal(null); }} onClose={() => setModal(null)} />
@@ -1653,8 +2235,10 @@ export default function CashFlowPlanner() {
           onSaveCategories={(c) => { saveCategories(c); /* stay in modal */ }}
           onSaveLocations={(l) => { saveLocations(l); /* stay in modal */ }}
           onSavePaymentPlanTemplates={(tpl) => { savePaymentPlanTemplates(tpl); /* stay in modal */ }}
+          onSaveInstallationPhases={(ph) => setData(d => ({ ...d, installationPhases: ph }))}
+          onSaveCrew={(cr) => setData(d => ({ ...d, crew: cr }))}
           onDeletePdfAttachment={(id) => { deletePdfAttachment(id); }}
-          onRestoreData={(newData) => { setData(newData); }}
+          onRestoreData={(newData) => { setData(normalizeRestoredData(newData)); }}
           onClose={() => setModal(null)}
         />
       )}
@@ -1677,6 +2261,7 @@ export default function CashFlowPlanner() {
           catalog={data.catalog}
           suppliers={data.suppliers}
           projects={data.projects}
+          stockItems={data.stockItems}
           fxRate={fxRate}
           fromOrderItem={null}
           onSave={(stk, notes) => { addStockItem(stk, notes); setModal(null); }}
@@ -1690,6 +2275,7 @@ export default function CashFlowPlanner() {
           catalog={data.catalog}
           suppliers={data.suppliers}
           projects={data.projects}
+          stockItems={data.stockItems}
           fxRate={fxRate}
           fromOrderItem={modal.payload}
           onSave={(stk, notes) => { addStockItem(stk, notes); setModal(null); }}
@@ -1747,6 +2333,25 @@ export default function CashFlowPlanner() {
           suppliers={data.suppliers}
           fxRate={fxRate}
           onImport={(result) => { importOrderResult(result); setModal(null); }}
+          onClose={() => setModal(null)}
+        />
+      )}
+      {modal?.type === 'bulkPdf' && (
+        <BulkPDFImportModal
+          projects={data.projects}
+          categories={data.categories}
+          suppliers={data.suppliers}
+          settings={data.settings}
+          onImport={(results) => { importBulkPdfResults(results); setModal(null); }}
+          onClose={() => setModal(null)}
+        />
+      )}
+      {modal?.type === 'importWflow' && (
+        <BulkWFLOWImportModal
+          projects={data.projects}
+          categories={data.categories}
+          settings={data.settings}
+          onImport={(planEntries, aiCatMap) => { importWflowPlan(planEntries, aiCatMap); setModal(null); }}
           onClose={() => setModal(null)}
         />
       )}
@@ -2502,18 +3107,674 @@ function validateCompletion(project, fxRate, settings) {
   return { ok: blockers.length === 0, blockers };
 }
 
-function ProjectView({ project, categories, suppliers, fxRate, settings, readOnly, pdfAttachments, stockItems = [], onReserveStock, onAddItem, onEditItem, onDeleteItem, onEditBudgets, onEditMeta, onImport, onManageSuppliers, onSetProjectStatus, onAddClientPayment, onUpdateClientPayment, onDeleteClientPayment, onApplyPaymentTemplate, paymentPlanTemplates, onDeletePdfAttachment, onAddPdfToProject, onGoToPurchaseList, onGoToOrders }) {
+// ==========================================================================
+// Plánovač montáží — Gantt diagram (interaktívny: klik = zahájenie, ťah = dĺžka)
+// ==========================================================================
+function InstallationGantt({ project, allProjects, crew, readOnly, onPatchPhase }) {
+  const DAY_W = 34;
+  const scheduled = (project.installation || []).filter(p => p.startDate);
+  const [zoom, setZoom] = useState(30);
+  const [viewStart, setViewStart] = useState(() => {
+    const starts = scheduled.map(p => p.startDate).filter(Boolean).sort();
+    return shiftISODays(starts[0] || todayISO(), -2);
+  });
+  const [drag, setDrag] = useState(null); // { instId, startISO, days }
+
+  const cols = isoRange(viewStart, zoom);
+  const today = todayISO();
+
+  // Kapacitné kolízie: technik nemôže byť v ten istý deň na dvoch fázach
+  // (naprieč projektmi aj vnútri projektu); hotové fázy kapacitu neblokujú.
+  const busy = {};
+  (allProjects || []).forEach(pr => (pr.installation || []).forEach(ph => {
+    if (!ph.assignee || !ph.startDate || ph.status === 'done') return;
+    expandWorkingDays(ph.startDate, ph.days || 1).forEach(day => {
+      const key = ph.assignee + '||' + day;
+      (busy[key] = busy[key] || []).push({ projectId: pr.id, projectName: pr.name, phaseName: ph.name, instId: ph.id });
+    });
+  }));
+  const conflicts = [];
+  const conflictInst = new Set();
+  Object.entries(busy).forEach(([key, arr]) => {
+    if (arr.length > 1) {
+      const [assignee, day] = key.split('||');
+      conflicts.push({ assignee, day, list: arr });
+      arr.forEach(a => conflictInst.add(a.instId));
+    }
+  });
+  const cellConflict = (assignee, day) => assignee && busy[assignee + '||' + day] && busy[assignee + '||' + day].length > 1;
+
+  // Ťahanie myšou — ukončenie kdekoľvek na stránke
+  useEffect(() => {
+    if (!drag) return;
+    const up = () => {
+      if (drag && drag.instId) onPatchPhase(drag.instId, { startDate: drag.startISO, days: Math.max(1, drag.days) });
+      setDrag(null);
+    };
+    window.addEventListener('mouseup', up);
+    return () => window.removeEventListener('mouseup', up);
+  }, [drag]); // eslint-disable-line
+
+  const onCellDown = (inst, dayISO) => {
+    if (readOnly || isWeekendISO(dayISO)) return;
+    setDrag({ instId: inst.id, startISO: dayISO, days: 1 });
+  };
+  const onCellEnter = (inst, dayISO) => {
+    if (!drag || drag.instId !== inst.id) return;
+    // dĺžka = počet pracovných dní od startu po tento deň
+    if (dayISO < drag.startISO) { setDrag({ ...drag, startISO: dayISO, days: 1 }); return; }
+    const wd = expandWorkingDays(drag.startISO, 400);
+    const idx = wd.indexOf(dayISO);
+    const len = idx >= 0 ? idx + 1 : expandWorkingDays(drag.startISO, 1).length;
+    setDrag({ ...drag, days: Math.max(1, len) });
+  };
+
+  // Mesiace pre hornú hlavičku
+  const monthSpans = [];
+  cols.forEach(iso => {
+    const d = parseLocalISO(iso);
+    const label = d ? d.toLocaleDateString('sk-SK', { month: 'long', year: 'numeric' }) : iso;
+    const last = monthSpans[monthSpans.length - 1];
+    if (last && last.label === label) last.span++;
+    else monthSpans.push({ label, span: 1 });
+  });
+  const DOW = ['Ne', 'Po', 'Ut', 'St', 'Št', 'Pi', 'So'];
+
+  const phaseSpan = (inst) => {
+    const s = drag && drag.instId === inst.id ? drag.startISO : inst.startDate;
+    const dd = drag && drag.instId === inst.id ? drag.days : (inst.days || 1);
+    return { s, days: dd, wdays: expandWorkingDays(s, dd) };
+  };
+
+  return (
+    <div style={{ marginBottom: 16, border: '1px solid #e2e8f0', borderRadius: 8, background: '#fff' }}>
+      {/* Ovládanie */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 6, padding: 10, borderBottom: '1px solid #e2e8f0', flexWrap: 'wrap' }}>
+        <button style={styles.ganttNavBtn} onClick={() => setViewStart(shiftISODays(viewStart, -zoom))} title="O celé okno späť">◀◀</button>
+        <button style={styles.ganttNavBtn} onClick={() => setViewStart(shiftISODays(viewStart, -7))}>◀ týždeň</button>
+        <button style={styles.ganttNavBtn} onClick={() => setViewStart(shiftISODays(today, -2))}>Dnes</button>
+        <button style={styles.ganttNavBtn} onClick={() => setViewStart(shiftISODays(viewStart, 7))}>týždeň ▶</button>
+        <button style={styles.ganttNavBtn} onClick={() => setViewStart(shiftISODays(viewStart, zoom))} title="O celé okno vpred">▶▶</button>
+        <span style={{ marginLeft: 'auto', fontSize: 11, color: '#64748b' }}>Zoom:</span>
+        {[14, 30, 60].map(z => (
+          <button key={z} onClick={() => setZoom(z)} style={{ ...styles.ganttNavBtn, background: zoom === z ? '#0d3825' : '#fff', color: zoom === z ? '#fff' : '#475569' }}>{z} dní</button>
+        ))}
+      </div>
+
+      {conflicts.length > 0 && (
+        <div style={{ margin: 10, padding: 10, background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: 6, fontSize: 12, color: '#991b1b' }}>
+          <strong>⚠ Kapacitné kolízie ({conflicts.length}):</strong>
+          <ul style={{ margin: '6px 0 0', paddingLeft: 18 }}>
+            {conflicts.slice(0, 8).map((c, i) => (
+              <li key={i}>{c.assignee} — {c.day}: {c.list.map(x => `${x.projectName} / ${x.phaseName}`).join(' × ')}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {scheduled.length === 0 ? (
+        <div style={{ padding: 24, textAlign: 'center', color: '#94a3b8', fontSize: 13 }}>
+          Žiadna naplánovaná fáza. Priraď fáze dátum zahájenia (klik do mriežky nižšie po „Načítať všetky fázy").
+        </div>
+      ) : (
+        <div style={{ overflowX: 'auto' }}>
+          <div style={{ minWidth: 180 + cols.length * DAY_W, userSelect: 'none' }}>
+            {/* Hlavička mesiacov */}
+            <div style={{ display: 'flex', borderBottom: '1px solid #f1f5f9' }}>
+              <div style={{ width: 180, flexShrink: 0 }}></div>
+              {monthSpans.map((m, i) => (
+                <div key={i} style={{ width: m.span * DAY_W, flexShrink: 0, fontSize: 11, fontWeight: 700, color: '#475569', padding: '4px 6px', borderLeft: '1px solid #f1f5f9', textTransform: 'capitalize' }}>{m.label}</div>
+              ))}
+            </div>
+            {/* Hlavička dní */}
+            <div style={{ display: 'flex', borderBottom: '1px solid #e2e8f0' }}>
+              <div style={{ width: 180, flexShrink: 0, fontSize: 11, fontWeight: 700, color: '#64748b', padding: '4px 8px' }}>Fáza</div>
+              {cols.map(iso => {
+                const d = parseLocalISO(iso);
+                const we = isWeekendISO(iso);
+                return (
+                  <div key={iso} style={{ width: DAY_W, flexShrink: 0, textAlign: 'center', fontSize: 9, padding: '3px 0', background: iso === today ? '#dbeafe' : (we ? '#f8fafc' : '#fff'), color: we ? '#cbd5e1' : '#64748b', borderLeft: '1px solid #f1f5f9' }}>
+                    <div>{DOW[d ? d.getDay() : 0]}</div>
+                    <div style={{ fontWeight: 700 }}>{d ? d.getDate() : ''}</div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Riadky fáz */}
+            {scheduled.map(inst => {
+              const span = phaseSpan(inst);
+              const wset = new Set(span.wdays);
+              const startIdx = cols.indexOf(span.wdays[0]);
+              const hasConflict = conflictInst.has(inst.id);
+              return (
+                <div key={inst.id} style={{ display: 'flex', borderBottom: '1px solid #f8fafc', position: 'relative' }}>
+                  <div style={{ width: 180, flexShrink: 0, fontSize: 11, padding: '6px 8px', display: 'flex', alignItems: 'center', gap: 4, overflow: 'hidden' }}>
+                    <span style={{ width: 8, height: 8, borderRadius: 2, background: inst.color || '#64748b', flexShrink: 0 }} />
+                    <span style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }} title={inst.name}>{hasConflict ? '⚠ ' : ''}{inst.name}</span>
+                  </div>
+                  {cols.map(iso => {
+                    const inPhase = wset.has(iso);
+                    const we = isWeekendISO(iso);
+                    const conf = inPhase && cellConflict(inst.assignee, iso);
+                    const stInfo = INSTALLATION_STATUSES[inst.status] || INSTALLATION_STATUSES.planned;
+                    return (
+                      <div key={iso}
+                        onMouseDown={() => onCellDown(inst, iso)}
+                        onMouseEnter={() => onCellEnter(inst, iso)}
+                        style={{
+                          width: DAY_W, flexShrink: 0, height: 26, borderLeft: '1px solid #f8fafc',
+                          background: conf ? '#fecaca' : (inPhase ? (inst.color || stInfo.color) : (iso === today ? '#eff6ff' : (we ? '#f8fafc' : '#fff'))),
+                          cursor: readOnly ? 'default' : 'pointer',
+                          opacity: inPhase ? (inst.status === 'done' ? 0.55 : 0.9) : 1,
+                        }}
+                        title={inPhase ? `${inst.name} · ${iso}${inst.assignee ? ' · ' + inst.assignee : ''}` : iso}
+                      />
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+      {!readOnly && scheduled.length > 0 && (
+        <div style={{ padding: '6px 10px', fontSize: 11, color: '#94a3b8' }}>Tip: klikni do riadku fázy pre nastavenie zahájenia, ťahaním nastavíš dĺžku (víkendy sa nerátajú).</div>
+      )}
+    </div>
+  );
+}
+
+// ==========================================================================
+// Plánovač montáží — záložka Montáž v projekte
+// ==========================================================================
+function InstallationPlanTab({ project, phases, crew, allProjects, readOnly, onSave }) {
+  const install = project.installation || [];
+  const [shiftDays, setShiftDays] = useState(7);
+  const [confirmDelId, setConfirmDelId] = useState(null);
+  const [manualEditId, setManualEditId] = useState(null);
+
+  const patchPhase = (id, patch) => onSave(install.map(p => p.id === id ? { ...p, ...patch } : p));
+  const removePhase = (id) => onSave(install.filter(p => p.id !== id));
+
+  const addPhase = (phaseDef) => {
+    const base = phaseDef || { id: uid('ph'), name: 'Vlastná fáza', color: '#64748b', defaultDays: 1 };
+    onSave([...install, {
+      id: uid('inst'), phaseId: base.id, name: base.name, color: base.color,
+      startDate: '', days: base.defaultDays || 1, hours: (base.defaultDays || 1) * WORK_HOURS_PER_DAY,
+      assignee: '', status: 'planned', notes: '',
+    }]);
+  };
+
+  // Načítať všetky fázy z číselníka a automaticky naplánovať podľa D+X od createdAt
+  const loadAllPhases = () => {
+    const anchor = (project.createdAt || todayISO()).slice(0, 10);
+    const next = phases.map(ph => {
+      const startDate = (ph.defaultOffsetDays === '' || ph.defaultOffsetDays == null)
+        ? '' : shiftISODays(anchor, parseInt(ph.defaultOffsetDays, 10) || 0);
+      return {
+        id: uid('inst'), phaseId: ph.id, name: ph.name, color: ph.color,
+        startDate, days: ph.defaultDays || 1, hours: (ph.defaultDays || 1) * WORK_HOURS_PER_DAY,
+        assignee: '', status: 'planned', notes: '',
+      };
+    });
+    onSave(next);
+  };
+
+  const shiftAll = (delta) => {
+    onSave(install.map(p => p.startDate ? { ...p, startDate: shiftISODays(p.startDate, delta) } : p));
+  };
+
+  // Súhrn
+  const totalDays = install.reduce((s, p) => s + (parseFloat(p.days) || 0), 0);
+  const totalHours = install.reduce((s, p) => s + (parseFloat(p.hours) || (parseFloat(p.days) || 0) * WORK_HOURS_PER_DAY), 0);
+  const scheduledDates = install.filter(p => p.startDate);
+  const minStart = scheduledDates.map(p => p.startDate).sort()[0];
+  const maxEnd = scheduledDates.map(p => addWorkingDays(p.startDate, p.days || 1)).sort().slice(-1)[0];
+
+  const card = (label, value, sub) => (
+    <div style={{ flex: 1, minWidth: 150, background: '#fff', border: '1px solid #e2e8f0', borderRadius: 8, padding: 12 }}>
+      <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>{label}</div>
+      <div style={{ fontSize: 18, fontWeight: 700, color: '#0d3825' }}>{value}</div>
+      {sub && <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>{sub}</div>}
+    </div>
+  );
+
+  return (
+    <div>
+      {/* Súhrnné karty */}
+      <div style={{ display: 'flex', gap: 10, marginBottom: 14, flexWrap: 'wrap' }}>
+        {card('Počet fáz', install.length, `${scheduledDates.length} naplánovaných`)}
+        {card('Celkom dní', totalDays, `${Math.round(totalHours)} h (${WORK_HOURS_PER_DAY} h/deň)`)}
+        {card('Termín realizácie', minStart ? `${minStart} → ${maxEnd || '—'}` : '—', minStart ? '' : 'nenaplánované')}
+      </div>
+
+      {/* Akcie */}
+      {!readOnly && (
+        <div style={{ display: 'flex', gap: 8, marginBottom: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+          <button style={styles.secondaryBtn} onClick={() => addPhase(null)}><Plus size={14} /> Pridať fázu</button>
+          <button style={styles.primaryBtn} onClick={loadAllPhases}><Calendar size={14} /> Načítať všetky fázy</button>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 4, marginLeft: 'auto' }}>
+            <span style={{ fontSize: 12, color: '#64748b' }}>Posunúť všetko o</span>
+            <input type="number" value={shiftDays} onChange={e => setShiftDays(parseInt(e.target.value, 10) || 0)} style={{ ...styles.input, width: 64 }} />
+            <span style={{ fontSize: 12, color: '#64748b' }}>dní</span>
+            <button style={styles.secondaryBtn} onClick={() => shiftAll(-Math.abs(shiftDays))} disabled={!scheduledDates.length}>−</button>
+            <button style={styles.secondaryBtn} onClick={() => shiftAll(Math.abs(shiftDays))} disabled={!scheduledDates.length}>+</button>
+          </div>
+        </div>
+      )}
+
+      {/* Gantt */}
+      <InstallationGantt project={project} allProjects={allProjects} crew={crew} readOnly={readOnly} onPatchPhase={patchPhase} />
+
+      {/* Tabuľka fáz */}
+      {install.length === 0 ? (
+        <div style={{ padding: 24, textAlign: 'center', color: '#94a3b8', border: '1px solid #e2e8f0', borderRadius: 8 }}>
+          Žiadne fázy. Klikni na <strong>Načítať všetky fázy</strong> pre naplnenie z číselníka a automatické naplánovanie.
+        </div>
+      ) : (
+        <div style={{ border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'auto' }}>
+          <table style={{ ...styles.table, fontSize: 12 }}>
+            <thead>
+              <tr>
+                <th style={styles.th}>Fáza</th>
+                <th style={{ ...styles.th, width: 120 }}>Zahájenie</th>
+                <th style={{ ...styles.th, width: 120 }}>Koniec</th>
+                <th style={{ ...styles.th, width: 70, textAlign: 'center' }}>Dní</th>
+                <th style={{ ...styles.th, width: 80, textAlign: 'center' }}>Hodín</th>
+                <th style={{ ...styles.th, width: 200 }}>Realizuje</th>
+                <th style={{ ...styles.th, width: 140 }}>Stav</th>
+                {!readOnly && <th style={{ ...styles.th, width: 50 }}></th>}
+              </tr>
+            </thead>
+            <tbody>
+              {install.map(inst => {
+                const end = inst.startDate ? addWorkingDays(inst.startDate, inst.days || 1) : '';
+                const isManual = manualEditId === inst.id || (inst.assignee && !crew.some(c => c.name === inst.assignee));
+                return (
+                  <tr key={inst.id} style={styles.tr}>
+                    <td style={styles.td}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                        <span style={{ width: 8, height: 8, borderRadius: 2, background: inst.color || '#64748b' }} />
+                        {inst.name}
+                      </div>
+                    </td>
+                    <td style={styles.td}>
+                      <input type="date" value={inst.startDate || ''} disabled={readOnly}
+                        onChange={e => patchPhase(inst.id, { startDate: e.target.value })} style={{ ...styles.input, fontSize: 11 }} />
+                    </td>
+                    <td style={{ ...styles.td, color: '#64748b' }}>{end || '—'}</td>
+                    <td style={{ ...styles.td, textAlign: 'center' }}>
+                      <input type="number" min={1} value={inst.days || 1} disabled={readOnly}
+                        onChange={e => { const d = Math.max(1, parseInt(e.target.value, 10) || 1); patchPhase(inst.id, { days: d, hours: d * WORK_HOURS_PER_DAY }); }}
+                        style={{ ...styles.input, width: 54, textAlign: 'center' }} />
+                    </td>
+                    <td style={{ ...styles.td, textAlign: 'center' }}>
+                      <input type="number" min={0} value={inst.hours ?? ((inst.days || 1) * WORK_HOURS_PER_DAY)} disabled={readOnly}
+                        onChange={e => patchPhase(inst.id, { hours: parseFloat(e.target.value) || 0 })}
+                        style={{ ...styles.input, width: 64, textAlign: 'center' }} />
+                    </td>
+                    <td style={styles.td}>
+                      {isManual ? (
+                        <div style={{ display: 'flex', gap: 4 }}>
+                          <input value={inst.assignee || ''} disabled={readOnly} placeholder="Meno realizátora"
+                            onChange={e => patchPhase(inst.id, { assignee: e.target.value })} style={{ ...styles.input, fontSize: 11 }} />
+                          {crew.length > 0 && <button style={styles.iconBtn} title="Zo zoznamu" onClick={() => { setManualEditId(null); patchPhase(inst.id, { assignee: '' }); }}>↩</button>}
+                        </div>
+                      ) : (
+                        <select value={inst.assignee || ''} disabled={readOnly}
+                          onChange={e => { if (e.target.value === '__manual__') { setManualEditId(inst.id); } else { patchPhase(inst.id, { assignee: e.target.value }); } }}
+                          style={{ ...styles.input, fontSize: 11 }}>
+                          <option value="">— bez priradenia —</option>
+                          {crew.map(c => <option key={c.id} value={c.name}>{c.name}{c.role ? ` (${c.role})` : ''}</option>)}
+                          <option value="__manual__">✎ Zadať ručne…</option>
+                        </select>
+                      )}
+                    </td>
+                    <td style={styles.td}>
+                      <select value={inst.status || 'planned'} disabled={readOnly}
+                        onChange={e => patchPhase(inst.id, { status: e.target.value })}
+                        style={{ ...styles.input, fontSize: 11, background: (INSTALLATION_STATUSES[inst.status] || INSTALLATION_STATUSES.planned).bg, color: (INSTALLATION_STATUSES[inst.status] || INSTALLATION_STATUSES.planned).color, fontWeight: 600 }}>
+                        {Object.entries(INSTALLATION_STATUSES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
+                      </select>
+                    </td>
+                    {!readOnly && (
+                      <td style={styles.td}>
+                        {confirmDelId === inst.id ? (
+                          <div style={{ display: 'flex', gap: 2 }}>
+                            <button style={{ ...styles.iconBtn, color: '#dc2626' }} onClick={() => { removePhase(inst.id); setConfirmDelId(null); }} title="Potvrdiť">✓</button>
+                            <button style={styles.iconBtn} onClick={() => setConfirmDelId(null)} title="Zrušiť">✕</button>
+                          </div>
+                        ) : (
+                          <button style={{ ...styles.iconBtn, color: '#dc2626' }} onClick={() => setConfirmDelId(inst.id)} title="Zmazať fázu"><Trash2 size={14} /></button>
+                        )}
+                      </td>
+                    )}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+// ==========================================================================
+// Kalendár — modal pridania/úpravy aktivity (fázy) na deň, so živou kontrolou kapacít
+// ==========================================================================
+function CalendarActivityModal({ day, projects, crew, installationPhases, onSave, onClose }) {
+  const realProjects = projects.filter(p => !p.isStockProject);
+  const [projectId, setProjectId] = useState(() => (realProjects.find(p => p.status === 'active') || realProjects[0] || {}).id || '');
+  const [phaseMode, setPhaseMode] = useState('catalog'); // existing | catalog | custom
+  const [existingId, setExistingId] = useState('');
+  const [catalogPhaseId, setCatalogPhaseId] = useState(installationPhases[0]?.id || '');
+  const [customName, setCustomName] = useState('');
+  const [assignee, setAssignee] = useState('');
+  const [startDate, setStartDate] = useState(day || todayISO());
+  const [days, setDays] = useState(1);
+
+  const project = realProjects.find(p => p.id === projectId);
+  const existingPhases = project?.installation || [];
+
+  // Živá kontrola kapacít: technik nesmie byť v ten istý deň na dvoch fázach
+  const conflictDays = useMemo(() => {
+    if (!assignee) return [];
+    const editInstId = phaseMode === 'existing' ? existingId : null;
+    const busy = {};
+    projects.forEach(pr => (pr.installation || []).forEach(ph => {
+      if (ph.id === editInstId) return;
+      if (ph.assignee !== assignee || !ph.startDate || ph.status === 'done') return;
+      expandWorkingDays(ph.startDate, ph.days || 1).forEach(d => { busy[d] = (busy[d] || 0) + 1; });
+    }));
+    return expandWorkingDays(startDate, days).filter(d => busy[d]);
+  }, [assignee, startDate, days, projects, phaseMode, existingId]);
+
+  const submit = () => {
+    if (!project) { alert('Vyberte projekt.'); return; }
+    let installation;
+    if (phaseMode === 'existing') {
+      if (!existingId) { alert('Vyberte fázu.'); return; }
+      installation = existingPhases.map(p => p.id === existingId
+        ? { ...p, startDate, days: Math.max(1, days), hours: Math.max(1, days) * WORK_HOURS_PER_DAY, assignee }
+        : p);
+    } else {
+      let name, color, phaseId;
+      if (phaseMode === 'catalog') {
+        const def = installationPhases.find(p => p.id === catalogPhaseId);
+        if (!def) { alert('Vyberte fázu z číselníka.'); return; }
+        name = def.name; color = def.color; phaseId = def.id;
+      } else {
+        if (!customName.trim()) { alert('Zadajte názov fázy.'); return; }
+        name = customName.trim(); color = '#64748b'; phaseId = uid('ph');
+      }
+      installation = [...existingPhases, {
+        id: uid('inst'), phaseId, name, color, startDate,
+        days: Math.max(1, days), hours: Math.max(1, days) * WORK_HOURS_PER_DAY,
+        assignee, status: 'planned', notes: '',
+      }];
+    }
+    onSave(project.id, installation);
+    onClose();
+  };
+
+  return (
+    <Modal title={`Aktivita${day ? ` · ${day}` : ''}`} onClose={onClose} maxWidth={560}>
+      <div style={styles.formRow}>
+        <label style={styles.label}>Projekt *</label>
+        <select style={styles.input} value={projectId} onChange={e => { setProjectId(e.target.value); setPhaseMode('catalog'); setExistingId(''); }}>
+          <option value="">— vyberte projekt —</option>
+          {realProjects.filter(p => p.status === 'active').map(p => (
+            <option key={p.id} value={p.id}>{p.name}{p.client ? ` (${p.client})` : ''}</option>
+          ))}
+        </select>
+      </div>
+
+      <div style={styles.formRow}>
+        <label style={styles.label}>Fáza</label>
+        <div style={{ display: 'flex', gap: 6, marginBottom: 6, flexWrap: 'wrap' }}>
+          {[['existing', 'Existujúca v pláne'], ['catalog', 'Z číselníka'], ['custom', 'Vlastná']].map(([k, lbl]) => (
+            <button key={k} onClick={() => setPhaseMode(k)} style={{ ...styles.ganttNavBtn, background: phaseMode === k ? '#0d3825' : '#fff', color: phaseMode === k ? '#fff' : '#475569' }}>{lbl}</button>
+          ))}
+        </div>
+        {phaseMode === 'existing' && (
+          <select style={styles.input} value={existingId} onChange={e => setExistingId(e.target.value)}>
+            <option value="">— vyberte fázu z plánu —</option>
+            {existingPhases.map(p => <option key={p.id} value={p.id}>{p.name}{p.startDate ? ` (${p.startDate})` : ''}</option>)}
+          </select>
+        )}
+        {phaseMode === 'catalog' && (
+          <select style={styles.input} value={catalogPhaseId} onChange={e => setCatalogPhaseId(e.target.value)}>
+            {installationPhases.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+          </select>
+        )}
+        {phaseMode === 'custom' && (
+          <input style={styles.input} value={customName} onChange={e => setCustomName(e.target.value)} placeholder="Názov vlastnej fázy" />
+        )}
+      </div>
+
+      <div style={{ display: 'flex', gap: 10 }}>
+        <div style={{ ...styles.formRow, flex: 1 }}>
+          <label style={styles.label}>Zahájenie</label>
+          <input type="date" style={styles.input} value={startDate} onChange={e => setStartDate(e.target.value)} />
+        </div>
+        <div style={{ ...styles.formRow, width: 100 }}>
+          <label style={styles.label}>Dní</label>
+          <input type="number" min={1} style={styles.input} value={days} onChange={e => setDays(Math.max(1, parseInt(e.target.value, 10) || 1))} />
+        </div>
+      </div>
+
+      <div style={styles.formRow}>
+        <label style={styles.label}>Realizuje</label>
+        <select style={styles.input} value={assignee} onChange={e => setAssignee(e.target.value)}>
+          <option value="">— bez priradenia —</option>
+          {crew.map(c => <option key={c.id} value={c.name}>{c.name}{c.role ? ` (${c.role})` : ''}</option>)}
+        </select>
+      </div>
+
+      {conflictDays.length > 0 && (
+        <div style={{ marginBottom: 10, padding: 10, background: '#fee2e2', border: '1px solid #fca5a5', borderRadius: 6, fontSize: 12, color: '#991b1b' }}>
+          ⚠ <strong>{assignee}</strong> už má v dňoch {conflictDays.join(', ')} inú fázu — vznikne kapacitná kolízia.
+        </div>
+      )}
+
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>Uložiť aktivitu</button>
+      </div>
+    </Modal>
+  );
+}
+
+// ==========================================================================
+// Kalendár — sekcia (mesačný / zoznamový pohľad)
+// ==========================================================================
+function CalendarView({ projects, crew, installationPhases, onSaveInstallation, onGoToProjectMontaz }) {
+  const [mode, setMode] = useState('month'); // month | list
+  const [monthCursor, setMonthCursor] = useState(() => { const d = new Date(); return toLocalISO(new Date(d.getFullYear(), d.getMonth(), 1)); });
+  const [filterProject, setFilterProject] = useState('all');
+  const [filterCrew, setFilterCrew] = useState('all');
+  const [filterStatus, setFilterStatus] = useState('all');
+  const [activityDay, setActivityDay] = useState(null); // ISO | '' (open modal)
+
+  const today = todayISO();
+
+  // Ploché inštancie fáz naprieč projektmi
+  const instances = useMemo(() => {
+    const out = [];
+    projects.forEach(pr => {
+      if (pr.isStockProject) return;
+      (pr.installation || []).forEach(inst => {
+        if (!inst.startDate) return;
+        if (filterProject !== 'all' && pr.id !== filterProject) return;
+        if (filterStatus !== 'all' && (inst.status || 'planned') !== filterStatus) return;
+        if (filterCrew === '__none__' && inst.assignee) return;
+        if (filterCrew !== 'all' && filterCrew !== '__none__' && inst.assignee !== filterCrew) return;
+        out.push({ projectId: pr.id, projectName: pr.name, inst });
+      });
+    });
+    return out;
+  }, [projects, filterProject, filterCrew, filterStatus]);
+
+  const phasesByDay = useMemo(() => {
+    const map = {};
+    instances.forEach(({ projectId, projectName, inst }) => {
+      expandWorkingDays(inst.startDate, inst.days || 1).forEach((day, idx) => {
+        (map[day] = map[day] || []).push({ projectId, projectName, inst, isStart: idx === 0 });
+      });
+    });
+    return map;
+  }, [instances]);
+
+  const DOW = ['Po', 'Ut', 'St', 'Št', 'Pi', 'So', 'Ne'];
+  const mc = parseLocalISO(monthCursor);
+  const y = mc.getFullYear(), m = mc.getMonth();
+  const firstDow = (new Date(y, m, 1).getDay() + 6) % 7; // Po=0
+  const daysInMonth = new Date(y, m + 1, 0).getDate();
+  const gridStart = shiftISODays(toLocalISO(new Date(y, m, 1)), -firstDow);
+  const totalCells = Math.ceil((firstDow + daysInMonth) / 7) * 7;
+  const cells = isoRange(gridStart, totalCells);
+  const monthLabel = mc.toLocaleDateString('sk-SK', { month: 'long', year: 'numeric' });
+
+  const statusInfo = (s) => INSTALLATION_STATUSES[s] || INSTALLATION_STATUSES.planned;
+
+  const filterBar = (
+    <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', marginBottom: 14 }}>
+      <div style={{ display: 'inline-flex', borderRadius: 6, overflow: 'hidden', border: '1px solid #cbd5e1' }}>
+        <button onClick={() => setMode('month')} style={{ ...styles.ganttNavBtn, borderRadius: 0, border: 'none', background: mode === 'month' ? '#0d3825' : '#fff', color: mode === 'month' ? '#fff' : '#475569' }}>📅 Mesiac</button>
+        <button onClick={() => setMode('list')} style={{ ...styles.ganttNavBtn, borderRadius: 0, border: 'none', borderLeft: '1px solid #cbd5e1', background: mode === 'list' ? '#0d3825' : '#fff', color: mode === 'list' ? '#fff' : '#475569' }}>📋 Zoznam</button>
+      </div>
+      <select style={{ ...styles.input, width: 'auto' }} value={filterProject} onChange={e => setFilterProject(e.target.value)}>
+        <option value="all">Všetky projekty</option>
+        {projects.filter(p => !p.isStockProject).map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+      </select>
+      <select style={{ ...styles.input, width: 'auto' }} value={filterCrew} onChange={e => setFilterCrew(e.target.value)}>
+        <option value="all">Všetci technici</option>
+        <option value="__none__">Bez priradenia</option>
+        {crew.map(c => <option key={c.id} value={c.name}>{c.name}</option>)}
+      </select>
+      <select style={{ ...styles.input, width: 'auto' }} value={filterStatus} onChange={e => setFilterStatus(e.target.value)}>
+        <option value="all">Všetky stavy</option>
+        {Object.entries(INSTALLATION_STATUSES).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
+      </select>
+      {mode === 'list' && (
+        <button style={{ ...styles.primaryBtn, marginLeft: 'auto' }} onClick={() => setActivityDay('')}><Plus size={14} /> Pridať aktivitu</button>
+      )}
+    </div>
+  );
+
+  return (
+    <main style={styles.main}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+        <h2 style={{ fontSize: 18, fontWeight: 700, color: '#0d3825', margin: 0 }}>Kalendár montáží</h2>
+      </div>
+      {filterBar}
+
+      {mode === 'month' ? (
+        <div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 10 }}>
+            <button style={styles.ganttNavBtn} onClick={() => setMonthCursor(toLocalISO(new Date(y, m - 1, 1)))}>◀</button>
+            <div style={{ fontWeight: 700, textTransform: 'capitalize', minWidth: 160, textAlign: 'center' }}>{monthLabel}</div>
+            <button style={styles.ganttNavBtn} onClick={() => setMonthCursor(toLocalISO(new Date(y, m + 1, 1)))}>▶</button>
+            <button style={styles.ganttNavBtn} onClick={() => { const d = new Date(); setMonthCursor(toLocalISO(new Date(d.getFullYear(), d.getMonth(), 1))); }}>Dnes</button>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: 1, background: '#e2e8f0', border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'hidden' }}>
+            {DOW.map(d => <div key={d} style={{ background: '#f8fafc', padding: '6px 8px', fontSize: 11, fontWeight: 700, color: '#64748b', textAlign: 'center' }}>{d}</div>)}
+            {cells.map(iso => {
+              const inMonth = parseLocalISO(iso).getMonth() === m;
+              const we = isWeekendISO(iso);
+              const list = phasesByDay[iso] || [];
+              return (
+                <div key={iso} onClick={() => setActivityDay(iso)}
+                  style={{ background: iso === today ? '#eff6ff' : (we ? '#fbfcfd' : '#fff'), minHeight: 92, padding: 4, cursor: 'pointer', opacity: inMonth ? 1 : 0.45 }}>
+                  <div style={{ fontSize: 11, fontWeight: iso === today ? 800 : 600, color: iso === today ? '#1d4ed8' : '#64748b', textAlign: 'right', padding: '0 2px' }}>{parseLocalISO(iso).getDate()}</div>
+                  {list.slice(0, 3).map((x, i) => {
+                    const si = statusInfo(x.inst.status);
+                    return (
+                      <div key={i} onClick={(e) => { e.stopPropagation(); onGoToProjectMontaz(x.projectId); }}
+                        title={`${x.projectName} · ${x.inst.name}${x.inst.assignee ? ' · ' + x.inst.assignee : ''}`}
+                        style={{ fontSize: 10, padding: '2px 4px', marginTop: 2, borderRadius: 3, background: si.bg, color: si.color, borderLeft: `3px solid ${x.inst.color || si.color}`, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                        {x.isStart ? '' : '↳ '}{x.inst.name}
+                      </div>
+                    );
+                  })}
+                  {list.length > 3 && <div style={{ fontSize: 9, color: '#94a3b8', padding: '2px 4px' }}>+{list.length - 3} ďalšie</div>}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <div style={{ border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'auto', background: '#fff' }}>
+          <table style={{ ...styles.table, fontSize: 12 }}>
+            <thead>
+              <tr>
+                <th style={styles.th}>Dátum</th>
+                <th style={styles.th}>Projekt</th>
+                <th style={styles.th}>Fáza</th>
+                <th style={styles.th}>Realizuje</th>
+                <th style={styles.th}>Stav</th>
+              </tr>
+            </thead>
+            <tbody>
+              {instances.length === 0 && <tr><td style={{ ...styles.td, color: '#94a3b8' }} colSpan={5}>Žiadne naplánované aktivity.</td></tr>}
+              {[...instances].sort((a, b) => (a.inst.startDate || '').localeCompare(b.inst.startDate || '')).map(({ projectId, projectName, inst }) => {
+                const end = addWorkingDays(inst.startDate, inst.days || 1);
+                const overdue = end < today && inst.status !== 'done';
+                const si = statusInfo(inst.status);
+                return (
+                  <tr key={inst.id} style={{ ...styles.tr, cursor: 'pointer' }} onClick={() => onGoToProjectMontaz(projectId)}>
+                    <td style={styles.td}>{inst.startDate}{(inst.days || 1) > 1 ? ` → ${end}` : ''}{overdue && <span style={{ marginLeft: 6, fontSize: 10, fontWeight: 700, color: '#dc2626' }}>PO TERMÍNE</span>}</td>
+                    <td style={styles.td}>{projectName}</td>
+                    <td style={styles.td}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><span style={{ width: 8, height: 8, borderRadius: 2, background: inst.color || '#64748b' }} />{inst.name}</span></td>
+                    <td style={{ ...styles.td, color: inst.assignee ? '#0d3825' : '#cbd5e1' }}>{inst.assignee || '—'}</td>
+                    <td style={styles.td}><span style={{ padding: '2px 8px', borderRadius: 4, fontSize: 11, fontWeight: 700, background: si.bg, color: si.color }}>{si.label}</span></td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {activityDay !== null && (
+        <CalendarActivityModal
+          day={activityDay}
+          projects={projects}
+          crew={crew}
+          installationPhases={installationPhases}
+          onSave={onSaveInstallation}
+          onClose={() => setActivityDay(null)}
+        />
+      )}
+    </main>
+  );
+}
+
+
+function ProjectView({ project, categories, suppliers, fxRate, settings, readOnly, focusKey, pdfAttachments, stockItems = [], onReserveStock, installationPhases = [], crew = [], allProjects = [], onSaveInstallation, onAddItem, onEditItem, onDeleteItem, onUpdateItem, onEditBudgets, onEditMeta, onImport, onManageSuppliers, onSetProjectStatus, onAddClientPayment, onUpdateClientPayment, onDeleteClientPayment, onApplyPaymentTemplate, paymentPlanTemplates, onDeletePdfAttachment, onAddPdfToProject, onGoToPurchaseList, onGoToOrders }) {
   const [closeModal, setCloseModal] = useState(null); // { ok, blockers } — null = closed
-  const [tab, setTab] = useState('dashboard'); // dashboard | payments | items | pdfs
+  const [tab, setTab] = useState('dashboard'); // dashboard | payments | items | montaz | pdfs
+  useEffect(() => {
+    if (focusKey?.tab) setTab(focusKey.tab);
+  }, [focusKey?.tab, focusKey?.ts]);
 
+  // Náklady rátame cez VŠETKY položky (nie cez číselník kategórií), inak položka
+  // s neznámou kategóriou tíško zmizne zo súčtu. Vylučujeme rozpočítané poplatky
+  // (shippingDistributed — už sú v cene materiálu) a zálohy (nevstupujú do nákladov).
+  const costItems = useMemo(() => project.items.filter(i => !i.shippingDistributed && !i.isAdvance && i.category !== 'advance'), [project.items]);
   const spendByCategory = useMemo(() => {
-    return categories.reduce((acc, cat) => {
-      acc[cat.id] = project.items.filter(i => i.category === cat.id).reduce((sum, i) => sum + toEUR(i, fxRate), 0);
-      return acc;
-    }, {});
-  }, [project, categories, fxRate]);
+    const acc = {};
+    costItems.forEach(i => {
+      if (categories.some(c => c.id === i.category)) acc[i.category] = (acc[i.category] || 0) + toEUR(i, fxRate);
+    });
+    return acc;
+  }, [costItems, categories, fxRate]);
+  const uncategorizedTotal = useMemo(() => costItems.filter(i => !categories.some(c => c.id === i.category)).reduce((s, i) => s + toEUR(i, fxRate), 0), [costItems, categories, fxRate]);
+  const advancesTotal = useMemo(() => project.items.filter(i => i.isAdvance || i.category === 'advance').reduce((s, i) => s + toEUR(i, fxRate), 0), [project.items, fxRate]);
 
-  const totalSpend = Object.values(spendByCategory).reduce((a, b) => a + b, 0);
+  const totalSpend = costItems.reduce((s, i) => s + toEUR(i, fxRate), 0);
   const totalBudget = Object.values(project.budgets).reduce((a, b) => a + (Number(b) || 0), 0);
   const overBudget = categories.filter(c => (project.budgets[c.id] || 0) > 0 && spendByCategory[c.id] > project.budgets[c.id]).length;
 
@@ -2585,6 +3846,7 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
           { id: 'dashboard', label: 'Dashboard', icon: <TrendingUp size={13} />, count: null },
           { id: 'payments', label: 'Platby', icon: <ArrowDownCircle size={13} />, count: clientPaymentsCount },
           { id: 'items', label: 'Položky', icon: <Package size={13} />, count: project.items.length },
+          { id: 'montaz', label: 'Montáž', icon: <Calendar size={13} />, count: (project.installation || []).length || null },
           { id: 'pdfs', label: 'Archiv PDF', icon: <FileText size={13} />, count: projectPdfs.length },
         ].map(t => (
           <button
@@ -2618,7 +3880,7 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
             <div style={styles.plItem}>
               <div style={styles.plLabel}><ArrowUpCircle size={13} /> Celkové náklady (položky)</div>
               <div style={{ ...styles.plValue, color: '#dc2626' }}>{fmt(totalSpend)}</div>
-              <div style={styles.plSub}>Materiál {fmt(materialTotal)} · Práca {fmt(laborTotal)} · Riadenie {fmt(commissionTotal)}</div>
+              <div style={styles.plSub}>Materiál {fmt(materialTotal)} · Práca {fmt(laborTotal)} · Riadenie {fmt(commissionTotal)}{uncategorizedTotal ? ` · Bez kategórie ${fmt(uncategorizedTotal)}` : ''}{advancesTotal ? ` · Zálohy (mimo náklady) ${fmt(advancesTotal)}` : ''}</div>
             </div>
             {(parseFloat(project.contractValue) || 0) > 0 && (
               <>
@@ -2730,8 +3992,22 @@ function ProjectView({ project, categories, suppliers, fxRate, settings, readOnl
               )}
             </div>
           ) : (
-            <ItemsTable items={project.items} categories={categories} suppliers={suppliers} exchangeRate={fxRate} onEdit={onEditItem} onDelete={onDeleteItem} readOnly={readOnly} stockItems={stockItems} onReserve={project.isStockProject ? null : onReserveStock} />
+            <ItemsTable items={project.items} categories={categories} suppliers={suppliers} exchangeRate={fxRate} onEdit={onEditItem} onDelete={onDeleteItem} onUpdateItem={onUpdateItem} readOnly={readOnly} stockItems={stockItems} onReserve={project.isStockProject ? null : onReserveStock} />
           )}
+        </section>
+      )}
+
+      {/* Montáž záložka — plán montáže + Gantt */}
+      {tab === 'montaz' && (
+        <section style={styles.section}>
+          <InstallationPlanTab
+            project={project}
+            phases={installationPhases}
+            crew={crew}
+            allProjects={allProjects}
+            readOnly={readOnly}
+            onSave={(installation) => onSaveInstallation(project.id, installation)}
+          />
         </section>
       )}
 
@@ -2817,6 +4093,23 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
 
   const sorted = [...pdfs].sort((a, b) => (b.importedAt || '').localeCompare(a.importedAt || ''));
 
+  // Blok 7.3 — doklady z WFLOW: virtuálne záznamy z položiek podľa wflowDocNumber.
+  // Doklad, ktorý už má skutočné PDF (podľa čísla), nezobrazíme dvakrát.
+  const wflowVirtual = useMemo(() => {
+    const realNums = new Set((pdfs || []).map(a => a.orderNumber).filter(Boolean));
+    const map = new Map();
+    (projectItems || []).forEach(it => {
+      if (!it.wflowDocNumber) return;
+      if (it.pdfAttachmentId) return; // má skutočné PDF
+      if (realNums.has(it.wflowDocNumber)) return;
+      if (!map.has(it.wflowDocNumber)) map.set(it.wflowDocNumber, { docNumber: it.wflowDocNumber, url: it.documentUrl || '', supplier: it.supplier || '', date: it.invoicedDate || it.purchaseDate || '', items: [] });
+      map.get(it.wflowDocNumber).items.push(it);
+    });
+    return [...map.values()];
+  }, [projectItems, pdfs, fxRate]);
+
+  const hasAny = sorted.length > 0 || wflowVirtual.length > 0;
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12, flexWrap: 'wrap', gap: 10 }}>
@@ -2846,7 +4139,7 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
         )}
       </div>
 
-      {pdfs.length === 0 ? (
+      {!hasAny ? (
         <div style={{ padding: 30, textAlign: 'center', background: '#f8fafc', border: '1px dashed #cbd5e1', borderRadius: 8 }}>
           <FileText size={32} style={{ color: '#cbd5e1', marginBottom: 8 }} />
           <p style={{ color: '#64748b', fontSize: 13, margin: 0 }}>
@@ -2941,6 +4234,34 @@ function ProjectPdfArchive({ projectId, projectName, projectItems, fxRate, pdfs,
                   </td>
                 </tr>
               );
+              })}
+              {wflowVirtual.map(w => {
+                const totalEUR = w.items.reduce((sum, i) => sum + toEUR(i, fxRate || 25), 0);
+                return (
+                  <tr key={`wflow_${w.docNumber}`} style={{ ...styles.tr, background: '#faf5ff' }}>
+                    <td style={styles.td}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+                        <FileText size={14} style={{ color: '#a855f7' }} />
+                        <span style={{ fontSize: 12 }}>Doklad {w.docNumber}</span>
+                        <span style={{ fontSize: 10, padding: '1px 5px', borderRadius: 3, background: '#ede9fe', color: '#6d28d9', fontWeight: 700 }}>WFLOW</span>
+                      </span>
+                    </td>
+                    <td style={{ ...styles.td, fontSize: 12 }}>{w.supplier || '—'}</td>
+                    <td style={{ ...styles.td, fontSize: 11, fontFamily: 'monospace' }}>{w.docNumber}</td>
+                    <td style={{ ...styles.td, fontSize: 11, color: '#64748b' }}>{w.date || '—'}</td>
+                    <td style={{ ...styles.td, textAlign: 'right' }}>
+                      <span style={{ padding: '2px 7px', borderRadius: 4, background: '#f5f3ff', color: '#6d28d9', fontSize: 11, fontWeight: 700 }}>{w.items.length}</span>
+                    </td>
+                    <td style={{ ...styles.td, textAlign: 'right', fontSize: 12, fontWeight: 600 }}>{totalEUR > 0 ? fmt(totalEUR) : <span style={{ color: '#cbd5e1', fontWeight: 400 }}>—</span>}</td>
+                    <td style={styles.td}>
+                      {w.url ? (
+                        <a href={w.url} target="_blank" rel="noreferrer" style={{ ...styles.sortBtn, padding: '4px 8px', background: '#a855f7', color: '#fff', borderColor: '#a855f7', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 4 }} title="Otvoriť doklad vo WFLOW">
+                          🔗 WFLOW
+                        </a>
+                      ) : <span style={{ color: '#cbd5e1', fontSize: 11 }}>bez odkazu</span>}
+                    </td>
+                  </tr>
+                );
               })}
             </tbody>
           </table>
@@ -3290,6 +4611,8 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
   const [editing, setEditing] = useState(null); // { payment } - null=closed, {}=new
   const [confirmDel, setConfirmDel] = useState(null);
   const [applyTemplateModal, setApplyTemplateModal] = useState(false);
+  const [sortMode, setSortMode] = useState('entry'); // entry | due (predvolené = poradie zadania)
+  const [monthlyModal, setMonthlyModal] = useState(false);
 
   // Statistiky
   const stats = useMemo(() => {
@@ -3303,10 +4626,18 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
     return { planned, invoiced, paid, total };
   }, [payments]);
 
-  // Zoradiť podľa data
+  // Zoradiť: 'entry' = poradie zadania (predvolené), 'due' = podľa splatnosti (bez data na konci)
   const sortedPayments = useMemo(() => {
-    return [...payments].sort((a, b) => (a.dueDate || '').localeCompare(b.dueDate || ''));
-  }, [payments]);
+    if (sortMode === 'due') {
+      return [...payments].sort((a, b) => {
+        if (!a.dueDate && !b.dueDate) return 0;
+        if (!a.dueDate) return 1;
+        if (!b.dueDate) return -1;
+        return a.dueDate.localeCompare(b.dueDate);
+      });
+    }
+    return payments; // poradie zadania
+  }, [payments, sortMode]);
 
   const sortedItems = sortedPayments;
   const today = todayISO();
@@ -3323,12 +4654,21 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
           )}
         </h3>
         {!readOnly && (
-          <div style={{ display: 'flex', gap: 8 }}>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {payments.length > 1 && (
+              <div style={{ display: 'inline-flex', borderRadius: 6, overflow: 'hidden', border: '1px solid #cbd5e1' }}>
+                <button onClick={() => setSortMode('entry')} style={{ ...styles.ganttNavBtn, borderRadius: 0, border: 'none', background: sortMode === 'entry' ? '#0d3825' : '#fff', color: sortMode === 'entry' ? '#fff' : '#475569' }}>Poradie zadania</button>
+                <button onClick={() => setSortMode('due')} style={{ ...styles.ganttNavBtn, borderRadius: 0, border: 'none', borderLeft: '1px solid #cbd5e1', background: sortMode === 'due' ? '#0d3825' : '#fff', color: sortMode === 'due' ? '#fff' : '#475569' }}>Podľa splatnosti</button>
+              </div>
+            )}
             {paymentPlanTemplates && paymentPlanTemplates.length > 0 && (
               <button style={styles.secondaryBtn} onClick={() => setApplyTemplateModal(true)}>
                 <FileText size={14} /> Použiť šablónu
               </button>
             )}
+            <button style={styles.secondaryBtn} onClick={() => setMonthlyModal(true)}>
+              <Calendar size={14} /> Mesačné splátky
+            </button>
             <button style={styles.primaryBtn} onClick={() => setEditing({})}>
               <Plus size={14} /> Pridať splátku
             </button>
@@ -3479,7 +4819,71 @@ function ClientPaymentsPanel({ project, readOnly, onAdd, onUpdate, onDelete, pay
           onClose={() => setApplyTemplateModal(false)}
         />
       )}
+      {monthlyModal && (
+        <MonthlyInstallmentsModal
+          project={project}
+          existingTotal={stats.total}
+          onGenerate={(list) => { list.forEach(pmt => onAdd(pmt)); setMonthlyModal(false); }}
+          onClose={() => setMonthlyModal(false)}
+        />
+      )}
     </div>
+  );
+}
+
+// ==========================================================================
+// Mesačné splátky — generovanie série (Blok 7.4)
+// ==========================================================================
+function MonthlyInstallmentsModal({ project, existingTotal, onGenerate, onClose }) {
+  const gross = computeProjectGrossValue(project);
+  const remaining = Math.max(0, gross - (existingTotal || 0));
+  const [count, setCount] = useState(12);
+  const [amount, setAmount] = useState(() => remaining > 0 ? Math.round(remaining / 12) : 0);
+  const [firstDate, setFirstDate] = useState(todayISO());
+  const n = Math.max(1, parseInt(count, 10) || 1);
+  const per = parseFloat(amount) || 0;
+  const dates = Array.from({ length: n }, (_, i) => addMonthsISO(firstDate, i));
+
+  const submit = () => {
+    if (per <= 0) { alert('Zadajte sumu splátky.'); return; }
+    const seriesId = uid('series');
+    const list = dates.map((due, i) => ({
+      amount: per, dueDate: due, status: 'planned',
+      note: `Mesačná splátka ${i + 1}/${n}`,
+      seriesId, seriesIndex: i, seriesCount: n,
+    }));
+    onGenerate(list);
+  };
+
+  return (
+    <Modal title="Mesačné splátky" onClose={onClose} maxWidth={520}>
+      {gross > 0 && (
+        <div style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>
+          Hodnota zmluvy s DPH: <strong>{fmt(gross)}</strong>{existingTotal ? ` · už naplánované: ${fmt(existingTotal)} · zostáva: ${fmt(remaining)}` : ''}
+        </div>
+      )}
+      <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+        <div style={{ ...styles.formRow, flex: 1, minWidth: 120 }}>
+          <label style={styles.label}>Počet splátok</label>
+          <input type="number" min={1} style={styles.input} value={count} onChange={e => { const c = Math.max(1, parseInt(e.target.value, 10) || 1); setCount(c); if (remaining > 0) setAmount(Math.round(remaining / c)); }} />
+        </div>
+        <div style={{ ...styles.formRow, flex: 1, minWidth: 120 }}>
+          <label style={styles.label}>Suma na splátku (€)</label>
+          <input type="number" min={0} style={styles.input} value={amount} onChange={e => setAmount(e.target.value)} />
+        </div>
+        <div style={{ ...styles.formRow, flex: 1, minWidth: 140 }}>
+          <label style={styles.label}>Prvá splatnosť</label>
+          <input type="date" style={styles.input} value={firstDate} onChange={e => setFirstDate(e.target.value)} />
+        </div>
+      </div>
+      <div style={{ fontSize: 12, color: '#0d3825', margin: '4px 0 10px' }}>
+        Spolu: <strong>{fmt(per * n)}</strong> · termíny: {dates.slice(0, 3).join(', ')}{dates.length > 3 ? ` … ${dates[dates.length - 1]}` : ''}
+      </div>
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={styles.primaryBtn} onClick={submit}>Vytvoriť {n} splátok</button>
+      </div>
+    </Modal>
   );
 }
 
@@ -3827,7 +5231,46 @@ function ApplyPaymentTemplateModal({ templates, project, fxRate, hasExistingPaym
   );
 }
 
-function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEdit, onDelete, onReserve, stockItems = [] }) {
+// ==========================================================================
+// Odobranie položky z projektu — voľba spôsobu (Blok 7.2)
+// ==========================================================================
+function RemoveProjectItemModal({ payload, onReturnToStock, onMoveToStock, onDelete, onClose }) {
+  const item = payload.item;
+  const fromStock = !!(item.fromStock || item.fromStockItemId);
+  const [confirmDel, setConfirmDel] = useState(false);
+  const optCard = (onClick, icon, title, desc, color) => (
+    <button onClick={onClick} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', textAlign: 'left', width: '100%', padding: 12, marginBottom: 8, background: '#fff', border: `1px solid ${color}55`, borderRadius: 8, cursor: 'pointer', fontFamily: 'inherit' }}>
+      <span style={{ fontSize: 20 }}>{icon}</span>
+      <span>
+        <span style={{ display: 'block', fontWeight: 700, color, fontSize: 13 }}>{title}</span>
+        <span style={{ display: 'block', fontSize: 12, color: '#64748b', marginTop: 2 }}>{desc}</span>
+      </span>
+    </button>
+  );
+  return (
+    <Modal title="Odobrať položku z projektu" onClose={onClose} maxWidth={520}>
+      <div style={{ fontSize: 13, color: '#0d3825', marginBottom: 12 }}><strong>{item.name}</strong> · {item.quantity} {item.unit}</div>
+      {fromStock
+        ? optCard(onReturnToStock, '📦', 'Vrátiť na sklad', 'Zruší spotrebu — kusy sa vrátia späť medzi dostupné (Skladem) a zapíše sa pohyb „Vrátenie".', '#f59e0b')
+        : optCard(onMoveToStock, '🏭', 'Presunúť do projektu Sklad', 'Prealokuje položku do projektu Sklad (prenesie sa aj naskladnený materiál).', '#3b82f6')
+      }
+      {confirmDel ? (
+        <div style={{ display: 'flex', gap: 8, padding: 12, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, alignItems: 'center' }}>
+          <span style={{ fontSize: 13, color: '#991b1b', flex: 1 }}>Naozaj úplne zmazať položku?</span>
+          <button style={{ ...styles.primaryBtn, background: '#dc2626' }} onClick={onDelete}>Áno, zmazať</button>
+          <button style={styles.secondaryBtn} onClick={() => setConfirmDel(false)}>Späť</button>
+        </div>
+      ) : (
+        optCard(() => setConfirmDel(true), '🗑', 'Zmazať úplne', 'Odstráni položku bez vrátenia na sklad.', '#dc2626')
+      )}
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+      </div>
+    </Modal>
+  );
+}
+
+function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEdit, onDelete, onReserve, onUpdateItem, stockItems = [] }) {
   const [sortBy, setSortBy] = useState('category');
   const sorted = useMemo(() => {
     const copy = [...items];
@@ -3880,12 +5323,24 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
               return (
                 <tr key={item.id} style={styles.tr}>
                   <td style={styles.td}>
-                    <StatusPill
-                      status={displayStatus}
-                      isInvoiced={displayInvoiced}
-                      readOnly={true}
-                      onChangeInvoiced={() => {}}
-                    />
+                    {fullyReservedFromStock ? (
+                      <div>
+                        <StatusPill status="delivered" isInvoiced={true} readOnly onChangeInvoiced={() => {}} />
+                        <div style={{ fontSize: 10, color: '#8b5cf6', marginTop: 2 }}>riadené rezerváciou</div>
+                      </div>
+                    ) : (
+                      <StatusPill
+                        status={item.status || 'planned'}
+                        isInvoiced={item.isInvoiced}
+                        readOnly={readOnly || !onUpdateItem}
+                        onChange={(st) => {
+                          const patch = { status: st };
+                          patch.deliveredDate = st === 'delivered' ? (item.deliveredDate || todayISO()) : '';
+                          onUpdateItem && onUpdateItem(item.id, patch);
+                        }}
+                        onChangeInvoiced={(inv) => onUpdateItem && onUpdateItem(item.id, { isInvoiced: inv, invoicedDate: inv ? (item.invoicedDate || todayISO()) : '' })}
+                      />
+                    )}
                   </td>
                   <td style={styles.td}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}>
@@ -3942,7 +5397,7 @@ function ItemsTable({ items, categories, suppliers, exchangeRate, readOnly, onEd
                           </button>
                         )}
                         <button style={styles.iconBtn} onClick={() => onEdit(item)}><Edit3 size={14} /></button>
-                        <button style={styles.iconBtn} onClick={() => onDelete(item.id)}><Trash2 size={14} /></button>
+                        <button style={styles.iconBtn} onClick={() => onDelete(item)}><Trash2 size={14} /></button>
                       </div>
                     )}
                   </td>
@@ -4029,7 +5484,7 @@ function PurchaseListView({ projects, categories, suppliers, fxRate, focusKey, r
         if (!searchMatch(query, [
           r.item.name, r.item.notes, r.item.unit,
           r.supplierName, r.projectName, r.projectClient, r.category?.name,
-          r.item.orderNumber, r.item.plannedOrderDate, r.item.plannedDeliveryDate,
+          r.item.orderNumber, r.item.wflowOrderNo, r.item.wflowDocNumber, r.item.plannedOrderDate, r.item.plannedDeliveryDate,
         ])) return false;
       }
       return true;
@@ -4943,7 +6398,117 @@ function OrderBatchModal({ rows, suppliers, onConfirm, onClose }) {
 // Orders View — items that have been ordered
 // ==========================================================================
 
-function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnly, onUpdateItem, onBatchUpdate, onStockReceive, onBatchStockReceive, onImportOrder, onImportPDF, onAttachInvoicePDF, stockItems = [], onGoToStock }) {
+// ==========================================================================
+// Objednávky — hromadné preradenie položiek na iné projekty
+// ==========================================================================
+function EditOrderModal({ order, projects, onMove, onClose }) {
+  const realProjects = projects.filter(p => !p.isStockProject || p.isStockProject); // všetky (aj Sklad)
+  const [selected, setSelected] = useState(() => new Set());
+  const [target, setTarget] = useState('');
+  const projName = (id) => projects.find(p => p.id === id)?.name || '—';
+
+  const toggle = (id) => { const s = new Set(selected); s.has(id) ? s.delete(id) : s.add(id); setSelected(s); };
+  const toggleAll = () => {
+    if (selected.size === order.rows.length) setSelected(new Set());
+    else setSelected(new Set(order.rows.map(r => r.item.id)));
+  };
+
+  // Súhrn rozdelenia (po presune)
+  const split = useMemo(() => {
+    const map = {};
+    order.rows.forEach(r => {
+      const to = (selected.has(r.item.id) && target) ? target : r.projectId;
+      map[to] = (map[to] || 0) + 1;
+    });
+    return map;
+  }, [order.rows, selected, target]);
+
+  const apply = () => {
+    if (!target) { alert('Vyberte cieľový projekt.'); return; }
+    const moves = order.rows
+      .filter(r => selected.has(r.item.id) && r.projectId !== target)
+      .map(r => ({ itemId: r.item.id, fromProjectId: r.projectId, toProjectId: target }));
+    if (moves.length === 0) { alert('Vyberte položky na presun (musia byť v inom projekte než cieľový).'); return; }
+    onMove(moves);
+  };
+
+  return (
+    <Modal title={`Upraviť objednávku${order.orderNumber ? ` #${order.orderNumber}` : ''}`} onClose={onClose} maxWidth={680}>
+      <div style={{ fontSize: 12, color: '#64748b', marginBottom: 10 }}>Vyberte položky a cieľový projekt — položky sa presunú medzi projektmi (prenesie sa aj naskladnený materiál).</div>
+      <div style={{ maxHeight: 300, overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 12 }}>
+        <table style={{ ...styles.table, fontSize: 12 }}>
+          <thead><tr>
+            <th style={{ ...styles.th, width: 30 }}><input type="checkbox" checked={selected.size === order.rows.length && order.rows.length > 0} onChange={toggleAll} /></th>
+            <th style={styles.th}>Položka</th>
+            <th style={styles.th}>Aktuálny projekt</th>
+          </tr></thead>
+          <tbody>
+            {order.rows.map(r => (
+              <tr key={r.item.id} style={styles.tr}>
+                <td style={styles.td}><input type="checkbox" checked={selected.has(r.item.id)} onChange={() => toggle(r.item.id)} /></td>
+                <td style={styles.td}>{r.item.name}</td>
+                <td style={{ ...styles.td, color: '#64748b' }}>{projName(r.projectId)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={{ display: 'flex', gap: 8, alignItems: 'center', marginBottom: 12, flexWrap: 'wrap' }}>
+        <span style={{ fontSize: 12, color: '#64748b' }}>Presunúť vybrané ({selected.size}) do:</span>
+        <select style={{ ...styles.input, width: 'auto' }} value={target} onChange={e => setTarget(e.target.value)}>
+          <option value="">— cieľový projekt —</option>
+          {projects.map(p => <option key={p.id} value={p.id}>{p.isStockProject ? '🏭 ' : ''}{p.name}</option>)}
+        </select>
+        <button style={styles.primaryBtn} onClick={apply}>Presunúť</button>
+      </div>
+      <div style={{ padding: 10, background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 12 }}>
+        <strong>Rozdelenie po presune:</strong>
+        <div style={{ marginTop: 4 }}>{Object.entries(split).map(([pid, n]) => <div key={pid}>{projName(pid)}: {n} položiek</div>)}</div>
+      </div>
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zavrieť</button>
+      </div>
+    </Modal>
+  );
+}
+
+// ==========================================================================
+// Objednávky — zmazanie celej objednávky
+// ==========================================================================
+function DeleteOrderModal({ order, stockItems, onDelete, onClose }) {
+  const [confirmed, setConfirmed] = useState(false);
+  const itemIds = new Set(order.rows.map(r => r.item.id));
+  const stockPieces = (stockItems || []).filter(s => itemIds.has(s.sourceOrderItemId));
+  const consumedPieces = stockPieces.filter(s => s.status === 'consumed');
+  const pdfIds = [...new Set(order.rows.map(r => r.item.pdfAttachmentId).filter(Boolean))];
+
+  return (
+    <Modal title={`Zmazať objednávku${order.orderNumber ? ` #${order.orderNumber}` : ''}`} onClose={onClose} maxWidth={560}>
+      <div style={{ padding: 12, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 6, marginBottom: 14, fontSize: 13, color: '#991b1b' }}>
+        <strong>⚠ Zmaže sa nasledovné (naprieč projektmi):</strong>
+        <ul style={{ margin: '8px 0 0', paddingLeft: 18 }}>
+          <li><strong>{order.rows.length}</strong> položiek objednávky</li>
+          <li><strong>{stockPieces.length}</strong> skladových kusov{consumedPieces.length ? ` (z toho ${consumedPieces.length} spotrebovaných)` : ''}</li>
+          <li>súvisiace skladové pohyby</li>
+          {pdfIds.length > 0 && <li>{pdfIds.length} PDF príloh (ak na ne neodkazuje iná objednávka)</li>}
+        </ul>
+      </div>
+      <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, marginBottom: 14, cursor: 'pointer' }}>
+        <input type="checkbox" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} />
+        Rozumiem, že zmazanie je nevratné.
+      </label>
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={{ ...styles.primaryBtn, background: confirmed ? '#dc2626' : '#e5e7eb', color: confirmed ? '#fff' : '#94a3b8' }} disabled={!confirmed} onClick={onDelete}>
+          <Trash2 size={13} /> Zmazať objednávku
+        </button>
+      </div>
+    </Modal>
+  );
+}
+
+
+function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnly, onUpdateItem, onBatchUpdate, onEditItemFull, onDeleteItem, onMoveItems, onDeleteOrder, onStockReceive, onBatchStockReceive, onImportOrder, onImportPDF, onImportBulkPdf, onImportWflow, onAttachInvoicePDF, stockItems = [], onGoToStock }) {
   const [selected, setSelected] = useState(() => new Set());
   const [batchModal, setBatchModal] = useState(null);
   const [query, setQuery] = useState('');
@@ -4954,6 +6519,9 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
   const [filterProject, setFilterProject] = useState('all');
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [batchRows, setBatchRows] = useState(null); // riadky objednávky pre modal dávkového naskladnenia
+  const [editOrder, setEditOrder] = useState(null);   // objednávka pre EditOrderModal
+  const [deleteOrder, setDeleteOrder] = useState(null); // objednávka pre DeleteOrderModal
+  const [confirmDelItem, setConfirmDelItem] = useState(null); // itemId pre 2-krokové mazanie
 
   // Orders = items that are ordered/delivered/invoiced
   const orderItems = useMemo(() => {
@@ -4992,6 +6560,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
       if (query.trim()) {
         if (!searchMatch(query, [
           r.item.name, r.item.notes, r.item.orderNumber,
+          r.item.wflowOrderNo, r.item.wflowDocNumber, r.item.invoiceNumber,
           r.supplierName, r.projectName, r.projectClient, r.category?.name,
           r.item.purchaseDate, r.item.deliveredDate, r.item.invoicedDate,
         ])) return false;
@@ -5061,6 +6630,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
       const allDelivered = o.rows.every(r => r.item.status === 'delivered');
       const allInvoiced = o.rows.every(r => r.item.isInvoiced);
       const allStocked = o.rows.every(r => {
+        if (isDistributedCost(r.item)) return true; // doprava/rozpočítané sa nenaskladňujú
         const isMaterial = r.category?.kind === 'material';
         if (!isMaterial) return true; // nemateriál sa neposkládá
         const stockedCount = stockItems
@@ -5183,6 +6753,12 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
           <div style={styles.headerActions}>
             <button style={styles.secondaryBtn} onClick={onImportPDF} title="Import faktury / objednávky z PDF pomocou AI">
               <FileText size={14} /> Import z PDF (AI)
+            </button>
+            <button style={styles.secondaryBtn} onClick={onImportBulkPdf} title="Hromadný import viacerých PDF faktúr naraz (AI)">
+              <FileText size={14} /> Hromadný PDF (AI)
+            </button>
+            <button style={styles.secondaryBtn} onClick={onImportWflow} title="Import faktúr z WFLOW exportu (.xlsx)">
+              <Upload size={14} /> Import WFLOW
             </button>
             <button style={styles.primaryBtn} onClick={onImportOrder}>
               <Upload size={14} /> Importovať objednávku
@@ -5399,6 +6975,24 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                             <Warehouse size={11} /> Naskladniť všetko
                           </button>
                         )}
+                        {!readOnly && (
+                          <button
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setEditOrder(o); }}
+                            style={{ padding: '4px 10px', fontSize: 11, fontWeight: 600, background: '#fff', color: '#475569', border: '1px solid #cbd5e1', borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+                            title="Upraviť objednávku — presunúť položky na iné projekty"
+                          >
+                            <Edit3 size={11} /> Upraviť
+                          </button>
+                        )}
+                        {!readOnly && (
+                          <button
+                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDeleteOrder(o); }}
+                            style={{ padding: '4px 10px', fontSize: 11, fontWeight: 600, background: '#fff', color: '#dc2626', border: '1px solid #fca5a5', borderRadius: 4, cursor: 'pointer', fontFamily: 'inherit', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+                            title="Zmazať celú objednávku"
+                          >
+                            <Trash2 size={11} /> Zmazať objednávku
+                          </button>
+                        )}
                         {pdfAttachmentId && (
                           <button
                             onClick={async (e) => {
@@ -5453,10 +7047,12 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                         <th style={styles.th}>Stav</th>
                         <th style={styles.th}>Projekt</th>
                         <th style={styles.th}>Položka</th>
+                        <th style={{ ...styles.th, textAlign: 'right' }}>Množstvo</th>
                         <th style={{ ...styles.th, textAlign: 'right' }}>Spolu</th>
                         <th style={styles.th}>Dodané</th>
                         <th style={styles.th}>Vyfakturované</th>
                         {!readOnly && <th style={{ ...styles.th, width: 110 }}>Sklad</th>}
+                        {!readOnly && <th style={{ ...styles.th, width: 60 }}></th>}
                       </tr>
                     </thead>
                     <tbody>
@@ -5492,14 +7088,26 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                             </td>
                             <td style={styles.td}>
                               <div style={{ fontWeight: 500 }}>{r.item.name}</div>
-                              <div style={{ fontSize: 11, color: '#94a3b8', marginTop: 2 }}>
-                                <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
-                                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: r.category?.color || '#94a3b8' }} />
-                                  {r.category?.name}
-                                </span>
-                                {' · '}{r.item.quantity} {r.item.unit}
+                              <div style={{ marginTop: 3 }}>
+                                {readOnly ? (
+                                  <span style={{ fontSize: 11, color: '#94a3b8', display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+                                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: r.category?.color || '#94a3b8' }} />
+                                    {r.category?.name || 'Bez kategórie'}
+                                  </span>
+                                ) : (
+                                  <select
+                                    value={r.item.category || ''}
+                                    onChange={e => onUpdateItem(r.projectId, r.item.id, { category: e.target.value })}
+                                    style={{ fontSize: 11, padding: '1px 4px', border: '1px solid #e2e8f0', borderRadius: 4, color: '#64748b', fontFamily: 'inherit', background: '#fff' }}
+                                    title="Zmeniť kategóriu"
+                                  >
+                                    <option value="">— bez kategórie —</option>
+                                    {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                                  </select>
+                                )}
                               </div>
                             </td>
+                            <td style={{ ...styles.td, textAlign: 'right', whiteSpace: 'nowrap' }}>{r.item.quantity} {r.item.unit}</td>
                             <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600 }}>{fmt(r.czk)}</td>
                             <td style={styles.td}>
                               {readOnly ? (
@@ -5540,13 +7148,18 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                   const isMaterial = r.category?.kind === 'material';
                                   const isDistrib = isDistributedCost(r.item);
                                   const canReceive = ['ordered', 'delivered'].includes(r.item.status) && isMaterial && !isDistrib;
-                                  // Ručné označenie "rozpočítať medzi materiál" ponúkame pri položkách
-                                  // typu Ostatný materiál / Doprava (typické súvisiace náklady).
-                                  const canAllocate = ['other_material', 'shipping'].includes(r.item.category);
+                                  // Rozpočítať ponúkame pri súvisiacich nákladoch (Ostatný materiál / Doprava),
+                                  // pri položkách BEZ kategórie a pri ZÁPORNÝCH sumách (zľavy).
+                                  const isDiscount = (r.czk || 0) < 0;
+                                  const canAllocate = !isDistrib && (['other_material', 'shipping'].includes(r.item.category) || !r.category || isDiscount);
+                                  const allocLabel = isDiscount ? 'Rozpočítať zľavu medzi materiál' : 'rozpočítať medzi materiál';
+                                  const allocTitle = isDiscount
+                                    ? 'Rozpočítať zľavu medzi materiál objednávky (zníži nákupnú cenu)'
+                                    : 'Označiť ako súvisiaci náklad (doprava, clo, balné…) — rozpočíta sa medzi materiál';
                                   const allocLink = (label, val, title) => (
                                     <button
                                       onClick={() => wrappedUpdateItem(r.projectId, r.item.id, { allocateToMaterial: val })}
-                                      style={{ background: 'transparent', border: 'none', color: '#94a3b8', fontSize: 10, cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'underline', padding: 0 }}
+                                      style={{ background: 'transparent', border: 'none', color: '#8b5cf6', fontSize: 10, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'none', padding: 0 }}
                                       title={title}
                                     >{label}</button>
                                   );
@@ -5554,7 +7167,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                   if (isDistrib) {
                                     return (
                                       <div style={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
-                                        <span style={{ fontSize: 11, color: '#94a3b8', display: 'inline-flex', alignItems: 'center', gap: 4 }} title="Nenaskladňuje sa — cena sa rozpočíta medzi materiál pri dávkovom naskladnení (Naskladniť všetko)">🚚 rozpočíta sa</span>
+                                        <span style={{ fontSize: 11, color: '#8b5cf6', display: 'inline-flex', alignItems: 'center', gap: 4 }} title="Nenaskladňuje sa — cena sa rozpočíta medzi materiál pri naskladnení">🔀 rozpočíta sa</span>
                                         {allocLink('vrátiť k naskladneniu', false, 'Zrušiť rozpočítanie a naskladňovať položku normálne')}
                                       </div>
                                     );
@@ -5563,7 +7176,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                     return (
                                       <div style={{ display: 'flex', flexDirection: 'column', gap: 2, alignItems: 'flex-start' }}>
                                         <span style={{ fontSize: 11, color: '#cbd5e1' }}>—</span>
-                                        {canAllocate && allocLink('rozpočítať medzi materiál', true, 'Označiť ako súvisiaci náklad (doprava, clo, balné…) — rozpočíta sa medzi materiál pri dávkovom naskladnení')}
+                                        {canAllocate && allocLink(allocLabel, true, allocTitle)}
                                       </div>
                                     );
                                   }
@@ -5584,7 +7197,7 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                         >
                                           <Warehouse size={11} /> Naskladniť
                                         </button>
-                                        {canAllocate && allocLink('rozpočítať medzi materiál', true, 'Označiť ako súvisiaci náklad (doprava, clo, balné…) — rozpočíta sa medzi materiál')}
+                                        {canAllocate && allocLink(allocLabel, true, allocTitle)}
                                       </div>
                                     );
                                   }
@@ -5630,6 +7243,21 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
                                 })()}
                               </td>
                             )}
+                            {!readOnly && (
+                              <td style={styles.td}>
+                                <div style={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>
+                                  <button style={styles.iconBtn} title="Upraviť položku" onClick={() => onEditItemFull(r.projectId, r.item)}><Edit3 size={13} /></button>
+                                  {confirmDelItem === r.item.id ? (
+                                    <>
+                                      <button style={{ ...styles.iconBtn, color: '#dc2626' }} title="Potvrdiť zmazanie" onClick={() => { onDeleteItem(r.projectId, r.item.id); setConfirmDelItem(null); }}>✓</button>
+                                      <button style={styles.iconBtn} title="Zrušiť" onClick={() => setConfirmDelItem(null)}>✕</button>
+                                    </>
+                                  ) : (
+                                    <button style={{ ...styles.iconBtn, color: '#dc2626' }} title="Zmazať položku" onClick={() => setConfirmDelItem(r.item.id)}><Trash2 size={13} /></button>
+                                  )}
+                                </div>
+                              </td>
+                            )}
                           </tr>
                         );
                       })}
@@ -5670,9 +7298,15 @@ function OrdersView({ projects, categories, suppliers, fxRate, focusKey, readOnl
           stockItems={stockItems}
           categories={categories}
           fxRate={fxRate}
-          onConfirm={(modes) => { onBatchStockReceive(batchRows, modes); setBatchRows(null); }}
+          onConfirm={(modes, consumeProjectId) => { onBatchStockReceive(batchRows, modes, consumeProjectId); setBatchRows(null); }}
           onClose={() => setBatchRows(null)}
         />
+      )}
+      {editOrder && (
+        <EditOrderModal order={editOrder} projects={projects} onMove={(moves) => { onMoveItems(moves); setEditOrder(null); }} onClose={() => setEditOrder(null)} />
+      )}
+      {deleteOrder && (
+        <DeleteOrderModal order={deleteOrder} stockItems={stockItems} onDelete={() => { onDeleteOrder(deleteOrder.rows); setDeleteOrder(null); }} onClose={() => setDeleteOrder(null)} />
       )}
     </main>
   );
@@ -5691,6 +7325,14 @@ function BatchReceiveModal({ rows, stockItems, categories, fxRate, onConfirm, on
     return m;
   });
   const setMode = (id, val) => setModes(prev => ({ ...prev, [id]: val }));
+
+  // Projekty vyskytujúce sa v tejto objednávke (pre „Naskladniť a spotrebovať")
+  const orderProjects = useMemo(() => {
+    const seen = new Map();
+    (rows || []).forEach(r => { if (r.projectId && !seen.has(r.projectId)) seen.set(r.projectId, r.projectName || r.projectId); });
+    return [...seen.entries()].map(([id, name]) => ({ id, name }));
+  }, [rows]);
+  const [consumeProjectId, setConsumeProjectId] = useState('');
 
   // Koľko skladových záznamov vznikne (kvôli upozorneniu pri veľkom počte)
   const recordCount = prepared.reduce((s, p) => s + (modes[p.r.item.id] === 'individual' ? p.remaining : 1), 0);
@@ -5713,6 +7355,14 @@ function BatchReceiveModal({ rows, stockItems, categories, fxRate, onConfirm, on
             Naskladní sa <strong>{prepared.length}</strong> materiálových položiek (<strong>{totalPieces} ks</strong>) na hlavný sklad.
             Pri každej si zvoľ, či ju naskladniť ako <strong>batch</strong> (1 záznam) alebo <strong>po kusoch</strong> (samostatné kusy).
           </div>
+          {(() => {
+            const dupCount = prepared.filter(p => findDuplicateStockCandidates(p.r.item.name, p.r.projectId, p.remaining, stockItems, p.r.item.id).length > 0).length;
+            return dupCount > 0 ? (
+              <div style={{ marginBottom: 12, padding: 10, background: '#fffbeb', border: '1px solid #fcd34d', color: '#92400e', borderRadius: 6, fontSize: 12 }}>
+                ⚠ <strong>Možná duplicita ({dupCount}):</strong> niektoré položky sú rovnakým materiálom v rovnakom počte a projekte už naskladnené z inej objednávky. Skontrolujte pred naskladnením. (Neblokuje.)
+              </div>
+            ) : null;
+          })()}
           <div style={{ maxHeight: 300, overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 12 }}>
             <table style={{ ...styles.table, fontSize: 12 }}>
               <thead>
@@ -5720,13 +7370,13 @@ function BatchReceiveModal({ rows, stockItems, categories, fxRate, onConfirm, on
                   <th style={styles.th}>Položka</th>
                   <th style={{ ...styles.th, textAlign: 'right' }}>Ks</th>
                   <th style={{ ...styles.th, textAlign: 'right' }}>Hodnota</th>
-                  {shippingTotal > 0 && <th style={{ ...styles.th, textAlign: 'right' }}>+ náklady</th>}
+                  {shippingTotal !== 0 && <th style={{ ...styles.th, textAlign: 'right' }}>Rozpočet</th>}
                   <th style={{ ...styles.th, textAlign: 'center' }}>Režim</th>
                 </tr>
               </thead>
               <tbody>
                 {prepared.map(p => {
-                  const share = (shippingTotal > 0 && baseSum > 0) ? shippingTotal * (p.baseValue / baseSum) : 0;
+                  const share = (shippingTotal !== 0 && baseSum > 0) ? shippingTotal * (p.baseValue / baseSum) : 0;
                   const mode = modes[p.r.item.id] || 'batch';
                   return (
                     <tr key={p.r.item.id} style={styles.tr}>
@@ -5738,7 +7388,7 @@ function BatchReceiveModal({ rows, stockItems, categories, fxRate, onConfirm, on
                       </td>
                       <td style={{ ...styles.td, textAlign: 'right' }}>{p.remaining}</td>
                       <td style={{ ...styles.td, textAlign: 'right' }}>{fmt(p.baseValue)}</td>
-                      {shippingTotal > 0 && <td style={{ ...styles.td, textAlign: 'right', color: '#92400e' }}>{share > 0 ? fmt(share) : '—'}</td>}
+                      {shippingTotal !== 0 && <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600, color: share < 0 ? '#15803d' : (share > 0 ? '#1d4ed8' : '#94a3b8') }}>{share !== 0 ? (share > 0 ? '+' : '−') + fmt(Math.abs(share)) : '—'}</td>}
                       <td style={{ ...styles.td, textAlign: 'center' }}>
                         <div style={{ display: 'inline-flex', borderRadius: 4, overflow: 'hidden' }}>
                           <button style={{ ...modeBtn(mode === 'batch'), borderRadius: '4px 0 0 4px' }} onClick={() => setMode(p.r.item.id, 'batch')}>Batch</button>
@@ -5751,9 +7401,9 @@ function BatchReceiveModal({ rows, stockItems, categories, fxRate, onConfirm, on
               </tbody>
             </table>
           </div>
-          {shippingTotal > 0 && (
+          {shippingTotal !== 0 && (
             <div style={{ marginBottom: 10, padding: 10, background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: 6, fontSize: 12, color: '#92400e' }}>
-              🚚 Súvisiace náklady (doprava, clo, balné…) <strong>{fmt(shippingTotal)}</strong> sa rozpočítajú medzi materiál podľa hodnoty a pripočítajú k nákupnej cene naskladnených kusov.
+              🔀 Súvisiace náklady / zľavy (doprava, clo, balné…) <strong>{fmt(shippingTotal)}</strong> sa rozpočítajú medzi materiál podľa hodnoty a upravia nákupnú cenu naskladnených kusov.
             </div>
           )}
           {recordCount > 200 && (
@@ -5768,8 +7418,22 @@ function BatchReceiveModal({ rows, stockItems, categories, fxRate, onConfirm, on
           )}
         </>
       )}
+      {prepared.length > 0 && orderProjects.length > 0 && (
+        <div style={{ marginTop: 6, marginBottom: 4, padding: 10, background: '#fff7ed', border: '1px solid #fed7aa', borderRadius: 6, display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 12, color: '#9a3412' }}>Naskladniť a hneď spotrebovať na projekt:</span>
+          <select style={{ ...styles.input, width: 'auto' }} value={consumeProjectId} onChange={e => setConsumeProjectId(e.target.value)}>
+            <option value="">— vyberte projekt —</option>
+            {orderProjects.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
+          </select>
+        </div>
+      )}
       <div style={styles.modalActions}>
         <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        {consumeProjectId && (
+          <button style={{ ...styles.primaryBtn, background: '#f59e0b' }} onClick={() => onConfirm(modes, consumeProjectId)} disabled={prepared.length === 0}>
+            📦 Naskladniť a spotrebovať {totalPieces} ks
+          </button>
+        )}
         <button style={styles.primaryBtn} onClick={() => onConfirm(modes)} disabled={prepared.length === 0}>
           <Warehouse size={13} /> Naskladniť {totalPieces} ks
         </button>
@@ -5837,11 +7501,12 @@ function OverdueChip() {
 // StockView — skladové hospodárstvo
 // ==========================================================================
 
-function StockView({ stockItems, stockMovements, locations, categories, projects, suppliers, fxRate, readOnly, focusKey, onAddStock, onEditStock, onTransferStock, onConsumeStock, onReleaseReservation, onDeleteStock, onManageLocations, onBulkTransfer, onBulkConsume, onGoToOrders }) {
+function StockView({ stockItems, stockMovements, locations, categories, projects, suppliers, fxRate, readOnly, focusKey, onAddStock, onEditStock, onTransferStock, onConsumeStock, onReleaseReservation, onDeleteStock, onManageLocations, onBulkTransfer, onBulkConsume, onBulkDelete, onGoToOrders }) {
   const [tab, setTab] = useState('overview'); // overview | movements | warranty | byOrder
   const [filterLocation, setFilterLocation] = useState('all');
   const [filterCategory, setFilterCategory] = useState('all');
   const [filterStatus, setFilterStatus] = useState('available'); // available | consumed | all
+  const [confirmReleaseKey, setConfirmReleaseKey] = useState(null); // 2-krokové potvrdenie uvoľnenia
   const [query, setQuery] = useState('');
   const [confirmDeleteId, setConfirmDeleteId] = useState(null);
   // Zobrazenie: aggregated (default) — kusy sa rovnakým názvom sa spočítajú; alebo detailed — každý kus na riadku
@@ -5901,7 +7566,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
         }
         const proj = projId ? projects.find(p => p.id === projId) : null;
         if (!searchMatch(query, [
-          s.name, s.serialNumber, s.notes, s.supplierName, s.orderNumber,
+          s.name, s.serialNumber, s.notes, s.supplierName, s.orderNumber, s.wflowOrderNo,
           proj?.name, proj?.client,
         ])) return false;
       }
@@ -5935,7 +7600,7 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
         if (query.trim()) {
           const sup = suppliers.find(s => s.id === item.supplierId);
           if (!searchMatch(query, [
-            item.name, item.notes, item.orderNumber, sup?.name, item.supplier, p.name, p.client,
+            item.name, item.notes, item.orderNumber, item.wflowOrderNo, sup?.name, item.supplier, p.name, p.client,
           ])) return;
         }
         const cat = categories.find(c => c.id === item.category);
@@ -6306,6 +7971,19 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
               <button
                 onClick={() => {
                   const items = filteredItems.filter(s => selected.has(s.id));
+                  if (items.length === 0) return;
+                  setBulkModal({ type: 'delete', items });
+                }}
+                style={{
+                  padding: '6px 12px', fontSize: 12, fontWeight: 600,
+                  background: '#dc2626', color: '#fff', border: 'none', borderRadius: 4,
+                  cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: 6,
+                }}>
+                🗑 Zmazať
+              </button>
+              <button
+                onClick={() => {
+                  const items = filteredItems.filter(s => selected.has(s.id));
                   exportStockToCSV(items, locations, categories, projects, suppliers);
                 }}
                 style={{
@@ -6428,13 +8106,20 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                   >
                                     <Package size={10} /> Spotrebovať
                                   </button>
-                                  <button
-                                    onClick={() => { g.items.forEach(s => onReleaseReservation(s.id)); }}
-                                    style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px', color: '#8b5cf6', borderColor: '#c4b5fd' }}
-                                    title="Uvoľniť celú rezerváciu späť do skladu (Skladem)"
-                                  >
-                                    🔓 Uvoľniť
-                                  </button>
+                                  {confirmReleaseKey === g.key ? (
+                                    <>
+                                      <button onClick={() => { g.items.forEach(s => onReleaseReservation(s.id)); setConfirmReleaseKey(null); }} style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px', background: '#8b5cf6', color: '#fff', borderColor: '#8b5cf6' }}>✓ Áno</button>
+                                      <button onClick={() => setConfirmReleaseKey(null)} style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px' }}>✕</button>
+                                    </>
+                                  ) : (
+                                    <button
+                                      onClick={() => setConfirmReleaseKey(g.key)}
+                                      style={{ ...styles.sortBtn, fontSize: 10, padding: '3px 7px', color: '#8b5cf6', borderColor: '#c4b5fd' }}
+                                      title="Uvoľniť celú rezerváciu späť do skladu (Skladem)"
+                                    >
+                                      🔓 Uvoľniť
+                                    </button>
+                                  )}
                                 </div>
                               ) : !isConsumed && (
                                 <div style={{ display: 'inline-flex', gap: 4 }}>
@@ -6819,10 +8504,17 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
                                   </>
                                 )}
                                 {s.status === 'reserved' && (
-                                  <button onClick={() => onReleaseReservation(s.id)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11, color: '#8b5cf6' }}
-                                    title={`Uvoľniť rezerváciu${s.reservedForProjectId ? ' — ' + (projects.find(p => p.id === s.reservedForProjectId)?.name || '') : ''}`}>
-                                    🔓
-                                  </button>
+                                  confirmReleaseKey === s.id ? (
+                                    <>
+                                      <button onClick={() => { onReleaseReservation(s.id); setConfirmReleaseKey(null); }} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11, color: '#8b5cf6', fontWeight: 700 }} title="Potvrdiť uvoľnenie">✓ Áno</button>
+                                      <button onClick={() => setConfirmReleaseKey(null)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11 }} title="Zrušiť">✕</button>
+                                    </>
+                                  ) : (
+                                    <button onClick={() => setConfirmReleaseKey(s.id)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11, color: '#8b5cf6' }}
+                                      title={`Uvoľniť rezerváciu${s.reservedForProjectId ? ' — ' + (projects.find(p => p.id === s.reservedForProjectId)?.name || '') : ''}`}>
+                                      🔓
+                                    </button>
+                                  )
                                 )}
                                 <button onClick={() => setConfirmDeleteId(s.id)} style={{ ...styles.iconBtn, padding: '4px 8px', fontSize: 11 }} title="Smazat">
                                   <Trash2 size={12} />
@@ -7025,12 +8717,73 @@ function StockView({ stockItems, stockMovements, locations, categories, projects
           onClose={() => setBulkModal(null)}
         />
       )}
+      {bulkModal?.type === 'delete' && (
+        <BulkDeleteStockModal
+          items={bulkModal.items}
+          categories={categories}
+          onDelete={(ids, reason) => {
+            onBulkDelete(ids, reason);
+            setBulkModal(null);
+            setSelected(new Set());
+          }}
+          onClose={() => setBulkModal(null)}
+        />
+      )}
     </main>
   );
 }
 
 // ==========================================================================
-// StockByOrderTab — seskupení sklade podľa objednávok
+// Sklad — hromadné zmazanie kusov (rozpad podľa objednávok + dôvod + nevratnosť)
+// ==========================================================================
+function BulkDeleteStockModal({ items, categories, onDelete, onClose }) {
+  const [reason, setReason] = useState('');
+  const [confirmed, setConfirmed] = useState(false);
+  const byOrder = useMemo(() => {
+    const map = {};
+    items.forEach(s => {
+      const key = s.orderNumber || '(bez objednávky)';
+      if (!map[key]) map[key] = { count: 0, pieces: 0 };
+      map[key].count += 1;
+      map[key].pieces += parseInt(s.batchQuantity, 10) || 1;
+    });
+    return map;
+  }, [items]);
+  const totalPieces = items.reduce((s, x) => s + (parseInt(x.batchQuantity, 10) || 1), 0);
+  const consumedCount = items.filter(s => s.status === 'consumed').length;
+
+  return (
+    <Modal title="Hromadné zmazanie skladu" onClose={onClose} maxWidth={560}>
+      <div style={{ padding: 12, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 6, marginBottom: 12, fontSize: 13, color: '#991b1b' }}>
+        <strong>⚠ Zmaže sa {items.length} skladových záznamov ({totalPieces} ks){consumedCount ? `, z toho ${consumedCount} spotrebovaných` : ''}.</strong>
+      </div>
+      <div style={{ border: '1px solid #e2e8f0', borderRadius: 6, marginBottom: 12, maxHeight: 200, overflowY: 'auto' }}>
+        <table style={{ ...styles.table, fontSize: 12 }}>
+          <thead><tr><th style={styles.th}>Objednávka</th><th style={{ ...styles.th, textAlign: 'right' }}>Záznamov</th><th style={{ ...styles.th, textAlign: 'right' }}>Ks</th></tr></thead>
+          <tbody>
+            {Object.entries(byOrder).map(([ord, v]) => (
+              <tr key={ord} style={styles.tr}><td style={styles.td}>{ord}</td><td style={{ ...styles.td, textAlign: 'right' }}>{v.count}</td><td style={{ ...styles.td, textAlign: 'right' }}>{v.pieces}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div style={styles.formRow}>
+        <label style={styles.label}>Dôvod zmazania</label>
+        <input style={styles.input} value={reason} onChange={e => setReason(e.target.value)} placeholder="napr. chybné naskladnenie, oprava inventúry…" />
+      </div>
+      <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, margin: '10px 0', cursor: 'pointer' }}>
+        <input type="checkbox" checked={confirmed} onChange={e => setConfirmed(e.target.checked)} />
+        Rozumiem, že zmazanie je nevratné (zapíše sa do histórie pohybov).
+      </label>
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        <button style={{ ...styles.primaryBtn, background: confirmed ? '#dc2626' : '#e5e7eb', color: confirmed ? '#fff' : '#94a3b8' }} disabled={!confirmed} onClick={() => onDelete(items.map(s => s.id), reason.trim())}>
+          🗑 Zmazať {items.length}
+        </button>
+      </div>
+    </Modal>
+  );
+}
 // ==========================================================================
 
 function StockByOrderTab({ stockItems, locations, categories, suppliers, projects, onGoToOrders }) {
@@ -7579,7 +9332,7 @@ function WarrantyTab({ stockItems, categories, locations, projects }) {
 // Stock modaly: Add (Receive), Edit, Transfer, Consume
 // ==========================================================================
 
-function StockAddModal({ locations, categories, catalog, suppliers, projects, fxRate, fromOrderItem, onSave, onClose }) {
+function StockAddModal({ locations, categories, catalog, suppliers, projects, stockItems = [], fxRate, fromOrderItem, onSave, onClose }) {
   // Ak naskladňujeme z objednávky, predvyplniť pole
   const orderTotal = fromOrderItem ? toEUR(fromOrderItem.item, fxRate) : 0;
   const orderUnitPrice = fromOrderItem && fromOrderItem.item.quantity > 0 ? orderTotal / fromOrderItem.item.quantity : 0;
@@ -7869,6 +9622,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
         warrantyUntil: warrantyUntil || '',
         notes: notes.trim(),
         sourceOrderItemId: fromOrderItem?.item.id || null,
+        wflowOrderNo: fromOrderItem?.item.wflowOrderNo || "",
         sourceProjectId: fromOrderItem?.projectId || null,
         status: 'available',
       });
@@ -7895,6 +9649,7 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
           warrantyUntil: warrantyUntil || '',
           notes: notes.trim(),
           sourceOrderItemId: fromOrderItem?.item.id || null,
+          wflowOrderNo: fromOrderItem?.item.wflowOrderNo || "",
           sourceProjectId: fromOrderItem?.projectId || null,
           status: 'available',
         });
@@ -7910,11 +9665,18 @@ function StockAddModal({ locations, categories, catalog, suppliers, projects, fx
     items.forEach(item => onSave(item, movementNotes));
   };
 
+  const dupCandidates = findDuplicateStockCandidates(name, fromOrderItem?.projectId, quantity, stockItems, fromOrderItem?.item?.id);
+
   return (
     <Modal title={fromOrderItem ? 'Naskladnit z objednávky' : 'Naskladnit ručne'} onClose={onClose} maxWidth={780}>
       {fromOrderItem && (
         <div style={{ padding: 10, background: '#dbeafe', color: '#1e40af', borderRadius: 6, marginBottom: 12, fontSize: 12 }}>
           Naskladnenie z objednávky <strong>{fromOrderItem.item.orderNumber || '(bez čísla)'}</strong> · projekt <strong>{fromOrderItem.projectName}</strong> · dodávateľ <strong>{fromOrderItem.supplierName}</strong>
+        </div>
+      )}
+      {dupCandidates.length > 0 && (
+        <div style={{ padding: 10, background: '#fffbeb', border: '1px solid #fcd34d', color: '#92400e', borderRadius: 6, marginBottom: 12, fontSize: 12 }}>
+          ⚠ <strong>Možná duplicita:</strong> rovnaký materiál v rovnakom počte ({quantity} ks) a projekte už je naskladnený z inej objednávky ({dupCandidates.length}×). Skontrolujte, či nenaskladňujete dvakrát. (Neblokuje.)
         </div>
       )}
 
@@ -8514,6 +10276,9 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
   const [groupBy, setGroupBy] = useState('category'); // category | project | supplier
   const [period, setPeriod] = useState('month');      // week | month
   const [dateMode, setDateMode] = useState('due');    // due | planned | order
+  const [periodFilter, setPeriodFilter] = useState('all'); // all | 3m | 6m | year | custom
+  const [filterFrom, setFilterFrom] = useState('');
+  const [filterTo, setFilterTo] = useState('');
   const [includeInvoiced, setIncludeInvoiced] = useState(false); // v predvolenom stavu vyfakturované skryť
   const [showWithVAT, setShowWithVAT] = useState(true); // v predvolenom stavu zobrazovať s DPH (realistický cash flow)
   const [breakdownModal, setBreakdownModal] = useState(null); // { title, rows: [...], side: 'expense'|'income', vatMode }
@@ -8536,6 +10301,10 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         // Vyfakturované položky sú vedeny v saldu záväzkov jinde — pre cash flow je vynecháváme,
         // ak používateľ nezapne "Zobraziť vyfakturované"
         if (!includeInvoiced && item.isInvoiced) return;
+        // Uložené odpočtové riadky preskočíme — odpočet rátame dynamicky nižšie
+        if (item.isAdvanceOffset) return;
+        // Poplatky rozpočítané do materiálu (doprava, clo…) už sú v cene materiálu → z CF von
+        if (item.shippingDistributed) return;
         const sup = suppliers.find(s => s.id === item.supplierId);
         // Časť krytá rezerváciou zo skladu sa nekupuje → z cash flow ju vynecháme
         const reservedQ = parseFloat(item.reservedFromStockQty) || 0;
@@ -8570,6 +10339,55 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
       });
     });
 
+    // ===== Odpočet záloh (Blok 4.3) — dynamicky z dát =====
+    // Záloha sa v CF zobrazí v plnej výške k svojej splatnosti (v hlavnej slučke vyššie).
+    // Keď k tej istej objednávke dorazí konečná faktúra, odpočítame už zaplatené zálohy
+    // k splatnosti faktúry: nový záporný riadok = −min(zálohy, netto faktúry).
+    const inCF = (item) => (includeInvoiced || !item.isInvoiced) && !item.shippingDistributed && !item.isAdvanceOffset;
+    const netEUR = (item) => {
+      const u = item.currency === 'CZK' ? (fxRate > 0 ? (parseFloat(item.unitPrice) || 0) / fxRate : (parseFloat(item.unitPrice) || 0)) : (parseFloat(item.unitPrice) || 0);
+      return u * (parseFloat(item.quantity) || 0);
+    };
+    const bucketDateOf = (item) => {
+      if (dateMode === 'order') return item.purchaseDate || item.plannedOrderDate;
+      if (dateMode === 'planned') return item.plannedOrderDate || item.purchaseDate;
+      return item.paymentDueDate || item.dueDate || item.purchaseDate;
+    };
+    const advMap = new Map(); // key -> { advances, invoiceNet, invoiceDue, projectId, projectName, orderNumber }
+    projects.forEach(p => (p.items || []).forEach(item => {
+      if (!inCF(item)) return;
+      const key = item.orderNumber ? `o_${item.orderNumber}` : `p_${p.id}`;
+      if (!advMap.has(key)) advMap.set(key, { advances: 0, invoiceNet: 0, invoiceDue: null, projectId: p.id, projectName: p.name, orderNumber: item.orderNumber || '' });
+      const g = advMap.get(key);
+      const isAdv = item.isAdvance || item.category === 'advance';
+      if (isAdv) {
+        g.advances += netEUR(item);
+      } else {
+        g.invoiceNet += netEUR(item);
+        const d = bucketDateOf(item);
+        if (d && (!g.invoiceDue || d > g.invoiceDue)) g.invoiceDue = d;
+      }
+    }));
+    advMap.forEach((g, key) => {
+      if (g.advances <= 0 || g.invoiceNet <= 0 || !g.invoiceDue) return;
+      const offset = Math.min(g.advances, g.invoiceNet);
+      if (offset <= 0) return;
+      const b = periodKey(g.invoiceDue);
+      bucketSet.add(b);
+      rows.push({
+        id: `advoff_${key}`,
+        projectId: g.projectId,
+        projectName: g.projectName,
+        projectClient: '',
+        item: { id: `advoff_${key}`, name: `Odpočet zálohy${g.orderNumber ? ` #${g.orderNumber}` : ''}`, category: 'advance', supplierId: null, isAdvanceOffset: true },
+        amount: -offset * vatMultiplier, // znižuje výdavok (výdavky sú kladné)
+        amountNet: -offset,
+        bucket: b,
+        overdue: false,
+        isAdvanceOffset: true,
+      });
+    });
+
     const buckets = Array.from(bucketSet).sort((a, b) => {
       if (a === 'unscheduled') return 1;
       if (b === 'unscheduled') return -1;
@@ -8590,7 +10408,10 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         };
       } else if (groupBy === 'supplier') {
         const sup = suppliers.find(s => s.id === x.item.supplierId);
-        return { key: `sup_${x.item.supplierId || 'none'}`, label: sup?.name || 'Bez dodávateľa', color: '#dc2626' };
+        if (sup) return { key: `sup_${sup.id}`, label: sup.name, color: '#dc2626' };
+        const freeText = (x.item.supplier || '').trim();
+        if (freeText) return { key: `supname_${freeText.toLowerCase()}`, label: freeText, sublabel: 'nie je v číselníku dodávateľov', color: '#dc2626' };
+        return { key: 'sup_none', label: 'Bez dodávateľa', color: '#dc2626' };
       }
       return { key: 'all', label: 'Všetko', color: '#0f172a' };
     };
@@ -8675,7 +10496,17 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
   }, [projects, fxRate, periodKey, today, showWithVAT]);
 
   // ===== Sloučená zoznam bucketov (výdavky + príjmy) =====
-  const allBuckets = useMemo(() => {
+  const [rangeFrom, rangeTo] = useMemo(() => {
+    const iso = (d) => toLocalISO(d);
+    const now = new Date();
+    if (periodFilter === 'custom') return [filterFrom || '', filterTo || ''];
+    if (periodFilter === '3m') return [iso(new Date(now.getFullYear(), now.getMonth(), 1)), iso(new Date(now.getFullYear(), now.getMonth() + 3, 0))];
+    if (periodFilter === '6m') return [iso(new Date(now.getFullYear(), now.getMonth(), 1)), iso(new Date(now.getFullYear(), now.getMonth() + 6, 0))];
+    if (periodFilter === 'year') return [`${now.getFullYear()}-01-01`, `${now.getFullYear()}-12-31`];
+    return ['', ''];
+  }, [periodFilter, filterFrom, filterTo]);
+
+  const fullBuckets = useMemo(() => {
     const set = new Set([...data.buckets, ...incomeData.buckets]);
     return Array.from(set).sort((a, b) => {
       if (a === 'unscheduled') return 1;
@@ -8683,6 +10514,19 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
       return a.localeCompare(b);
     });
   }, [data.buckets, incomeData.buckets]);
+
+  const allBuckets = useMemo(() => {
+    if (!rangeFrom && !rangeTo) return fullBuckets;
+    return fullBuckets.filter(b => {
+      if (b === 'unscheduled') return true; // Nezaradené ostáva vždy
+      const bs = bucketStartISO(b), be = bucketEndISO(b);
+      if (rangeFrom && be < rangeFrom) return false;
+      if (rangeTo && bs > rangeTo) return false;
+      return true;
+    });
+  }, [fullBuckets, rangeFrom, rangeTo]);
+
+  const hiddenBucketCount = fullBuckets.filter(b => b !== 'unscheduled' && !allBuckets.includes(b)).length;
 
   // ===== Saldo (príjmy - výdavky) =====
   const balance = useMemo(() => {
@@ -8724,7 +10568,7 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         <div style={styles.headerActions}>
           <button
             style={styles.primaryBtn}
-            onClick={() => exportCashFlowToExcel(data, { groupBy, period, dateMode, formatBucket })}
+            onClick={() => exportCashFlowToExcel(data, { groupBy, period, dateMode, formatBucket, buckets: allBuckets })}
             disabled={data.totalRows === 0}
             title="Stiahnuť sestavu ako Excel"
           >
@@ -8749,15 +10593,8 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         <button onClick={() => setDateMode('order')} style={dateMode === 'order' ? styles.sortBtnActive : styles.sortBtn}>Objednanie</button>
         <span style={{ width: 1, background: '#e2e8f0', margin: '0 6px' }} />
         <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b', alignSelf: 'center' }}>VYFAKTUROVANÉ:</span>
-        <button
-          onClick={() => setIncludeInvoiced(!includeInvoiced)}
-          style={includeInvoiced ? styles.sortBtnActive : styles.sortBtn}
-          title={includeInvoiced
-            ? 'Vyfakturované sú zobrazené. Kliknite pre skrytí (typicky sú už v saldu záväzkov).'
-            : 'Vyfakturované sú skryté (sú v saldu záväzkov). Kliknite pre zobrazenie.'}
-        >
-          {includeInvoiced ? '✓ Zahrnúť' : 'Skryť'}
-        </button>
+        <button onClick={() => setIncludeInvoiced(true)} style={includeInvoiced ? styles.sortBtnActive : styles.sortBtn} title="Zobraziť vyfakturované položky v cash flow">Zobraziť</button>
+        <button onClick={() => setIncludeInvoiced(false)} style={!includeInvoiced ? styles.sortBtnActive : styles.sortBtn} title="Skryť vyfakturované (sú v saldu záväzkov)">Skryť</button>
         {expenseVatRate > 0 && (
           <>
             <span style={{ width: 1, background: '#e2e8f0', margin: '0 6px' }} />
@@ -8780,6 +10617,24 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
         )}
       </div>
 
+      {/* Filter období */}
+      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: 14, alignItems: 'center' }}>
+        <span style={{ fontSize: 11, fontWeight: 700, color: '#64748b' }}>OBDOBIE:</span>
+        {[['all', 'Všetko'], ['3m', '3 mesiace'], ['6m', '6 mesiacov'], ['year', 'Tento rok']].map(([k, lbl]) => (
+          <button key={k} onClick={() => setPeriodFilter(k)} style={periodFilter === k ? styles.sortBtnActive : styles.sortBtn}>{lbl}</button>
+        ))}
+        <span style={{ width: 1, background: '#e2e8f0', margin: '0 6px' }} />
+        <span style={{ fontSize: 11, color: '#64748b' }}>Od</span>
+        <input type="date" value={filterFrom} onChange={e => { setFilterFrom(e.target.value); setPeriodFilter('custom'); }} style={{ ...styles.input, width: 150, fontSize: 12 }} />
+        <span style={{ fontSize: 11, color: '#64748b' }}>Do</span>
+        <input type="date" value={filterTo} onChange={e => { setFilterTo(e.target.value); setPeriodFilter('custom'); }} style={{ ...styles.input, width: 150, fontSize: 12 }} />
+        {hiddenBucketCount > 0 && (
+          <span style={{ fontSize: 11, fontWeight: 600, color: '#92400e', background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: 4, padding: '3px 8px' }}>
+            ⚠ Skrytých {hiddenBucketCount} období — súčty rátajú len zobrazené
+          </span>
+        )}
+      </div>
+
       {data.totalRows === 0 && incomeData.totalRows === 0 ? (
         <div style={{ padding: 60, textAlign: 'center', color: '#94a3b8', border: '1px dashed #cbd5e1', borderRadius: 10, background: '#fff' }}>
           <Calendar size={36} style={{ opacity: 0.4, marginBottom: 12 }} />
@@ -8787,11 +10642,11 @@ function CashFlowView({ projects, categories, suppliers, fxRate, settings }) {
           <div style={{ fontSize: 13 }}>Pridajte projekty a položky (výdavky) alebo platby od klientov (príjmy) pre zobrazenie cash flow.</div>
         </div>
       ) : (
-        <div style={styles.tableWrap}>
-          <table style={styles.table}>
+        <div style={{ background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', overflowX: 'auto' }}>
+          <table style={{ ...styles.table, minWidth: 200 + allBuckets.length * 100 }}>
             <thead>
               <tr>
-                <th style={{ ...styles.th, position: 'sticky', left: 0, background: '#f8fafc', minWidth: 200 }}>Skupina</th>
+                <th style={{ ...styles.th, position: 'sticky', left: 0, background: '#f8fafc', minWidth: 200, zIndex: 2 }}>Skupina</th>
                 {allBuckets.map(b => (
                   <th key={b} style={{ ...styles.th, textAlign: 'right', minWidth: 100 }}>{formatBucket(b)}</th>
                 ))}
@@ -9151,6 +11006,7 @@ async function exportCashFlowToExcel(data, opts) {
   try {
     const XLSX = await loadXLSX();
     const { groupBy, period, dateMode, formatBucket } = opts;
+    const exBuckets = opts.buckets || data.buckets;
 
     const groupByLabel = { category: 'Kategórie', project: 'Projekt', supplier: 'Dodávateľ' }[groupBy] || 'Skupina';
     const periodLabel = period === 'week' ? 'týždenne' : 'mesačne';
@@ -9167,14 +11023,14 @@ async function exportCashFlowToExcel(data, opts) {
     rows.push([]); // prázdny riadok
 
     // Hlavička tabuľky
-    const header = [groupByLabel, ...data.buckets.map(b => formatBucket(b)), 'Spolu'];
+    const header = [groupByLabel, ...exBuckets.map(b => formatBucket(b)), 'Spolu'];
     rows.push(header);
 
     // Datové riadky
     data.groups.forEach(g => {
       const rowTotal = Object.values(g.byBucket).reduce((s, v) => s + v, 0);
       const row = [g.label];
-      data.buckets.forEach(b => {
+      exBuckets.forEach(b => {
         row.push(g.byBucket[b] || 0);
       });
       row.push(rowTotal);
@@ -9184,7 +11040,7 @@ async function exportCashFlowToExcel(data, opts) {
     // Súčty
     const totalsRow = ['SPOLU'];
     let grandTotal = 0;
-    data.buckets.forEach(b => {
+    exBuckets.forEach(b => {
       totalsRow.push(data.totals[b] || 0);
       grandTotal += data.totals[b] || 0;
     });
@@ -9194,7 +11050,7 @@ async function exportCashFlowToExcel(data, opts) {
     // Kumulatívne
     if (data.cumulative) {
       const cumRow = ['Kumulatívne'];
-      data.buckets.forEach(b => {
+      exBuckets.forEach(b => {
         cumRow.push(data.cumulative[b] != null ? data.cumulative[b] : '');
       });
       cumRow.push('');
@@ -9206,12 +11062,12 @@ async function exportCashFlowToExcel(data, opts) {
 
     // Šírky stĺpcov
     const colWidths = [{ wch: 30 }];
-    data.buckets.forEach(() => colWidths.push({ wch: 14 }));
+    exBuckets.forEach(() => colWidths.push({ wch: 14 }));
     colWidths.push({ wch: 16 }); // Spolu
     ws['!cols'] = colWidths;
 
     // Sloučit prvý 3 riadky (hlavičky sestavy) cez všetky stĺpce
-    const totalCols = data.buckets.length + 2;
+    const totalCols = exBuckets.length + 2;
     ws['!merges'] = [
       { s: { r: 0, c: 0 }, e: { r: 0, c: totalCols - 1 } },
       { s: { r: 1, c: 0 }, e: { r: 1, c: totalCols - 1 } },
@@ -9390,7 +11246,146 @@ function ProjectModal({ project, onSave, onClose }) {
 // Settings Modal — tabs: FX rate, Categories, Users
 // ==========================================================================
 
-function SettingsModal({ settings, categories, locations, paymentPlanTemplates, role, fullData, initialTab, onSaveSettings, onSaveCategories, onSaveLocations, onSavePaymentPlanTemplates, onDeletePdfAttachment, onRestoreData, onClose }) {
+// ==========================================================================
+// Nastavení — Fázy montáže (číselník)
+// ==========================================================================
+function InstallationPhasesSettingsTab({ phases, onSave, readOnly }) {
+  const [rows, setRows] = useState(() => (phases && phases.length ? phases : DEFAULT_INSTALLATION_PHASES).map(p => ({ ...p })));
+  const [dirty, setDirty] = useState(false);
+
+  const patch = (i, key, val) => { setRows(r => r.map((row, idx) => idx === i ? { ...row, [key]: val } : row)); setDirty(true); };
+  const move = (i, dir) => {
+    setRows(r => {
+      const j = i + dir;
+      if (j < 0 || j >= r.length) return r;
+      const copy = [...r];
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+      return copy;
+    });
+    setDirty(true);
+  };
+  const addRow = () => { setRows(r => [...r, { id: uid('ph'), name: 'Nová fáza', color: '#64748b', defaultDays: 1, defaultOffsetDays: '' }]); setDirty(true); };
+  const del = (i) => { setRows(r => r.filter((_, idx) => idx !== i)); setDirty(true); };
+  const resetDefaults = () => { setRows(DEFAULT_INSTALLATION_PHASES.map(p => ({ ...p }))); setDirty(true); };
+
+  return (
+    <div>
+      <div style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>
+        Číselník fáz montáže. <strong>Zahájenie D+</strong> = počet dní od založenia projektu (prázdne = fázu neplánovať automaticky). Poradie určuje ▲▼.
+      </div>
+      <div style={{ border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'hidden', marginBottom: 12 }}>
+        <table style={{ ...styles.table, fontSize: 12 }}>
+          <thead>
+            <tr>
+              <th style={{ ...styles.th, width: 60 }}>Poradie</th>
+              <th style={styles.th}>Názov fázy</th>
+              <th style={{ ...styles.th, width: 70 }}>Farba</th>
+              <th style={{ ...styles.th, width: 110, textAlign: 'center' }}>Zahájenie D+</th>
+              <th style={{ ...styles.th, width: 90, textAlign: 'center' }}>Dní</th>
+              {!readOnly && <th style={{ ...styles.th, width: 40 }}></th>}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, i) => (
+              <tr key={row.id} style={styles.tr}>
+                <td style={styles.td}>
+                  <div style={{ display: 'flex', gap: 2 }}>
+                    <button style={{ ...styles.iconBtn, padding: 2 }} disabled={readOnly || i === 0} onClick={() => move(i, -1)} title="Nahor">▲</button>
+                    <button style={{ ...styles.iconBtn, padding: 2 }} disabled={readOnly || i === rows.length - 1} onClick={() => move(i, 1)} title="Nadol">▼</button>
+                  </div>
+                </td>
+                <td style={styles.td}>
+                  <input style={{ ...styles.input, minWidth: 200 }} value={row.name} disabled={readOnly} onChange={e => patch(i, 'name', e.target.value)} />
+                </td>
+                <td style={styles.td}>
+                  <input type="color" value={row.color || '#64748b'} disabled={readOnly} onChange={e => patch(i, 'color', e.target.value)} style={{ width: 40, height: 28, border: 'none', background: 'none', cursor: readOnly ? 'default' : 'pointer' }} />
+                </td>
+                <td style={{ ...styles.td, textAlign: 'center' }}>
+                  <input type="number" min={0} style={{ ...styles.input, width: 70, textAlign: 'center' }} value={row.defaultOffsetDays ?? ''} disabled={readOnly}
+                    onChange={e => patch(i, 'defaultOffsetDays', e.target.value === '' ? '' : (parseInt(e.target.value, 10) || 0))} placeholder="—" />
+                </td>
+                <td style={{ ...styles.td, textAlign: 'center' }}>
+                  <input type="number" min={1} style={{ ...styles.input, width: 60, textAlign: 'center' }} value={row.defaultDays || 1} disabled={readOnly}
+                    onChange={e => patch(i, 'defaultDays', Math.max(1, parseInt(e.target.value, 10) || 1))} />
+                </td>
+                {!readOnly && (
+                  <td style={styles.td}>
+                    <button style={{ ...styles.iconBtn, color: '#dc2626' }} onClick={() => del(i)} title="Zmazať"><Trash2 size={14} /></button>
+                  </td>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {!readOnly && (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          <button style={styles.secondaryBtn} onClick={addRow}><Plus size={14} /> Pridať fázu</button>
+          <button style={styles.secondaryBtn} onClick={resetDefaults}>↺ Obnoviť predvolené</button>
+          <button style={{ ...styles.primaryBtn, marginLeft: 'auto' }} disabled={!dirty} onClick={() => { onSave(rows.map((r, idx) => ({ ...r, name: (r.name || '').trim() || `Fáza ${idx + 1}` }))); setDirty(false); }}>
+            Uložiť
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ==========================================================================
+// Nastavení — Montážnici (číselník)
+// ==========================================================================
+function CrewSettingsTab({ crew, onSave, readOnly }) {
+  const [rows, setRows] = useState(() => (crew || []).map(c => ({ ...c })));
+  const [dirty, setDirty] = useState(false);
+  const patch = (i, key, val) => { setRows(r => r.map((row, idx) => idx === i ? { ...row, [key]: val } : row)); setDirty(true); };
+  const addRow = () => { setRows(r => [...r, { id: uid('crew'), name: '', role: '', phone: '', color: '#3b82f6' }]); setDirty(true); };
+  const del = (i) => { setRows(r => r.filter((_, idx) => idx !== i)); setDirty(true); };
+
+  return (
+    <div>
+      <div style={{ fontSize: 12, color: '#64748b', marginBottom: 12 }}>
+        Montážnici / technici — priraďujú sa k fázam montáže v pláne a kalendári.
+      </div>
+      <div style={{ border: '1px solid #e2e8f0', borderRadius: 8, overflow: 'hidden', marginBottom: 12 }}>
+        <table style={{ ...styles.table, fontSize: 12 }}>
+          <thead>
+            <tr>
+              <th style={styles.th}>Meno</th>
+              <th style={styles.th}>Rola</th>
+              <th style={styles.th}>Telefón</th>
+              <th style={{ ...styles.th, width: 70 }}>Farba</th>
+              {!readOnly && <th style={{ ...styles.th, width: 40 }}></th>}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.length === 0 && (
+              <tr><td style={{ ...styles.td, color: '#94a3b8' }} colSpan={readOnly ? 4 : 5}>Zatiaľ žiadni montážnici.</td></tr>
+            )}
+            {rows.map((row, i) => (
+              <tr key={row.id} style={styles.tr}>
+                <td style={styles.td}><input style={{ ...styles.input, minWidth: 160 }} value={row.name || ''} disabled={readOnly} onChange={e => patch(i, 'name', e.target.value)} placeholder="Meno Priezvisko" /></td>
+                <td style={styles.td}><input style={{ ...styles.input, minWidth: 140 }} value={row.role || ''} disabled={readOnly} onChange={e => patch(i, 'role', e.target.value)} placeholder="napr. vedúci montáže" /></td>
+                <td style={styles.td}><input style={{ ...styles.input, minWidth: 120 }} value={row.phone || ''} disabled={readOnly} onChange={e => patch(i, 'phone', e.target.value)} placeholder="+421…" /></td>
+                <td style={styles.td}><input type="color" value={row.color || '#3b82f6'} disabled={readOnly} onChange={e => patch(i, 'color', e.target.value)} style={{ width: 40, height: 28, border: 'none', background: 'none', cursor: readOnly ? 'default' : 'pointer' }} /></td>
+                {!readOnly && <td style={styles.td}><button style={{ ...styles.iconBtn, color: '#dc2626' }} onClick={() => del(i)} title="Zmazať"><Trash2 size={14} /></button></td>}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {!readOnly && (
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button style={styles.secondaryBtn} onClick={addRow}><Plus size={14} /> Pridať montážnika</button>
+          <button style={{ ...styles.primaryBtn, marginLeft: 'auto' }} disabled={!dirty} onClick={() => { onSave(rows.filter(r => (r.name || '').trim()).map(r => ({ ...r, name: r.name.trim() }))); setDirty(false); }}>
+            Uložiť
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SettingsModal({ settings, categories, locations, paymentPlanTemplates, role, fullData, initialTab, onSaveSettings, onSaveCategories, onSaveLocations, onSavePaymentPlanTemplates, onSaveInstallationPhases, onSaveCrew, onDeletePdfAttachment, onRestoreData, onClose }) {
   const userRole = role || 'admin';
   const allowedTabs = ROLE_SETTINGS_TABS[userRole] || ROLE_SETTINGS_TABS.editor;
   const [tab, setTab] = useState(() => {
@@ -9418,6 +11413,12 @@ function SettingsModal({ settings, categories, locations, paymentPlanTemplates, 
         {allowedTabs.includes('locations') && (
           <SettingsTab active={tab === 'locations'} onClick={() => setTab('locations')} icon={<MapPin size={13} />}>Skladové lokalita</SettingsTab>
         )}
+        {allowedTabs.includes('installationPhases') && (
+          <SettingsTab active={tab === 'installationPhases'} onClick={() => setTab('installationPhases')} icon={<Calendar size={13} />}>Fázy montáže</SettingsTab>
+        )}
+        {allowedTabs.includes('crew') && (
+          <SettingsTab active={tab === 'crew'} onClick={() => setTab('crew')} icon={<Users size={13} />}>Montážnici</SettingsTab>
+        )}
         {allowedTabs.includes('paymentPlans') && (
           <SettingsTab active={tab === 'paymentPlans'} onClick={() => setTab('paymentPlans')} icon={<FileText size={13} />}>Platobný plány</SettingsTab>
         )}
@@ -9432,6 +11433,8 @@ function SettingsModal({ settings, categories, locations, paymentPlanTemplates, 
       {tab === 'fx' && allowedTabs.includes('fx') && <FxSettingsTab settings={settings} onSave={onSaveSettings} onClose={onClose} readOnly={userRole === 'management'} />}
       {tab === 'categories' && allowedTabs.includes('categories') && <CategoriesSettingsTab categories={categories} onSave={onSaveCategories} onClose={onClose} readOnly={userRole === 'management'} />}
       {tab === 'locations' && allowedTabs.includes('locations') && <LocationsSettingsTab locations={locations} stockItems={fullData.stockItems} onSave={onSaveLocations} onClose={onClose} readOnly={userRole === 'management'} />}
+      {tab === 'installationPhases' && allowedTabs.includes('installationPhases') && <InstallationPhasesSettingsTab phases={fullData.installationPhases || []} onSave={onSaveInstallationPhases} readOnly={userRole === 'management'} />}
+      {tab === 'crew' && allowedTabs.includes('crew') && <CrewSettingsTab crew={fullData.crew || []} onSave={onSaveCrew} readOnly={userRole === 'management'} />}
       {tab === 'paymentPlans' && allowedTabs.includes('paymentPlans') && <PaymentPlansSettingsTab templates={paymentPlanTemplates || []} onSave={onSavePaymentPlanTemplates} readOnly={userRole === 'management'} />}
       {tab === 'pdfArchive' && allowedTabs.includes('pdfArchive') && <PdfArchiveSettingsTab attachments={fullData.pdfAttachments || []} projects={fullData.projects} onDelete={onDeletePdfAttachment} readOnly={userRole === 'management'} />}
       {tab === 'backup' && allowedTabs.includes('backup') && <BackupSettingsTab fullData={fullData} onRestoreData={onRestoreData} onClose={onClose} />}
@@ -10696,14 +12699,20 @@ function BackupSettingsTab({ fullData, onRestoreData, onClose }) {
       _storageKey: STORAGE_KEY,
       data: fullData,
     };
-    const json = JSON.stringify(safetyBackup, null, 2);
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `CashFlow_Planner_PRED_IMPORTEM_${todayISO()}_${Date.now()}.json`;
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    // Bezpečnostná záloha pred importom. V obmedzených sandboxoch (napr. náhľad)
+    // môže programový download zlyhať — to nesmie zabrániť samotnému importu.
+    try {
+      const json = JSON.stringify(safetyBackup, null, 2);
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `CashFlow_Planner_PRED_IMPORTEM_${todayISO()}_${Date.now()}.json`;
+      a.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (e) {
+      console.warn('Bezpečnostnú zálohu pred importom sa nepodarilo stiahnuť:', e);
+    }
 
     // Nahradiť data
     onRestoreData(importPreview.newData);
@@ -11567,6 +13576,44 @@ function fileToBase64(file) {
 // Claude API — extrakce položek z PDF faktúry / objednávky
 // ==========================================================================
 
+// Blok 9.6 — spresnenie kategórií cez AI: pošle unikátne názvy naraz, vráti mapu názov→kategória
+async function refineCategoriesWithAI(names, categories, apiKey, model = 'claude-sonnet-4-5') {
+  if (!apiKey) throw new Error('Nie je nastavený Anthropic API kľúč. Doplňte ho v Nastaveniach.');
+  const uniq = [...new Set((names || []).map(n => (n || '').trim()).filter(Boolean))];
+  if (uniq.length === 0) return {};
+  const catList = categories.map(c => `- ${c.id}: ${c.name}${c.kind ? ` (${c.kind})` : ''}`).join('\n');
+  const prompt = `Si asistent na zaraďovanie položiek fotovoltaickej faktúry do kategórií.
+Ku každému názvu položky priraď PRÁVE JEDNU kategóriu z nasledujúceho zoznamu (podľa významu názvu, značky, typu tovaru).
+
+Kategórie (id: názov):
+${catList}
+
+Vráť IBA validný JSON objekt mapujúci názov → id kategórie (žiadny komentár, žiadne \`\`\` bloky), napr.:
+{"GoodWe GW29.9K":"inverters","Pylontech US5000":"batteries","TOPTRANS preprava":"shipping"}
+
+Názvy položiek:
+${uniq.map(n => `- ${n}`).join('\n')}`;
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true', 'content-type': 'application/json' },
+    body: JSON.stringify({ model, max_tokens: 4096, messages: [{ role: 'user', content: [{ type: 'text', text: prompt }] }] }),
+  });
+  if (!response.ok) { const t = await response.text(); throw new Error(`Chyba Anthropic API (${response.status}): ${t.slice(0, 200)}`); }
+  const data = await response.json();
+  const textBlock = data.content?.find(b => b.type === 'text');
+  if (!textBlock) throw new Error('Odpoveď API neobsahuje text.');
+  let jsonText = textBlock.text.trim().replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '');
+  const fb = jsonText.indexOf('{'), lb = jsonText.lastIndexOf('}');
+  if (fb >= 0 && lb > fb) jsonText = jsonText.slice(fb, lb + 1);
+  const map = JSON.parse(jsonText);
+  // ponechať len platné kategórie
+  const valid = new Set(categories.map(c => c.id));
+  const out = {};
+  Object.entries(map).forEach(([name, cat]) => { if (valid.has(cat)) out[name.trim()] = cat; });
+  return out;
+}
+
 async function extractPdfWithClaude(pdfBase64, apiKey, model = 'claude-sonnet-4-5', categoriesHint = []) {
   if (!apiKey) throw new Error('Není nastaven Anthropic API klíč. Doplňte ho v Nastavení.');
 
@@ -11970,6 +14017,214 @@ function suggestMatches(importRow, planItems, supplierId) {
 // (používa sa pri importu z Excelu/CSV do projektu)
 // ==========================================================================
 
+// ==========================================================================
+// WFLOW import — jadro (Blok 9)
+// ==========================================================================
+// Blok 10 — normalizácia obnovenej zálohy: doplní chýbajúce kľúče, aby appka nespadla
+// Zlúčenie položiek spotrebovaných zo skladu do jedného riadku s množstvom
+// (rovnaká logika ako pri počiatočnom načítaní z localStorage).
+function consolidateConsumedItems(items) {
+  const out = [];
+  const idxByKey = new Map();
+  (Array.isArray(items) ? items : []).forEach(item => {
+    if (!(item.fromStock || item.fromStockItemId)) { out.push(item); return; }
+    const key = [item.name, item.category || '', item.orderNumber || '', item.supplierId || '', item.supplier || ''].join('||');
+    if (!idxByKey.has(key)) {
+      idxByKey.set(key, out.length);
+      out.push({ ...item, quantity: parseFloat(item.quantity) || 0, fromStock: true });
+    } else {
+      const ex = out[idxByKey.get(key)];
+      const exQty = parseFloat(ex.quantity) || 0;
+      const addQty = parseFloat(item.quantity) || 0;
+      const newQty = exQty + addQty;
+      const totVal = (parseFloat(ex.unitPrice) || 0) * exQty + (parseFloat(item.unitPrice) || 0) * addQty;
+      out[idxByKey.get(key)] = {
+        ...ex,
+        quantity: newQty,
+        unitPrice: newQty > 0 ? totVal / newQty : (parseFloat(ex.unitPrice) || 0),
+        fromStockItemId: undefined,
+      };
+    }
+  });
+  return out;
+}
+
+// Normalizácia obnovených dát zo zálohy — plná parita s počiatočným načítaním,
+// aby ani staršia alebo neúplná záloha nemohla zhodiť aplikáciu.
+function normalizeRestoredData(d) {
+  if (!d || typeof d !== 'object') return d;
+
+  const categories = (() => {
+    const loaded = d.categories?.length ? [...d.categories] : [...DEFAULT_CATEGORIES];
+    ['shipping', 'advance'].forEach(id => { if (!loaded.some(c => c.id === id)) { const def = DEFAULT_CATEGORIES.find(c => c.id === id); if (def) loaded.push(def); } });
+    return loaded;
+  })();
+
+  // Projekty: bezpečný tvar + migrácia stavov položiek + konsolidácia spotreby
+  let projects = (Array.isArray(d.projects) ? d.projects : []).map(p => ({
+    ...p,
+    status: p.status === 'completed' ? 'completed' : 'active',
+    items: consolidateConsumedItems((Array.isArray(p.items) ? p.items : []).map(item => {
+      const oldStatus = item.status || 'planned';
+      let newStatus = oldStatus;
+      let isInvoiced = item.isInvoiced;
+      if (oldStatus === 'invoiced') {
+        newStatus = 'delivered';
+        if (isInvoiced === undefined) isInvoiced = true;
+      } else if (isInvoiced === undefined) {
+        isInvoiced = false;
+      }
+      return { ...item, status: newStatus, isInvoiced };
+    })),
+    budgets: p.budgets && typeof p.budgets === 'object' ? p.budgets : {},
+    clientPayments: Array.isArray(p.clientPayments) ? p.clientPayments : [],
+    installation: Array.isArray(p.installation) ? p.installation : [],
+  }));
+
+  // Zaistiť virtuálny projekt "Sklad"
+  if (!projects.find(p => p.id === STOCK_PROJECT_ID || p.isStockProject)) {
+    projects = [makeStockProject(), ...projects];
+  }
+
+  // Lokality + zaistenie systémovej lokality "Na ceste"
+  const locations = (() => {
+    const loaded = Array.isArray(d.locations) && d.locations.length ? [...d.locations] : [...DEFAULT_LOCATIONS];
+    if (!loaded.some(l => l.id === TRANSIT_LOCATION_ID)) {
+      const transit = DEFAULT_LOCATIONS.find(l => l.id === TRANSIT_LOCATION_ID);
+      if (transit) loaded.push(transit);
+    }
+    return loaded;
+  })();
+
+  const stockItems = Array.isArray(d.stockItems) ? d.stockItems : [];
+
+  // Migrácia pohybov: staré pohyby nemali itemName/quantity/projectId
+  const stockMovements = (() => {
+    const raw = Array.isArray(d.stockMovements) ? d.stockMovements : [];
+    const lookup = new Map(stockItems.map(s => [s.id, s]));
+    return raw.map(m => {
+      const patch = {};
+      if (!m.itemName && m.stockItemId) {
+        const stk = lookup.get(m.stockItemId);
+        if (stk) {
+          patch.itemName = stk.name;
+          if (!m.serialNumber) patch.serialNumber = stk.serialNumber || '';
+          if (!m.quantity) patch.quantity = parseInt(stk.batchQuantity, 10) || 1;
+        }
+      }
+      if (!m.projectId && m.toProjectId) patch.projectId = m.toProjectId;
+      return Object.keys(patch).length ? { ...m, ...patch } : m;
+    });
+  })();
+
+  const s = d.settings && typeof d.settings === 'object' ? d.settings : {};
+
+  return {
+    ...d,
+    projects,
+    activeProjectId: d.activeProjectId || null,
+    categories,
+    suppliers: Array.isArray(d.suppliers) ? d.suppliers : [],
+    catalog: Array.isArray(d.catalog) ? d.catalog : [],
+    locations,
+    stockItems,
+    stockMovements,
+    paymentPlanTemplates: Array.isArray(d.paymentPlanTemplates) ? d.paymentPlanTemplates : [],
+    pdfAttachments: Array.isArray(d.pdfAttachments) ? d.pdfAttachments : [],
+    installationPhases: (Array.isArray(d.installationPhases) && d.installationPhases.length) ? d.installationPhases : DEFAULT_INSTALLATION_PHASES,
+    crew: Array.isArray(d.crew) ? d.crew : [],
+    settings: {
+      fxRate: s.fxRate ?? 25,
+      expenseVatRate: s.expenseVatRate ?? 23,
+      anthropicApiKey: s.anthropicApiKey ?? '',
+      anthropicModel: s.anthropicModel ?? 'claude-sonnet-4-5',
+    },
+  };
+}
+
+const WFLOW_CONTRACT_RE = /^OP-\d{2}-\d{3,4}$/;
+function wflowToISO(v) {
+  if (!v) return '';
+  if (v instanceof Date) return toLocalISO(v);
+  if (typeof v === 'number') { const d = new Date(Math.round((v - 25569) * 86400 * 1000)); return `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}-${String(d.getUTCDate()).padStart(2, '0')}`; }
+  const s = String(v); return s.length >= 10 ? s.slice(0, 10) : s;
+}
+function isWflowAdvanceDoc(doc) {
+  if (doc.invoiceType === 'Proforma' || doc.invoiceType === 'TaxInvoicePayment') return true;
+  return doc.lines.some(l => /prijat[aá]\s*platb|zalohov|zálohov|k\s*platbe\s*zo\s*dna|danov[yý]\s*doklad\s*k\s*prijat/i.test(l.lineDesc || ''));
+}
+function parseWflowSheet(rows) {
+  if (!rows || rows.length < 2) return [];
+  const header = rows[0].map(h => String(h || '').trim());
+  const idx = {}; header.forEach((h, i) => { if (!(h in idx)) idx[h] = i; });
+  const g = (row, k) => { const i = idx[k]; return i == null ? '' : row[i]; };
+  const lines = [];
+  for (let r = 1; r < rows.length; r++) {
+    const row = rows[r]; if (!row) continue;
+    if (String(g(row, 'ApprovalStatus') || '') !== 'Approved') continue;
+    const contract = String(g(row, 'Contract') || '').trim();
+    if (!WFLOW_CONTRACT_RE.test(contract)) continue;
+    lines.push({
+      number: String(g(row, 'Number') || '').trim(),
+      orderNo: String(g(row, 'OrderNo') || '').trim(),
+      issueDate: wflowToISO(g(row, 'IssueDate')),
+      dueDate: wflowToISO(g(row, 'DueDate')),
+      partnerName: String(g(row, 'PartnerName') || '').trim(),
+      partnerIC: String(g(row, 'PartnerIC') || '').trim(),
+      contract,
+      lineDesc: String(g(row, 'LineDescription') || '').trim(),
+      lineQty: parseFloat(g(row, 'LineQuantity')) || 0,
+      lineUnit: parseFloat(g(row, 'LineUnitPrice')) || 0,
+      lineTotal: parseFloat(g(row, 'LineTotalAmount')) || 0,
+      taxExclusive: parseFloat(g(row, 'TaxExclusiveAmount')) || 0,
+      documentUrl: String(g(row, 'DocumentURL') || '').trim(),
+      invoiceType: String(g(row, 'InvoiceType') || '').trim(),
+    });
+  }
+  return lines;
+}
+function groupWflowDocs(lines) {
+  const map = new Map();
+  lines.forEach(l => {
+    if (!map.has(l.number)) map.set(l.number, {
+      number: l.number, orderNo: l.orderNo, contract: l.contract,
+      partnerName: l.partnerName, partnerIC: l.partnerIC,
+      issueDate: l.issueDate, dueDate: l.dueDate, invoiceType: l.invoiceType,
+      documentUrl: l.documentUrl, taxExclusive: l.taxExclusive, lines: [],
+    });
+    map.get(l.number).lines.push(l);
+  });
+  const docs = [...map.values()];
+  docs.forEach(doc => {
+    // Zero-line skip (9.3/2): vynechať iba ak má doklad aj ocenené riadky
+    const hasPriced = doc.lines.some(l => !(l.lineTotal === 0 && l.lineUnit === 0));
+    if (hasPriced) doc.lines = doc.lines.filter(l => !(l.lineTotal === 0 && l.lineUnit === 0));
+  });
+  // zoradiť podľa dátumu (staršie napred — kvôli preceneniu)
+  docs.sort((a, b) => (a.issueDate || '').localeCompare(b.issueDate || ''));
+  return docs;
+}
+function buildWflowImportPlan(docs, projects) {
+  const existingWflowDocs = new Set();
+  const existingInvoiceMap = new Map();
+  (projects || []).forEach(p => (p.items || []).forEach(it => {
+    if (it.wflowDocNumber) existingWflowDocs.add(it.wflowDocNumber);
+    const inv = it.invoiceNumber || it.wflowDocNumber;
+    if (inv) { if (!existingInvoiceMap.has(inv)) existingInvoiceMap.set(inv, []); existingInvoiceMap.get(inv).push({ projectId: p.id, itemId: it.id }); }
+  }));
+  const projByContract = new Map((projects || []).map(p => [(p.name || '').trim(), p]));
+  return docs.map(doc => {
+    const proj = projByContract.get(doc.contract) || null;
+    let action = 'new';
+    if (existingWflowDocs.has(doc.number)) action = 'skip';
+    else if (existingInvoiceMap.has(doc.number)) action = 'link';
+    else if (!proj) action = 'no-project'; // projekt (Contract) ešte neexistuje → neimportovať, len označiť
+    const advance = isWflowAdvanceDoc(doc);
+    const sum = doc.lines.reduce((s, l) => s + l.lineQty * l.lineUnit, 0);
+    return { doc, projectId: proj?.id || null, projectName: proj?.name || doc.contract, needsProject: !proj, action, advance, sum, orderKey: doc.orderNo || doc.number };
+  });
+}
+
 function guessCategoryByName(itemName, categories) {
   if (!itemName || !categories || categories.length === 0) return '';
   const n = normalizeForSearch(itemName);
@@ -11979,8 +14234,26 @@ function guessCategoryByName(itemName, categories) {
   // "FVE" a "Solax" sú výrobci/zkratky, neimplikují kategóriu samy o sebe,
   // preto je riešime až medzi posledními.
   const patterns = [
+    // Blok 9.6 — značky a reálne názvy z WFLOW (poradie: špecifické napred)
+    // Paleta NESMIE spadnúť do Dopravy (musí byť pred shipping patternom)
+    { regex: /paleta|obal\b/i, cat: 'other_material' },
+    // Kuriéri / doprava
+    { regex: /toptrans|geis\b|\bppl\b|\bdpd\b|\bgls\b|zasielk|kuri[eé]r/i, cat: 'shipping' },
+    // Meniče (invertory) — značky
+    { regex: /goodwe|huawei|sun2000|solax|\bdeye\b|fronius/i, cat: 'inverters' },
+    // Batérie — značky
+    { regex: /pylontech|\bbyd\b|bos-?g|t-?bat/i, cat: 'batteries' },
+    // Panely — značky
+    { regex: /jolywood|\baiko\b|\btrina\b|ja\s*solar|\blongi\b/i, cat: 'panels' },
+    // Konštrukcia — profily, spojovací materiál
+    { regex: /profil|jackle|swift\s*rail|row\s*connector|klema|skrutk|matica|podlozk|\bark\b/i, cat: 'mounting' },
+    // Káble — žľaby, chráničky, MC4
+    { regex: /zlab|chranick|\bmc4\b|kabelov[yý]\s*zlab/i, cat: 'cables' },
+    // Elektroinštalácia — svorky, vypínače, relé, dutinky
+    { regex: /svork|vypinac|\brele\b|dutink/i, cat: 'electrical' },
+
     // Práca — speciální klíčová slova
-    { regex: /montazn[ií]\s*pr[áa]c|kompletn[ií]\s*montaz|instalacn[ií]\s*pr[áa]c|^pr[áa]ce\b/i, cat: 'labor' },
+    { regex: /montazn\w*\s*prac|kompletn\w*\s*montaz|instalacn\w*\s*prac|^prac[ea]?\b|montaz\s*prac/i, cat: 'labor' },
 
     // Subdodávatelia a služby
     { regex: /projekt\w*\s*dokumentac|revizn|žadost|zadost|distribuc|sop\s|ppp|stavebn[ií]\s*povolen[ií]/i, cat: 'subcontractor' },
@@ -12019,8 +14292,8 @@ function guessCategoryByName(itemName, categories) {
   for (const p of patterns) {
     if (p.regex.test(n) && categories.find(c => c.id === p.cat)) return p.cat;
   }
-  // Fallback: prvý materiálová kategórie (ne prvý v zozname - ta môže byť cokoliv)
-  return categories.find(c => c.kind === 'material')?.id || categories[0]?.id || '';
+  // Fallback: Ostatný materiál (NIE prvá materiálová = FV panely, tam nezaradené rozbíjajú rozpočty)
+  return categories.find(c => c.id === 'other_material')?.id || categories.find(c => c.kind === 'material')?.id || categories[0]?.id || '';
 }
 
 function ImportModal({ categories, suppliers, onImport, onClose }) {
@@ -12447,7 +14720,289 @@ function autoMatchAIItemsToOrder(aiItems, orderItems) {
   return matches;
 }
 
+// ==========================================================================
+// WFLOW import — modal (Blok 9)
+// ==========================================================================
+function BulkWFLOWImportModal({ projects, categories, settings, onImport, onClose }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [plan, setPlan] = useState(null); // pole plan entries
+  const [onlyNew, setOnlyNew] = useState(true);
+  const [aiCatMap, setAiCatMap] = useState(null);
+  const [aiLoading, setAiLoading] = useState(false);
+
+  const handleFile = async (file) => {
+    if (!file) return;
+    setError(''); setLoading(true); setPlan(null);
+    try {
+      const XLSX = await loadXLSX();
+      const buf = await file.arrayBuffer();
+      const wb = XLSX.read(buf, { type: 'array', cellDates: true });
+      const ws = wb.Sheets[wb.SheetNames[0]];
+      const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+      const lines = parseWflowSheet(rows);
+      if (lines.length === 0) { setError('Žiadne riadky vyhovujúce filtru (Approved + Contract OP-XX-XXX). Skontrolujte, či ide o WFLOW export.'); setLoading(false); return; }
+      const docs = groupWflowDocs(lines);
+      setPlan(buildWflowImportPlan(docs, projects));
+    } catch (e) {
+      setError('Chyba pri čítaní súboru: ' + (e.message || e));
+    } finally { setLoading(false); }
+  };
+
+  const visible = plan ? plan.filter(e => onlyNew ? e.action !== 'skip' : true) : [];
+  const counts = plan ? {
+    nw: plan.filter(e => e.action === 'new').length,
+    link: plan.filter(e => e.action === 'link').length,
+    skip: plan.filter(e => e.action === 'skip').length,
+    noproj: plan.filter(e => e.action === 'no-project').length,
+    adv: plan.filter(e => e.advance && e.action === 'new').length,
+  } : null;
+  // zoskupenie podľa objednávky (orderKey)
+  const byOrder = useMemo(() => {
+    const m = new Map();
+    visible.forEach(e => { const k = e.orderKey; if (!m.has(k)) m.set(k, []); m.get(k).push(e); });
+    return [...m.entries()];
+  }, [visible]);
+
+  const doImport = () => {
+    // skip = už importované, no-project = projekt neexistuje → ani jedno sa neimportuje (tvrdá poistka)
+    const toImport = plan.filter(e => e.action !== 'skip' && e.action !== 'no-project');
+    onImport(toImport, aiCatMap);
+  };
+
+  const refineAI = async () => {
+    if (!settings?.anthropicApiKey) { alert('Nie je nastavený API kľúč (Nastavenia → Ostatné).'); return; }
+    setAiLoading(true); setError('');
+    try {
+      const names = [];
+      plan.filter(e => e.action === 'new' && !e.advance).forEach(e => e.doc.lines.forEach(l => names.push(l.lineDesc)));
+      const map = await refineCategoriesWithAI(names, categories, settings.anthropicApiKey, settings.anthropicModel);
+      setAiCatMap(map);
+    } catch (e) { setError('AI kategórie: ' + (e.message || e)); }
+    finally { setAiLoading(false); }
+  };
+
+  return (
+    <Modal title="Import z WFLOW" onClose={onClose} maxWidth={Math.min(1280, typeof window !== 'undefined' ? window.innerWidth * 0.96 : 1280)}>
+      {!plan && (
+        <div style={{ padding: 20, border: '2px dashed #cbd5e1', borderRadius: 8, textAlign: 'center' }}>
+          <div style={{ fontSize: 13, color: '#64748b', marginBottom: 10 }}>
+            Nahrajte <strong>WFLOW export</strong> (.xlsx). Načítajú sa len doklady <strong>Approved</strong> s <strong>Contract = OP-XX-XXX</strong>. Export môžete nahrávať opakovane — už naimportované doklady sa preskočia.
+          </div>
+          <input type="file" accept=".xlsx,.xls" onChange={e => handleFile(e.target.files?.[0])} />
+          {loading && <div style={{ marginTop: 10, color: '#0d3825' }}>Spracúvam…</div>}
+        </div>
+      )}
+      {error && <div style={{ marginTop: 10, padding: 10, background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 6, fontSize: 12, color: '#991b1b' }}>{error}</div>}
+
+      {plan && counts && (
+        <>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', marginBottom: 10 }}>
+            <span style={{ fontSize: 12, color: '#0d3825' }}>
+              Nové: <strong>{counts.nw}</strong> (z toho zálohy {counts.adv}) · doplniť link: <strong>{counts.link}</strong> · už importované: <strong>{counts.skip}</strong>
+              {counts.noproj > 0 && <> · <span style={{ color: '#b45309' }}>projekt neexistuje: <strong>{counts.noproj}</strong></span></>}
+            </span>
+            <div style={{ marginLeft: 'auto', display: 'inline-flex', gap: 8, alignItems: 'center' }}>
+              <button style={{ ...styles.secondaryBtn, fontSize: 11, padding: '4px 8px' }} onClick={refineAI} disabled={aiLoading} title="Spresniť kategórie položiek pomocou AI (jeden dotaz)">
+                {aiLoading ? '⏳ AI…' : '✨ Spresniť kategórie AI'}
+              </button>
+              {aiCatMap && <span style={{ fontSize: 11, color: '#15803d' }}>AI: {Object.keys(aiCatMap).length} názvov</span>}
+              <div style={{ display: 'inline-flex', borderRadius: 6, overflow: 'hidden', border: '1px solid #cbd5e1' }}>
+                <button onClick={() => setOnlyNew(true)} style={{ ...styles.ganttNavBtn, borderRadius: 0, border: 'none', background: onlyNew ? '#0d3825' : '#fff', color: onlyNew ? '#fff' : '#475569' }}>Len nové</button>
+                <button onClick={() => setOnlyNew(false)} style={{ ...styles.ganttNavBtn, borderRadius: 0, border: 'none', borderLeft: '1px solid #cbd5e1', background: !onlyNew ? '#0d3825' : '#fff', color: !onlyNew ? '#fff' : '#475569' }}>Všetko</button>
+              </div>
+            </div>
+          </div>
+          {counts.noproj > 0 && (
+            <div style={{ marginBottom: 10, padding: 10, background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: 6, fontSize: 12, color: '#92400e' }}>
+              <strong>{counts.noproj}</strong> dokladov patrí ku Contractu, pre ktorý <strong>zatiaľ neexistuje projekt</strong> — tieto sa <strong>nebudú importovať</strong> a nevytvoria sa žiadne nové projekty. Ak ich chcete naimportovať, najprv vytvorte projekt s názvom = číslo Contractu (napr. <code>OP-25-001</code>) a import zopakujte.
+            </div>
+          )}
+          <div style={{ maxHeight: '48vh', overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: 8 }}>
+            <table style={{ ...styles.table, fontSize: 12 }}>
+              <thead><tr>
+                <th style={styles.th}>Objednávka / Projekt</th>
+                <th style={styles.th}>Doklad</th>
+                <th style={styles.th}>Typ</th>
+                <th style={{ ...styles.th, textAlign: 'right' }}>Suma</th>
+                <th style={styles.th}>Akcia</th>
+                <th style={styles.th}>WFLOW</th>
+              </tr></thead>
+              <tbody>
+                {byOrder.map(([orderKey, entries]) => (
+                  <React.Fragment key={orderKey}>
+                    <tr><td colSpan={6} style={{ ...styles.td, background: '#f8fafc', fontWeight: 700, fontSize: 11, color: '#475569' }}>#{orderKey} · {entries[0].projectName}{entries[0].needsProject ? <span style={{ color: '#b45309' }}> (projekt neexistuje — nebude importované)</span> : ''}</td></tr>
+                    {entries.map(e => (
+                      <tr key={e.doc.number} style={styles.tr}>
+                        <td style={{ ...styles.td, color: '#94a3b8' }}>{e.doc.partnerName}</td>
+                        <td style={styles.td}>{e.doc.number}</td>
+                        <td style={styles.td}>{e.advance ? <span style={{ color: '#a855f7', fontWeight: 600 }}>Záloha</span> : e.doc.invoiceType}</td>
+                        <td style={{ ...styles.td, textAlign: 'right', fontWeight: 600 }}>{fmt(e.sum)}</td>
+                        <td style={styles.td}>
+                          {e.action === 'new' && <span style={{ color: '#15803d', fontWeight: 600 }}>Nový</span>}
+                          {e.action === 'link' && <span style={{ color: '#1d4ed8', fontWeight: 600 }}>Doplniť link</span>}
+                          {e.action === 'skip' && <span style={{ color: '#94a3b8' }}>Už importované</span>}
+                          {e.action === 'no-project' && <span style={{ color: '#b45309', fontWeight: 600 }}>Projekt neexistuje</span>}
+                        </td>
+                        <td style={styles.td}>{e.doc.documentUrl ? <a href={e.doc.documentUrl} target="_blank" rel="noreferrer" style={{ color: '#3b82f6', fontSize: 11 }}>🔗 WFLOW</a> : '—'}</td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        {plan && <button style={styles.primaryBtn} onClick={doImport} disabled={counts.nw + counts.link === 0}>Importovať ({counts.nw} nových, {counts.link} linkov)</button>}
+      </div>
+    </Modal>
+  );
+}
+
+// ==========================================================================
+// Hromadný import PDF faktúr (Blok 8.1) — sekvenčné spracovanie cez AI
+// ==========================================================================
+function BulkPDFImportModal({ projects, categories, suppliers, settings, onImport, onClose }) {
+  const [files, setFiles] = useState([]);
+  const [processing, setProcessing] = useState(false);
+  const stopRef = useRef(false);
+  const [globalInvoiced, setGlobalInvoiced] = useState(true);
+  const apiKey = settings?.anthropicApiKey;
+  const model = settings?.anthropicModel || 'claude-sonnet-4-5';
+  const defProject = projects.find(p => !p.isStockProject && (p.status || 'active') === 'active')?.id || '';
+
+  const onSelect = (fileList) => {
+    const arr = Array.from(fileList || []).filter(f => f.type === 'application/pdf' || f.name.toLowerCase().endsWith('.pdf'));
+    const tooBig = arr.filter(f => f.size > 15 * 1024 * 1024).map(f => f.name);
+    const valid = arr.filter(f => f.size <= 15 * 1024 * 1024).slice(0, 25);
+    if (tooBig.length) alert('Preskočené (nad 15 MB): ' + tooBig.join(', '));
+    if (arr.length > 25) alert('Naraz max 25 súborov — použije sa prvých 25.');
+    setFiles(valid.map(f => ({ id: uid('bpdf'), file: f, filename: f.name, size: f.size, status: 'pending', projectId: defProject, supplierId: '', supplierFreeText: '', attachmentId: null, parsed: null, error: '' })));
+  };
+
+  const setFile = (i, patch) => setFiles(prev => prev.map((x, idx) => idx === i ? { ...x, ...patch } : x));
+
+  const processOne = async (i) => {
+    const f = files[i];
+    setFile(i, { status: 'processing', error: '' });
+    try {
+      const base64 = await fileToBase64(f.file);
+      const parsed = await extractPdfWithClaude(base64, apiKey, model, categories);
+      const attachmentId = uid('pdf');
+      await savePdfToDb(attachmentId, f.filename, base64);
+      const sup = suppliers.find(s => parsed.supplierIco && s.ic === parsed.supplierIco)
+        || suppliers.find(s => parsed.supplier && (s.name || '').trim().toLowerCase() === (parsed.supplier || '').trim().toLowerCase());
+      setFile(i, { status: 'done', parsed, attachmentId, supplierId: sup?.id || '', supplierFreeText: sup ? '' : (parsed.supplier || '') });
+    } catch (e) {
+      setFile(i, { status: 'error', error: e.message || String(e) });
+    }
+  };
+
+  const processAll = async () => {
+    if (!apiKey) { alert('Nie je nastavený Anthropic API kľúč (Nastavenia → Ostatné).'); return; }
+    setProcessing(true); stopRef.current = false;
+    for (let i = 0; i < files.length; i++) {
+      if (stopRef.current) break;
+      if (files[i].status === 'done') continue;
+      // eslint-disable-next-line no-await-in-loop
+      await processOne(i);
+    }
+    setProcessing(false);
+  };
+
+  const doneCount = files.filter(f => f.status === 'done').length;
+  const errCount = files.filter(f => f.status === 'error').length;
+  const processedCount = files.filter(f => f.status === 'done' || f.status === 'error').length;
+  const anyProcessed = doneCount > 0;
+
+  const doImport = () => {
+    const done = files.filter(f => f.status === 'done').map(f => ({ ...f, markInvoiced: globalInvoiced }));
+    if (done.length === 0) { alert('Žiadny súbor nebol úspešne spracovaný.'); return; }
+    if (done.some(f => !f.projectId)) { alert('Priraďte projekt každému spracovanému súboru.'); return; }
+    onImport(done);
+  };
+
+  const statusChip = (f) => {
+    const m = { pending: ['#f1f5f9', '#64748b', 'čaká'], processing: ['#dbeafe', '#1d4ed8', 'spracúvam…'], done: ['#dcfce7', '#15803d', '✓ hotovo'], error: ['#fee2e2', '#991b1b', '✕ chyba'] }[f.status];
+    return <span style={{ padding: '2px 7px', borderRadius: 4, fontSize: 11, fontWeight: 700, background: m[0], color: m[1] }}>{m[2]}</span>;
+  };
+
+  return (
+    <Modal title="Hromadný import PDF faktúr" onClose={onClose} maxWidth={Math.min(1280, typeof window !== 'undefined' ? window.innerWidth * 0.96 : 1280)}>
+      {files.length === 0 ? (
+        <div style={{ padding: 20, border: '2px dashed #cbd5e1', borderRadius: 8, textAlign: 'center' }}>
+          <div style={{ fontSize: 13, color: '#64748b', marginBottom: 10 }}>
+            Vyberte viac PDF faktúr naraz (max <strong>25 súborov</strong>, <strong>15 MB</strong>/súbor). Spracujú sa postupne cez AI.
+          </div>
+          <input type="file" accept="application/pdf,.pdf" multiple onChange={e => onSelect(e.target.files)} />
+          {!apiKey && <div style={{ marginTop: 10, color: '#991b1b', fontSize: 12 }}>⚠ Nie je nastavený API kľúč (Nastavenia → Ostatné).</div>}
+        </div>
+      ) : (
+        <>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', marginBottom: 10 }}>
+            {!processing ? (
+              <button style={styles.primaryBtn} onClick={processAll} disabled={!apiKey || files.every(f => f.status === 'done')}>▶ Spracovať ({files.filter(f => f.status !== 'done').length})</button>
+            ) : (
+              <button style={{ ...styles.secondaryBtn, color: '#dc2626', borderColor: '#fca5a5' }} onClick={() => { stopRef.current = true; }}>■ Zastaviť</button>
+            )}
+            <span style={{ fontSize: 12, color: '#64748b' }}>{processedCount}/{files.length} · hotovo {doneCount}{errCount ? ` · chýb ${errCount}` : ''}</span>
+            {/* progress bar */}
+            <div style={{ flex: 1, minWidth: 120, height: 8, background: '#e2e8f0', borderRadius: 999, overflow: 'hidden' }}>
+              <div style={{ width: `${files.length ? (processedCount / files.length) * 100 : 0}%`, height: '100%', background: '#10b981', transition: 'width .2s' }} />
+            </div>
+            <label style={{ fontSize: 12, color: '#64748b', display: 'inline-flex', alignItems: 'center', gap: 6, cursor: 'pointer' }}>
+              <input type="checkbox" checked={globalInvoiced} onChange={e => setGlobalInvoiced(e.target.checked)} /> Označiť ako vyfakturované
+            </label>
+          </div>
+
+          <div style={{ maxHeight: '52vh', overflowY: 'auto', border: '1px solid #e2e8f0', borderRadius: 8 }}>
+            <table style={{ ...styles.table, fontSize: 12 }}>
+              <thead><tr>
+                <th style={styles.th}>Súbor</th>
+                <th style={styles.th}>Stav</th>
+                <th style={styles.th}>Dodávateľ (AI)</th>
+                <th style={{ ...styles.th, textAlign: 'right' }}>Položek</th>
+                <th style={styles.th}>Projekt</th>
+                <th style={styles.th}></th>
+              </tr></thead>
+              <tbody>
+                {files.map((f, i) => (
+                  <tr key={f.id} style={styles.tr}>
+                    <td style={styles.td}><span style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}><FileText size={13} style={{ color: '#dc2626' }} />{f.filename}</span>{f.error && <div style={{ fontSize: 10, color: '#991b1b', marginTop: 2 }}>{f.error.slice(0, 80)}</div>}</td>
+                    <td style={styles.td}>{statusChip(f)}</td>
+                    <td style={{ ...styles.td, fontSize: 11 }}>{f.parsed?.supplier || '—'}</td>
+                    <td style={{ ...styles.td, textAlign: 'right' }}>{f.parsed?.items?.length ?? '—'}</td>
+                    <td style={styles.td}>
+                      <select style={{ ...styles.input, fontSize: 11, padding: '3px 6px' }} value={f.projectId} onChange={e => setFile(i, { projectId: e.target.value })} disabled={f.status !== 'done'}>
+                        <option value="">— projekt —</option>
+                        {[...projects].filter(p => (p.status || 'active') === 'active').sort((a, b) => (a.isStockProject ? -1 : b.isStockProject ? 1 : (a.name || '').localeCompare(b.name || ''))).map(p => (
+                          <option key={p.id} value={p.id}>{p.isStockProject ? '🏭 ' : ''}{p.name}{p.client ? ` (${p.client})` : ''}</option>
+                        ))}
+                      </select>
+                    </td>
+                    <td style={styles.td}>{f.status === 'error' && !processing && <button style={{ ...styles.iconBtn, fontSize: 11 }} onClick={() => processOne(i)} title="Skúsiť znova">↻</button>}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+      <div style={styles.modalActions}>
+        <button style={styles.secondaryBtn} onClick={onClose}>Zrušiť</button>
+        {anyProcessed && <button style={styles.primaryBtn} onClick={doImport} disabled={processing}>Importovať {doneCount} faktúr</button>}
+      </div>
+    </Modal>
+  );
+}
+
 function PDFImportModal({ projects, categories, suppliers, settings, targetOrder, onImport, onClose }) {
+
+
   const isAttachMode = !!targetOrder;
   const [phase, setPhase] = useState('upload'); // upload | processing | preview
   const [error, setError] = useState('');
@@ -13678,8 +16233,12 @@ function ImportOrderMatchRow({ match, idx, updateMatch, projects, categories, fx
               onChange={e => updateMatch(idx, { targetProjectId: e.target.value })}
             >
               <option value="">— Vyberte projekt —</option>
-              {projects.filter(p => (p.status || 'active') === 'active').map(p => (
-                <option key={p.id} value={p.id}>{p.name}</option>
+              {[...projects].filter(p => (p.status || 'active') === 'active').sort((a, b) => {
+                if (a.isStockProject && !b.isStockProject) return -1;
+                if (!a.isStockProject && b.isStockProject) return 1;
+                return (a.name || '').localeCompare(b.name || '');
+              }).map(p => (
+                <option key={p.id} value={p.id}>{p.isStockProject ? '🏭 ' : ''}{p.name}{p.client ? ` (${p.client})` : ''}</option>
               ))}
             </select>
             <select
@@ -13859,6 +16418,7 @@ const styles = {
   totalPreview: { marginTop: 12, padding: '10px 14px', background: '#f8fafc', borderRadius: 8, fontSize: 13, color: '#475569', borderLeft: '3px solid #0d3825' },
   budgetRow: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '6px 0', borderBottom: '1px solid #f1f5f9' },
   sortBtn: { padding: '4px 10px', fontSize: 12, borderRadius: 6, border: '1px solid #e2e8f0', background: '#fff', color: '#64748b', display: 'inline-flex', alignItems: 'center', gap: 4 },
+  ganttNavBtn: { padding: '4px 10px', fontSize: 11, fontWeight: 600, borderRadius: 6, border: '1px solid #e2e8f0', background: '#fff', color: '#475569', cursor: 'pointer', fontFamily: 'inherit' },
   sortBtnActive: { padding: '4px 10px', fontSize: 12, borderRadius: 6, border: '1px solid #0d3825', background: '#0d3825', color: '#fff', display: 'inline-flex', alignItems: 'center', gap: 4 },
   cfControls: { display: 'flex', gap: 18, marginBottom: 20, padding: 14, background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', flexWrap: 'wrap' },
   searchBar: { display: 'flex', gap: 10, marginBottom: 12, padding: 10, background: '#fff', borderRadius: 10, border: '1px solid #e2e8f0', alignItems: 'center', flexWrap: 'wrap' },
